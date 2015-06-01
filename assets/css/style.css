@@ -1,0 +1,96 @@
+.designer {
+
+}
+
+.designer_main-menu {
+}
+
+.designer_main-menu .btn.selected {
+    border-color: green;
+    color: green;
+    border-radius: 20px;
+}
+
+.designer_main-menu .btn.selected span {
+    display: none;
+}
+
+.designer_main-menu .btn.selected:after {
+    content: 'V';
+}
+
+.designer_main-menu .btn.active.selected {
+    border-radius: 4px;
+    border-color: #ccc;
+    color: #333;
+}
+
+.designer_main-menu .btn.active.selected span {
+    display: inline;
+}
+
+.designer_main-menu .btn.active.selected:after {
+    content: '';
+}
+
+#canvas-container {
+    width: 587px;
+    height: 543px;
+}
+
+select {
+    min-width: 0 !important;
+    line-height: normal !important;
+    padding: initial !important;
+}
+
+.designer-back-btn {
+    font-size: 30px;
+}
+
+.designer-product.active span {
+    background: red;
+}
+
+.designer-color-elements {
+    list-style: none;
+}
+
+.designer-color-elements li {
+    float: left;
+}
+
+.designer-color-classes {
+    list-style: none;
+}
+
+.designer-color-classes li {
+    float: left;
+    padding-right: 5px;
+}
+
+.designer-color-palette {
+    list-style: none;
+}
+
+.designer-color-palette li {
+    float: left;
+    padding: 0 5px 5px 0;
+}
+
+.designer-color-palette li a {
+    width: 20px;
+    height: 20px;
+    display: block;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid;
+}
+
+.designer-color-palette li a.selected {
+    background-color: #fff !important;
+}
+
+.designer-color-palette li a.selected:after {
+    content: 'V';
+}
