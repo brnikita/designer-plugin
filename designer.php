@@ -244,6 +244,9 @@ function designer_load_js_scripts() {
     wp_register_script("vector_effect", DESIGNER_URL . "js/designer/VectorEffect.js", array('jquery'), '2.2.2', false);
     wp_enqueue_script('vector_effect');
 
+    wp_register_script("arc_up", DESIGNER_URL . "js/designer/ArcUp.js", array('jquery'), '2.2.2', false);
+    wp_enqueue_script('arc_up');
+
     wp_register_script("text_effects_manager", DESIGNER_URL . "js/designer/TextEffectsManager.js", array('jquery'), '2.2.2', false);
     wp_enqueue_script('text_effects_manager');
 

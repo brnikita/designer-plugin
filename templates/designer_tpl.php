@@ -100,5 +100,81 @@
                 </li>
             </ul>
         </div>
+        <div id="text-tab" class="col-lg-5 col-lg-offset-1 hide">
+            <div id="add-text-form">
+                <div>
+                    <span class="designer-form-header-title">Add/Edit Text</span>
+                </div>
+
+                <div>
+                    <textarea id="add-text-input" data-bind="value: selectedLetteringVO().text, valueUpdate: 'input', enable: editTextEnabled(), visible: !strictTemplate(), style: { textAlign: selectedLetteringVO().formatVO().textAlign }" type="text" placeholder="Your text here"></textarea>
+                    <textarea id="edit-text-input" data-bind="value: selectedLetteringVO().text, valueUpdate: 'input', enable: editTextEnabled(), visible: strictTemplate(), style: { textAlign: selectedLetteringVO().formatVO().textAlign }" type="text" placeholder="Your text here"></textarea>
+                    <div id="text-align-group" class="btn-group" data-toggle="buttons" data-bind="radio: selectedLetteringVO().formatVO().textAlign">
+                        <label id="text-align-left-btn" class="btn btn-default" data-bind="css: { disabled: !textAlignEnabled() }">
+                            <input type="radio" name="rb-text-align-group" value="left" data-bind="enable: textAlignEnabled()">
+                        </label>
+                        <label id="text-align-center-btn" class="btn btn-default" data-bind="css: { disabled: !textAlignEnabled() }">
+                            <input type="radio" name="rb-text-align-group" value="center" data-bind="enable: textAlignEnabled()">
+                        </label>
+                        <label id="text-align-right-btn" class="btn btn-default" data-bind="css: { disabled: !textAlignEnabled() }">
+                            <input type="radio" name="rb-text-align-group" value="right" data-bind="enable: textAlignEnabled()">
+                        </label>
+                    </div>
+                    <button class="btn btn-default" id="add-text-btn" type="button" data-bind="click: addText, enable: selectedLetteringVO().text().length > 0, visible: !strictTemplate()">Add</button>
+                    <div class="divider"></div>
+                    <h6>Font options</h6>
+                    <div class="btn-group">
+                        <button class="btn btn-default" type="button" id="font-btn" data-bind="text: selectedFont().name, style: { fontFamily: selectedFont().fontFamily }" data-toggle="dropdown"></button>
+                        <button class="btn btn-default dropdown-toggle" type="button" id="font-dropdown-btn" data-toggle="dropdown">
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" id="font-list" data-bind="foreach: fonts" style="height: 300px; overflow-y: scroll;">
+                            <li data-bind="css: { active: $root.selectedLetteringVO().formatVO().fontFamily() === $data.fontFamily }">
+                                <a data-bind="text: $data.name, click: $root.selectFont, style: { fontFamily: $data.fontFamily }"></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="text-font-options">
+                        <button class="btn btn-default" type="button" id="bold-toggle-btn" data-bind="checkbox: selectedLetteringVO().formatVO().bold, enable: selectedFont().boldAllowed"><span>B</span></button>
+                        <button class="btn btn-default" type="button" id="italic-toggle-btn" data-bind="checkbox: selectedLetteringVO().formatVO().italic, enable: selectedFont().italicAllowed"><span>I</span></button>
+                        <input id="text-fill-color-picker" type="text" class="designer-color-picker" data-bind="colorPicker: selectedLetteringVO().formatVO().fillColor, colorPalette: colors" />
+                        <input id="text-stroke-color-picker" type="text" class="designer-color-picker" data-bind="colorPicker: selectedLetteringVO().formatVO().strokeColor, colorPalette: strokeColors" />
+                    </div>
+                    <div class="divider"></div>
+                    <h6 data-bind="visible: showLetterSpacingSlider()">Letter Spacing</h6>
+                    <div id="text-letter-spacing-slider" class="noUiSlider" data-bind="slider: selectedLetteringVO().formatVO().letterSpacing, rangeStart: 0, rangeEnd: 20, step: 1, visible: showLetterSpacingSlider()"></div>
+                    <h6 data-bind="visible: showLineLeadingSlider()">Line Spacing</h6>
+                    <div id="text-line-leading-slider" class="noUiSlider" data-bind="slider: selectedLetteringVO().formatVO().lineLeading, rangeStart: 0, rangeEnd: 3, step: 0.05, decimals: 2, visible: showLineLeadingSlider()"></div>
+                    <h6 data-bind="visible: showTextEffects()">Text Effects</h6>
+                    <div data-bind="visible: showTextEffects()" class="btn-group">
+                        <button class="btn btn-default" type="button" id="text-effects-btn" data-bind="text: selectedTextEffectVO().label()" data-toggle="dropdown"><span class="caret"></span></button>
+                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" data-bind="foreach: textEffects" style="height: 150px; overflow-y: scroll;">
+                            <li data-bind="css: { active: $root.selectedTextEffectVO().name() === $data.name }">
+                                <a data-bind="text: $data.label, click: $root.selectTextEffect"></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--<div class="divider"></div>-->
+                    <h6 data-bind="visible: showEffectsSlider(), text: selectedTextEffectVO().paramName()"></h6>
+                    <div id="text-effect-slider" class="noUiSlider" data-bind="visible: showEffectsSlider(), slider: selectedTextEffectVO().value, rangeStart: selectedTextEffectVO().min(), rangeEnd: selectedTextEffectVO().max(), step: selectedTextEffectVO().step(), decimals:2"></div>
+                    <div class="divider" data-bind="visible: selectedProductSizeVO().notEmpty"></div>
+                    <div id="text-form-size" data-bind="visible: selectedProductSizeVO().notEmpty">
+                        <div>
+                            <h6 id="text-form-size-label">Size</h6>
+                            <input id="text-width" class="form-control" type="text" data-bind="value: selectedObjectPropertiesVO().width, event: { keypress: selectedObjectPropertiesVO().updateWidth }" />
+                            <span id="text-form-size-label-seperator">&times;</span>
+                            <input id="text-height" class="form-control" type="text" data-bind="value: selectedObjectPropertiesVO().height, event: { keypress: selectedObjectPropertiesVO().updateHeight }" />
+                        </div>
+                        <div>
+                            <button class="btn btn-default" id="text-form-size-apply-btn" type="button">Apply</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
