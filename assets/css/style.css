@@ -71,4 +71,8 @@ select {
     min-width: 120px;
 }
 
+#add-text-input {
+    width: 100%;
+}
+
 
