@@ -700,18 +700,10 @@ function DEControlsModel() {
     // selected product value object
     self.selectedProductVO = ko.observable(new ProductVO());
 
-    self.isProductSelected = ko.computed(function () {
-        var productId = self.selectedProductVO().id();
-
-        return !isNaN(productId);
-    });
-
     self.selectProduct = function (product) {
         if (product.id != self.selectedProductVO().id()) {
             self.selectedProductVO().fromObject(product);
         }
-
-        designerUI.openTab('colors-tab');
     };
 
     self.selectedProductVO().id.subscribe(function (id) {

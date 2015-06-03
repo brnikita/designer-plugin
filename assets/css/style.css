@@ -5,34 +5,6 @@
 .designer_main-menu {
 }
 
-.designer_main-menu .btn.selected {
-    border-color: green;
-    color: green;
-    border-radius: 20px;
-}
-
-.designer_main-menu .btn.selected span {
-    display: none;
-}
-
-.designer_main-menu .btn.selected:after {
-    content: 'V';
-}
-
-.designer_main-menu .btn.active.selected {
-    border-radius: 4px;
-    border-color: #ccc;
-    color: #333;
-}
-
-.designer_main-menu .btn.active.selected span {
-    display: inline;
-}
-
-.designer_main-menu .btn.active.selected:after {
-    content: '';
-}
-
 #canvas-container {
     width: 587px;
     height: 543px;

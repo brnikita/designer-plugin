@@ -7,8 +7,7 @@
         </div>
         <div class="col-lg-5 col-lg-offset-1">
             <div class="designer_main-menu">
-                <a class="btn btn-default js-designer-tab active" href="products-tab"
-                   data-bind="css: {selected: isProductSelected}">
+                <a class="btn btn-default js-designer-tab active" href="products-tab" >
                     <span>Products</span>
                 </a>
                 <a class="btn btn-default js-designer-tab" href="colors-tab">
