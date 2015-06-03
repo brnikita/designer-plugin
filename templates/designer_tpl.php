@@ -4,6 +4,32 @@
             <div id="canvas-container">
                 <!-- DesignerJS core goes here -->
             </div>
+            <!-- Product side switch -->
+            <div id="product-sides-switch-container" class="designer-panel-container" data-bind="visible: selectedProductVO().locations().length > 1">
+                <div class="centered-pills-container">
+                    <ul class="nav nav-pills" data-bind="foreach: selectedProductVO().locations">
+                        <li data-bind="css: { active: $data.name == $root.selectedProductLocation() }">
+                            <a data-bind="click: $root.selectProductLocation">
+                                O
+<!--                                <span data-bind="text: $data.name"></span>-->
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Product side switch end -->
+            <div id="bottom_menu_main">
+                <a class="btn btn-default" href="" >
+                    <span>...</span>
+                </a>
+                <a class="btn btn-default" href="">
+                    <span>SAVE/SHARE</span>
+                </a>
+                <a class="btn btn-default" href="">
+                    <span>ADD SIZES & QTY</span>
+                </a>
+            </div>
+
         </div>
         <div class="col-lg-5 col-lg-offset-1">
             <div class="designer_main-menu">
