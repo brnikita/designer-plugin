@@ -2510,8 +2510,8 @@ function showLoadDesignDialog() {
 }
 
 function openTextForm() {
-
-    designerUI.showTextForm();
+    designerUI.openTab('text-tab');
+    designerUI.setFocusToTextTab();
 }
 
 function onLoadDesignDialogSubmit(event) {
