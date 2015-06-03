@@ -66,3 +66,9 @@ select {
 .designer-color-palette li a.selected:after {
     content: 'V';
 }
+
+#dropmenu-cell {
+    min-width: 120px;
+}
+
+
