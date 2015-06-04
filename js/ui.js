@@ -28,6 +28,7 @@ var LetteringVO = function (textString, formatVO) {
         obj['line-leading'] = self.formatVO().lineLeading();
         obj['font-size'] = self.formatVO().fontSize();
         obj['line-height'] = self.formatVO().lineHeight();
+        obj['rotation'] = self.formatVO().rotation();
         return obj;
     };
 
@@ -76,6 +77,10 @@ var LetteringVO = function (textString, formatVO) {
             self.formatVO().lineHeight(obj['line-height']);
         }
 
+        if (!isNullOrUndefined(obj['rotation'])) {
+            self.formatVO().rotation(obj['rotation']);
+        }
+
         self.isNames(!isNullOrUndefined(obj['nameObj']));
         self.isNumbers(!isNullOrUndefined(obj['numberObj']));
         if (!isNullOrUndefined(obj['transformation'])) {
@@ -84,7 +89,7 @@ var LetteringVO = function (textString, formatVO) {
     };
 };
 
-var TextFormatVO = function (fontFamily, fillColor, bold, italic, stroke, strokeColor, letterSpacing, textAlign, textEffect, textEffectValue, lineLeading, fontSize, lineHeight) {
+var TextFormatVO = function (fontFamily, fillColor, bold, italic, stroke, strokeColor, letterSpacing, textAlign, textEffect, textEffectValue, lineLeading, fontSize, lineHeight, rotation) {
     if (isNullOrUndefined(fontFamily)) fontFamily = '';
     if (isNullOrUndefined(fillColor)) fillColor = '#000000';
     if (isNullOrUndefined(bold)) bold = false;
@@ -96,7 +101,8 @@ var TextFormatVO = function (fontFamily, fillColor, bold, italic, stroke, stroke
     if (isNullOrUndefined(textEffectValue)) textEffectValue = "0";
     if (isNullOrUndefined(lineLeading)) lineLeading = 1.2;
     if (isNullOrUndefined(fontSize)) fontSize = 32;
-    if (isNullOrUndefined(lineHeight)) fontSize = 32;
+    if (isNullOrUndefined(lineHeight)) lineHeight = 32;
+    if (isNullOrUndefined(rotation)) rotation = 0;
 
     var self = this;
     self.fontFamily = ko.observable(fontFamily);
@@ -111,6 +117,7 @@ var TextFormatVO = function (fontFamily, fillColor, bold, italic, stroke, stroke
     self.lineLeading = ko.observable(lineLeading).extend({throttle: 25});
     self.fontSize = ko.observable(fontSize);
     self.lineHeight = ko.observable(lineHeight);
+    self.rotation = ko.observable(rotation);
 
     self.textEffectCombined = ko.computed(function () {
         return self.textEffect() + self.textEffectValue();
@@ -1474,6 +1481,24 @@ function DEControlsModel() {
         updateText();
     });
 
+    self.selectedLetteringVO().formatVO().rotation.subscribe(function (newValue) {
+        var designers = designer.deMain.model.canvasManager.designers,
+            selectedEl;
+
+        if (!(designers instanceof Array && designers.length)) {
+            return;
+        }
+
+        selectedEl = designers[0].selectedEl;
+
+        if (!(selectedEl instanceof Array && selectedEl.length)) {
+            return;
+        }
+
+        DEJS.Util.rotateAbsolute(selectedEl[0], newValue);
+        designers[0].tracker.track();
+    });
+
     self.editTextEnabled = ko.computed(function () {
         return !(self.selectedLetteringVO().isNames() || self.selectedLetteringVO().isNumbers());
     });
@@ -2659,7 +2684,6 @@ function controlsUpdateHandler(updatedModel) {
 // this handler will be invoked when Designer core need to be updated
 function userInteract(o) {
     if (!controlsModel.suppressUpdate)
-        debugger;
         designer.userInteract(o);
 }
 

@@ -305,7 +305,7 @@
                 <div class="col-lg-3">ROTATE TEXT</div>
                 <div class="col-lg-9">
                     <div class="noUiSlider"
-                         data-bind="slider: selectedLetteringVO().formatVO().letterSpacing, rangeStart: 0, rangeEnd: 20, step: 1, visible: showLetterSpacingSlider()"></div>
+                         data-bind="slider: selectedLetteringVO().formatVO().rotation, rangeStart: 0, rangeEnd: 360, step: 1, visible: showLetterSpacingSlider()"></div>
                 </div>
             </div>
 

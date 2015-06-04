@@ -12,7 +12,6 @@ var DEJS;
         }
 
         function resize(element, width, height, x, y) {
-            debugger;
             if (element.type == "rect" || element.type == "image") {
                 if (width > 0) {
                     element.attr("width", width);
