@@ -205,7 +205,7 @@
                 <div class="col-lg-3">RESIZE TEXT</div>
                 <div class="col-lg-9">
                     <div class="noUiSlider"
-                         data-bind="slider: selectedLetteringVO().formatVO().letterSpacing, rangeStart: 0, rangeEnd: 20, step: 1, visible: showLetterSpacingSlider()"></div>
+                         data-bind="slider: selectedLetteringVO().formatVO().fontSize, rangeStart: 10, rangeEnd: 200, step: 1, visible: showLetterSpacingSlider()"></div>
                 </div>
             </div>
 
@@ -224,6 +224,14 @@
                          data-bind="slider: selectedLetteringVO().formatVO().letterSpacing, rangeStart: 0, rangeEnd: 20, step: 1, visible: showLetterSpacingSlider()"></div>
                 </div>
             </div>
+
+<!--            <div class="row">-->
+<!--                <div class="col-lg-3">LINE HEIGHT</div>-->
+<!--                <div class="col-lg-9">-->
+<!--                    <div class="noUiSlider"-->
+<!--                         data-bind="slider: selectedLetteringVO().formatVO().lineHeight, rangeStart: 0, rangeEnd: 300, step: 1, visible: showLetterSpacingSlider()"></div>-->
+<!--                </div>-->
+<!--            </div>-->
 
             <div data-bind="visible: showTextEffects()" class="btn-group">
                 <button class="btn btn-default" type="button" id="text-effects-btn"

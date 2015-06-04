@@ -435,7 +435,6 @@ var DEJS;
                     if (t.isNameNumber()) {
                         delete text.text;
                     }
-                    ;
 
                     var hadTextFX = t.hasTextFX();
                     t.attr(text);
@@ -494,18 +493,6 @@ var DEJS;
             CanvasManager.prototype.updateGraphics = function (graphics) {
                 var obj = this.curDesigner().selected();
                 if (obj && obj.attr()["colorize"]) {
-                    /*var attr:any = {};
-                     if (graphics.fill) {
-                     attr.fill = graphics.fillColor;
-                     } else {
-                     attr.fill = null;
-                     }
-                     if (graphics.stroke) {
-                     attr.stroke = graph
-                     ics.strokeColor;
-                     } else {
-                     attr.stroke = null;
-                     }*/
                     obj.attr(graphics);
                     Model.controlsManager.setSelectedObj(obj);
                     this.onDesignerChanged();

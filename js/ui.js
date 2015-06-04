@@ -26,6 +26,8 @@ var LetteringVO = function (textString, formatVO) {
         obj['textEffect'] = self.formatVO().textEffect();
         obj['textEffectValue'] = self.formatVO().textEffectValue();
         obj['line-leading'] = self.formatVO().lineLeading();
+        obj['font-size'] = self.formatVO().fontSize();
+        obj['line-height'] = self.formatVO().lineHeight();
         return obj;
     };
 
@@ -65,15 +67,24 @@ var LetteringVO = function (textString, formatVO) {
         if (!isNullOrUndefined(obj['line-leading'])) {
             self.formatVO().lineLeading(obj['line-leading']);
         }
+
+        if (!isNullOrUndefined(obj['font-size'])) {
+            self.formatVO().fontSize(obj['font-size']);
+        }
+
+        if (!isNullOrUndefined(obj['line-height'])) {
+            self.formatVO().lineHeight(obj['line-height']);
+        }
+
         self.isNames(!isNullOrUndefined(obj['nameObj']));
         self.isNumbers(!isNullOrUndefined(obj['numberObj']));
         if (!isNullOrUndefined(obj['transformation'])) {
             self.transformation(obj['transformation']);
         }
     };
-}
+};
 
-var TextFormatVO = function (fontFamily, fillColor, bold, italic, stroke, strokeColor, letterSpacing, textAlign, textEffect, textEffectValue, lineLeading) {
+var TextFormatVO = function (fontFamily, fillColor, bold, italic, stroke, strokeColor, letterSpacing, textAlign, textEffect, textEffectValue, lineLeading, fontSize, lineHeight) {
     if (isNullOrUndefined(fontFamily)) fontFamily = '';
     if (isNullOrUndefined(fillColor)) fillColor = '#000000';
     if (isNullOrUndefined(bold)) bold = false;
@@ -84,6 +95,8 @@ var TextFormatVO = function (fontFamily, fillColor, bold, italic, stroke, stroke
     if (isNullOrUndefined(textEffect)) textEffect = 'none';
     if (isNullOrUndefined(textEffectValue)) textEffectValue = "0";
     if (isNullOrUndefined(lineLeading)) lineLeading = 1.2;
+    if (isNullOrUndefined(fontSize)) fontSize = 32;
+    if (isNullOrUndefined(lineHeight)) fontSize = 32;
 
     var self = this;
     self.fontFamily = ko.observable(fontFamily);
@@ -96,11 +109,13 @@ var TextFormatVO = function (fontFamily, fillColor, bold, italic, stroke, stroke
     self.textEffect = ko.observable(textEffect);
     self.textEffectValue = ko.observable(textEffectValue);
     self.lineLeading = ko.observable(lineLeading).extend({throttle: 25});
+    self.fontSize = ko.observable(fontSize);
+    self.lineHeight = ko.observable(lineHeight);
 
     self.textEffectCombined = ko.computed(function () {
         return self.textEffect() + self.textEffectValue();
-    });//.extend({ throttle: 100 });
-}
+    });
+};
 
 var TextEffectVO = function (name, label, value, paramName, min, max, step, inverted) {
     if (isNullOrUndefined(name)) name = 'none';
@@ -1447,6 +1462,14 @@ function DEControlsModel() {
         updateText();
     });
 
+    self.selectedLetteringVO().formatVO().fontSize.subscribe(function (value) {
+        updateText();
+    });
+
+    self.selectedLetteringVO().formatVO().lineHeight.subscribe(function (value) {
+        updateText();
+    });
+
     self.selectedLetteringVO().formatVO().textAlign.subscribe(function (newValue) {
         updateText();
     });
@@ -1457,6 +1480,7 @@ function DEControlsModel() {
 
     self.letterSpacingEnabled = ko.observable(false);
     self.lineLeadingEnabled = ko.observable(false);
+    self.fontSizeEnabled = ko.observable(false);
 
     // private function that informs Designer about change in letterings (fill, stroke, bold, italic, etc.)
     self.suppressTextUpdate = false;
@@ -1500,7 +1524,7 @@ function DEControlsModel() {
             self.selectedTextEffectVO().label("None");
             self.selectedTextEffectVO().value("0");
         }
-    }
+    };
 
     //From UI to LetteringVO
     self.updateTextEffect = function () {
@@ -1511,7 +1535,7 @@ function DEControlsModel() {
         }
         self.selectedLetteringVO().formatVO().textEffect(self.selectedTextEffectVO().name());
         self.selectedLetteringVO().formatVO().textEffectValue(self.selectedTextEffectVO().inverted() ? 0 - self.selectedTextEffectVO().value() : self.selectedTextEffectVO().value());
-    }
+    };
 
     //From LetteringVO to UI after parseObject
     self.setTextEffect = function () {
@@ -2635,6 +2659,7 @@ function controlsUpdateHandler(updatedModel) {
 // this handler will be invoked when Designer core need to be updated
 function userInteract(o) {
     if (!controlsModel.suppressUpdate)
+        debugger;
         designer.userInteract(o);
 }
 

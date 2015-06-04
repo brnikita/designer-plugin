@@ -727,6 +727,7 @@ var DEJS;
             }
             var size = 32;
             element.attr({ "font-size": size });
+            element.attr({ "line-height": obj.attr()["font-size"] });
             element.attr({ "letter-spacing": obj.attr()["letterSpacing"] }); //TODO: Why is this here?
 
             //if (font)

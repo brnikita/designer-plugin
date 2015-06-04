@@ -276,6 +276,7 @@ var DEJS;
                 if (attrObject["font-family"] != element.attr("font-family"))
                     forceTackerRedraw = true;
                 element.attr(attrObject);
+
                 if (element.type == ObjectType.Image && attrObject["src"] && !attrObject["alreadyLoaded"]) {
                     this.updateImage(element, attrObject);
                 }
@@ -866,6 +867,7 @@ var DEJS;
                 "stroke-width",
                 "font-family",
                 "font-size",
+                "line-height",
                 "font-weight",
                 "stroke-opacity",
                 "text",

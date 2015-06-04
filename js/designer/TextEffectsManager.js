@@ -123,6 +123,8 @@ var DEJS;
                 var style;
                 var letterSpacing = 0;
                 var lineLeading = 1.2;
+                var fontSize = 32;
+                var lineHeight = 32;
                 var textAlign = "left";
                 if (attr["font-weight"] == "bold")
                     weight = "bold";
@@ -132,9 +134,13 @@ var DEJS;
                     letterSpacing = parseFloat(attr["letterSpacing"]);
                 if ("line-leading" in attr)
                     lineLeading = parseFloat(attr["line-leading"]);
+                if ("font-size" in attr)
+                    fontSize = parseFloat(attr["font-size"]);
+                if ("line-height" in attr)
+                    lineHeight = parseFloat(attr["line-height"]);
                 if ("text-align" in attr)
                     textAlign = attr["text-align"];
-                var paths = this.formTextPaths(0, 0, attr["text"], this.raphael().getFont(attr["font-family"], weight, style), 32, null, letterSpacing, lineLeading, textAlign);
+                var paths = this.formTextPaths(0, 0, attr["text"], this.raphael().getFont(attr["font-family"], weight, style), fontSize, null, letterSpacing, lineLeading, textAlign, lineHeight);
                 this.applyEffect(paths, teVO.name, attr["textEffectValue"]);
                 var pm = DEJS.Util.calcPathsMetric(paths);
                 var bbox = pm.bbox;
@@ -158,7 +164,7 @@ var DEJS;
             /**
              * Forms a set of paths. One path for each letter.
              */
-            TextEffectsManager.formTextPaths = function (x, y, textString, font, size, origin, letter_spacing, line_leading, textAlign) {
+            TextEffectsManager.formTextPaths = function (x, y, textString, font, size, origin, letter_spacing, line_leading, textAlign, lineHeigt) {
                 jQuery.ajax;
                 var separator = /[, ]+/;
                 origin = origin || "middle"; // baseline|middle

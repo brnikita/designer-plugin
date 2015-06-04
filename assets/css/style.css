@@ -75,4 +75,7 @@ select {
     width: 100%;
 }
 
+#de-tracker-resize {
+    display: none;
+}
 
