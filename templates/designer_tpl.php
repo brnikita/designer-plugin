@@ -265,65 +265,74 @@
                 <button class="btn btn-default" id="add-names-btn" type="button" data-bind="click: addNameObj">Add
                     name
                 </button>
-                <!--                <button class="btn btn-default" id="format-names-btn" type="button" data-bind="css: { disabled: !selectedLetteringVO().isNames() }">Format name</button>-->
                 <button class="btn btn-default" id="add-numbers-btn" type="button" data-bind="click: addNumberObj">Add
                     number
                 </button>
-                <!--                <button class="btn btn-default" id="format-numbers-btn" type="button" data-bind="css: { disabled: !selectedLetteringVO().isNumbers() }">Format number</button>-->
                 <button class="btn btn-default" id="add-numbers-btn" type="button">Order Sheet</button>
             </div>
 
-            <div id="names-number-table-container">
-                <table class="" id="names-number-table">
-                    <thead data-bind="visible: namesNumbers().length > 0">
-                    <tr>
-                        <th></th>
-                        <th>Names</th>
-                        <th>Numbers</th>
-                        <th>Size</th>
-                    </tr>
-                    </thead>
-                    <tbody data-bind="foreach: namesNumbers">
-                    <tr>
-                        <td data-bind="text: ($index() + 1) + '.'" class="bold">
+            <div id="order-sheet-container">
+                <div id="names-number-table-container">
+                    <table class="" id="names-number-table">
+                        <thead data-bind="visible: namesNumbers().length > 0">
+                        <tr>
+                            <th></th>
+                            <th>Names</th>
+                            <th>Numbers</th>
+                            <th>Size</th>
+                        </tr>
+                        </thead>
+                        <tbody data-bind="foreach: namesNumbers">
+                        <tr>
+                            <td data-bind="text: ($index() + 1) + '.'" class="bold">
 
-                        </td>
-                        <td>
-                            <input type="text" data-bind="value: $data.name" class="form-control designer-names-input"
-                                   placeholder="Name"/>
-                        </td>
-                        <td>
-                            <input type="text" data-bind="value: $data.number"
-                                   class="form-control designer-numbers-input" placeholder="00"/>
-                        </td>
-                        <td id="dropmenu-cell">
-                            <div class="btn-group designer-names-numbers-size"
-                                 data-bind="visible: $root.selectedProductVO().sizes().length > 1">
-                                <button class="btn btn-default" type="button" data-bind="text: $data.size"></button>
-                                <button class="btn btn-default dropdown-toggle" type="button"
-                                        id="names-size-dropdown-btn" data-toggle="dropdown">
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" id="names-sizes-list"
-                                    data-bind="foreach: $root.selectedProductVO().sizes">
-                                    <li data-bind="css: { active: $data == $parent.size() }">
-                                        <a data-bind="text: $data, click: $parent.size"></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                        <td>
-                            <button type="button" data-bind="click: $parent.removeNameNumber"
-                                    class="close">&times;</button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div style="text-align: left;">
-                <button id="designer-add-more-names-btn" class="btn btn-link" type="button"
-                        data-bind="click: addNameNumber">+ Add more names and/or numbers
-                </button>
+                            </td>
+                            <td>
+                                <input type="text" data-bind="value: $data.name" class="form-control designer-names-input"
+                                       placeholder="Name"/>
+                            </td>
+                            <td>
+                                <input type="text" data-bind="value: $data.number"
+                                       class="form-control designer-numbers-input" placeholder="00"/>
+                            </td>
+                            <td id="dropmenu-cell">
+                                <div class="btn-group designer-names-numbers-size"
+                                     data-bind="visible: $root.selectedProductVO().sizes().length > 1">
+                                    <button class="btn btn-default" type="button" data-bind="text: $data.size"></button>
+                                    <button class="btn btn-default dropdown-toggle" type="button"
+                                            id="names-size-dropdown-btn" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" id="names-sizes-list"
+                                        data-bind="foreach: $root.selectedProductVO().sizes">
+                                        <li data-bind="css: { active: $data == $parent.size() }">
+                                            <a data-bind="text: $data, click: $parent.size"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" data-bind="click: $parent.removeNameNumber"
+                                        class="close">&times;</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="text-align: left;">
+                    <button id="designer-add-more-names-btn" class="btn btn-link" type="button"
+                            data-bind="click: addNameNumber">+ Add more names and/or numbers
+                    </button>
+                </div>
+
+                <div>
+                    <button class="btn btn-default" id="done-numbers-btn" type="button">Done</button>
+                </div>
+
+                <div>
+                    NOTE: If you require only a name or only a number, simply
+                    leave the field that is not required blank.
+                </div>
             </div>
         </div>
     </div>
