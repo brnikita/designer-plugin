@@ -25,7 +25,7 @@
                 <a class="btn btn-default" href="">
                     <span>SAVE/SHARE</span>
                 </a>
-                <a class="btn btn-default" href="">
+                <a class="btn btn-default js-designer-tab" href="product-sizes-tab">
                     <span>ADD SIZES & QTY</span>
                 </a>
             </div>
@@ -352,6 +352,46 @@
                             <button class="close" aria-hidden="true" data-bind="visible: graphicsSearchQuery().length > 0, click: clearGraphicsSearch">&times;</button>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="product-sizes-tab" class="col-lg-5 col-lg-offset-1 hide">
+            <div id="product-sizes-panel" class="">
+                <button type="button" data-bind="" class="close">×</button>
+                <div>
+                    <ul id="product-sizes-list" class="list-unstyled" data-bind="foreach: quantities">
+                        <li>
+                            <span class="" data-bind="visible: $root.selectedProductVO().sizes().length < 1">Quantity:</span>
+                            <select class="" data-bind="visible: $root.selectedProductVO().sizes().length > 1,
+                                                        options: $root.selectedProductVO().sizes,
+                                                        value: size">
+                            </select>
+                            <span class="btn-group-quantity">
+                                <button class="btn btn-default btn-round" type="button" data-bind="click: $parent.decreaseQuantity"><span class="glyphicon glyphicon-minus"></span></button>
+                                <input data-bind="value: quantity, valueUpdate: 'input'" maxlength="3" />
+                                <button class="btn btn-default btn-round" type="button" data-bind="click: $parent.increaseQuantity"><span class="glyphicon glyphicon-plus"></span></button>
+                                <button type="button" data-bind="click: $parent.removeQuantity, visible: $root.canRemoveSize()" class="close">&times;</button>
+                            </span>
+                        </li>
+                    </ul>
+                    <button class="btn btn-default" type="button" data-bind="click: addQuantity, visible: $root.selectedProductVO().sizes().length > 0">Add Size</button>
+                </div>
+                <div class="divider"></div>
+                <div>
+                    <div>Total Order Qty</div>
+                    <div data-bind="text: totalQuantity()"></div>
+                    <!--                    <div class="order-price" data-bind="if:$root.designInfo().prices!='not available'">-->
+                    <ul class="list-unstyled" data-bind="foreach: $root.designInfo().prices">
+                        <!-- ko if: $data.isTotal -->
+                        <li data-bind="">
+                            <div class="gray" data-bind="text: $data.label"></div>
+                            <div class="order-price" data-bind="text: $data.price, css: { bold: $data.isTotal }"></div>
+                        </li>
+                        <!-- /ko -->
+                    </ul>
+                    <!--                    </div>-->
+                    <a id="place-order-btn" class="btn btn-primary btn-block" onclick="onPlaceOrder()" data-loading-text="Placing order...">Place Order</a>
                 </div>
             </div>
         </div>
