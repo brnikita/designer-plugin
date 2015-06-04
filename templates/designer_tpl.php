@@ -326,5 +326,25 @@
                 </button>
             </div>
         </div>
+
+        <div id="graphics-tab" class="col-lg-5 col-lg-offset-1 hide">
+            <div class="row">
+                <div class="col-lg-6">
+                    <select class="form-control" data-bind="
+                        options: currentGraphics,
+                        optionsText: 'name'
+                    "></select>
+                </div>
+                <div class="col-lg-6">
+                    <div id="graphics-search" class="search-box">
+                        <div class="input-group">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+                            <input type="text" class="form-control" placeholder="Поиск" data-bind="value: graphicsSearchQuery, valueUpdate: 'input'">
+                            <button class="close" aria-hidden="true" data-bind="visible: graphicsSearchQuery().length > 0, click: clearGraphicsSearch">&times;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
