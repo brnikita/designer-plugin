@@ -22,7 +22,7 @@
                 <a class="btn btn-default" href="" >
                     <span>...</span>
                 </a>
-                <a class="btn btn-default" href="">
+                <a class="btn btn-default js-designer-tab" href="share-design-tab">
                     <span>SAVE/SHARE</span>
                 </a>
                 <a class="btn btn-default js-designer-tab" href="product-sizes-tab">
@@ -358,7 +358,10 @@
 
         <div id="product-sizes-tab" class="col-lg-5 col-lg-offset-1 hide">
             <div id="product-sizes-panel" class="">
-                <button type="button" data-bind="" class="close">×</button>
+                <div>
+                    <span>Sizes & Qty</span>
+                    <button type="button" data-bind="" class="close">×</button>
+                </div>
                 <div>
                     <ul id="product-sizes-list" class="list-unstyled" data-bind="foreach: quantities">
                         <li>
@@ -391,9 +394,27 @@
                         <!-- /ko -->
                     </ul>
                     <!--                    </div>-->
-                    <a id="place-order-btn" class="btn btn-primary btn-block" onclick="onPlaceOrder()" data-loading-text="Placing order...">Place Order</a>
+                    <a id="place-order-btn" class="btn btn-primary btn-block" onclick="onPlaceOrder()" data-loading-text="Placing order...">ADD TO CART</a>
                 </div>
             </div>
+        </div>
+
+        <div id="share-design-tab" class="col-lg-5 col-lg-offset-1 hide">
+            <div>
+                <span>Save & Share Your Design</span>
+                <button type="button" data-bind="" class="close">×</button>
+            </div>
+            <p>
+                Simply copy the link to access your saved design.
+                Or share the link to take full advantage of our designer.
+            </p>
+            <p>
+                - share with friends and family
+                - post on social media to gather feedback
+                - collaborate with committee members for approval
+                - get approval from the boss
+                - save for later until sizes are known
+            </p>
         </div>
     </div>
 </div>
