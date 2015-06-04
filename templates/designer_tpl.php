@@ -477,15 +477,12 @@
                     <div>Total Order Qty</div>
                     <div data-bind="text: totalQuantity()"></div>
                     <!--                    <div class="order-price" data-bind="if:$root.designInfo().prices!='not available'">-->
-                    <ul class="list-unstyled" data-bind="foreach: $root.designInfo().prices">
+                    <div data-bind="foreach: $root.designInfo().prices">
                         <!-- ko if: $data.isTotal -->
-                        <li data-bind="">
                             <div class="gray" data-bind="text: $data.label"></div>
                             <div class="order-price" data-bind="text: $data.price, css: { bold: $data.isTotal }"></div>
-                        </li>
                         <!-- /ko -->
-                    </ul>
-                    <!--                    </div>-->
+                    </div>
                     <a id="place-order-btn" class="btn btn-primary btn-block" onclick="onPlaceOrder()" data-loading-text="Placing order...">ADD TO CART</a>
                 </div>
             </div>
@@ -507,11 +504,10 @@
                 - get approval from the boss
                 - save for later until sizes are known
             </p>
-
             <div>
                 <button class="btn btn-default" id="done-numbers-btn" type="button">Done</button>
             </div>
-            <!--<button type="button" onclick="onShareDesign()">Get URL</button>-->
+            <button type="button" onclick="onShareDesign()">Get URL</button>
         </div>
     </div>
 </div>
