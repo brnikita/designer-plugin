@@ -18,16 +18,108 @@
                 </div>
             </div>
             <!-- Product side switch end -->
-            <div id="bottom_menu_main">
-                <a class="btn btn-default" href="" >
-                    <span>...</span>
-                </a>
-                <a class="btn btn-default" href="">
-                    <span>SAVE/SHARE</span>
-                </a>
-                <a class="btn btn-default" href="">
-                    <span>ADD SIZES & QTY</span>
-                </a>
+            <div id="bottom-menu">
+                <div id="bottom-menu-main">
+                    <a class="btn btn-default" href="" >
+                        <span>...</span>
+                    </a>
+                    <a class="btn btn-default js-designer-tab" href="share-design-tab">
+                        <span>SAVE/SHARE</span>
+                    </a>
+                    <a class="btn btn-default js-designer-tab" href="product-sizes-tab">
+                        <span>ADD SIZES & QTY</span>
+                    </a>
+                </div>
+                <div id="bottom-menu-ellipsis" class="designer-panel-container">
+                    <ul class="nav nav-pills designer-button-bar">
+                        <li id="clear-design" data-bind="visible: !strictTemplate()"><a id="clear-design-btn" data-bind="    click: clearDesign"><span>Clear Design</span></a></li>
+                        <li class="divider-vertical" data-bind="visible: isUndoActive() || isRedoActive()"></li>
+                        <li id="undo"><a id="undo-btn" data-bind="click: undo, visible: isUndoActive"><span>Undo</span></a></li>
+                        <li class="mini-divider-vertical" data-bind="visible: isUndoActive() && isRedoActive()"></li>
+                        <li id="redo"><a id="redo-btn" data-bind="click: redo, visible: isRedoActive"><span>Redo</span></a></li>
+                        <li id="copy"><a id="copy-btn" data-bind="click: copy">Copy</a></li>
+                        <li id="paste"><a id="paste-btn" data-bind="click: paste">Paste</a></li>
+                        <li id="flip" class="dropup">
+                            <a id="flip-btn" class="dropdown-toggle" data-toggle="dropdown">Flip</a>
+                            <ul id="flip-list" class="dropdown-menu">
+                                <li id="horizontal-flip"><a id="horizontal-flip-btn" data-bind="click: flip.bind($data, 'horizontal')"></a></li>
+                                <li id="vertical-flip"><a id="vertical-flip-btn" data-bind="click: flip.bind($data, 'vertical')"></a></li>
+                            </ul>
+                        </li>
+                        <li id="align" class="dropup" data-bind="visible: hasSelected() && !strictTemplate()">
+                            <a id="align-btn" class="dropdown-toggle" data-toggle="dropdown">Align</a>
+                            <ul id="align-list" class="dropdown-menu">
+                                <li id="align-left"><a id="align-left-btn" data-bind="click: align.bind($data, 'left')"></a></li>
+                                <li id="align-center"><a id="align-center-btn" data-bind="click: align.bind($data, 'hcenter')"></a></li>
+                                <li id="align-right"><a id="align-right-btn" data-bind="click: align.bind($data, 'right')"></a></li>
+                            </ul>
+                        </li>
+                        <li id="overlap" class="dropup" data-bind="visible: hasSelected()">
+                            <a id="overlap-btn" class="dropdown-toggle" data-toggle="dropdown">Arrange</a>
+                            <ul id="overlap-list" class="dropdown-menu">
+                                <li id="overlap-toward"><a id="overlap-toward-btn" data-bind="click: arrange.bind($data, 'front')"></a></li>
+                                <li id="overlap-backward"><a id="overlap-backward-btn" data-bind="click: arrange.bind($data, 'back')"></a></li>
+                            </ul>
+                        </li>
+                        <li id="text-stroke" data-bind="visible: selectedIsText()">
+                            <a id="text-stroke-btn" class="designer-color-picker-btn">
+                                <span>Text Color</span>
+                                <input id="text-fill-color-picker-2" type="text" class="designer-color-picker" data-bind="colorPicker: selectedLetteringVO().formatVO().fillColor, colorPalette: colors" />
+                            </a>
+                        </li>
+                        <li id="text-fill" data-bind="visible: selectedIsText()">
+                            <a id="text-fill-btn" class="designer-color-picker-btn">
+                                <span>Text Stroke</span>
+                                <input id="text-stroke-color-picker-2" type="text" class="designer-color-picker" data-bind="colorPicker: selectedLetteringVO().formatVO().strokeColor, colorPalette: strokeColors" />
+                            </a>
+                        </li>
+                        <li id="graphics-fill" data-bind="visible: isColorizableGraphics">
+                            <a id="graphics-fill-btn" class="designer-color-picker-btn">
+                                <span>Image Color</span>
+                                <input id="graphics-fill-color-picker" type="text" class="designer-color-picker dropup-color-picker" data-bind="colorPicker: selectedGraphicsFormatVO().fillColor, colorPalette: colors" />
+                            </a>
+                        </li>
+                        <li id="graphics-stroke" data-bind="visible: isColorizableGraphics">
+                            <a id="graphics-stroke-btn" class="designer-color-picker-btn">
+                                <span>Image Stroke</span>
+                                <input id="graphics-stroke-color-picker" type="text" class="designer-color-picker dropup-color-picker" data-bind="colorPicker: selectedGraphicsFormatVO().strokeColor, colorPalette: strokeColors" />
+                            </a>
+                        </li>
+                        <li id="product-color" data-bind="visible: showProductColorPicker">
+                            <a id="product-color-btn" class="designer-color-picker-btn">
+                                <span>Product Color</span>
+                                <input id="product-color-picker" type="text" class="designer-color-picker dropup-color-picker" data-bind="colorPicker: selectedProductColorVO().hexValue, productColorPalette: selectedProductVO().colors" />
+                            </a>
+                        </li>
+                        <li id="graphics-colorizable-elements" class="dropup" data-bind="visible: isMulticolorGraphics">
+                            <a id="graphics-colorizable-elements-btn" class="dropdown-toggle" data-toggle="dropdown">Colorize Graphics</a>
+                            <ul id="graphics-colorizable-elements-list" class="dropdown-menu" data-bind="foreach: { data: selectedGraphicsFormatVO().complexColor().colorizeList, afterAdd: selectedGraphicsFormatVO().complexColor().createColorPicker }">
+                                <li>
+                                    <a class="designer-color-picker-btn">
+                                        <span data-bind="text: name" style="float: left; padding-left: 10px; display: inline-block; width: 90px;"></span>
+                                        <input type="text" class="designer-color-picker dropup-color-picker" data-bind="colorPickerInit: { container: true, isDropup: true }, colorPicker: value, productColorPalette: colors" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li id="product-colorizable-elements" class="dropup" data-bind="visible: selectedProductVO().multicolor">
+                            <a id="product-colorizable-elements-btn" class="dropdown-toggle" data-toggle="dropdown">Colorizable Groups</a>
+                            <ul id="" class="dropdown-menu" data-bind="foreach: { data: selectedProductColorVO().colorizeGroupList}">
+                                <li>
+                                    <span data-bind="text: name"></span>
+                                    <ul id="product-colorizable-elements-list" class="list-unstyled" data-bind="foreach: { data: classes, afterAdd: $root.selectedProductColorVO().createColorPicker }">
+                                        <li>
+                                            <a class="designer-color-picker-btn">
+                                                <span data-bind="text: name"></span>
+                                                <input type="text" class="designer-color-picker dropup-color-picker" data-bind="colorPickerInit: { container: true, isDropup: true }, colorPicker: value, productColorPalette: colors" />
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
         </div>
@@ -273,66 +365,157 @@
                 <button class="btn btn-default" id="add-names-btn" type="button" data-bind="click: addNameObj">Add
                     name
                 </button>
-                <!--                <button class="btn btn-default" id="format-names-btn" type="button" data-bind="css: { disabled: !selectedLetteringVO().isNames() }">Format name</button>-->
                 <button class="btn btn-default" id="add-numbers-btn" type="button" data-bind="click: addNumberObj">Add
                     number
                 </button>
-                <!--                <button class="btn btn-default" id="format-numbers-btn" type="button" data-bind="css: { disabled: !selectedLetteringVO().isNumbers() }">Format number</button>-->
                 <button class="btn btn-default" id="add-numbers-btn" type="button">Order Sheet</button>
             </div>
 
-            <div id="names-number-table-container">
-                <table class="" id="names-number-table">
-                    <thead data-bind="visible: namesNumbers().length > 0">
-                    <tr>
-                        <th></th>
-                        <th>Names</th>
-                        <th>Numbers</th>
-                        <th>Size</th>
-                    </tr>
-                    </thead>
-                    <tbody data-bind="foreach: namesNumbers">
-                    <tr>
-                        <td data-bind="text: ($index() + 1) + '.'" class="bold">
+            <div id="order-sheet-container">
+                <div id="names-number-table-container">
+                    <table class="" id="names-number-table">
+                        <thead data-bind="visible: namesNumbers().length > 0">
+                        <tr>
+                            <th></th>
+                            <th>Names</th>
+                            <th>Numbers</th>
+                            <th>Size</th>
+                        </tr>
+                        </thead>
+                        <tbody data-bind="foreach: namesNumbers">
+                        <tr>
+                            <td data-bind="text: ($index() + 1) + '.'" class="bold">
 
-                        </td>
-                        <td>
-                            <input type="text" data-bind="value: $data.name" class="form-control designer-names-input"
-                                   placeholder="Name"/>
-                        </td>
-                        <td>
-                            <input type="text" data-bind="value: $data.number"
-                                   class="form-control designer-numbers-input" placeholder="00"/>
-                        </td>
-                        <td id="dropmenu-cell">
-                            <div class="btn-group designer-names-numbers-size"
-                                 data-bind="visible: $root.selectedProductVO().sizes().length > 1">
-                                <button class="btn btn-default" type="button" data-bind="text: $data.size"></button>
-                                <button class="btn btn-default dropdown-toggle" type="button"
-                                        id="names-size-dropdown-btn" data-toggle="dropdown">
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" id="names-sizes-list"
-                                    data-bind="foreach: $root.selectedProductVO().sizes">
-                                    <li data-bind="css: { active: $data == $parent.size() }">
-                                        <a data-bind="text: $data, click: $parent.size"></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                        <td>
-                            <button type="button" data-bind="click: $parent.removeNameNumber"
-                                    class="close">&times;</button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+                            </td>
+                            <td>
+                                <input type="text" data-bind="value: $data.name" class="form-control designer-names-input"
+                                       placeholder="Name"/>
+                            </td>
+                            <td>
+                                <input type="text" data-bind="value: $data.number"
+                                       class="form-control designer-numbers-input" placeholder="00"/>
+                            </td>
+                            <td id="dropmenu-cell">
+                                <div class="btn-group designer-names-numbers-size"
+                                     data-bind="visible: $root.selectedProductVO().sizes().length > 1">
+                                    <button class="btn btn-default" type="button" data-bind="text: $data.size"></button>
+                                    <button class="btn btn-default dropdown-toggle" type="button"
+                                            id="names-size-dropdown-btn" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" id="names-sizes-list"
+                                        data-bind="foreach: $root.selectedProductVO().sizes">
+                                        <li data-bind="css: { active: $data == $parent.size() }">
+                                            <a data-bind="text: $data, click: $parent.size"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" data-bind="click: $parent.removeNameNumber"
+                                        class="close">&times;</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="text-align: left;">
+                    <button id="designer-add-more-names-btn" class="btn btn-link" type="button"
+                            data-bind="click: addNameNumber">+ Add more names and/or numbers
+                    </button>
+                </div>
+
+                <div>
+                    <button class="btn btn-default" id="done-numbers-btn" type="button">Done</button>
+                </div>
+
+                <div>
+                    NOTE: If you require only a name or only a number, simply
+                    leave the field that is not required blank.
+                </div>
             </div>
-            <div style="text-align: left;">
-                <button id="designer-add-more-names-btn" class="btn btn-link" type="button"
-                        data-bind="click: addNameNumber">+ Add more names and/or numbers
-                </button>
+        </div>
+
+        <div id="graphics-tab" class="col-lg-5 col-lg-offset-1 hide">
+            <div class="row">
+                <div class="col-lg-6">
+                    <select class="form-control" data-bind="
+                        options: currentGraphics,
+                        optionsText: 'name'
+                    "></select>
+                </div>
+                <div class="col-lg-6">
+                    <div id="graphics-search" class="search-box">
+                        <div class="input-group">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+                            <input type="text" class="form-control" placeholder="Поиск" data-bind="value: graphicsSearchQuery, valueUpdate: 'input'">
+                            <button class="close" aria-hidden="true" data-bind="visible: graphicsSearchQuery().length > 0, click: clearGraphicsSearch">&times;</button>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+
+        <div id="product-sizes-tab" class="col-lg-5 col-lg-offset-1 hide">
+            <div id="product-sizes-panel" class="">
+                <div>
+                    <span>Sizes & Qty</span>
+                    <button type="button" data-bind="" class="close">×</button>
+                </div>
+                <div>
+                    <ul id="product-sizes-list" class="list-unstyled" data-bind="foreach: quantities">
+                        <li>
+                            <span class="" data-bind="visible: $root.selectedProductVO().sizes().length < 1">Quantity:</span>
+                            <select class="" data-bind="visible: $root.selectedProductVO().sizes().length > 1,
+                                                        options: $root.selectedProductVO().sizes,
+                                                        value: size">
+                            </select>
+                            <span class="btn-group-quantity">
+                                <button class="btn btn-default btn-round" type="button" data-bind="click: $parent.decreaseQuantity"><span class="glyphicon glyphicon-minus"></span></button>
+                                <input data-bind="value: quantity, valueUpdate: 'input'" maxlength="3" />
+                                <button class="btn btn-default btn-round" type="button" data-bind="click: $parent.increaseQuantity"><span class="glyphicon glyphicon-plus"></span></button>
+                                <button type="button" data-bind="click: $parent.removeQuantity, visible: $root.canRemoveSize()" class="close">&times;</button>
+                            </span>
+                        </li>
+                    </ul>
+                    <button class="btn btn-default" type="button" data-bind="click: addQuantity, visible: $root.selectedProductVO().sizes().length > 0">Add Size</button>
+                </div>
+                <div class="divider"></div>
+                <div>
+                    <div>Total Order Qty</div>
+                    <div data-bind="text: totalQuantity()"></div>
+                    <!--                    <div class="order-price" data-bind="if:$root.designInfo().prices!='not available'">-->
+                    <div data-bind="foreach: $root.designInfo().prices">
+                        <!-- ko if: $data.isTotal -->
+                            <div class="gray" data-bind="text: $data.label"></div>
+                            <div class="order-price" data-bind="text: $data.price, css: { bold: $data.isTotal }"></div>
+                        <!-- /ko -->
+                    </div>
+                    <a id="place-order-btn" class="btn btn-primary btn-block" onclick="onPlaceOrder()" data-loading-text="Placing order...">ADD TO CART</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="share-design-tab" class="col-lg-5 col-lg-offset-1 hide">
+            <div>
+                <span>Save & Share Your Design</span>
+                <button type="button" data-bind="" class="close">×</button>
+            </div>
+            <p>
+                Simply copy the link to access your saved design.
+                Or share the link to take full advantage of our designer.
+            </p>
+            <p>
+                - share with friends and family
+                - post on social media to gather feedback
+                - collaborate with committee members for approval
+                - get approval from the boss
+                - save for later until sizes are known
+            </p>
+            <div>
+                <button class="btn btn-default" id="done-numbers-btn" type="button">Done</button>
+            </div>
+            <button type="button" onclick="onShareDesign()">Get URL</button>
         </div>
     </div>
 </div>
