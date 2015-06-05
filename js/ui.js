@@ -1276,6 +1276,9 @@ function DEControlsModel() {
     self.graphicCatalogBreadcrumbs = ko.observableArray();
 
     self.graphicCategory = ko.observable();
+    self.graphicCategory.subscribe(function(){
+        self.graphicsSearchQuery("");
+    })
 
     //selected graphics category
     self.graphicCurrentCategory = ko.computed(function () {
@@ -1298,7 +1301,6 @@ function DEControlsModel() {
     self.enterGraphicCategory = function (value) {
         if (self.graphicCategory()) {
 
-            self.clearGraphicsSearch();
             self.graphicCatalogBreadcrumbs.splice(1);
             self.selectGraphicItem(self.graphicCategory());
 
@@ -1369,6 +1371,7 @@ function DEControlsModel() {
     };
 
     self.clearGraphicsSearch = function () {
+        self.graphicCategory(undefined);
         self.graphicsSearchQuery("");
     }
 
