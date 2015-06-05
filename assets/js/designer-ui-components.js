@@ -252,6 +252,14 @@ jQuery(function () {
 
     });
 
+    $('.js-upload-form').on('click', function (event) {
+
+        $('#upload-graphics-form').toggleClass('hide');
+        $('#add-graphics-form').toggleClass('hide');
+
+    });
+
+
 });
 
 /* Alert */
