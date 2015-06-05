@@ -1231,8 +1231,13 @@ function DEControlsModel() {
 
 
     // set font family
-    self.selectFont = function (fontVO) {
+    self.selectFont = function (fontVO, event) {
         var formatVo = self.selectedLetteringVO().formatVO(); // short alias
+
+        if (typeof event !== 'undefined') {
+            event.preventDefault();
+        }
+
         formatVo.fontFamily(fontVO.fontFamily);
 
         // uncheck bold/italic if new font not allowed it
@@ -1514,6 +1519,32 @@ function DEControlsModel() {
             userInteract({updateText: self.selectedLetteringVO().toObject()});
         }
     }
+
+    self._textToolsIsVisible = ko.observable(true);
+
+    self.textToolsIsVisible = ko.computed(function () {
+        var isVisible = self._textToolsIsVisible(),
+            textLength = self.selectedLetteringVO().text().length > 0;
+
+        if (!isVisible) {
+            return false;
+        }
+
+        return textLength;
+    });
+
+    self.showFontsList = ko.observable(false);
+
+    self.toggleFontsList = function (model, event) {
+        var currentValue = self.showFontsList();
+
+        if (typeof event !== 'undefined') {
+            event.preventDefault();
+        }
+
+        self.showFontsList(!currentValue);
+        self._textToolsIsVisible(currentValue);
+    };
 
     /**
      * LETTERING OBJECT ENDS HERE

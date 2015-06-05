@@ -5,13 +5,14 @@
                 <!-- DesignerJS core goes here -->
             </div>
             <!-- Product side switch -->
-            <div id="product-sides-switch-container" class="designer-panel-container" data-bind="visible: selectedProductVO().locations().length > 1">
+            <div id="product-sides-switch-container" class="designer-panel-container"
+                 data-bind="visible: selectedProductVO().locations().length > 1">
                 <div class="centered-pills-container">
                     <ul class="nav nav-pills" data-bind="foreach: selectedProductVO().locations">
                         <li data-bind="css: { active: $data.name == $root.selectedProductLocation() }">
                             <a data-bind="click: $root.selectProductLocation">
                                 O
-<!--                                <span data-bind="text: $data.name"></span>-->
+                                <!--                                <span data-bind="text: $data.name"></span>-->
                             </a>
                         </li>
                     </ul>
@@ -30,16 +31,18 @@
                 </div>
                 <div id="bottom-menu-ellipsis" class="hide">
                     <a class="btn btn-default js-ellipsis-menu"><span>...</span></a>
-                    <a id="undo-btn" class="btn btn-default" data-bind="click: undo, visible: isUndoActive"><span>Undo</span></a>
-                    <a id="redo-btn" class="btn btn-default" data-bind="click: redo, visible: isRedoActive"><span>Redo</span></a>
+                    <a id="undo-btn" class="btn btn-default"
+                       data-bind="click: undo, visible: isUndoActive"><span>Undo</span></a>
+                    <a id="redo-btn" class="btn btn-default"
+                       data-bind="click: redo, visible: isRedoActive"><span>Redo</span></a>
                     <a id="copy-btn" class="btn btn-default" data-bind="click: copy">Copy</a>
                     <a id="paste-btn" class="btn btn-default" data-bind="click: paste">Paste</a>
-<!--                    <ul class="nav nav-pills designer-button-bar">
-                        <li id="undo"><a id="undo-btn" data-bind="click: undo, visible: isUndoActive"><span>Undo</span></a></li>
-                        <li id="redo"><a id="redo-btn" data-bind="click: redo, visible: isRedoActive"><span>Redo</span></a></li>
-                        <li id="copy"><a id="copy-btn" data-bind="click: copy">Copy</a></li>
-                        <li id="paste"><a id="paste-btn" data-bind="click: paste">Paste</a></li>
-                    </ul>-->
+                    <!--                    <ul class="nav nav-pills designer-button-bar">
+                                            <li id="undo"><a id="undo-btn" data-bind="click: undo, visible: isUndoActive"><span>Undo</span></a></li>
+                                            <li id="redo"><a id="redo-btn" data-bind="click: redo, visible: isRedoActive"><span>Redo</span></a></li>
+                                            <li id="copy"><a id="copy-btn" data-bind="click: copy">Copy</a></li>
+                                            <li id="paste"><a id="paste-btn" data-bind="click: paste">Paste</a></li>
+                                        </ul>-->
                 </div>
             </div>
 
@@ -156,26 +159,15 @@
             <div class="row">
                 <textarea id="add-text-input"
                           data-bind="value: selectedLetteringVO().text, valueUpdate: 'input', enable: editTextEnabled(), visible: !strictTemplate(), style: { textAlign: selectedLetteringVO().formatVO().textAlign }"
-                          type="text" placeholder="Your text here"></textarea>
+                          type="text" placeholder="Type here..."></textarea>
             </div>
 
-            <div class="row">
+            <div class="row" data-bind="visible: textToolsIsVisible">
                 <div class="col-lg-4">
                     SELECT FONT
                 </div>
                 <div class="col-lg-2">
-                    <div class="btn-group">
-                        <button class="btn btn-default dropdown-toggle" type="button" id="font-dropdown-btn"
-                                data-toggle="dropdown">
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" id="font-list" data-bind="foreach: fonts"
-                            style="height: 300px; overflow-y: scroll;">
-                            <li data-bind="css: { active: $root.selectedLetteringVO().formatVO().fontFamily() === $data.fontFamily }">
-                                <a data-bind="text: $data.name, click: $root.selectFont, style: { fontFamily: $data.fontFamily }"></a>
-                            </li>
-                        </ul>
-                    </div>
+                    <button class="btn btn-default" type="button" data-bind="click: toggleFontsList">T</button>
                 </div>
                 <div class="col-lg-5">
                     CHOOSE A COLOR
@@ -185,7 +177,15 @@
                            data-bind="colorPicker: selectedLetteringVO().formatVO().fillColor, colorPalette: colors"/>
                 </div>
             </div>
-            <div class="row">
+            <div class="row font-list" data-bind="visible: showFontsList">
+                <a href="#" class="btn btn-default font-list__close" data-bind="click: toggleFontsList">X</a>
+                <ul data-bind="foreach: fonts">
+                    <li class="font-list__item" data-bind="css: { active: $root.selectedLetteringVO().formatVO().fontFamily() === $data.fontFamily }">
+                        <a href="#" data-bind="text: $data.name, click: $root.selectFont, style: { fontFamily: $data.fontFamily }"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="row" data-bind="visible: textToolsIsVisible">
                 <div class="col-lg-2">ALIGN TEXT</div>
                 <div class="col-lg-5" data-toggle="buttons"
                      data-bind="radio: selectedLetteringVO().formatVO().textAlign">
@@ -214,7 +214,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row" data-bind="visible: textToolsIsVisible">
                 <div class="col-lg-3">RESIZE TEXT</div>
                 <div class="col-lg-9">
                     <div class="noUiSlider"
@@ -222,7 +222,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row" data-bind="visible: textToolsIsVisible">
                 <div class="col-lg-3">ROTATE TEXT</div>
                 <div class="col-lg-9">
                     <div class="noUiSlider"
@@ -230,7 +230,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row" data-bind="visible: textToolsIsVisible">
                 <div class="col-lg-3">LETTER SPACE</div>
                 <div class="col-lg-9">
                     <div class="noUiSlider"
@@ -241,26 +241,26 @@
             <div class="row" data-bind="visible: showLineLeadingSlider()">
                 <div class="col-lg-3">LINE HEIGHT</div>
                 <div class="col-lg-9">
-                    <div id="text-line-leading-slider" class="noUiSlider" data-bind="slider: selectedLetteringVO().formatVO().lineLeading, rangeStart: 0, rangeEnd: 3, step: 0.05, decimals: 2"></div>
+                    <div id="text-line-leading-slider" class="noUiSlider"
+                         data-bind="slider: selectedLetteringVO().formatVO().lineLeading, rangeStart: 0, rangeEnd: 3, step: 0.05, decimals: 2"></div>
                 </div>
             </div>
 
-            <div data-bind="visible: showTextEffects()" class="btn-group">
-                <button class="btn btn-default" type="button" id="text-effects-btn"
-                        data-bind="text: selectedTextEffectVO().label()" data-toggle="dropdown"><span
-                        class="caret"></span></button>
-                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" data-bind="foreach: textEffects"
-                    style="height: 150px; overflow-y: scroll;">
-                    <li data-bind="css: { active: $root.selectedTextEffectVO().name() === $data.name }">
-                        <a data-bind="text: $data.label, click: $root.selectTextEffect"></a>
-                    </li>
-                </ul>
-            </div>
+            <!--            <div data-bind="visible: showTextEffects()" class="btn-group">-->
+            <!--                <button class="btn btn-default" type="button" id="text-effects-btn"-->
+            <!--                        data-bind="text: selectedTextEffectVO().label()" data-toggle="dropdown"><span-->
+            <!--                        class="caret"></span></button>-->
+            <!--                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">-->
+            <!--                    <span class="caret"></span>-->
+            <!--                </button>-->
+            <!--                <ul class="dropdown-menu" data-bind="foreach: textEffects"-->
+            <!--                    style="height: 150px; overflow-y: scroll;">-->
+            <!--                    <li data-bind="css: { active: $root.selectedTextEffectVO().name() === $data.name }">-->
+            <!--                        <a data-bind="text: $data.label, click: $root.selectTextEffect"></a>-->
+            <!--                    </li>-->
+            <!--                </ul>-->
+            <!--            </div>-->
 
-            <!--<div class="divider"></div>-->
             <h6 data-bind="visible: showEffectsSlider(), text: selectedTextEffectVO().paramName()"></h6>
 
             <div id="text-effect-slider" class="noUiSlider"
@@ -308,7 +308,8 @@
 
                             </td>
                             <td>
-                                <input type="text" data-bind="value: $data.name" class="form-control designer-names-input"
+                                <input type="text" data-bind="value: $data.name"
+                                       class="form-control designer-names-input"
                                        placeholder="Name"/>
                             </td>
                             <td>
@@ -368,8 +369,10 @@
                     <div id="graphics-search" class="search-box">
                         <div class="input-group">
                             <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
-                            <input type="text" class="form-control" placeholder="Поиск" data-bind="value: graphicsSearchQuery, valueUpdate: 'input'">
-                            <button class="close" aria-hidden="true" data-bind="visible: graphicsSearchQuery().length > 0, click: clearGraphicsSearch">&times;</button>
+                            <input type="text" class="form-control" placeholder="Поиск"
+                                   data-bind="value: graphicsSearchQuery, valueUpdate: 'input'">
+                            <button class="close" aria-hidden="true"
+                                    data-bind="visible: graphicsSearchQuery().length > 0, click: clearGraphicsSearch">&times;</button>
                         </div>
                     </div>
                 </div>
@@ -377,7 +380,7 @@
         </div>
 
         <div id="product-sizes-tab" class="col-lg-5 col-lg-offset-1 hide">
-<!--            <div id="product-sizes-panel" class="">-->
+            <!--            <div id="product-sizes-panel" class="">-->
             <div id="" class="">
                 <p>
                     <span>Sizes & Qty</span>
@@ -386,7 +389,7 @@
                 <div>
                     <ul id="product-sizes-list-new" class="list-unstyled" data-bind="foreach: quantities">
                         <li>
-<!--                            <span class="" data-bind="visible: $root.selectedProductVO().sizes().length < 1">Quantity:</span>-->
+                            <!--                            <span class="" data-bind="visible: $root.selectedProductVO().sizes().length < 1">Quantity:</span>-->
                             <!--<select data-bind="visible: $root.selectedProductVO().sizes().length > 1,
                                                options: $root.selectedProductVO().sizes,
                                                value: size">
@@ -408,15 +411,24 @@
                             </div>
 
                             <span class="btn-group-quantity">
-                                    <button class="btn btn-default btn-round" type="button" data-bind="click: $parent.decreaseQuantity"><span class="glyphicon glyphicon-minus"></span></button>
-                                    <input data-bind="value: quantity, valueUpdate: 'input'" maxlength="3" />
-                                    <button class="btn btn-default btn-round" type="button" data-bind="click: $parent.increaseQuantity"><span class="glyphicon glyphicon-plus"></span></button>
-                                    <button type="button" data-bind="click: $parent.removeQuantity, visible: $root.canRemoveSize()" class="close">&times;</button>
+                                    <button class="btn btn-default btn-round" type="button"
+                                            data-bind="click: $parent.decreaseQuantity"><span
+                                            class="glyphicon glyphicon-minus"></span></button>
+                                    <input data-bind="value: quantity, valueUpdate: 'input'" maxlength="3"/>
+                                    <button class="btn btn-default btn-round" type="button"
+                                            data-bind="click: $parent.increaseQuantity"><span
+                                            class="glyphicon glyphicon-plus"></span></button>
+                                    <button type="button"
+                                            data-bind="click: $parent.removeQuantity, visible: $root.canRemoveSize()"
+                                            class="close">&times;</button>
                             </span>
 
                         </li>
                     </ul>
-                    <button class="btn btn-default" type="button" data-bind="click: addQuantity, visible: $root.selectedProductVO().sizes().length > 0">Add Size</button>
+                    <button class="btn btn-default" type="button"
+                            data-bind="click: addQuantity, visible: $root.selectedProductVO().sizes().length > 0">Add
+                        Size
+                    </button>
                 </div>
                 <div class="divider"></div>
                 <div>
@@ -425,12 +437,13 @@
                     <!--                    <div class="order-price" data-bind="if:$root.designInfo().prices!='not available'">-->
                     <div data-bind="foreach: $root.designInfo().prices">
                         <!-- ko if: $data.isTotal -->
-                            <!--<div class="gray" data-bind="text: $data.label"></div>-->
-                            <div class="">Total inc.gst</div>
-                            <div class="order-price" data-bind="text: $data.price, css: { bold: $data.isTotal }"></div>
+                        <!--<div class="gray" data-bind="text: $data.label"></div>-->
+                        <div class="">Total inc.gst</div>
+                        <div class="order-price" data-bind="text: $data.price, css: { bold: $data.isTotal }"></div>
                         <!-- /ko -->
                     </div>
-                    <a id="place-order-btn" class="btn btn-primary btn-block" onclick="onPlaceOrder()" data-loading-text="Placing order...">ADD TO CART</a>
+                    <a id="place-order-btn" class="btn btn-primary btn-block" onclick="onPlaceOrder()"
+                       data-loading-text="Placing order...">ADD TO CART</a>
                 </div>
             </div>
         </div>
@@ -444,6 +457,7 @@
                 Simply copy the link to access your saved design.
                 Or share the link to take full advantage of our designer.
             </p>
+
             <p>
                 - share with friends and family
                 - post on social media to gather feedback
@@ -451,7 +465,9 @@
                 - get approval from the boss
                 - save for later until sizes are known
             </p>
+
             <p><textarea row="4" cols="50" data-bind="text: shareLink"></textarea></p>
+
             <div>
                 <button class="btn btn-default" id="done-numbers-btn" type="button">Done</button>
             </div>
