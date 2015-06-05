@@ -1259,7 +1259,15 @@ function DEControlsModel() {
         for (var i = 0; i < fonts.length; i++) {
             jQuery('<p style="font-family:' + fonts[i].fontFamily + '"><em><strong></strong></em></div>').appendTo(container);
         }
-    }
+    };
+
+    self.selectFontColor = function (color) {
+        self.selectedLetteringVO().formatVO().fillColor(color.value);
+    };
+
+    self.selectFontStrokeColor = function (color) {
+        self.selectedLetteringVO().formatVO().strokeColor(color.value);
+    };
 
     /**
      * COLORS AND FONTS END HERE
@@ -1543,6 +1551,32 @@ function DEControlsModel() {
         }
 
         self.showFontsList(!currentValue);
+        self._textToolsIsVisible(currentValue);
+    };
+
+    self.showFontsColorsList = ko.observable(false);
+
+    self.toggleFontsColorsList = function (model, event) {
+        var currentValue = self.showFontsColorsList();
+
+        if (typeof event !== 'undefined') {
+            event.preventDefault();
+        }
+
+        self.showFontsColorsList(!currentValue);
+        self._textToolsIsVisible(currentValue);
+    };
+
+    self.showFontsStrokeColorsList = ko.observable(false);
+
+    self.toggleFontsStrokeColorsList = function (model, event) {
+        var currentValue = self.showFontsStrokeColorsList();
+
+        if (typeof event !== 'undefined') {
+            event.preventDefault();
+        }
+
+        self.showFontsStrokeColorsList(!currentValue);
         self._textToolsIsVisible(currentValue);
     };
 

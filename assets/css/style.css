@@ -75,14 +75,6 @@ select {
     width: 100%;
 }
 
-#de-tracker-resize {
-    display: none;
-}
-
-#de-tracker-rotate {
-    display: none;
-}
-
 .font-list {
     position: relative;
 }
@@ -115,5 +107,23 @@ select {
     left: 50%;
     margin-left: -10px;
     top: 5px;
+}
+
+.choose-color {
+    border: 1px solid;
+    color: red;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.fonts-colors {
+
+}
+
+.fonts-colors__close {
+    position: relative;
+    left: 90%;
 }
 

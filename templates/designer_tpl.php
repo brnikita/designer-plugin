@@ -173,15 +173,40 @@
                     CHOOSE A COLOR
                 </div>
                 <div class="col-lg-1">
-                    <input id="text-fill-color-picker" type="text" class="designer-color-picker"
-                           data-bind="colorPicker: selectedLetteringVO().formatVO().fillColor, colorPalette: colors"/>
+                    <a class="choose-color" href="#" data-bind="style: {
+                                'background-color': selectedLetteringVO().formatVO().fillColor,
+                                'color': selectedLetteringVO().formatVO().fillColor,
+                                'border-color': selectedLetteringVO().formatVO().fillColor
+                                },
+                                 click: toggleFontsColorsList"></a>
                 </div>
+            </div>
+            <div class="row fonts-colors" data-bind="visible: showFontsColorsList">
+                <a href="#" class="btn btn-default fonts-colors__close" data-bind="click: toggleFontsColorsList">X</a>
+                <ul class="designer-color-palette clearfix" data-bind="foreach: colors">
+                    <li>
+                        <a href="#" data-bind="
+                        style: {
+                            'background-color': value,
+                            'color': value,
+                            'border-color': value
+                            },
+                        title: name,
+                        click: $root.selectFontColor,
+                        css: {
+                            selected: $data.value.toLocaleLowerCase() === $root.selectedLetteringVO().formatVO().fillColor().toLocaleLowerCase()
+                        }
+                    "></a>
+                    </li>
+                </ul>
             </div>
             <div class="row font-list" data-bind="visible: showFontsList">
                 <a href="#" class="btn btn-default font-list__close" data-bind="click: toggleFontsList">X</a>
                 <ul data-bind="foreach: fonts">
-                    <li class="font-list__item" data-bind="css: { active: $root.selectedLetteringVO().formatVO().fontFamily() === $data.fontFamily }">
-                        <a href="#" data-bind="text: $data.name, click: $root.selectFont, style: { fontFamily: $data.fontFamily }"></a>
+                    <li class="font-list__item"
+                        data-bind="css: { active: $root.selectedLetteringVO().formatVO().fontFamily() === $data.fontFamily }">
+                        <a href="#"
+                           data-bind="text: $data.name, click: $root.selectFont, style: { fontFamily: $data.fontFamily }"></a>
                     </li>
                 </ul>
             </div>
@@ -209,11 +234,34 @@
                     ADD AN OUTLINE
                 </div>
                 <div class="col-lg-1">
-                    <input id="text-stroke-color-picker" type="text" class="designer-color-picker"
-                           data-bind="colorPicker: selectedLetteringVO().formatVO().strokeColor, colorPalette: strokeColors"/>
+                    <a class="choose-color" href="#" data-bind="style: {
+                                'background-color': selectedLetteringVO().formatVO().strokeColor,
+                                'color': selectedLetteringVO().formatVO().strokeColor,
+                                'border-color': selectedLetteringVO().formatVO().strokeColor
+                                },
+                                 click: toggleFontsStrokeColorsList"></a>
                 </div>
             </div>
-
+            <div class="row fonts-colors" data-bind="visible: showFontsStrokeColorsList">
+                <a href="#" class="btn btn-default fonts-colors__close"
+                   data-bind="click: toggleFontsStrokeColorsList">X</a>
+                <ul class="designer-color-palette clearfix" data-bind="foreach: strokeColors">
+                    <li>
+                        <a href="#" data-bind="
+                        style: {
+                            'background-color': value,
+                            'color': value,
+                            'border-color': value
+                            },
+                        title: name,
+                        click: $root.selectFontStrokeColor,
+                        css: {
+                            selected: $data.value.toLocaleLowerCase() === $root.selectedLetteringVO().formatVO().strokeColor().toLocaleLowerCase()
+                        }
+                    "></a>
+                    </li>
+                </ul>
+            </div>
             <div class="row" data-bind="visible: textToolsIsVisible">
                 <div class="col-lg-3">RESIZE TEXT</div>
                 <div class="col-lg-9">
