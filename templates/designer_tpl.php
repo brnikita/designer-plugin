@@ -516,10 +516,10 @@
         </div>
 
         <div id="share-design-tab" class="col-lg-5 col-lg-offset-1 hide">
-            <div>
+            <p>
                 <span>Save & Share Your Design</span>
                 <button type="button" data-bind="" class="close">×</button>
-            </div>
+            </p>
             <p>
                 Simply copy the link to access your saved design.
                 Or share the link to take full advantage of our designer.
