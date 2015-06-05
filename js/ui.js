@@ -1298,6 +1298,7 @@ function DEControlsModel() {
     self.enterGraphicCategory = function (value) {
         if (self.graphicCategory()) {
 
+            self.clearGraphicsSearch();
             self.graphicCatalogBreadcrumbs.splice(1);
             self.selectGraphicItem(self.graphicCategory());
 

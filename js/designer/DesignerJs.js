@@ -177,5 +177,5 @@ var DEJS;
     }
     DEJS.noDebug = noDebug;
 
-    DEJS.debug = trueDebug;
+    DEJS.debug = noDebug;
 })(DEJS || (DEJS = {}));
