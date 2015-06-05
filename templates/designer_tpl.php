@@ -19,10 +19,8 @@
             </div>
             <!-- Product side switch end -->
             <div id="bottom-menu">
-                <div id="bottom-menu-main">
-                    <a class="btn btn-default" href="" >
-                        <span>...</span>
-                    </a>
+                <div id="bottom-menu-main" class="">
+                    <a class="btn btn-default js-ellipsis-menu"><span>...</span></a>
                     <a class="btn btn-default js-designer-tab" href="share-design-tab" onclick="onShareDesign()">
                         <span>SAVE/SHARE</span>
                     </a>
@@ -30,7 +28,8 @@
                         <span>ADD SIZES & QTY</span>
                     </a>
                 </div>
-                <div id="bottom-menu-ellipsis" class="">
+                <div id="bottom-menu-ellipsis" class="hide">
+                    <a class="btn btn-default js-ellipsis-menu"><span>...</span></a>
                     <a id="undo-btn" class="btn btn-default" data-bind="click: undo, visible: isUndoActive"><span>Undo</span></a>
                     <a id="redo-btn" class="btn btn-default" data-bind="click: redo, visible: isRedoActive"><span>Redo</span></a>
                     <a id="copy-btn" class="btn btn-default" data-bind="click: copy">Copy</a>

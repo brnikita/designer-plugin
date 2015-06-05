@@ -244,6 +244,14 @@ jQuery(function () {
     jQuery('#format-numbers-btn').click(formatNamesNumbersHandler);
 
     initializeTabs();
+
+    $('.js-ellipsis-menu').on('click', function (event) {
+
+        $('#bottom-menu-ellipsis').toggleClass('hide');
+        $('#bottom-menu-main').toggleClass('hide');
+
+    });
+
 });
 
 /* Alert */
