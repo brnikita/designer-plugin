@@ -23,7 +23,7 @@
                     <a class="btn btn-default" href="" >
                         <span>...</span>
                     </a>
-                    <a class="btn btn-default js-designer-tab" href="share-design-tab">
+                    <a class="btn btn-default js-designer-tab" href="share-design-tab" onclick="onShareDesign()">
                         <span>SAVE/SHARE</span>
                     </a>
                     <a class="btn btn-default js-designer-tab" href="product-sizes-tab">
@@ -512,10 +512,10 @@
                 - get approval from the boss
                 - save for later until sizes are known
             </p>
+            <p><textarea row="4" cols="50" data-bind="text: shareLink"></textarea></p>
             <div>
                 <button class="btn btn-default" id="done-numbers-btn" type="button">Done</button>
             </div>
-            <button type="button" onclick="onShareDesign()">Get URL</button>
         </div>
     </div>
 </div>
