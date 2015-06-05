@@ -457,25 +457,43 @@
         </div>
 
         <div id="product-sizes-tab" class="col-lg-5 col-lg-offset-1 hide">
-            <div id="product-sizes-panel" class="">
-                <div>
+<!--            <div id="product-sizes-panel" class="">-->
+            <div id="" class="">
+                <p>
                     <span>Sizes & Qty</span>
                     <button type="button" data-bind="" class="close">×</button>
-                </div>
+                </p>
                 <div>
-                    <ul id="product-sizes-list" class="list-unstyled" data-bind="foreach: quantities">
+                    <ul id="product-sizes-list-new" class="list-unstyled" data-bind="foreach: quantities">
                         <li>
-                            <span class="" data-bind="visible: $root.selectedProductVO().sizes().length < 1">Quantity:</span>
-                            <select class="" data-bind="visible: $root.selectedProductVO().sizes().length > 1,
-                                                        options: $root.selectedProductVO().sizes,
-                                                        value: size">
-                            </select>
+<!--                            <span class="" data-bind="visible: $root.selectedProductVO().sizes().length < 1">Quantity:</span>-->
+                            <!--<select data-bind="visible: $root.selectedProductVO().sizes().length > 1,
+                                               options: $root.selectedProductVO().sizes,
+                                               value: size">
+                            </select>-->
+
+                            <div class="btn-group"
+                                 data-bind="visible: $root.selectedProductVO().sizes().length > 1">
+                                <button class="btn btn-default" type="button" data-bind="text: $data.size"></button>
+                                <button class="btn btn-default dropdown-toggle" type="button"
+                                        id="names-size-dropdown-btn" data-toggle="dropdown">
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" id="names-sizes-list"
+                                    data-bind="foreach: $root.selectedProductVO().sizes">
+                                    <li data-bind="css: { active: $data == $parent.size() }">
+                                        <a data-bind="text: $data, click: $parent.size"></a>
+                                    </li>
+                                </ul>
+                            </div>
+
                             <span class="btn-group-quantity">
-                                <button class="btn btn-default btn-round" type="button" data-bind="click: $parent.decreaseQuantity"><span class="glyphicon glyphicon-minus"></span></button>
-                                <input data-bind="value: quantity, valueUpdate: 'input'" maxlength="3" />
-                                <button class="btn btn-default btn-round" type="button" data-bind="click: $parent.increaseQuantity"><span class="glyphicon glyphicon-plus"></span></button>
-                                <button type="button" data-bind="click: $parent.removeQuantity, visible: $root.canRemoveSize()" class="close">&times;</button>
+                                    <button class="btn btn-default btn-round" type="button" data-bind="click: $parent.decreaseQuantity"><span class="glyphicon glyphicon-minus"></span></button>
+                                    <input data-bind="value: quantity, valueUpdate: 'input'" maxlength="3" />
+                                    <button class="btn btn-default btn-round" type="button" data-bind="click: $parent.increaseQuantity"><span class="glyphicon glyphicon-plus"></span></button>
+                                    <button type="button" data-bind="click: $parent.removeQuantity, visible: $root.canRemoveSize()" class="close">&times;</button>
                             </span>
+
                         </li>
                     </ul>
                     <button class="btn btn-default" type="button" data-bind="click: addQuantity, visible: $root.selectedProductVO().sizes().length > 0">Add Size</button>
@@ -487,7 +505,8 @@
                     <!--                    <div class="order-price" data-bind="if:$root.designInfo().prices!='not available'">-->
                     <div data-bind="foreach: $root.designInfo().prices">
                         <!-- ko if: $data.isTotal -->
-                            <div class="gray" data-bind="text: $data.label"></div>
+                            <!--<div class="gray" data-bind="text: $data.label"></div>-->
+                            <div class="">Total inc.gst</div>
                             <div class="order-price" data-bind="text: $data.price, css: { bold: $data.isTotal }"></div>
                         <!-- /ko -->
                     </div>
