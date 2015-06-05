@@ -317,13 +317,12 @@
                 </div>
             </div>
 
-<!--            <div class="row">-->
-<!--                <div class="col-lg-3">LINE HEIGHT</div>-->
-<!--                <div class="col-lg-9">-->
-<!--                    <div class="noUiSlider"-->
-<!--                         data-bind="slider: selectedLetteringVO().formatVO().lineHeight, rangeStart: 0, rangeEnd: 300, step: 1, visible: showLetterSpacingSlider()"></div>-->
-<!--                </div>-->
-<!--            </div>-->
+            <div class="row" data-bind="visible: showLineLeadingSlider()">
+                <div class="col-lg-3">LINE HEIGHT</div>
+                <div class="col-lg-9">
+                    <div id="text-line-leading-slider" class="noUiSlider" data-bind="slider: selectedLetteringVO().formatVO().lineLeading, rangeStart: 0, rangeEnd: 3, step: 0.05, decimals: 2"></div>
+                </div>
+            </div>
 
             <div data-bind="visible: showTextEffects()" class="btn-group">
                 <button class="btn btn-default" type="button" id="text-effects-btn"
