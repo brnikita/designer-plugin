@@ -281,6 +281,7 @@
                 </div>
             </div>
         </div>
+
         <div id="numbers-tab" class="col-lg-5 col-lg-offset-1 hide">
             <div>
                 <button class="btn btn-default" id="add-names-btn" type="button" data-bind="click: addNameObj">Add
@@ -361,8 +362,11 @@
             <div class="row">
                 <div class="col-lg-6">
                     <select class="form-control" data-bind="
-                        options: currentGraphics,
-                        optionsText: 'name'
+                        options: graphicRootCategory().categories,
+                        optionsText: 'name',
+                        value: graphicCategory,
+                        optionsCaption: 'All Graphics',
+                        event: {change: enterGraphicCategory}
                     "></select>
                 </div>
                 <div class="col-lg-6">
@@ -375,6 +379,21 @@
                     </div>
                 </div>
             </div>
+
+            <a class="designer-back-btn btn2" data-bind="visible: graphicSelectedSubcategory, click: backGraphicItem"><</a>
+            <ul data-bind="foreach: currentGraphics , css: { narrow: graphicSelectedSubcategory }">
+                <li class="thumbnail" data-bind="click: $root.selectGraphicItem,
+                            css: { category: isCategory(), image: isImage() },
+                            style: { backgroundImage: 'url(' + categoryThumb() + ')' }">
+                    <a data-bind="visible: isImage()">
+                        <div class="state"></div>
+                        <span data-bind="text: name"></span>
+                        <img src="#" data-bind="attr: { src: thumb }" alt="" />
+                    </a>
+                    <a data-bind="text: name, visible: isCategory()"></a>
+                </li>
+            </ul>
+
         </div>
 
         <div id="product-sizes-tab" class="col-lg-5 col-lg-offset-1 hide">
