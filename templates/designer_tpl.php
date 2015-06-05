@@ -328,6 +328,7 @@
                 </div>
             </div>
         </div>
+
         <div id="numbers-tab" class="col-lg-5 col-lg-offset-1 hide">
             <div>
                 <button class="btn btn-default" id="add-names-btn" type="button" data-bind="click: addNameObj">Add
@@ -407,13 +408,17 @@
 
         <div id="graphics-tab" class="col-lg-5 col-lg-offset-1 hide">
             <div class="row">
-                <div class="col-lg-6">
+
+                <div class="col-lg-5">
                     <select class="form-control" data-bind="
-                        options: currentGraphics,
-                        optionsText: 'name'
+                        options: graphicRootCategory().categories,
+                        optionsText: 'name',
+                        value: graphicCategory,
+                        optionsCaption: 'All Graphics',
+                        event: {change: enterGraphicCategory}
                     "></select>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-5">
                     <div id="graphics-search" class="search-box">
                         <div class="input-group">
                             <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
@@ -424,7 +429,50 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-2">
+                    <button class="btn btn-default js-upload-form" id="upload-btn" type="button">Upload</button>
+                </div>
+
+                <div id="upload-graphics-form" class="hide">
+                    <div class="designer-dropdown-form-header">
+                        <span class="designer-form-header-title">Upload Graphics</span>
+                        <a class="designer-close-window-btn"></a>
+                    </div>
+                    <div id="upload-image-form-content">
+                        <form id="designer-upload-upload-image-by-url">
+                            <div class="input-group">
+                                <input id="designer-upload-graphics-url-input" type="text" class="form-control" placeholder="Url" data-bind="value: customImageUrl, valueUpdate: 'input'">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button" data-bind="click: showUploadConditions.bind($data, 'url'), enable: customImageUrl().length > 0">Add</button>
+                                        </span>
+                            </div>
+                        </form>
+                        <h6 class="text-center" data-bind="visible: uploadFileAvailable">or</h6>
+                        <form id="designer-upload-image-form" enctype="multipart/form-data" method="post" data-bind="visible: uploadFileAvailable">
+                            <button id="designer-upload-image-browse-btn" type="button" class="btn btn-default btn-block" data-loading-text="Uploading..." data-bind="click: showUploadConditions.bind($data, 'upload')">Browse for file...</button>
+                        </form>
+                        <button class="btn btn-default js-upload-form" id="done-numbers-btn" type="button">Done</button>
+                    </div>
+                </div>
+
             </div>
+
+            <div id="add-graphics-form" class="">
+                <a class="designer-back-btn btn2" data-bind="visible: graphicSelectedSubcategory, click: backGraphicItem"><</a>
+                <ul data-bind="foreach: currentGraphics , css: { narrow: graphicSelectedSubcategory }">
+                    <li class="thumbnail" data-bind="click: $root.selectGraphicItem,
+                                css: { category: isCategory(), image: isImage() },
+                                style: { backgroundImage: 'url(' + categoryThumb() + ')' }">
+                        <a data-bind="visible: isImage()">
+                            <div class="state"></div>
+                            <span data-bind="text: name"></span>
+                            <img src="#" data-bind="attr: { src: thumb }" alt="" />
+                        </a>
+                        <a data-bind="text: name, visible: isCategory()"></a>
+                    </li>
+                </ul>
+            </div>
+
         </div>
 
         <div id="product-sizes-tab" class="col-lg-5 col-lg-offset-1 hide">

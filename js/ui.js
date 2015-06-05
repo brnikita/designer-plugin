@@ -1283,6 +1283,11 @@ function DEControlsModel() {
     // list of graphics categories
     self.graphicCatalogBreadcrumbs = ko.observableArray();
 
+    self.graphicCategory = ko.observable();
+    self.graphicCategory.subscribe(function(){
+        self.graphicsSearchQuery("");
+    })
+
     //selected graphics category
     self.graphicCurrentCategory = ko.computed(function () {
         if (!self.graphicCatalogBreadcrumbs() || self.graphicCatalogBreadcrumbs().length < 1)
@@ -1301,16 +1306,26 @@ function DEControlsModel() {
         self.graphicCatalogBreadcrumbs([self.graphicRootCategory()]);
     };
 
+    self.enterGraphicCategory = function (value) {
+        if (self.graphicCategory()) {
+
+            self.graphicCatalogBreadcrumbs.splice(1);
+            self.selectGraphicItem(self.graphicCategory());
+
+        }
+    };
+
     //handlers - click on categories/graphics
     self.selectGraphicItem = function (categoryItem) {
         if (categoryItem.isImage()) {
             if (categoryItem.id()) {
                 userInteract({addGraphics: categoryItem.id()});
-                designerUI.closeActiveTab();
+                //designerUI.closeActiveTab();
             }
             return;
         }
         self.graphicCatalogBreadcrumbs.push(categoryItem);
+        self.graphicCategory(categoryItem);
     };
 
     //handlers - back button
@@ -1319,6 +1334,12 @@ function DEControlsModel() {
             return;
 
         self.graphicCatalogBreadcrumbs.pop();
+
+        if (self.graphicCurrentCategory().id() === 'root') {
+            self.graphicCategory(undefined);
+        } else {
+            self.graphicCategory(self.graphicCurrentCategory());
+        }
     };
 
     //back button visibility
@@ -1358,6 +1379,7 @@ function DEControlsModel() {
     };
 
     self.clearGraphicsSearch = function () {
+        self.graphicCategory(undefined);
         self.graphicsSearchQuery("");
     }
 
