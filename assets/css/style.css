@@ -63,6 +63,10 @@ select {
     background-color: #fff !important;
 }
 
+.designer-color-palette li a.selected {
+    text-decoration: none;
+}
+
 .designer-color-palette li a.selected:after {
     content: 'V';
 }
