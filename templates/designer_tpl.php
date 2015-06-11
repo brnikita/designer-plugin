@@ -500,10 +500,10 @@
                     <ul class="clearfix designer-color-elements"
                         data-bind="foreach: { data: selectedGraphicsFormatVO().complexColor().colorizeList}">
                         <li>
-                            <a href="#" data-bind="text: name, click: $root.selectColorElement"></a> |
+                            <a href="#" data-bind="text: name, click: $root.selectColorSubElement"></a> |
                         </li>
                     </ul>
-                    <ul class="designer-color-palette clearfix" data-bind="foreach: colors">
+                    <ul class="designer-color-palette clearfix" data-bind="foreach: colorsList">
                         <li>
                             <a href="#" data-bind="
                                 style: {
