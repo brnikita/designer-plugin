@@ -252,13 +252,19 @@ jQuery(function () {
 
     });
 
-    $('.js-upload-form').on('click', function (event) {
+    $('.js-graphics-upload-form').on('click', function (event) {
 
-        $('#upload-graphics-form').toggleClass('hide');
-        $('#add-graphics-form').toggleClass('hide');
+        $('#graphics-add-form').toggleClass('hide');
+        $('#graphics-upload-form').toggleClass('hide');
 
     });
 
+    $('.js-graphics-color-form').on('click', function (event) {
+
+        $('#graphics-add-form').toggleClass('hide');
+        $('#graphics-color-form').toggleClass('hide');
+
+    });
 
 });
 

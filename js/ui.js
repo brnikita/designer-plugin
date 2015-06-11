@@ -1,4 +1,4 @@
-﻿function isNullOrUndefined(val) {
+﻿﻿function isNullOrUndefined(val) {
     return (typeof (val) == 'undefined' || val == null);
 }
 
@@ -1307,11 +1307,11 @@ function DEControlsModel() {
     };
 
     self.enterGraphicCategory = function (value) {
+        self.graphicCatalogBreadcrumbs.splice(1);
         if (self.graphicCategory()) {
-
-            self.graphicCatalogBreadcrumbs.splice(1);
             self.selectGraphicItem(self.graphicCategory());
-
+        } else {
+            self.graphicCategory(undefined);
         }
     };
 
@@ -2259,6 +2259,9 @@ function DEControlsModel() {
             if (self.selectedObjectType() === 'text') {
                 openTextForm();
             }
+            if (self.selectedObjectType() === 'graphics') {
+                openGraphicsForm();
+            }
             validate(invalidateList, 'objDClicked');
         }
 
@@ -2649,6 +2652,13 @@ function openTextForm() {
     designerUI.openTab('text-tab');
     designerUI.setFocusToTextTab();
 }
+
+function openGraphicsForm() {
+    designerUI.openTab('graphics-tab');
+    $("#graphics-add-form").addClass('hide');
+    $('#graphics-upload-form').addClass('hide');
+    $('#graphics-color-form').removeClass('hide');
+};
 
 function onLoadDesignDialogSubmit(event) {
     if (event == null || event.keyCode == 13) {

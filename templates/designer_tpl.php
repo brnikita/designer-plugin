@@ -69,6 +69,26 @@
         <div id="products-tab" class="col-lg-5 col-lg-offset-1">
             <div class="row">
                 <div class="col-lg-6">
+
+                    <!--<div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <span class="glyphicon glyphicon-menu-down"></span>
+                            Action <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" data-bind="
+                            options: productRootCategory().categories,
+                            optionsText: 'name',
+                            optionsValue: 'id',
+                            value: selectedCategoryId,
+                            event: {change: changeCategorySelectHandler},
+                            optionsCaption: 'Choose...'
+                        ">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                        </ul>
+                    </div>-->
+
                     <select class="form-control" data-bind="
                         options: productRootCategory().categories,
                         optionsText: 'name',
@@ -76,7 +96,7 @@
                         value: selectedCategoryId,
                         event: {change: changeCategorySelectHandler},
                        optionsCaption: 'Choose...'
-                    "></select>
+                    "><span class="glyphicon glyphicon-menu-down"></span></select>
                 </div>
                 <div class="col-lg-6">
                     <div id="products-search" class="search-box">
@@ -407,36 +427,54 @@
         </div>
 
         <div id="graphics-tab" class="col-lg-5 col-lg-offset-1 hide">
-            <div class="row">
+            <div id="graphics-forms-group">
 
-                <div class="col-lg-5">
-                    <select class="form-control" data-bind="
-                        options: graphicRootCategory().categories,
-                        optionsText: 'name',
-                        value: graphicCategory,
-                        optionsCaption: 'All Graphics',
-                        event: {change: enterGraphicCategory}
-                    "></select>
-                </div>
-                <div class="col-lg-5">
-                    <div id="graphics-search" class="search-box">
-                        <div class="input-group">
-                            <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
-                            <input type="text" class="form-control" placeholder="Поиск"
-                                   data-bind="value: graphicsSearchQuery, valueUpdate: 'input'">
-                            <button class="close" aria-hidden="true"
-                                    data-bind="visible: graphicsSearchQuery().length > 0, click: clearGraphicsSearch">&times;</button>
+                <div id="graphics-add-form">
+                    <div class="col-lg-5">
+                        <select class="form-control" data-bind="
+                            options: graphicRootCategory().categories,
+                            optionsText: 'name',
+                            value: graphicCategory,
+                            optionsCaption: 'All Graphics',
+                            event: {change: enterGraphicCategory}
+                        "></select>
+                    </div>
+                    <div class="col-lg-5">
+                        <div id="graphics-search" class="search-box">
+                            <div class="input-group">
+                                <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+                                <input type="text" class="form-control" placeholder="Поиск"
+                                       data-bind="value: graphicsSearchQuery, valueUpdate: 'input'">
+                                <button class="close" aria-hidden="true"
+                                        data-bind="visible: graphicsSearchQuery().length > 0, click: clearGraphicsSearch">&times;</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-2">
-                    <button class="btn btn-default js-upload-form" id="upload-btn" type="button">Upload</button>
+                    <div class="col-lg-2">
+                        <button class="btn btn-default js-graphics-upload-form" id="upload-btn" type="button">Upload</button>
+                    </div>
+                    <div class="col-lg-12">
+                        <a class="designer-back-btn btn2" data-bind="visible: graphicSelectedSubcategory, click: backGraphicItem"><</a>
+                        <ul data-bind="foreach: currentGraphics , css: { narrow: graphicSelectedSubcategory }">
+                            <li class="thumbnail" data-bind="click: $root.selectGraphicItem,
+                                css: { category: isCategory(), image: isImage() },
+                                style: { backgroundImage: 'url(' + categoryThumb() + ')' }">
+                                <a data-bind="visible: isImage()">
+                                    <div class="state"></div>
+                                    <span data-bind="text: name"></span>
+                                    <img src="#" data-bind="attr: { src: thumb }" alt="" />
+                                </a>
+                                <a data-bind="text: name, visible: isCategory()"></a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div id="upload-graphics-form" class="hide">
+                <div id="graphics-upload-form" class="hide">
                     <div class="designer-dropdown-form-header">
                         <span class="designer-form-header-title">Upload Graphics</span>
                         <a class="designer-close-window-btn"></a>
+                        <button type="button" class="close js-graphics-upload-form">&times;</button>
                     </div>
                     <div id="upload-image-form-content">
                         <form id="designer-upload-upload-image-by-url">
@@ -451,27 +489,42 @@
                         <form id="designer-upload-image-form" enctype="multipart/form-data" method="post" data-bind="visible: uploadFileAvailable">
                             <button id="designer-upload-image-browse-btn" type="button" class="btn btn-default btn-block" data-loading-text="Uploading..." data-bind="click: showUploadConditions.bind($data, 'upload')">Browse for file...</button>
                         </form>
-                        <button class="btn btn-default js-upload-form" id="done-numbers-btn" type="button">Done</button>
+                        <button class="btn btn-default js-graphics-upload-form" id="done-numbers-btn" type="button">Done</button>
                     </div>
+                </div>
+
+                <div id="graphics-color-form" class="hide">
+                    <p>Change the colors of you graphic</p>
+                    <button type="button" class="close js-graphics-color-form">&times;</button>
+
+                    <ul class="clearfix designer-color-elements"
+                        data-bind="foreach: { data: selectedGraphicsFormatVO().complexColor().colorizeList}">
+                        <li>
+                            <a href="#" data-bind="text: name, click: $root.selectColorElement"></a> |
+                        </li>
+                    </ul>
+                    <ul class="designer-color-palette clearfix" data-bind="foreach: colors">
+                        <li>
+                            <a href="#" data-bind="
+                                style: {
+                                    'background-color': value,
+                                    'color': value,
+                                    'border-color': value
+                                    },
+                                title: name,
+                                click: $root.colorSelected,
+                                css: {
+                                    selected: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase()
+                                }
+                        "></a>
+                        </li>
+                    </ul>
+                    <button class="btn btn-default js-graphics-color-form" id="done-numbers-btn" type="button">Done</button>
                 </div>
 
             </div>
 
-            <div id="add-graphics-form" class="">
-                <a class="designer-back-btn btn2" data-bind="visible: graphicSelectedSubcategory, click: backGraphicItem"><</a>
-                <ul data-bind="foreach: currentGraphics , css: { narrow: graphicSelectedSubcategory }">
-                    <li class="thumbnail" data-bind="click: $root.selectGraphicItem,
-                                css: { category: isCategory(), image: isImage() },
-                                style: { backgroundImage: 'url(' + categoryThumb() + ')' }">
-                        <a data-bind="visible: isImage()">
-                            <div class="state"></div>
-                            <span data-bind="text: name"></span>
-                            <img src="#" data-bind="attr: { src: thumb }" alt="" />
-                        </a>
-                        <a data-bind="text: name, visible: isCategory()"></a>
-                    </li>
-                </ul>
-            </div>
+
 
         </div>
 
