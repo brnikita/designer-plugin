@@ -2662,6 +2662,13 @@ function openGraphicsForm() {
     controlsModel.colorsList([]);
 };
 
+function hideGraphicsForm() {
+    $('#graphics-add-form').removeClass('hide');
+    $('#graphics-upload-form').addClass('hide');
+    $('#graphics-color-form').addClass('hide');
+    controlsModel.colorsList([]);
+};
+
 function onLoadDesignDialogSubmit(event) {
     if (event == null || event.keyCode == 13) {
         if (controlsModel.selectedDesign() != null) {

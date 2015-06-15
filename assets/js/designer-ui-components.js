@@ -189,7 +189,7 @@ jQuery(function () {
         setActiveTab(tabName);
         getActiveTab().removeClass('hide');
 
-        controlsModel.colorsList([]);
+        hideGraphicsForm();
     });
 
     jQuery('#designer-main-menu > .designer-dropdown > .dropdown-menu > .designer-dropdown-form-header > .designer-close-window-btn').click(function (e) {
@@ -263,8 +263,7 @@ jQuery(function () {
 
     $('.js-graphics-color-form').on('click', function (event) {
 
-        $('#graphics-add-form').toggleClass('hide');
-        $('#graphics-color-form').toggleClass('hide');
+        hideGraphicsForm();
 
     });
 
