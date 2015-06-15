@@ -188,6 +188,8 @@ jQuery(function () {
 
         setActiveTab(tabName);
         getActiveTab().removeClass('hide');
+
+        controlsModel.colorsList([]);
     });
 
     jQuery('#designer-main-menu > .designer-dropdown > .dropdown-menu > .designer-dropdown-form-header > .designer-close-window-btn').click(function (e) {

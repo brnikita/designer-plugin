@@ -1321,6 +1321,7 @@ function DEControlsModel() {
             if (categoryItem.id()) {
                 userInteract({addGraphics: categoryItem.id()});
                 //designerUI.closeActiveTab();
+                openGraphicsForm();
             }
             return;
         }
@@ -2658,6 +2659,7 @@ function openGraphicsForm() {
     $("#graphics-add-form").addClass('hide');
     $('#graphics-upload-form').addClass('hide');
     $('#graphics-color-form').removeClass('hide');
+    controlsModel.colorsList([]);
 };
 
 function onLoadDesignDialogSubmit(event) {
