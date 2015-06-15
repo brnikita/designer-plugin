@@ -1423,17 +1423,18 @@ function DEControlsModel() {
      */
 
         // selected object's type
-        // can be 'none' (no object is selected), 'text' or 'graphic'
+        // can be 'none' (no object is selected), 'text' or 'graphics'
     self.selectedObjectType = ko.observable('none');
 
     self.selectedObjectType.subscribe( function(newValue) {
-
-        if (newValue === 'text' || newValue === 'none') {
+        if (newValue === 'text') {
+            openTextForm();
+            hideGraphicsColorForm();
+        } else if (newValue === 'none') {
             hideGraphicsColorForm();
         } else if (newValue === 'graphics' ) {
             openGraphicsColorForm();
-        }
-
+        };
     });
 
     // return true if some object is selected
