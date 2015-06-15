@@ -174,16 +174,17 @@ jQuery(function () {
 
         event.preventDefault();
 
+        if (designerUI.activeTabName === tabName) {
+            setActiveTab(null);
+            //return;
+        }
+
+
         $('.js-designer-tab.active').removeClass('active');
         $this.addClass('active');
 
         if (typeof designerUI.activeTabName === 'string') {
             getActiveTab().addClass('hide');
-        }
-
-        if (designerUI.activeTabName === tabName) {
-            setActiveTab(null);
-            return;
         }
 
         setActiveTab(tabName);
