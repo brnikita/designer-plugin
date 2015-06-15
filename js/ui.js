@@ -1426,6 +1426,16 @@ function DEControlsModel() {
         // can be 'none' (no object is selected), 'text' or 'graphic'
     self.selectedObjectType = ko.observable('none');
 
+    self.selectedObjectType.subscribe( function(newValue) {
+
+        if (newValue === 'text' || newValue === 'none') {
+            hideGraphicsColorForm();
+        } else if (newValue === 'graphics' ) {
+            openGraphicsColorForm();
+        }
+
+    });
+
     // return true if some object is selected
     self.hasSelected = ko.computed(function () {
         return self.selectedObjectType() != 'none';
