@@ -175,10 +175,9 @@ jQuery(function () {
         event.preventDefault();
 
         if (designerUI.activeTabName === tabName) {
-            setActiveTab(null);
-            //return;
+            //setActiveTab(null);
+            return;
         }
-
 
         $('.js-designer-tab.active').removeClass('active');
         $this.addClass('active');
