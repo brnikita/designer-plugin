@@ -526,7 +526,6 @@ var ProductSizeVO = function (width, height, label) {
     });
 };
 
-
 var RestrictionsVO = function (root, minQuantity) { // for future refactoring, now stuped hardhoded
     self = this;
     if (isNullOrUndefined(minQuantity)) minQuantity = 0;
@@ -1321,7 +1320,7 @@ function DEControlsModel() {
             if (categoryItem.id()) {
                 userInteract({addGraphics: categoryItem.id()});
                 //designerUI.closeActiveTab();
-                openGraphicsForm();
+                openGraphicsColorForm();
             }
             return;
         }
@@ -2261,7 +2260,7 @@ function DEControlsModel() {
                 openTextForm();
             }
             if (self.selectedObjectType() === 'graphics') {
-                openGraphicsForm();
+                openGraphicsColorForm();
             }
             validate(invalidateList, 'objDClicked');
         }
@@ -2654,7 +2653,7 @@ function openTextForm() {
     designerUI.setFocusToTextTab();
 }
 
-function openGraphicsForm() {
+function openGraphicsColorForm() {
     designerUI.openTab('graphics-tab');
     $("#graphics-add-form").addClass('hide');
     $('#graphics-upload-form').addClass('hide');
@@ -2662,7 +2661,7 @@ function openGraphicsForm() {
     controlsModel.colorsList([]);
 };
 
-function hideGraphicsForm() {
+function hideGraphicsColorForm() {
     $('#graphics-add-form').removeClass('hide');
     $('#graphics-upload-form').addClass('hide');
     $('#graphics-color-form').addClass('hide');

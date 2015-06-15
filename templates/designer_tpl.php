@@ -496,29 +496,30 @@
                 <div id="graphics-color-form" class="hide">
                     <p>Change the colors of you graphic</p>
                     <button type="button" class="close js-graphics-color-form">&times;</button>
-
-                    <ul class="clearfix designer-color-elements"
-                        data-bind="foreach: { data: selectedGraphicsFormatVO().complexColor().colorizeList}">
-                        <li>
-                            <a href="#" data-bind="text: name, click: $root.selectColorSubElement"></a> |
-                        </li>
-                    </ul>
-                    <ul class="designer-color-palette clearfix" data-bind="foreach: colorsList">
-                        <li>
-                            <a href="#" data-bind="
-                                style: {
-                                    'background-color': value,
-                                    'color': value,
-                                    'border-color': value
-                                    },
-                                title: name,
-                                click: $root.colorSelected,
-                                css: {
-                                    selected: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase()
-                                }
-                        "></a>
-                        </li>
-                    </ul>
+                    <div data-bind="visible: selectedIsGraphics">
+                        <ul class="clearfix designer-color-elements"
+                            data-bind="foreach: { data: selectedGraphicsFormatVO().complexColor().colorizeList}">
+                            <li>
+                                <a href="#" data-bind="text: name, click: $root.selectColorSubElement"></a> |
+                            </li>
+                        </ul>
+                        <ul class="designer-color-palette clearfix" data-bind="foreach: colorsList">
+                            <li>
+                                <a href="#" data-bind="
+                                    style: {
+                                        'background-color': value,
+                                        'color': value,
+                                        'border-color': value
+                                        },
+                                    title: name,
+                                    click: $root.colorSelected,
+                                    css: {
+                                        selected: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase()
+                                    }
+                            "></a>
+                            </li>
+                        </ul>
+                    </div>
                     <button class="btn btn-default js-graphics-color-form" id="done-numbers-btn" type="button">Done</button>
                 </div>
 
