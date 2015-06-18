@@ -4,8 +4,13 @@
 .main-container {
     font: 9px Raleway;
     width: 1024px;
-    margin: auto;
+    margin: 0 auto;
     /*border: 1px solid red;*/
+}
+
+.main-subcontainer {
+    width: 940px;
+    margin: auto;
 }
 
 .main-container * {
@@ -18,14 +23,13 @@
     position: relative;
     width: 587px;
     padding: 0 15px 0 15px;
-    margin: 0 15px 0 0;
 }
 
 .right-column {
     float: right;
     position: relative;
     width: 320px;
-    padding: 0 15px 0 15px;
+    padding: 0 0 0 15px;
 }
 
 #canvas-container {
@@ -266,7 +270,7 @@
     /*background-color: #E02E2D;*/
 }
 
-#products-tab .products-list li a span:hover {
+#products-tab .products-list li:hover a span {
     color: #FFFFFF;
     background-color: #D51622
 }
@@ -377,9 +381,14 @@
 
 @media screen and (max-width: 1024px) {
 
+    .main-subcontainer {
+        width: 320px;
+        margin: 0 auto;
+    }
+
     .left-column {
         width: 320px;
-        margin: auto;
+        margin: 0 auto;
         float: none;
     }
 
