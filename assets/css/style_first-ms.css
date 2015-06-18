@@ -1,0 +1,165 @@
+.designer {
+
+}
+
+.designer_main-menu {
+}
+
+#canvas-container {
+    width: 587px;
+    height: 543px;
+}
+
+select {
+    min-width: 0 !important;
+    line-height: normal !important;
+    padding: initial !important;
+}
+
+.designer-back-btn {
+    font-size: 30px;
+}
+
+.designer-product.active span {
+    background: red;
+}
+
+.designer-color-elements {
+    list-style: none;
+}
+
+.designer-color-elements li {
+    float: left;
+}
+
+.designer-color-classes {
+    list-style: none;
+}
+
+.designer-color-classes li {
+    float: left;
+    padding-right: 5px;
+}
+
+.designer-color-palette {
+    list-style: none;
+}
+
+.designer-color-palette li {
+    float: left;
+    padding: 0 5px 5px 0;
+}
+
+.designer-color-palette li a {
+    width: 20px;
+    height: 20px;
+    display: block;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid;
+}
+
+.designer-color-palette li a.selected {
+    background-color: #fff !important;
+}
+
+.designer-color-palette li a.selected {
+    text-decoration: none;
+}
+
+.designer-color-palette li a.selected:after {
+    content: 'V';
+}
+
+#dropmenu-cell {
+    min-width: 120px;
+}
+
+#add-text-input {
+    width: 100%;
+}
+
+.font-list {
+    position: relative;
+}
+
+.font-list__close {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.font-list ul {
+    list-style: none;
+}
+
+.font-list__item {
+    position: relative;
+    float: left;
+    padding: 5px 15px;
+}
+
+.font-list__item.active:after {
+    content: 'V';
+    position: absolute;
+    border: 1px solid red;
+    color: red;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    text-align: center;
+    left: 50%;
+    margin-left: -10px;
+    top: 5px;
+}
+
+.choose-color {
+    border: 1px solid;
+    color: red;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.fonts-colors {
+
+}
+
+.fonts-colors__close {
+    position: relative;
+    left: 90%;
+}
+
+
+
+.main-nav {
+    margin:0;
+    padding:0;
+    float: left;
+}
+
+.main-nav__item {
+    float:left;
+    position:relative;
+    list-style-type:none;
+    width:75px;
+    height:25px;
+}
+
+.main-nav__tab_name_products a span {
+    position:absolute;
+    width:75px;
+    height:25px;
+    top:0;
+    left:0;
+    background-image: url(../img/new/topmenu1.png);
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+}
+/*#mainNav #item1Tab a:hover span {*/
+    /*background-position: 0px -25px;*/
+/*}*/
+/*#mainNav #item1Tab a#current span {*/
+    /*background-position: 0px -50px;*/
+/*}*/

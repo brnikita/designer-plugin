@@ -186,8 +186,11 @@ jQuery(function () {
             getActiveTab().addClass('hide');
         }
 
+        var left_column = $('.left-column');
+        left_column.removeClass('lc-' + designerUI.activeTabName);
         setActiveTab(tabName);
         getActiveTab().removeClass('hide');
+        left_column.addClass('lc-' + designerUI.activeTabName);
 
         hideGraphicsColorForm();
     });
