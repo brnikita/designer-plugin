@@ -117,7 +117,21 @@
             <div id="canvas-container">
                 <!-- DesignerJS core goes here -->
             </div>
-
+            <!-- Product side switch -->
+            <div id="product-sides-switch"
+                 data-bind="visible: selectedProductVO().locations().length > 1">
+                <div>
+                    <ul class="" data-bind="foreach: selectedProductVO().locations">
+                        <li data-bind="css: { active: $data.name == $root.selectedProductLocation() }">
+                            <a data-bind="click: $root.selectProductLocation">
+                                O
+                                <!--<span data-bind="text: $data.name"></span>-->
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Product side switch end -->
             <div id="bottom-menus" class="bottom-menus">
                 <div id="bottom-menu">
                     <div class="bottom-menu__main">
