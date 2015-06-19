@@ -114,7 +114,7 @@
 
             <div id="bottom-menus" class="bottom-menus">
                 <div id="bottom-menu">
-                    <div id="bottom-menu-main" class="">
+                    <div class="bottom-menu__main">
                         <a class="js-ellipsis-menu"><span>...</span></a>
                         <a class="js-designer-tab" href="share-design-tab" onclick="onShareDesign()">
                             <span>SAVE/SHARE</span>
@@ -123,7 +123,7 @@
                             <span>ADD SIZES & QTY</span>
                         </a>
                     </div>
-                    <div id="bottom-menu-ellipsis" class="hide">
+                    <div class="bottom-menu__ellipsis hide">
                         <a class="js-ellipsis-menu"><span>...</span></a>
                         <a id="undo-btn" class=""
                            data-bind="click: undo, visible: isUndoActive"><span>Undo</span></a>
