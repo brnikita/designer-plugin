@@ -229,10 +229,9 @@
     width: 95px;
     height: 95px;
     color: #FFFFFF;
-    background-repeat: no-repeat;
-    background-image: url(../img/new/products_back.svg);
-    background-position: 0px 0px;
+    background: no-repeat url(../img/new/products_back.svg) 0 0;
     background-size: 95px;
+    cursor: pointer;
     /*border: 1px solid blue;*/
 }
 
@@ -246,6 +245,7 @@
     width: 95px;
     height: 115px;
     text-align: center;
+    cursor: pointer;
     /*border: 1px solid green;*/
 }
 
@@ -365,7 +365,7 @@
 }
 
 #colors-tab .colors-palette li a.selected:after {
-    content: 'V';
+    content: '∨';
 }
 
 /*Colors tab ends here*/

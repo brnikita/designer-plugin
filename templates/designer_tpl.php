@@ -1,4 +1,10 @@
 <div id="main-container" class="main-container clearfix">
+    <div id="designer-init-preloader" data-bind="visible: !$root.status().completed">
+        <h5 data-bind="text: $root.status().message" class="text-center text-info"></h5>
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" data-bind="style: { width: $root.percentCompleted() }"></div>
+        </div>
+    </div>
     <div id="main-subcontainer" class="main-subcontainer clearfix">
         <div class="right-column">
             <div class="main-nav">
