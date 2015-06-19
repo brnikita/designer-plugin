@@ -270,6 +270,20 @@ jQuery(function () {
 
     });
 
+    //Restore svg viewBox when svg element is resized. Needed for mobile version.
+    $(window).bind('resize', function() {
+        var window_width = $(window).width();
+        if (window_width < 1024) {
+            $('#canvas-container svg')[0].setAttribute('viewBox', '0 0 587 543');
+        }
+    });
+
+    //Initialize viewBox in mobile version
+    $(document).bind('DOMSubtreeModified',function(){
+        if ($('#canvas-container svg')) {
+            $('#canvas-container svg')[0].setAttribute('viewBox', '0 0 587 543');
+        }
+    })
 });
 
 /* Alert */
@@ -280,6 +294,6 @@ designer_alert = function () {
 designer_alert.show = function (message) {
     jQuery('#designer-alert-message').text(message);
     jQuery('#designer-alert-popup').modal('show');
-}
+};
 
 /* Alert end */
