@@ -5,7 +5,6 @@
     font: 9px Raleway;
     width: 1024px;
     margin: 0 auto;
-    /*border: 1px solid red;*/
 }
 
 .main-subcontainer {
@@ -22,8 +21,7 @@
     float: right;
     position: relative;
     width: auto;
-    /*border: 1px solid red;*/
-}
+ }
 
 .right-column {
     float: right;
@@ -32,10 +30,14 @@
     padding: 0 0 0 15px;
 }
 
+#canvas-container svg {
+    width: 587px;
+    height: 543px;
+}
+
 #canvas-container {
     width: 587px;
     height: 543px;
-    /*border: 1px solid red;*/
 }
 
 .main-nav {
@@ -87,7 +89,6 @@
     background-repeat: no-repeat;
     background-image: url(../img/new/tabs.svg);
     background-size: 420px;
-    /*border: 1px solid green;*/
     text-align: center;
     font-size: 9px;
     display: inline-block;
@@ -220,7 +221,7 @@
 }
 
 #products-tab .products-list {
-    /*border: 1px solid red;*/
+
 }
 
 #products-tab .products-back-btn {
@@ -232,7 +233,6 @@
     background: no-repeat url(../img/new/products_back.svg) 0 0;
     background-size: 95px;
     cursor: pointer;
-    /*border: 1px solid blue;*/
 }
 
 #products-tab .products-list ul {
@@ -246,7 +246,6 @@
     height: 115px;
     text-align: center;
     cursor: pointer;
-    /*border: 1px solid green;*/
 }
 
 #products-tab .products-list li a {
@@ -289,25 +288,15 @@
     color: #3F3F3F;
 }
 
-
-/*#colors-tab .colorizable-groups li:after {
-    content: ' |';
-}
-#colors-tab .colorizable-groups li:last-child:after {
-    content: '';
-}*/
-
 #colors-tab .colorizable-groups {
     list-style: none;
     height: 30px;
     margin: 15px 0 0 0;
     text-align: center;
-    /*border: 1px solid green;*/
 }
 
 #colors-tab .colorizable-groups li {
     float: left;
-    /*border: 1px solid blue;*/
     padding: 0 0.35em 0 0;
 }
 
@@ -324,7 +313,6 @@
     height: 30px;
     line-height: 30px;
     margin: 0 0 15px 0;
-    /*border: 1px solid red;*/
 }
 
 #colors-tab .colors-classes li {
@@ -389,10 +377,16 @@
         margin: 0 auto;
     }
 
+    #canvas-container svg {
+        width: 320px;
+        height: 296px;
+    }
+
     #canvas-container {
         width: 320px;
         height: 296px;
     }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -407,15 +401,20 @@
         margin: 0 auto;
     }
 
-    .left-column {
+    #canvas-container svg {
         width: 320px;
-        margin: 0 auto;
-        float: none;
+        height: 296px;
     }
 
     #canvas-container {
         width: 320px;
         height: 296px;
+    }
+
+    .left-column {
+        width: 320px;
+        margin: 0 auto;
+        float: none;
     }
 
     .left-column.lc-products-tab {
@@ -434,6 +433,5 @@
     #colors-tab .colors-palette {
         display: none;
     }
-
 
 }

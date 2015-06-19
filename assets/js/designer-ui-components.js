@@ -280,7 +280,7 @@ jQuery(function () {
 
     //Initialize viewBox in mobile version
     $(document).bind('DOMSubtreeModified',function(){
-        if ($('#canvas-container svg')) {
+        if ($('#canvas-container svg')[0]) {
             $('#canvas-container svg')[0].setAttribute('viewBox', '0 0 587 543');
         }
     })
