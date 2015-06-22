@@ -16,7 +16,7 @@
                     </li>
                     <li class="main-nav__tab main-nav__tab_name_colors">
                         <a class="js-designer-tab" href="colors-tab">
-                            <span>Color</span>
+                            <span>Colour</span>
                         </a>
                     </li>
                     <li class="main-nav__tab main-nav__tab_name_text">

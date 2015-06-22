@@ -274,6 +274,11 @@
     background-color: #D51622
 }
 
+#products-tab .products-list li a.active span {
+    color: #FFFFFF;
+    background-color: #D51622
+}
+
 /*Products tab ends here*/
 
 /*Colors tab starts here*/

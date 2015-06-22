@@ -334,7 +334,7 @@ function wcla_config_json() {
             "includeProductInDesign"=>true,
             "maxZoom"=> 150,
             "minZoom"=> 50,
-            "zoomEnabled"=> true,
+            "zoomEnabled"=> false,
             "checkeredBackground"=> false,
             "unit"=> "in",
             "unit2"=> "ft",
