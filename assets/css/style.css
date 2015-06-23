@@ -1,3 +1,16 @@
+@font-face {
+    font-family: Raleway;
+    src: url(../fonts/RalewayRegular.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Raleway;
+    src: url(../fonts/RalewaySemiBold.ttf) format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
 
 .main-container {
     font: 9px Raleway;
@@ -103,14 +116,6 @@
     margin-left: 0;
 }
 
-/*#bottom-menus .bottom-menu__ellipsis a:nth-child(2) {
-    width: 108px;
-}
-
-#bottom-menus .bottom-menu__ellipsis a:nth-child(3) {
-    width: 137px;
-}*/
-
 /*Bottom ellipsis menu ends here*/
 
 /*Bottom color palette starts here*/
@@ -171,7 +176,6 @@
 }
 
 #product-sides-switch ul li {
-    /*float: left;*/
     display: inline-block;
     margin-left: 5px;
     list-style: none;
