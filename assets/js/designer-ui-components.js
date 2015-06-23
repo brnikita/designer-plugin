@@ -186,13 +186,20 @@ jQuery(function () {
             getActiveTab().addClass('hide');
         }
 
+        //-----
         var left_column = $('.left-column');
         left_column.removeClass('lc-' + designerUI.activeTabName);
+        //-----
         setActiveTab(tabName);
         getActiveTab().removeClass('hide');
+        //-----
         left_column.addClass('lc-' + designerUI.activeTabName);
 
         hideGraphicsColorForm();
+
+        $('#bottom-menu').removeClass('hide');
+        $('#colors-palette-carousel').addClass('hide');
+        //-----
     });
 
     jQuery('#designer-main-menu > .designer-dropdown > .dropdown-menu > .designer-dropdown-form-header > .designer-close-window-btn').click(function (e) {
@@ -250,6 +257,8 @@ jQuery(function () {
 
     initializeTabs();
 
+
+    //-----
     $('.js-ellipsis-menu').on('click', function (event) {
 
         event.preventDefault();
@@ -308,6 +317,7 @@ jQuery(function () {
         }
     })
 
+    //-----
 });
 
 /* Alert */

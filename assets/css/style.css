@@ -28,7 +28,6 @@
     padding: 0;
 }
 
-
 /*Left column starts here*/
 
 .left-column {
@@ -122,19 +121,23 @@
 
 #bottom-menus #colors-palette-carousel {
     margin: 5px 0 0 0;
-    outline: solid 1px red;
+    width: 295px;
+    /*outline: solid 1px green;*/
 }
 
 #bottom-menus #colors-palette-carousel ul {
+    width: 265px;
+    display: inline-block;
+    vertical-align: top;
     list-style: none;
 }
 
-#bottom-menus #colors-palette-carousel > ul li {
+#bottom-menus #colors-palette-carousel .colors-palette-group li {
     float: left;
     margin: 0 0 0 5px;
 }
 
-#bottom-menus #colors-palette-carousel > ul li a {
+#bottom-menus #colors-palette-carousel .colors-palette-group li a {
     width: 24px;
     height: 24px;
     line-height: 24px;
@@ -144,24 +147,28 @@
     text-align: center;
 }
 
-#bottom-menus #colors-palette-carousel > ul li a.selected {
+#bottom-menus #colors-palette-carousel .colors-palette-group li a.selected {
     background-color: #fff !important;
 }
 
-#bottom-menus #colors-palette-carousel > ul li a.selected {
+#bottom-menus #colors-palette-carousel .colors-palette-group li a.selected {
     text-decoration: none;
 }
 
-#bottom-menus #colors-palette-carousel > ul li a.selected:after {
+#bottom-menus #colors-palette-carousel .colors-palette-group li a.selected:after {
     content: '∨';
 }
 
 #bottom-menus #colors-palette-carousel .carousel-left {
     position: relative;
+    /*line-height: 24px;*/
+    /*outline: solid 1px red;*/
 }
 
 #bottom-menus #colors-palette-carousel .carousel-right {
     position: relative;
+    /*line-height: 24px;*/
+    /*outline: solid 1px red;*/
 }
 
 /*Bottom color palette ends here*/

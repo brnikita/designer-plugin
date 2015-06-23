@@ -749,7 +749,9 @@ function DEControlsModel() {
 
     self.colorClasses = ko.observableArray();
     self.colorsList = ko.observableArray();
+    //----- need for colors palette in mobile version
     self.colorsGroupsList = ko.observableArray();
+    //-----
 
     self.selectColorElement = function (colorizeElementGroup, event) {
         var classes = colorizeElementGroup.classes();
@@ -770,6 +772,7 @@ function DEControlsModel() {
         self.selectedProductElementColor(colorizeElement);
         self.colorsList(colorsList);
 
+        //----- need for colors palette in mobile version
         var i = 0,
             k = 0,
             group = [];
@@ -784,6 +787,16 @@ function DEControlsModel() {
             }
             i+=1;
         }
+        //-----
+
+        //----- show color palette in mobile version
+        var window_width = $(window).width();
+        if (window_width < 768) {
+            $('#colors-palette-carousel').removeClass('hide');
+            $('#colors-palette-carousel').carousel("prev");
+            $('#bottom-menu').addClass('hide');
+        }
+        //-----
 
     };
 
@@ -948,11 +961,12 @@ function DEControlsModel() {
             if (item.id()) {
                 self.selectProduct(item.obj());
 
-                //Switch to colors tab in mobile version
+                //----- Switch to colors tab in mobile version
                 var window_width = $(window).width();
                 if (window_width < 768) {
                     $('a[href="colors-tab"]').trigger('click');
                 }
+                //-----
 
             }
             return;
@@ -1306,10 +1320,12 @@ function DEControlsModel() {
     // list of graphics categories
     self.graphicCatalogBreadcrumbs = ko.observableArray();
 
+    //----- graphics current category
     self.graphicCategory = ko.observable();
     self.graphicCategory.subscribe(function(){
         self.graphicsSearchQuery("");
     })
+    //-----
 
     //selected graphics category
     self.graphicCurrentCategory = ko.computed(function () {
@@ -1329,6 +1345,7 @@ function DEControlsModel() {
         self.graphicCatalogBreadcrumbs([self.graphicRootCategory()]);
     };
 
+    //-----
     self.enterGraphicCategory = function (value) {
         self.graphicCatalogBreadcrumbs.splice(1);
         if (self.graphicCategory()) {
@@ -1337,6 +1354,7 @@ function DEControlsModel() {
             self.graphicCategory(undefined);
         }
     };
+    //-----
 
     //handlers - click on categories/graphics
     self.selectGraphicItem = function (categoryItem) {
@@ -1344,12 +1362,16 @@ function DEControlsModel() {
             if (categoryItem.id()) {
                 userInteract({addGraphics: categoryItem.id()});
                 //designerUI.closeActiveTab();
+                //-----
                 openGraphicsColorForm();
+                //-----
             }
             return;
         }
         self.graphicCatalogBreadcrumbs.push(categoryItem);
+        //-----
         self.graphicCategory(categoryItem);
+        //-----
     };
 
     //handlers - back button
@@ -1359,11 +1381,13 @@ function DEControlsModel() {
 
         self.graphicCatalogBreadcrumbs.pop();
 
+        //-----
         if (self.graphicCurrentCategory().id() === 'root') {
             self.graphicCategory(undefined);
         } else {
             self.graphicCategory(self.graphicCurrentCategory());
         }
+        //-----
     };
 
     //back button visibility
@@ -1403,7 +1427,9 @@ function DEControlsModel() {
     };
 
     self.clearGraphicsSearch = function () {
+        //-----
         self.graphicCategory(undefined);
+        //-----
         self.graphicsSearchQuery("");
     }
 
@@ -1450,6 +1476,7 @@ function DEControlsModel() {
         // can be 'none' (no object is selected), 'text' or 'graphics'
     self.selectedObjectType = ko.observable('none');
 
+    //-----
     self.selectedObjectType.subscribe( function(newValue) {
         if (newValue === 'text') {
             openTextForm();
@@ -1460,6 +1487,7 @@ function DEControlsModel() {
             openGraphicsColorForm();
         };
     });
+    //-----
 
     // return true if some object is selected
     self.hasSelected = ko.computed(function () {
@@ -2294,9 +2322,11 @@ function DEControlsModel() {
             if (self.selectedObjectType() === 'text') {
                 openTextForm();
             }
+            //-----
             if (self.selectedObjectType() === 'graphics') {
                 openGraphicsColorForm();
             }
+            //-----
             validate(invalidateList, 'objDClicked');
         }
 
@@ -2688,6 +2718,7 @@ function openTextForm() {
     designerUI.setFocusToTextTab();
 }
 
+//-----
 function openGraphicsColorForm() {
     designerUI.openTab('graphics-tab');
     $("#graphics-add-form").addClass('hide');
@@ -2702,6 +2733,7 @@ function hideGraphicsColorForm() {
     $('#graphics-color-form').addClass('hide');
     controlsModel.colorsList([]);
 };
+//-----
 
 function onLoadDesignDialogSubmit(event) {
     if (event == null || event.keyCode == 13) {

@@ -173,7 +173,7 @@
                 <div class="clearfix">
 
                 </div>
-                <div id="colors-palette-carousel" class="bottom-color-palette carousel" data-interval=false>
+                <div id="colors-palette-carousel" class="bottom-color-palette carousel hide" data-interval=false>
 
                     <a class="carousel-left carousel-control" href="#colors-palette-carousel" role="button" data-slide="prev">
                         <span><</span>
@@ -182,7 +182,7 @@
 
                     <ul class="carousel-inner" data-bind="foreach: { data: colorsGroupsList, as: 'group' }">
                         <li class="item" data-bind="">
-                            <ul data-bind="foreach: { data: items, as: 'item' }">
+                            <ul class="colors-palette-group" data-bind="foreach: { data: items, as: 'item' }">
                                 <li>
                                     <a href="#" data-bind="
                                     style: {
