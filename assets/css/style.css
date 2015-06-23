@@ -388,6 +388,11 @@
     cursor: pointer;
 }
 
+#products-tab .products-back-btn:hover {
+    background: no-repeat url(../img/new/products_back_red.svg) 0 0;
+    background-size: 95px;
+}
+
 #products-tab .products-list ul {
     list-style: none;
 }
