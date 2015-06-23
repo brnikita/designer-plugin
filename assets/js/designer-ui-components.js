@@ -252,13 +252,15 @@ jQuery(function () {
 
     $('.js-ellipsis-menu').on('click', function (event) {
 
-        $('#bottom-menu-ellipsis').toggleClass('hide');
-        $('#bottom-menu-main').toggleClass('hide');
+        event.preventDefault();
+        $('.bottom-menu__ellipsis').toggleClass('hide');
+        $('.bottom-menu__main').toggleClass('hide');
 
     });
 
     $('.js-graphics-upload-form').on('click', function (event) {
 
+        event.preventDefault();
         $('#graphics-add-form').toggleClass('hide');
         $('#graphics-upload-form').toggleClass('hide');
 
@@ -266,7 +268,20 @@ jQuery(function () {
 
     $('.js-graphics-color-form').on('click', function (event) {
 
+        event.preventDefault();
         hideGraphicsColorForm();
+
+    });
+
+    $('.js-palette-move-left').on('click', function (event) {
+
+        event.preventDefault();
+
+    });
+
+    $('.js-palette-move-right').on('click', function (event) {
+
+        event.preventDefault();
 
     });
 
@@ -275,6 +290,10 @@ jQuery(function () {
         var window_width = $(window).width();
         if (window_width < 1024) {
             $('#canvas-container svg')[0].setAttribute('viewBox', '0 0 587 543');
+            /*$('#canvas-container svg')[1].setAttribute('viewBox', '0 0 587 543');*/
+            /*$('#canvas-container svg').each(function() {
+                $(this)[0].setAttribute('viewBox', '0 0 587 543');
+            });*/
         }
     });
 
@@ -282,8 +301,13 @@ jQuery(function () {
     $(document).bind('DOMSubtreeModified',function(){
         if ($('#canvas-container svg')[0]) {
             $('#canvas-container svg')[0].setAttribute('viewBox', '0 0 587 543');
+            /*$('#canvas-container svg')[1].setAttribute('viewBox', '0 0 587 543');*/
+            /*$('#canvas-container svg').each(function() {
+                $(this)[0].setAttribute('viewBox', '0 0 587 543');
+            });*/
         }
     })
+
 });
 
 /* Alert */

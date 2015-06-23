@@ -749,6 +749,7 @@ function DEControlsModel() {
 
     self.colorClasses = ko.observableArray();
     self.colorsList = ko.observableArray();
+    self.colorsGroupsList = ko.observableArray();
 
     self.selectColorElement = function (colorizeElementGroup, event) {
         var classes = colorizeElementGroup.classes();
@@ -768,6 +769,22 @@ function DEControlsModel() {
         event.preventDefault();
         self.selectedProductElementColor(colorizeElement);
         self.colorsList(colorsList);
+
+        var i = 0,
+            k = 0,
+            group = [];
+        while(i < colorsList.length) {
+            if (k > 8) {
+                self.colorsGroupsList.push({name: k, items: group});
+                group = [];
+                k = 0;
+            } else {
+                group.push(colorsList[i]);
+                k+=1;
+            }
+            i+=1;
+        }
+
     };
 
     self.colorSelected = function (color, event) {

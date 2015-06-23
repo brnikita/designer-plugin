@@ -88,19 +88,24 @@
                     </li>
                 </ul>
                 <ul class="colors-classes clearfix" data-bind="foreach: colorClasses">
-                    <li data-bind="style: {backgroundColor: value, borderColor: value }">
-                        <a href="#"
-                           data-bind="text: name, click: $root.selectColorSubElement"></a>
+                    <li data-bind="
+                        style: {
+                            'border-color': value() == '#FFFFFF' ? '#A3A2A4': value(),
+                            'background-color': $root.selectedProductElementColor().name() == name() ? value(): '#FFFFFF'
+                            }
+                        "><a href="#"
+                           data-bind="style: {color: $root.selectedProductElementColor().name() == name() ? value()== '#FFFFFF' ? '#000000': '#FFFFFF': value()== '#FFFFFF' ? '#A3A2A4': value() },
+                                                        text: name, click: $root.selectColorSubElement"></a>
                     </li>
                 </ul>
-                <!--            <div>color selected <span data-bind="text: selectedProductElementColor().name"></span></div>-->
+                <!--<div>COLOR SELECTED <span data-bind="text: $root.selectedProductElementColor().colors[selectedProductElementColor().id()].name()"></span></div>-->
                 <ul class="colors-palette clearfix" data-bind="foreach: colorsList">
                     <li>
                         <a href="#" data-bind="
                             style: {
                                 'background-color': value,
                                 'color': value,
-                                'border-color': value
+                                'border-color': value == '#FFFFFF' ? '#A3A2A4': value
                                 },
                             title: name,
                             click: $root.colorSelected,
@@ -120,16 +125,17 @@
             <!-- Product side switch -->
             <div id="product-sides-switch"
                  data-bind="visible: selectedProductVO().locations().length > 1">
-                <div>
-                    <ul class="" data-bind="foreach: selectedProductVO().locations">
-                        <li data-bind="css: { active: $data.name == $root.selectedProductLocation() }">
-                            <a data-bind="click: $root.selectProductLocation">
-                                O
-                                <!--<span data-bind="text: $data.name"></span>-->
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                <ul class="" data-bind="foreach: selectedProductVO().locations">
+                    <li data-bind="css: { active: $data.name == $root.selectedProductLocation() }">
+                        <a data-bind="click: $root.selectProductLocation">
+                            O
+                            <!--<span data-bind="text: $data.name"></span>-->
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="clearfix">
+
             </div>
             <!-- Product side switch end -->
             <div id="bottom-menus" class="bottom-menus">
@@ -151,16 +157,55 @@
                            data-bind="click: redo, visible: isRedoActive"><span>Redo</span></a>
                         <a id="copy-btn" class="" data-bind="click: copy">Copy</a>
                         <a id="paste-btn" class="" data-bind="click: paste">Paste</a>
-                        <!--                    <ul class="nav nav-pills designer-button-bar">
-                                                <li id="undo"><a id="undo-btn" data-bind="click: undo, visible: isUndoActive"><span>Undo</span></a></li>
-                                                <li id="redo"><a id="redo-btn" data-bind="click: redo, visible: isRedoActive"><span>Redo</span></a></li>
-                                                <li id="copy"><a id="copy-btn" data-bind="click: copy">Copy</a></li>
-                                                <li id="paste"><a id="paste-btn" data-bind="click: paste">Paste</a></li>
-                                            </ul>-->
+<!--
+                        <ul class="nav nav-pills designer-button-bar">
+                            <li id="undo"><a id="undo-btn" data-bind="click: undo, visible: isUndoActive"><span>Undo</span></a></li>
+                            <li id="redo"><a id="redo-btn" data-bind="click: redo, visible: isRedoActive"><span>Redo</span></a></li>
+                            <li id="copy"><a id="copy-btn" data-bind="click: copy">Copy</a></li>
+                            <li id="paste"><a id="paste-btn" data-bind="click: paste">Paste</a></li>
+                        </ul>
+-->
                     </div>
                     <div>
 
                     </div>
+                </div>
+                <div class="clearfix">
+
+                </div>
+                <div id="colors-palette-carousel" class="bottom-color-palette carousel" data-interval=false>
+
+                    <a class="carousel-left carousel-control" href="#colors-palette-carousel" role="button" data-slide="prev">
+                        <span><</span>
+                        <!--<span class="sr-only">Previous</span>-->
+                    </a>
+
+                    <ul class="carousel-inner" data-bind="foreach: { data: colorsGroupsList, as: 'group' }">
+                        <li class="item" data-bind="">
+                            <ul data-bind="foreach: { data: items, as: 'item' }">
+                                <li>
+                                    <a href="#" data-bind="
+                                    style: {
+                                        'background-color': value,
+                                        'color': value,
+                                        'border-color': value
+                                        },
+                                    title: name,
+                                    click: $root.colorSelected,
+                                    css: {
+                                        selected: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase()
+                                    }
+                                "></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <a class="carousel-right carousel-control" href="#colors-palette-carousel" role="button" data-slide="next">
+                        <span>></span>
+                        <!--<span class="sr-only">Next</span>-->
+                    </a>
+
                 </div>
             </div>
 
