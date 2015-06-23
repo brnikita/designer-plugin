@@ -947,6 +947,13 @@ function DEControlsModel() {
         if (item.isProduct()) {
             if (item.id()) {
                 self.selectProduct(item.obj());
+
+                //Switch to colors tab in mobile version
+                var window_width = $(window).width();
+                if (window_width < 768) {
+                    $('a[href="colors-tab"]').trigger('click');
+                }
+
             }
             return;
         }
