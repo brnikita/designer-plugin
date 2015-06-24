@@ -34,7 +34,7 @@
     float: right;
     position: relative;
     width: auto;
- }
+}
 
 .right-column {
     float: right;
@@ -173,7 +173,6 @@
 
 /*Bottom color palette ends here*/
 
-
 /*Products sides switch starts here*/
 
 #product-sides-switch {
@@ -264,19 +263,19 @@
 }
 
 .main-nav__tab_name_products a span {
-    background-position: -0px 0px;
+    background-position: -0px 0;
 }
 
 .main-nav__tab_name_colors a span {
-    background-position: -42px 0px;
+    background-position: -42px 0;
 }
 
 .main-nav__tab_name_text a span {
-    background-position: -84px 0px;
+    background-position: -84px 0;
 }
 
 .main-nav__tab_name_graphics a span {
-    background-position: -126px 0px;
+    background-position: -126px 0;
 }
 
 .main-nav__tab_name_numbers a span {
@@ -334,8 +333,8 @@
     background: #fff;
 }
 
-#products-tab .products-select select::-ms-expand{
-    display:none;
+#products-tab .products-select select::-ms-expand {
+    display: none;
 }
 
 #products-tab .products-select span {
@@ -361,7 +360,7 @@
     vertical-align: middle;*/
 }
 
-#products-tab .products-search input{
+#products-tab .products-search input {
     height: 30px;
     width: 100%;
     font: 9px Raleway;
@@ -484,8 +483,8 @@
     background: #fff;
 }
 
-#graphics-tab .graphics-select select::-ms-expand{
-    display:none;
+#graphics-tab .graphics-select select::-ms-expand {
+    display: none;
 }
 
 #graphics-tab .graphics-select span {
@@ -512,7 +511,7 @@
     vertical-align: middle;*/
 }
 
-#graphics-tab .graphics-search input{
+#graphics-tab .graphics-search input {
     height: 30px;
     width: 100%;
     font: 9px Raleway;
@@ -701,7 +700,6 @@
 /*Graphics color form ends here*/
 /*Graphics tab ends here*/
 
-
 /*Colors tab starts here*/
 
 #colors-tab {
@@ -730,7 +728,7 @@
     padding: 0 5px 0 5px;
 }*/
 
-#colors-tab .colorizable-groups li + li::before{
+#colors-tab .colorizable-groups li + li::before {
     content: " | ";
 }
 
@@ -869,5 +867,50 @@
     #colors-tab .colors-palette {
         display: none;
     }
+}
 
+.text-tab__title {
+
+}
+
+.text-tab-title {
+    font-size: 12px;
+    color: #D51622;
+    line-height: 32px;
+}
+
+.text-tab__title__text {
+    float: left;
+    width: 200px;
+}
+
+.text-tab__title__button {
+    float: right;
+}
+
+.text-tab__title__button button {
+    border: 1px solid #D51622;
+    width: 31px;
+    height: 31px;
+    font-size: 36px;
+    font-weight: 100;
+    line-height: 9px;
+    color: #D51622;
+    background: none;
+}
+
+.text-tab__text {
+    padding-top: 3px;
+
+}
+
+.text-tab__text textarea {
+    width: 100%;
+    height: 65px;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.text-tab-label {
+    color: #7A7A7A;
 }
