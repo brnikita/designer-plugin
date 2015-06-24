@@ -304,6 +304,9 @@ jQuery(function () {
                 $(this)[0].setAttribute('viewBox', '0 0 587 543');
             });*/
         }
+        if (window_width >= 768) {
+            $('#colors-palette-carousel').addClass('hide');
+        }
     });
 
     //Initialize viewBox in mobile version

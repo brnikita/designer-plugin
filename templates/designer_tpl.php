@@ -116,6 +116,118 @@
                     </li>
                 </ul>
             </div>
+            <div id="graphics-tab" class="hide">
+                <div id="graphics-add-form">
+                    <div class="graphics-controls">
+                        <div class="graphics-select">
+                            <select data-bind="
+                                options: graphicRootCategory().categories,
+                                optionsText: 'name',
+                                value: graphicCategory,
+                                optionsCaption: 'All Graphics',
+                                event: {change: enterGraphicCategory}
+                            "></select>
+                        </div>
+                        <div class="graphics-search">
+                            <input type="text" placeholder="Search"
+                                   data-bind="value: graphicsSearchQuery, valueUpdate: 'input'">
+                            <!--<button class="close" aria-hidden="true"
+                                    data-bind="visible: graphicsSearchQuery().length > 0, click: clearGraphicsSearch">&times;</button>-->
+                            <span></span>
+                        </div>
+                        <div class="graphics-upload">
+                            <a class="js-graphics-upload-form" type="button"><span></span></a>
+                        </div>
+
+                    </div>
+
+
+                    <div class="graphics-list">
+                        <div class="graphics-back-btn" data-bind="visible: graphicSelectedSubcategory, click: backGraphicItem">
+                            Back
+                        </div>
+                        <ul data-bind="foreach: currentGraphics , css: { narrow: graphicSelectedSubcategory }">
+                            <li data-bind="
+                                    click: $root.selectGraphicItem,
+                                    css: { category: isCategory(),
+                                    image: isImage() },
+                                    style: { backgroundImage: 'url(' + categoryThumb() + ')' }">
+                                <a data-bind="visible: isImage()">
+                                    <img src="#" data-bind="attr: { src: thumb }" alt="" />
+                                    <span data-bind="text: name"></span>
+                                </a>
+                                <a data-bind="visible: isCategory()">
+                                    <img src="#" data-bind="attr: { src: thumb }" alt="" />
+                                    <span data-bind="text: name"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="graphics-upload-form" class="hide">
+                    <div class="designer-dropdown-form-header">
+                        <span class="designer-form-header-title">Upload Graphics</span>
+                        <a class="designer-close-window-btn"></a>
+                        <button type="button" class="close js-graphics-upload-form">&times;</button>
+                    </div>
+                    <div id="upload-image-form-content">
+                        <form id="designer-upload-upload-image-by-url">
+                            <div class="input-group">
+                                <input id="designer-upload-graphics-url-input" type="text" class="form-control" placeholder="Url" data-bind="value: customImageUrl, valueUpdate: 'input'">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button" data-bind="click: showUploadConditions.bind($data, 'url'), enable: customImageUrl().length > 0">Add</button>
+                                    </span>
+                            </div>
+                        </form>
+                        <h6 class="text-center" data-bind="visible: uploadFileAvailable">or</h6>
+                        <form id="designer-upload-image-form" enctype="multipart/form-data" method="post" data-bind="visible: uploadFileAvailable">
+                            <button id="designer-upload-image-browse-btn" type="button" class="btn btn-default btn-block" data-loading-text="Uploading..." data-bind="click: showUploadConditions.bind($data, 'upload')">Browse for file...</button>
+                        </form>
+                        <button class="btn btn-default js-graphics-upload-form" id="done-numbers-btn" type="button">Done</button>
+                    </div>
+                </div>
+
+                <div id="graphics-color-form" class="hide">
+                    <div>Change the colors of you graphic</div>
+                    <button type="button" class="close js-graphics-color-form">&times;</button>
+                    <div data-bind="visible: selectedIsGraphics">
+                        <ul class="colors-classes clearfix"
+                            data-bind="foreach: { data: selectedGraphicsFormatVO().complexColor().colorizeList}">
+                            <!--<li>
+                                <a href="#" class="" data-bind="style: {'background-color': value}, text: name, click: $root.selectColorSubElement"></a> |
+                            </li>-->
+                            <li data-bind="
+                        style: {
+                            'border-color': value() == '#FFFFFF' ? '#A3A2A4': value(),
+                            'background-color': $root.selectedProductElementColor().name() == name() ? value(): '#FFFFFF'
+                            }
+                        "><a href="#"
+                             data-bind="style: {color: $root.selectedProductElementColor().name() == name() ? value()== '#FFFFFF' ? '#000000': '#FFFFFF': value()== '#FFFFFF' ? '#A3A2A4': value() },
+                                                        text: name, click: $root.selectColorSubElement"></a>
+                            </li>
+                        </ul>
+
+                        <ul class="colors-palette clearfix" data-bind="foreach: colorsList">
+                            <li>
+                                <a href="#" data-bind="
+                                style: {
+                                    'background-color': value,
+                                    'color': value,
+                                    'border-color': value
+                                    },
+                                title: name,
+                                click: $root.colorSelected,
+                                css: {
+                                    selected: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase()
+                                }
+                        "></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="js-graphics-color-form" type="button">Done</button>
+                </div>
+            </div>
         </div>
 
         <div class="left-column lc-products-tab">
