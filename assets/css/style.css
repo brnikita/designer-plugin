@@ -498,7 +498,6 @@
     background-image: url(../img/new/products_controls.svg);
     background-position: 0px 0px;
     background-size: 60px;
-    /*border: 1px solid red;*/
 }
 
 #graphics-tab .graphics-search {
@@ -649,14 +648,14 @@
     background-size: 6px;
 }
 
-#graphics-tab .colors-classes {
+#graphics-tab #graphics-color-form .colors-classes {
     list-style: none;
     height: 30px;
     line-height: 30px;
     margin: 0 0 15px 0;
 }
 
-#graphics-tab .colors-classes li {
+#graphics-tab #graphics-color-form .colors-classes li {
     float: left;
     height: 30px;
     padding: 0 5px 0 5px;
@@ -666,16 +665,16 @@
     text-align: center;
 }
 
-#graphics-tab .colors-palette {
+#graphics-tab #graphics-color-form .colors-palette {
     list-style: none;
 }
 
-#graphics-tab .colors-palette li {
+#graphics-tab #graphics-color-form .colors-palette li {
     float: left;
     padding: 0 5px 5px 0;
 }
 
-#graphics-tab .colors-palette li a {
+#graphics-tab #graphics-color-form .colors-palette li a {
     width: 24px;
     height: 24px;
     line-height: 24px;
@@ -685,19 +684,100 @@
     border: 1px solid;
 }
 
-#graphics-tab .colors-palette li a.selected {
+#graphics-tab #graphics-color-form .colors-palette li a.selected {
     background-color: #fff !important;
 }
 
-#graphics-tab .colors-palette li a.selected {
+#graphics-tab #graphics-color-form .colors-palette li a.selected {
     text-decoration: none;
 }
 
-#graphics-tab .colors-palette li a.selected:after {
+#graphics-tab #graphics-color-form .colors-palette li a.selected:after {
     content: '∨';
 }
 
 /*Graphics color form ends here*/
+
+/*Graphics upload form starts here*/
+
+#graphics-tab #graphics-upload-form .graphics-upload-form__title {
+    position: relative;
+    font: 16px Raleway;
+    color: #D51622;
+    margin: 20px 0 15px 0;
+}
+
+#graphics-tab #graphics-upload-form .graphics-upload-form__title a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#graphics-tab #graphics-upload-form .graphics-upload-form__title a span {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    top: 0;
+    right: 5px;
+    background-repeat: no-repeat;
+    background-image: url(../img/new/x.png);
+    background-position: 0px 0px;
+    background-size: 6px;
+}
+
+#graphics-tab #graphics-upload-form .graphics-upload-form__info {
+    font: 12px Raleway;
+    color: #D51622;
+    margin-bottom: 15px;
+}
+
+#graphics-tab #graphics-upload-form p {
+    font: 12px Raleway;
+    color: #7A7A7A;
+    margin-bottom: 15px;
+}
+
+#graphics-tab #graphics-upload-form ol {
+    counter-reset: uploadCounter;
+    margin-bottom: 15px;
+}
+
+#graphics-tab #graphics-upload-form li:before {
+    counter-increment: uploadCounter;
+    content: counter(uploadCounter) ". ";
+    color: #D51622;
+    display: inline-block;
+    text-align: center;
+    margin-right: 4px;
+}
+
+#graphics-tab #graphics-upload-form li {
+    list-style: none;
+    font: 12px Raleway;
+    color: #7A7A7A;
+}
+
+#graphics-tab #graphics-upload-form input[type="checkbox"] {
+
+
+}
+
+#graphics-tab #graphics-upload-form .graphics-upload-form__upload {
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #D51622;
+    border-radius: 2px;
+}
+
+#graphics-tab #graphics-upload-form .graphics-upload-form__upload a {
+    text-decoration: none;
+    font: 12px Raleway;
+    color: #D51622;
+}
+
+/*Graphics upload form ends here*/
+
 /*Graphics tab ends here*/
 
 /*Colors tab starts here*/

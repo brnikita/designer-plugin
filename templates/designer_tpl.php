@@ -322,9 +322,10 @@
                                 options: graphicRootCategory().categories,
                                 optionsText: 'name',
                                 value: graphicCategory,
-                                optionsCaption: 'All Graphics',
+                                optionsCaption: 'All Graphics',
                                 event: {change: enterGraphicCategory}
                             "></select>
+                            <span></span>
                         </div>
                         <div class="graphics-search">
                             <input type="text" placeholder="Search"
@@ -365,11 +366,14 @@
                 </div>
 
                 <div id="graphics-upload-form" class="hide">
-                    <p>Uploading Photos and Images</p>
+                    <div class="graphics-upload-form__title">
+                        <span>Uploading Photos and Images</span>
+                        <a class="js-graphics-color-form">
+                            <span></span>
+                        </a>
+                    </div>
 
-                    <p>Please note that in order to use a design (photo, image, text, brand or saying) you must have
-                        full rights to use this design.</p>
-
+                    <p>Please note that in order to use a design (photo, image, text, brand or saying) you must have full rights to use this design.</p>
                     <p>By uploading or saving a design you agree that:</p>
                     <ol>
                         <li>You hold the rights to commercially reproduce this design.</li>
@@ -382,14 +386,11 @@
                             or confirm the legal use of reproducing any designs.
                         </li>
                     </ol>
-                    <p>Graphics Information</p>
-
-                    <p>Designer supports jpeg, gif, png and svg formats. All images need to have a minimum resolution of
-                        150 dpi.</p>
-
+                    <p class="graphics-upload-form__info">Graphics Information</p>
+                    <p>Designer supports jpeg, gif, png and svg formats. All images need to have a minimum resolution of 150 dpi.</p>
+                    <input type="checkbox" name="upload terms" value="">
                     <p>I understand and accept these conditions of copyright.</p>
-
-                    <div>
+                    <div class="graphics-upload-form__upload">
                         <a href="#">Upload</a>
                     </div>
                     <!--<div class="designer-dropdown-form-header">
