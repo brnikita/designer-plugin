@@ -40,7 +40,7 @@
     float: right;
     position: relative;
     width: 320px;
-    padding: 0 0 0 15px;
+    padding: 0 10px 0 15px;
 }
 
 #canvas-container svg {
@@ -410,11 +410,16 @@
 
 #products-tab .products-list li {
     float: left;
+    margin-right: 5px;
     position: relative;
     width: 95px;
     height: 115px;
     text-align: center;
     cursor: pointer;
+}
+
+#products-tab .products-list li:nth-child(3n) {
+    margin-right: 0;
 }
 
 #products-tab .products-list li a {
@@ -470,8 +475,8 @@
 
 #graphics-tab .graphics-select select {
     height: 30px;
-    max-width: 150px;
-    min-width: 150px;
+    max-width: 145px;
+    min-width: 145px;
     font: 9px Raleway;
     color: #7A7A7A;
     margin: 0;
@@ -550,11 +555,6 @@
     background-size: 30px;
 }
 
-
-#graphics-tab .graphics-list {
-
-}
-
 #graphics-tab .graphics-back-btn {
     float: left;
     position: relative;
@@ -578,10 +578,15 @@
 #graphics-tab .graphics-list li {
     float: left;
     position: relative;
+    margin-right: 5px;
     width: 95px;
     height: 115px;
     text-align: center;
     cursor: pointer;
+}
+
+#graphics-tab .graphics-list li:nth-child(3n) {
+    margin-right: 0;
 }
 
 #graphics-tab .graphics-list li a {
@@ -613,6 +618,36 @@
 #graphics-tab .graphics-list li a.active span {
     color: #FFFFFF;
     background-color: #D51622
+}
+
+/*Graphics color form starts here*/
+
+#graphics-tab #graphics-color-form {
+    margin-top: 18px;
+}
+
+#graphics-tab #graphics-color-form .graphics-color-form__title {
+    position: relative;
+    color: red;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+#graphics-tab #graphics-color-form .graphics-color-form__title a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#graphics-tab #graphics-color-form .graphics-color-form__title a span {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    top: 0;
+    right: 5px;
+    background-repeat: no-repeat;
+    background-image: url(../img/new/x.png);
+    background-position: 0px 0px;
+    background-size: 6px;
 }
 
 #graphics-tab .colors-classes {
@@ -663,6 +698,7 @@
     content: '∨';
 }
 
+/*Graphics color form ends here*/
 /*Graphics tab ends here*/
 
 

@@ -166,7 +166,22 @@
                 </div>
 
                 <div id="graphics-upload-form" class="hide">
-                    <div class="designer-dropdown-form-header">
+                    <p>Uploading Photos and Images</p>
+                    <p>Please note that in order to use a design (photo, image, text, brand or saying) you must have full rights to use this design.</p>
+                    <p>By uploading or saving a design you agree that:</p>
+                    <ol>
+                        <li>You hold the rights to commercially reproduce this design.</li>
+                        <li>You also release us from any claims made as a result of any copyright infringement.</li>
+                        <li>You understand that infringement of copyright is illegal. If you have any doubt as to the legal ownership of a design you should check with the rightful owner that you are able to use the design before uploading.</li>
+                        <li>You understand that we act under your instructions and is not obligated in any way to check or confirm the legal use of reproducing any designs.</li>
+                    </ol>
+                    <p>Graphics Information</p>
+                    <p>Designer supports jpeg, gif, png and svg formats. All images need to have a minimum resolution of 150 dpi.</p>
+                    <p>I understand and accept these conditions of copyright.</p>
+                    <div>
+                        <a href="#">Upload</a>
+                    </div>
+                    <!--<div class="designer-dropdown-form-header">
                         <span class="designer-form-header-title">Upload Graphics</span>
                         <a class="designer-close-window-btn"></a>
                         <button type="button" class="close js-graphics-upload-form">&times;</button>
@@ -185,47 +200,49 @@
                             <button id="designer-upload-image-browse-btn" type="button" class="btn btn-default btn-block" data-loading-text="Uploading..." data-bind="click: showUploadConditions.bind($data, 'upload')">Browse for file...</button>
                         </form>
                         <button class="btn btn-default js-graphics-upload-form" id="done-numbers-btn" type="button">Done</button>
-                    </div>
+                    </div>-->
                 </div>
 
                 <div id="graphics-color-form" class="hide">
-                    <div>Change the colors of you graphic</div>
-                    <button type="button" class="close js-graphics-color-form">&times;</button>
-                    <div data-bind="visible: selectedIsGraphics">
+                    <div class="graphics-color-form__title">
+                        <span>Change the colors of you graphic</span>
+                        <a class="js-graphics-color-form">
+                            <span></span>
+                        </a>
+                    </div>
+                    <div class="graphics-color-form__palette" data-bind="visible: selectedIsGraphics">
                         <ul class="colors-classes clearfix"
                             data-bind="foreach: { data: selectedGraphicsFormatVO().complexColor().colorizeList}">
                             <!--<li>
                                 <a href="#" class="" data-bind="style: {'background-color': value}, text: name, click: $root.selectColorSubElement"></a> |
                             </li>-->
                             <li data-bind="
-                        style: {
-                            'border-color': value() == '#FFFFFF' ? '#A3A2A4': value(),
-                            'background-color': $root.selectedProductElementColor().name() == name() ? value(): '#FFFFFF'
-                            }
-                        "><a href="#"
-                             data-bind="style: {color: $root.selectedProductElementColor().name() == name() ? value()== '#FFFFFF' ? '#000000': '#FFFFFF': value()== '#FFFFFF' ? '#A3A2A4': value() },
-                                                        text: name, click: $root.selectColorSubElement"></a>
+                                style: {
+                                    'border-color': value() == '#FFFFFF' ? '#A3A2A4': value(),
+                                    'background-color': $root.selectedProductElementColor().name() == name() ? value(): '#FFFFFF'
+                                    }
+                                "><a href="#"
+                                     data-bind="style: {color: $root.selectedProductElementColor().name() == name() ? value()== '#FFFFFF' ? '#000000': '#FFFFFF': value()== '#FFFFFF' ? '#A3A2A4': value() },
+                                                                text: name, click: $root.selectColorSubElement"></a>
                             </li>
                         </ul>
-
                         <ul class="colors-palette clearfix" data-bind="foreach: colorsList">
                             <li>
                                 <a href="#" data-bind="
-                                style: {
-                                    'background-color': value,
-                                    'color': value,
-                                    'border-color': value
-                                    },
-                                title: name,
-                                click: $root.colorSelected,
-                                css: {
-                                    selected: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase()
-                                }
-                        "></a>
+                                    style: {
+                                        'background-color': value,
+                                        'color': value,
+                                        'border-color': value == '#FFFFFF' ? '#A3A2A4': value
+                                        },
+                                    title: name,
+                                    click: $root.colorSelected,
+                                    css: {
+                                        selected: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase()
+                                    }
+                                "></a>
                             </li>
                         </ul>
                     </div>
-                    <button class="js-graphics-color-form" type="button">Done</button>
                 </div>
             </div>
         </div>

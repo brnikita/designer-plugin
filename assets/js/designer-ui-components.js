@@ -282,18 +282,6 @@ jQuery(function () {
 
     });
 
-    $('.js-palette-move-left').on('click', function (event) {
-
-        event.preventDefault();
-
-    });
-
-    $('.js-palette-move-right').on('click', function (event) {
-
-        event.preventDefault();
-
-    });
-
     //Restore svg viewBox when svg element is resized. Needed for mobile version.
     $(window).bind('resize', function() {
         var window_width = $(window).width();
@@ -306,6 +294,7 @@ jQuery(function () {
         }
         if (window_width >= 768) {
             $('#colors-palette-carousel').addClass('hide');
+            $('#bottom-menu').removeClass('hide');
         }
     });
 
