@@ -123,6 +123,7 @@
     width: 295px;
     position: relative;
     margin: 5px auto 0 auto;
+    display: none;
 }
 
 #bottom-menus #colors-palette-carousel ul {
@@ -944,6 +945,14 @@
 
     .left-column.lc-products-tab {
         display: none;
+    }
+
+    .left-column.lc-graphics-tab {
+        /*display: none;*/
+    }
+
+    #bottom-menus #colors-palette-carousel {
+        display: inline;
     }
 
     .left-column.lc-colours-tab {

@@ -190,15 +190,13 @@ jQuery(function () {
         var left_column = $('.left-column');
         left_column.removeClass('lc-' + designerUI.activeTabName);
         //-----
+
         setActiveTab(tabName);
         getActiveTab().removeClass('hide');
+
         //-----
         left_column.addClass('lc-' + designerUI.activeTabName);
-
         resetColorsSelection();
-
-        $('#bottom-menu').removeClass('hide');
-        $('#colors-palette-carousel').addClass('hide');
         //-----
     });
 
@@ -257,7 +255,6 @@ jQuery(function () {
 
     initializeTabs();
 
-
     //-----
     $('.js-ellipsis-menu').on('click', function (event) {
 
@@ -292,10 +289,6 @@ jQuery(function () {
                 $(this)[0].setAttribute('viewBox', '0 0 587 543');
             });*/
         }
-        if (window_width >= 768) {
-            $('#colors-palette-carousel').addClass('hide');
-            $('#bottom-menu').removeClass('hide');
-        }
     });
 
     //Initialize viewBox in mobile version
@@ -307,7 +300,7 @@ jQuery(function () {
                 $(this)[0].setAttribute('viewBox', '0 0 587 543');
             });*/
         }
-    })
+    });
 
     //-----
 });

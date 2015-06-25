@@ -754,16 +754,23 @@ function DEControlsModel() {
     self.colorClasses = ko.observableArray();
     self.colorsList = ko.observableArray();
 
+    //----- to hide or show bottom menu
+    self.isColorPaletteShowed = ko.computed(function() {
+        return self.colorsList().length > 0;
+    });
+    //-----
+
     //----- use to reset color selection in some situations (tab switching or product selecting)
     self.resetColorsSelection = function() {
         self.selectedProductElementColor(new ColorizeElementVO());
         self.colorClasses([]);
         self.colorsList([]);
+        self.colorsGroupsList([]);
         self.currentColorizeElementGroup('');
     }
     //-----
 
-    //----- need for colors palette in mobile version
+    //----- for colors palette in mobile version
     self.colorsGroupsList = ko.observableArray();
     self.currentColorizeElementGroup = ko.observable('');
     //-----
@@ -771,13 +778,14 @@ function DEControlsModel() {
     self.selectColorElement = function (colorizeElementGroup, event) {
         var classes = colorizeElementGroup.classes();
 
-        //----- need for colorizing current element group
+        //----- for colorizing current element group
         self.currentColorizeElementGroup(colorizeElementGroup.name());
         //-----
 
         event.preventDefault();
         self.colorClasses(classes);
         self.colorsList([]);
+        self.colorsGroupsList([]);
     };
 
     self.colorName = ko.computed(function () {
@@ -791,7 +799,7 @@ function DEControlsModel() {
         self.selectedProductElementColor(colorizeElement);
         self.colorsList(colorsList);
 
-        //----- need for colors palette in mobile version
+        //----- for colors palette in mobile version where it is devided in groups by 9
         var i = 0,
             k = 0,
             group = [];
@@ -806,17 +814,8 @@ function DEControlsModel() {
             }
             i+=1;
         }
-        //-----
 
-        //----- show color palette in mobile version
-        var window_width = $(window).width();
-        if (window_width < 768) {
-            $('#colors-palette-carousel').removeClass('hide');
-            $('#colors-palette-carousel').carousel("prev");
-            $('#bottom-menu').addClass('hide');
-        }
         //-----
-
     };
 
     self.colorSelected = function (color, event) {
