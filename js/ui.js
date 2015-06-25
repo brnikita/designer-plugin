@@ -730,7 +730,7 @@ function DEControlsModel() {
     self.selectedProductVO().id.subscribe(function (id) {
         userInteract({selectedProductId: id});
 
-        //-----
+        //----- reset color selection when product is selected
         self.resetColorsSelection();
         //-----
     });
@@ -754,7 +754,7 @@ function DEControlsModel() {
     self.colorClasses = ko.observableArray();
     self.colorsList = ko.observableArray();
 
-    //-----
+    //----- use to reset color selection in some situations (tab switching or product selecting)
     self.resetColorsSelection = function() {
         self.selectedProductElementColor(new ColorizeElementVO());
         self.colorClasses([]);
@@ -771,7 +771,7 @@ function DEControlsModel() {
     self.selectColorElement = function (colorizeElementGroup, event) {
         var classes = colorizeElementGroup.classes();
 
-        //-----
+        //----- need for colorizing current element group
         self.currentColorizeElementGroup(colorizeElementGroup.name());
         //-----
 
@@ -1391,7 +1391,6 @@ function DEControlsModel() {
         self.graphicCatalogBreadcrumbs.push(categoryItem);
         //-----
         self.graphicCategory(categoryItem);
-
         //-----
     };
 
