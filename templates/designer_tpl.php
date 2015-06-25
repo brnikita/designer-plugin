@@ -118,13 +118,18 @@
                                 selected: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase()
                             }
                         ">
-                        <svg data-bind="visible: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
-                             id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="24px" height="24px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <svg
+                                data-bind="visible: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
+                                id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
+                                width="24px" height="24px" version="1.1"
+                                style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                                viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
                               <g>
-                                <g>
-                                    <path class="fil1" d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
-                                </g>
-                             </g>
+                                  <g>
+                                      <path class="fil1"
+                                            d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
+                                  </g>
+                              </g>
                         </svg>
                         </a>
                     </li>
@@ -157,7 +162,8 @@
                         SELECT FONT
                     </div>
                     <div class="font-select-sign">
-                        <button class="text-controls-sprite text-control-t" type="button" data-bind="click: toggleFontsList"></button>
+                        <button class="text-controls-sprite text-control-t" type="button"
+                                data-bind="click: toggleFontsList"></button>
                     </div>
                     <div class="text-tab-label font-select-color-label">
                         CHOOSE A COLOR
@@ -174,7 +180,7 @@
                 <div class="fonts-colors" data-bind="visible: showFontsColorsList">
                     <a href="#" class="btn btn-default fonts-colors__close"
                        data-bind="click: toggleFontsColorsList">X</a>
-                    <ul class="designer-color-palette clearfix" data-bind="foreach: colors">
+                    <ul class="colors-palette clearfix" data-bind="foreach: colors">
                         <li>
                             <a href="#" data-bind="
                         style: {
@@ -187,7 +193,21 @@
                         css: {
                             selected: $data.value.toLocaleLowerCase() === $root.selectedLetteringVO().formatVO().fillColor().toLocaleLowerCase()
                         }
-                    "></a>
+                    ">
+                                <svg
+                                    data-bind="visible: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
+                                    id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
+                                    width="24px" height="24px" version="1.1"
+                                    style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                                    viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <g>
+                                  <g>
+                                      <path class="fil1"
+                                            d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
+                                  </g>
+                              </g>
+                        </svg>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -205,20 +225,26 @@
                     <div class="text-tab-label text-align-outline__al-lbl">ALIGN TEXT</div>
                     <div data-toggle="buttons" class="text-align-outline__al"
                          data-bind="radio: selectedLetteringVO().formatVO().textAlign">
-                        <label id="text-align-left-btn" for="text-align-left" class="text-control-align text-control-align-left text-controls-sprite"
+                        <label id="text-align-left-btn" for="text-align-left"
+                               class="text-control-align text-control-align-left text-controls-sprite"
                                data-bind="css: { disabled: !textAlignEnabled() }">
                             <input type="radio" value="left"
-                                   data-bind="enable: textAlignEnabled()" name="text-align-control" id="text-align-left">
+                                   data-bind="enable: textAlignEnabled()" name="text-align-control"
+                                   id="text-align-left">
                         </label>
-                        <label id="text-align-center-btn" for="text-align-center" class="text-control-align text-control-align-center text-controls-sprite"
+                        <label id="text-align-center-btn" for="text-align-center"
+                               class="text-control-align text-control-align-center text-controls-sprite"
                                data-bind="css: { disabled: !textAlignEnabled() }">
                             <input type="radio" value="center"
-                                   data-bind="enable: textAlignEnabled()" name="text-align-control" id="text-align-center">
+                                   data-bind="enable: textAlignEnabled()" name="text-align-control"
+                                   id="text-align-center">
                         </label>
-                        <label id="text-align-right-btn" class="text-control-align text-control-align-right text-controls-sprite"
+                        <label id="text-align-right-btn"
+                               class="text-control-align text-control-align-right text-controls-sprite"
                                data-bind="css: { disabled: !textAlignEnabled() }" for="text-align-right">
                             <input type="radio" value="right"
-                                   data-bind="enable: textAlignEnabled()" name="text-align-control" id="text-align-right">
+                                   data-bind="enable: textAlignEnabled()" name="text-align-control"
+                                   id="text-align-right">
                         </label>
                     </div>
                     <div class="text-tab-label text-align-outline__outl-lbl">
@@ -236,7 +262,7 @@
                 <div class="fonts-colors" data-bind="visible: showFontsStrokeColorsList">
                     <a href="#" class="btn btn-default fonts-colors__close"
                        data-bind="click: toggleFontsStrokeColorsList">X</a>
-                    <ul class="designer-color-palette clearfix" data-bind="foreach: strokeColors">
+                    <ul class="colors-palette clearfix" data-bind="foreach: strokeColors">
                         <li>
                             <a href="#" data-bind="
                         style: {
@@ -249,7 +275,21 @@
                         css: {
                             selected: $data.value.toLocaleLowerCase() === $root.selectedLetteringVO().formatVO().strokeColor().toLocaleLowerCase()
                         }
-                    "></a>
+                    ">
+                                <svg
+                                    data-bind="visible: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
+                                    id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
+                                    width="24px" height="24px" version="1.1"
+                                    style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                                    viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <g>
+                                  <g>
+                                      <path class="fil1"
+                                            d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
+                                  </g>
+                              </g>
+                        </svg>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -383,7 +423,9 @@
                         </a>
                     </div>
 
-                    <p>Please note that in order to use a design (photo, image, text, brand or saying) you must have full rights to use this design.</p>
+                    <p>Please note that in order to use a design (photo, image, text, brand or saying) you must have
+                        full rights to use this design.</p>
+
                     <p>By uploading or saving a design you agree that:</p>
                     <ol>
                         <li>You hold the rights to commercially reproduce this design.</li>
@@ -397,9 +439,13 @@
                         </li>
                     </ol>
                     <p class="graphics-upload-form__info">Graphics Information</p>
-                    <p>Designer supports jpeg, gif, png and svg formats. All images need to have a minimum resolution of 150 dpi.</p>
+
+                    <p>Designer supports jpeg, gif, png and svg formats. All images need to have a minimum resolution of
+                        150 dpi.</p>
                     <input type="checkbox" name="upload terms" value="">
+
                     <p>I understand and accept these conditions of copyright.</p>
+
                     <div class="graphics-upload-form__upload">
                         <a href="#">Upload</a>
                     </div>
@@ -461,13 +507,19 @@
                                     css: {
                                         selected: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase()
                                     }
-                                "><svg data-bind="visible: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
-                                     id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="24px" height="24px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                ">
+                                    <svg
+                                        data-bind="visible: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
+                                        id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
+                                        width="24px" height="24px" version="1.1"
+                                        style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                                        viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
                                       <g>
-                                        <g>
-                                            <path class="fil1" d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
-                                        </g>
-                                     </g>
+                                          <g>
+                                              <path class="fil1"
+                                                    d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
+                                          </g>
+                                      </g>
                                 </svg>
                                 </a>
                             </li>
@@ -535,12 +587,16 @@
                 <div id="colors-palette-carousel" class="bottom-color-palette carousel hide" data-interval=false
                      data-bind="css: {hide: $root.colorsGroupsList().length == 0}">
 
-                    <a class="carousel-left carousel-control" href="#colors-palette-carousel" role="button" data-slide="prev">
-                        <svg class="color-palette-arrows" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="12px" height="24px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-                            viewBox="0 0 12 24"
+                    <a class="carousel-left carousel-control" href="#colors-palette-carousel" role="button"
+                       data-slide="prev">
+                        <svg class="color-palette-arrows" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
+                             width="12px" height="24px" version="1.1"
+                             style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                             viewBox="0 0 12 24"
                              xmlns:xlink="http://www.w3.org/1999/xlink">
                              <g>
-                                 <path class="fil0" d="M9 4c1,0 1,0 1,0 0,0 0,1 0,1l-7 7 7 7c0,0 0,1 0,1 0,0 0,0 -1,0l-7 -8 0 0 0 0 7 -8z"/>
+                                 <path class="fil0"
+                                       d="M9 4c1,0 1,0 1,0 0,0 0,1 0,1l-7 7 7 7c0,0 0,1 0,1 0,0 0,0 -1,0l-7 -8 0 0 0 0 7 -8z"/>
                                  <rect class="fil1" width="12" height="24"/>
                              </g>
                             </svg>
@@ -563,26 +619,35 @@
                                         selected: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase()
                                     }
                                 ">
-                                <svg data-bind="visible: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
-                                     id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="24px" height="24px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <svg
+                                            data-bind="visible: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
+                                            id="color-select-arrow" xmlns="http://www.w3.org/2000/svg"
+                                            xml:space="preserve" width="24px" height="24px" version="1.1"
+                                            style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                                            viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
                                       <g>
-                                        <g>
-                                            <path class="fil1" d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
-                                        </g>
-                                     </g>
+                                          <g>
+                                              <path class="fil1"
+                                                    d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
+                                          </g>
+                                      </g>
                                 </svg>
-                                </a>
+                                    </a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
 
-                    <a class="carousel-right carousel-control" href="#colors-palette-carousel" role="button" data-slide="next">
-                        <svg class="color-palette-arrows" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="12px" height="24px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-                            viewBox="0 0 12 24"
+                    <a class="carousel-right carousel-control" href="#colors-palette-carousel" role="button"
+                       data-slide="next">
+                        <svg class="color-palette-arrows" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
+                             width="12px" height="24px" version="1.1"
+                             style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                             viewBox="0 0 12 24"
                              xmlns:xlink="http://www.w3.org/1999/xlink">
                              <g>
-                                 <path class="fil0" d="M3 4c-1,0 -1,0 -1,0 0,0 0,1 0,1l7 7 -7 7c0,0 0,1 0,1 0,0 0,0 1,0l7 -8 0 0 0 0 -7 -8z"/>
+                                 <path class="fil0"
+                                       d="M3 4c-1,0 -1,0 -1,0 0,0 0,1 0,1l7 7 -7 7c0,0 0,1 0,1 0,0 0,0 1,0l7 -8 0 0 0 0 -7 -8z"/>
                                  <rect class="fil1" width="12" height="24"/>
                              </g>
                             </svg>
