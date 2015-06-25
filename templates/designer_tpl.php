@@ -126,10 +126,8 @@
                         Add/Edit Text layers
                     </div>
                     <div class="text-tab__title__button">
-                        <button id="add-text-btn" type="button"
-                                data-bind="click: addText, enable: selectedLetteringVO().text().length > 0, visible: !strictTemplate()">
-                            +
-                        </button>
+                        <button id="add-text-btn" class="text-controls-sprite add-text-btn" type="button"
+                                data-bind="click: addText, enable: selectedLetteringVO().text().length > 0, visible: !strictTemplate()"></button>
                     </div>
                 </div>
                 <div class="text-tab__text">
@@ -138,22 +136,22 @@
                           type="text" placeholder="Type here..."></textarea>
                 </div>
 
-                <div class="text-tab-title" data-bind="visible: showFontsList">
+                <div class="text-tab-title" data-bind="visible: textToolsIsVisible">
                     Change the look of your text
                 </div>
 
-                <div data-bind="visible: textToolsIsVisible">
-                    <div class="text-tab-label">
+                <div data-bind="visible: textToolsIsVisible" class="clearfix font-select">
+                    <div class="text-tab-label font-select-label">
                         SELECT FONT
                     </div>
-                    <div>
-                        <button class="btn btn-default" type="button" data-bind="click: toggleFontsList">T</button>
+                    <div class="font-select-sign">
+                        <button class="text-controls-sprite text-control-t" type="button" data-bind="click: toggleFontsList"></button>
                     </div>
-                    <div class="text-tab-label">
+                    <div class="text-tab-label font-select-color-label">
                         CHOOSE A COLOR
                     </div>
-                    <div>
-                        <a class="choose-color" href="#" data-bind="style: {
+                    <div class="font-select-color-picker">
+                        <a class="text-controls-choose-color" href="#" data-bind="style: {
                                 'background-color': selectedLetteringVO().formatVO().fillColor,
                                 'color': selectedLetteringVO().formatVO().fillColor,
                                 'border-color': selectedLetteringVO().formatVO().fillColor
@@ -195,27 +193,27 @@
                     <div class="text-tab-label">ALIGN TEXT</div>
                     <div data-toggle="buttons"
                          data-bind="radio: selectedLetteringVO().formatVO().textAlign">
-                        <label id="text-align-left-btn" class="glyphicon glyphicon-align-left btn btn-default"
+                        <label id="text-align-left-btn" for="text-align-left" class="text-control-align text-control-align-left text-controls-sprite"
                                data-bind="css: { disabled: !textAlignEnabled() }">
-                            <input type="radio" name="rb-text-align-group" value="left"
-                                   data-bind="enable: textAlignEnabled()">
+                            <input type="radio" value="left"
+                                   data-bind="enable: textAlignEnabled()" name="text-align-control" id="text-align-left">
                         </label>
-                        <label id="text-align-center-btn" class="glyphicon glyphicon-align-center btn btn-default"
+                        <label id="text-align-center-btn" for="text-align-center" class="text-control-align text-control-align-center text-controls-sprite"
                                data-bind="css: { disabled: !textAlignEnabled() }">
-                            <input type="radio" name="rb-text-align-group" value="center"
-                                   data-bind="enable: textAlignEnabled()">
+                            <input type="radio" value="center"
+                                   data-bind="enable: textAlignEnabled()" name="text-align-control" id="text-align-center">
                         </label>
-                        <label id="text-align-right-btn" class="glyphicon glyphicon-align-right btn btn-default"
-                               data-bind="css: { disabled: !textAlignEnabled() }">
-                            <input type="radio" name="rb-text-align-group" value="right"
-                                   data-bind="enable: textAlignEnabled()">
+                        <label id="text-align-right-btn" class="text-control-align text-control-align-right text-controls-sprite"
+                               data-bind="css: { disabled: !textAlignEnabled() }" for="text-align-right">
+                            <input type="radio" value="right"
+                                   data-bind="enable: textAlignEnabled()" name="text-align-control" id="text-align-right">
                         </label>
                     </div>
                     <div class="text-tab-label">
                         ADD AN OUTLINE
                     </div>
                     <div>
-                        <a class="choose-color" href="#" data-bind="style: {
+                        <a class="text-controls-choose-color" href="#" data-bind="style: {
                                 'background-color': selectedLetteringVO().formatVO().strokeColor,
                                 'color': selectedLetteringVO().formatVO().strokeColor,
                                 'border-color': selectedLetteringVO().formatVO().strokeColor
@@ -245,7 +243,7 @@
                 </div>
                 <div data-bind="visible: textToolsIsVisible">
                     <div class="text-tab-label">RESIZE TEXT</div>
-                    <div>
+                    <div class="text-control-slider">
                         <div class="noUiSlider"
                              data-bind="slider: selectedLetteringVO().formatVO().fontSize, rangeStart: 10, rangeEnd: 200, step: 1, visible: showLetterSpacingSlider()"></div>
                     </div>
@@ -253,7 +251,7 @@
 
                 <div data-bind="visible: textToolsIsVisible">
                     <div class="text-tab-label">ROTATE TEXT</div>
-                    <div>
+                    <div class="text-control-slider">
                         <div class="noUiSlider"
                              data-bind="slider: selectedLetteringVO().formatVO().rotation, rangeStart: 0, rangeEnd: 360, step: 1, visible: showLetterSpacingSlider()"></div>
                     </div>
@@ -261,7 +259,7 @@
 
                 <div data-bind="visible: textToolsIsVisible">
                     <div class="text-tab-label">LETTER SPACE</div>
-                    <div>
+                    <div class="text-control-slider">
                         <div class="noUiSlider"
                              data-bind="slider: selectedLetteringVO().formatVO().letterSpacing, rangeStart: 0, rangeEnd: 20, step: 1, visible: showLetterSpacingSlider()"></div>
                     </div>
@@ -269,14 +267,14 @@
 
                 <div data-bind="visible: showLineLeadingSlider()">
                     <div class="text-tab-label">LINE HEIGHT</div>
-                    <div>
+                    <div class="text-control-slider">
                         <div id="text-line-leading-slider" class="noUiSlider"
                              data-bind="slider: selectedLetteringVO().formatVO().lineLeading, rangeStart: 0, rangeEnd: 3, step: 0.05, decimals: 2"></div>
                     </div>
                 </div>
 
-                <div class="text-tab-title" data-bind="visible: showFontsList">
-                    Change the look of your text
+                <div class="text-tab-title" data-bind="visible: textToolsIsVisible">
+                    Apply a text effect
                 </div>
 
                 <!--            <div data-bind="visible: showTextEffects()" class="btn-group">-->
