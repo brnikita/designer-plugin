@@ -806,10 +806,6 @@
     padding: 0 0.35em 0 0;
 }
 
-/*#colors-tab .colorizable-groups li + li {
-    padding: 0 5px 0 5px;
-}*/
-
 #colors-tab .colorizable-groups li + li::before{
     content: " | ";
 }
@@ -859,7 +855,7 @@
 }
 
 #colors-tab .colors-palette li a.selected:after {
-    content: '∨';
+
 }
 
 /*Colors tab ends here*/
@@ -883,9 +879,9 @@
         margin: 0 auto;
     }
 
-    #canvas-container > div {
-        width: 320px;
-        height: 296px;
+    #canvas-container > div:first-child {
+        width: 320px !important;
+        height: 296px !important;
     }
 
     #canvas-container svg {
@@ -912,9 +908,9 @@
         margin: 0 auto;
     }
 
-    #canvas-container > div {
-        width: 320px;
-        height: 296px;
+    #canvas-container > div:first-child {
+        width: 320px !important;
+        height: 296px !important;
     }
 
     #canvas-container svg {

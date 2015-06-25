@@ -112,9 +112,19 @@
                             css: {
                                 selected: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase()
                             }
-                        "></a>
+                        ">
+                        <svg data-bind="visible: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
+                             id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="24px" height="24px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <g>
+                                <g>
+                                    <path class="fil1" d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
+                                </g>
+                             </g>
+                            </svg>
+                        </a>
                     </li>
                 </ul>
+
             </div>
             <div id="graphics-tab" class="hide">
                 <div id="graphics-add-form">
