@@ -729,6 +729,10 @@ function DEControlsModel() {
 
     self.selectedProductVO().id.subscribe(function (id) {
         userInteract({selectedProductId: id});
+
+        //-----
+        self.resetColorsSelection();
+        //-----
     });
 
     self.selectedProductElementColor = ko.observable(new ColorizeElementVO());
@@ -749,6 +753,16 @@ function DEControlsModel() {
 
     self.colorClasses = ko.observableArray();
     self.colorsList = ko.observableArray();
+
+    //-----
+    self.resetColorsSelection = function() {
+        self.selectedProductElementColor(new ColorizeElementVO());
+        self.colorClasses([]);
+        self.colorsList([]);
+        self.currentColorizeElementGroup('');
+    }
+    //-----
+
     //----- need for colors palette in mobile version
     self.colorsGroupsList = ko.observableArray();
     self.currentColorizeElementGroup = ko.observable('');
@@ -1369,6 +1383,7 @@ function DEControlsModel() {
                 //designerUI.closeActiveTab();
                 //-----
                 openGraphicsColorForm();
+                self.resetColorsSelection();
                 //-----
             }
             return;
@@ -1376,6 +1391,7 @@ function DEControlsModel() {
         self.graphicCatalogBreadcrumbs.push(categoryItem);
         //-----
         self.graphicCategory(categoryItem);
+
         //-----
     };
 
@@ -1491,6 +1507,7 @@ function DEControlsModel() {
         } else if (newValue === 'graphics' ) {
             openGraphicsColorForm();
         };
+        self.resetColorsSelection();
     });
     //-----
 
@@ -2729,15 +2746,17 @@ function openGraphicsColorForm() {
     $("#graphics-add-form").addClass('hide');
     $('#graphics-upload-form').addClass('hide');
     $('#graphics-color-form').removeClass('hide');
-    controlsModel.colorsList([]);
 };
 
 function hideGraphicsColorForm() {
     $('#graphics-add-form').removeClass('hide');
     $('#graphics-upload-form').addClass('hide');
     $('#graphics-color-form').addClass('hide');
-    controlsModel.colorsList([]);
 };
+
+function resetColorsSelection() {
+    controlsModel.resetColorsSelection();
+}
 //-----
 
 function onLoadDesignDialogSubmit(event) {

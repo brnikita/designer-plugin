@@ -195,7 +195,7 @@ jQuery(function () {
         //-----
         left_column.addClass('lc-' + designerUI.activeTabName);
 
-        hideGraphicsColorForm();
+        resetColorsSelection();
 
         $('#bottom-menu').removeClass('hide');
         $('#colors-palette-carousel').addClass('hide');
