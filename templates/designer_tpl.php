@@ -87,7 +87,9 @@
                 <ul class="colorizable-groups clearfix"
                     data-bind="foreach: { data: selectedProductColorVO().colorizeGroupList}">
                     <li>
-                        <a href="#" data-bind="text: name, click: $root.selectColorElement"></a>
+                        <a href="#" data-bind="text: name, click: $root.selectColorElement,
+                                            style: {color: name() == $root.currentColorizeElementGroup() ? '#D51622': '#3F3F3F'}
+                                            "></a>
                     </li>
                 </ul>
                 <ul class="colors-classes clearfix" data-bind="foreach: colorClasses">
@@ -115,9 +117,19 @@
                             css: {
                                 selected: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase()
                             }
-                        "></a>
+                        ">
+                        <svg data-bind="visible: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
+                             id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="24px" height="24px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <g>
+                                <g>
+                                    <path class="fil1" d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
+                                </g>
+                             </g>
+                        </svg>
+                        </a>
                     </li>
                 </ul>
+
             </div>
 
             <div id="text-tab" class="hide">
@@ -449,7 +461,15 @@
                                     css: {
                                         selected: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase()
                                     }
-                                "></a>
+                                "><svg data-bind="visible: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
+                                     id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="24px" height="24px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                      <g>
+                                        <g>
+                                            <path class="fil1" d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
+                                        </g>
+                                     </g>
+                                </svg>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -514,9 +534,15 @@
                 </div>
                 <div id="colors-palette-carousel" class="bottom-color-palette carousel hide" data-interval=false>
 
-                    <a class="carousel-left carousel-control" href="#colors-palette-carousel" role="button"
-                       data-slide="prev">
-                        <span><</span>
+                    <a class="carousel-left carousel-control" href="#colors-palette-carousel" role="button" data-slide="prev">
+                        <svg class="color-palette-arrows" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="12px" height="24px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                            viewBox="0 0 12 24"
+                             xmlns:xlink="http://www.w3.org/1999/xlink">
+                             <g>
+                                 <path class="fil0" d="M9 4c1,0 1,0 1,0 0,0 0,1 0,1l-7 7 7 7c0,0 0,1 0,1 0,0 0,0 -1,0l-7 -8 0 0 0 0 7 -8z"/>
+                                 <rect class="fil1" width="12" height="24"/>
+                             </g>
+                            </svg>
                         <!--<span class="sr-only">Previous</span>-->
                     </a>
 
@@ -535,15 +561,30 @@
                                     css: {
                                         selected: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase()
                                     }
-                                "></a>
+                                ">
+                                <svg data-bind="visible: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
+                                     id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="24px" height="24px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                      <g>
+                                        <g>
+                                            <path class="fil1" d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
+                                        </g>
+                                     </g>
+                                </svg>
+                                </a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
 
-                    <a class="carousel-right carousel-control" href="#colors-palette-carousel" role="button"
-                       data-slide="next">
-                        <span>></span>
+                    <a class="carousel-right carousel-control" href="#colors-palette-carousel" role="button" data-slide="next">
+                        <svg class="color-palette-arrows" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="12px" height="24px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                            viewBox="0 0 12 24"
+                             xmlns:xlink="http://www.w3.org/1999/xlink">
+                             <g>
+                                 <path class="fil0" d="M3 4c-1,0 -1,0 -1,0 0,0 0,1 0,1l7 7 -7 7c0,0 0,1 0,1 0,0 0,0 1,0l7 -8 0 0 0 0 -7 -8z"/>
+                                 <rect class="fil1" width="12" height="24"/>
+                             </g>
+                            </svg>
                         <!--<span class="sr-only">Next</span>-->
                     </a>
 

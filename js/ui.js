@@ -729,6 +729,10 @@ function DEControlsModel() {
 
     self.selectedProductVO().id.subscribe(function (id) {
         userInteract({selectedProductId: id});
+
+        //----- reset color selection when product is selected
+        self.resetColorsSelection();
+        //-----
     });
 
     self.selectedProductElementColor = ko.observable(new ColorizeElementVO());
@@ -749,12 +753,27 @@ function DEControlsModel() {
 
     self.colorClasses = ko.observableArray();
     self.colorsList = ko.observableArray();
+
+    //----- use to reset color selection in some situations (tab switching or product selecting)
+    self.resetColorsSelection = function() {
+        self.selectedProductElementColor(new ColorizeElementVO());
+        self.colorClasses([]);
+        self.colorsList([]);
+        self.currentColorizeElementGroup('');
+    }
+    //-----
+
     //----- need for colors palette in mobile version
     self.colorsGroupsList = ko.observableArray();
+    self.currentColorizeElementGroup = ko.observable('');
     //-----
 
     self.selectColorElement = function (colorizeElementGroup, event) {
         var classes = colorizeElementGroup.classes();
+
+        //----- need for colorizing current element group
+        self.currentColorizeElementGroup(colorizeElementGroup.name());
+        //-----
 
         event.preventDefault();
         self.colorClasses(classes);
@@ -1364,6 +1383,7 @@ function DEControlsModel() {
                 //designerUI.closeActiveTab();
                 //-----
                 openGraphicsColorForm();
+                self.resetColorsSelection();
                 //-----
             }
             return;
@@ -1486,6 +1506,7 @@ function DEControlsModel() {
         } else if (newValue === 'graphics' ) {
             openGraphicsColorForm();
         };
+        self.resetColorsSelection();
     });
     //-----
 
@@ -2724,15 +2745,17 @@ function openGraphicsColorForm() {
     $("#graphics-add-form").addClass('hide');
     $('#graphics-upload-form').addClass('hide');
     $('#graphics-color-form').removeClass('hide');
-    controlsModel.colorsList([]);
 };
 
 function hideGraphicsColorForm() {
     $('#graphics-add-form').removeClass('hide');
     $('#graphics-upload-form').addClass('hide');
     $('#graphics-color-form').addClass('hide');
-    controlsModel.colorsList([]);
 };
+
+function resetColorsSelection() {
+    controlsModel.resetColorsSelection();
+}
 //-----
 
 function onLoadDesignDialogSubmit(event) {

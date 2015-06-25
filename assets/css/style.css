@@ -120,21 +120,33 @@
 /*Bottom color palette starts here*/
 
 #bottom-menus #colors-palette-carousel {
-    margin: 5px 0 0 0;
     width: 295px;
-    /*outline: solid 1px green;*/
+    position: relative;
+    margin: 5px auto 0 auto;
 }
 
 #bottom-menus #colors-palette-carousel ul {
-    width: 265px;
-    display: inline-block;
-    vertical-align: top;
     list-style: none;
+    vertical-align: top;
+}
+
+#bottom-menus #colors-palette-carousel > ul {
+    width: 264px;
+    float: left;
+    /*display: inline-block;*/
+}
+
+#bottom-menus #colors-palette-carousel > ul > li {
+    margin: 0;
 }
 
 #bottom-menus #colors-palette-carousel .colors-palette-group li {
     float: left;
-    margin: 0 0 0 5px;
+    margin: 0 0 0 6px;
+}
+
+#bottom-menus #colors-palette-carousel .colors-palette-group li:first-child {
+    margin: 0;
 }
 
 #bottom-menus #colors-palette-carousel .colors-palette-group li a {
@@ -155,20 +167,28 @@
     text-decoration: none;
 }
 
-#bottom-menus #colors-palette-carousel .colors-palette-group li a.selected:after {
-    content: '∨';
+#bottom-menus #colors-palette-carousel > a {
+    width: 12px;
+    float: left;
+    text-decoration: none;
+    position: relative;
 }
 
 #bottom-menus #colors-palette-carousel .carousel-left {
-    position: relative;
-    /*line-height: 24px;*/
-    /*outline: solid 1px red;*/
+    margin-right: 3px;
 }
 
 #bottom-menus #colors-palette-carousel .carousel-right {
-    position: relative;
-    /*line-height: 24px;*/
-    /*outline: solid 1px red;*/
+    margin-left: 3px;
+}
+
+#bottom-menus #colors-palette-carousel .color-palette-arrows .fil1 {
+     fill: none;
+}
+
+#bottom-menus #colors-palette-carousel .color-palette-arrows .fil0 {
+    fill: #D2D2D2;
+    fill-rule: nonzero
 }
 
 /*Bottom color palette ends here*/
@@ -692,10 +712,6 @@
     text-decoration: none;
 }
 
-#graphics-tab #graphics-color-form .colors-palette li a.selected:after {
-    content: '∨';
-}
-
 /*Graphics color form ends here*/
 
 /*Graphics upload form starts here*/
@@ -803,11 +819,7 @@
     padding: 0 0.35em 0 0;
 }
 
-/*#colors-tab .colorizable-groups li + li {
-    padding: 0 5px 0 5px;
-}*/
-
-#colors-tab .colorizable-groups li + li::before {
+#colors-tab .colorizable-groups li + li::before{
     content: " | ";
 }
 
@@ -856,7 +868,7 @@
 }
 
 #colors-tab .colors-palette li a.selected:after {
-    content: '∨';
+
 }
 
 /*Colors tab ends here*/
@@ -880,9 +892,9 @@
         margin: 0 auto;
     }
 
-    #canvas-container > div {
-        width: 320px;
-        height: 296px;
+    #canvas-container > div:first-child {
+        width: 320px !important;
+        height: 296px !important;
     }
 
     #canvas-container svg {
@@ -909,9 +921,9 @@
         margin: 0 auto;
     }
 
-    #canvas-container > div {
-        width: 320px;
-        height: 296px;
+    #canvas-container > div:first-child {
+        width: 320px !important;
+        height: 296px !important;
     }
 
     #canvas-container svg {
