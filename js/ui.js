@@ -751,10 +751,15 @@ function DEControlsModel() {
     self.colorsList = ko.observableArray();
     //----- need for colors palette in mobile version
     self.colorsGroupsList = ko.observableArray();
+    self.currentColorizeElementGroup = ko.observable('');
     //-----
 
     self.selectColorElement = function (colorizeElementGroup, event) {
         var classes = colorizeElementGroup.classes();
+
+        //-----
+        self.currentColorizeElementGroup(colorizeElementGroup.name());
+        //-----
 
         event.preventDefault();
         self.colorClasses(classes);
