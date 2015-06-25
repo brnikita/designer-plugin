@@ -201,9 +201,9 @@
                         </li>
                     </ul>
                 </div>
-                <div data-bind="visible: textToolsIsVisible">
-                    <div class="text-tab-label">ALIGN TEXT</div>
-                    <div data-toggle="buttons"
+                <div data-bind="visible: textToolsIsVisible" class="text-align-outline clearfix">
+                    <div class="text-tab-label text-align-outline__al-lbl">ALIGN TEXT</div>
+                    <div data-toggle="buttons" class="text-align-outline__al"
                          data-bind="radio: selectedLetteringVO().formatVO().textAlign">
                         <label id="text-align-left-btn" for="text-align-left" class="text-control-align text-control-align-left text-controls-sprite"
                                data-bind="css: { disabled: !textAlignEnabled() }">
@@ -221,10 +221,10 @@
                                    data-bind="enable: textAlignEnabled()" name="text-align-control" id="text-align-right">
                         </label>
                     </div>
-                    <div class="text-tab-label">
+                    <div class="text-tab-label text-align-outline__outl-lbl">
                         ADD AN OUTLINE
                     </div>
-                    <div>
+                    <div class="text-align-outline__outl-picker">
                         <a class="text-controls-choose-color" href="#" data-bind="style: {
                                 'background-color': selectedLetteringVO().formatVO().strokeColor,
                                 'color': selectedLetteringVO().formatVO().strokeColor,
@@ -253,7 +253,7 @@
                         </li>
                     </ul>
                 </div>
-                <div data-bind="visible: textToolsIsVisible">
+                <div data-bind="visible: textToolsIsVisible" class="clearfix text-transform-slider">
                     <div class="text-tab-label">RESIZE TEXT</div>
                     <div class="text-control-slider">
                         <div class="noUiSlider"
@@ -261,7 +261,7 @@
                     </div>
                 </div>
 
-                <div data-bind="visible: textToolsIsVisible">
+                <div data-bind="visible: textToolsIsVisible" class="clearfix text-transform-slider">
                     <div class="text-tab-label">ROTATE TEXT</div>
                     <div class="text-control-slider">
                         <div class="noUiSlider"
@@ -269,7 +269,7 @@
                     </div>
                 </div>
 
-                <div data-bind="visible: textToolsIsVisible">
+                <div data-bind="visible: textToolsIsVisible" class="clearfix text-transform-slider">
                     <div class="text-tab-label">LETTER SPACE</div>
                     <div class="text-control-slider">
                         <div class="noUiSlider"
@@ -277,7 +277,7 @@
                     </div>
                 </div>
 
-                <div data-bind="visible: showLineLeadingSlider()">
+                <div data-bind="visible: showLineLeadingSlider()" class="clearfix text-transform-slider">
                     <div class="text-tab-label">LINE HEIGHT</div>
                     <div class="text-control-slider">
                         <div id="text-line-leading-slider" class="noUiSlider"
