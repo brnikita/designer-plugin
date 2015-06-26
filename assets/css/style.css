@@ -1182,3 +1182,17 @@
     background: url(../img/new/x.png) no-repeat 0 0;
     background-size: 6px;
 }
+
+.text-tab.text-tab-mobile {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .text-tab.text-tab-mobile {
+        display: block;
+    }
+
+    .text-tab.text-tab-table {
+        display: none;
+    }
+}
