@@ -34,7 +34,7 @@
     float: right;
     position: relative;
     width: auto;
- }
+}
 
 .right-column {
     float: right;
@@ -184,7 +184,7 @@
 }
 
 #bottom-menus #colors-palette-carousel .color-palette-arrows .fil1 {
-     fill: none;
+    fill: none;
 }
 
 #bottom-menus #colors-palette-carousel .color-palette-arrows .fil0 {
@@ -193,7 +193,6 @@
 }
 
 /*Bottom color palette ends here*/
-
 
 /*Products sides switch starts here*/
 
@@ -285,19 +284,19 @@
 }
 
 .main-nav__tab_name_products a span {
-    background-position: -0px 0px;
+    background-position: -0px 0;
 }
 
 .main-nav__tab_name_colors a span {
-    background-position: -42px 0px;
+    background-position: -42px 0;
 }
 
 .main-nav__tab_name_text a span {
-    background-position: -84px 0px;
+    background-position: -84px 0;
 }
 
 .main-nav__tab_name_graphics a span {
-    background-position: -126px 0px;
+    background-position: -126px 0;
 }
 
 .main-nav__tab_name_numbers a span {
@@ -355,8 +354,8 @@
     background: #fff;
 }
 
-#products-tab .products-select select::-ms-expand{
-    display:none;
+#products-tab .products-select select::-ms-expand {
+    display: none;
 }
 
 #products-tab .products-select span {
@@ -382,7 +381,7 @@
     vertical-align: middle;*/
 }
 
-#products-tab .products-search input{
+#products-tab .products-search input {
     height: 30px;
     width: 100%;
     font: 9px Raleway;
@@ -505,8 +504,8 @@
     background: #fff;
 }
 
-#graphics-tab .graphics-select select::-ms-expand{
-    display:none;
+#graphics-tab .graphics-select select::-ms-expand {
+    display: none;
 }
 
 #graphics-tab .graphics-select span {
@@ -532,7 +531,7 @@
     vertical-align: middle;*/
 }
 
-#graphics-tab .graphics-search input{
+#graphics-tab .graphics-search input {
     height: 30px;
     width: 100%;
     font: 9px Raleway;
@@ -687,24 +686,24 @@
     text-align: center;
 }
 
-#graphics-tab #graphics-color-form .colors-palette {
-    list-style: none;
-}
+/*#graphics-tab #graphics-color-form .colors-palette {*/
+    /*list-style: none;*/
+/*}*/
 
-#graphics-tab #graphics-color-form .colors-palette li {
-    float: left;
-    padding: 0 5px 5px 0;
-}
+/*#graphics-tab #graphics-color-form .colors-palette li {*/
+    /*float: left;*/
+    /*padding: 0 5px 5px 0;*/
+/*}*/
 
-#graphics-tab #graphics-color-form .colors-palette li a {
-    width: 24px;
-    height: 24px;
-    line-height: 24px;
-    display: block;
-    border-radius: 12px;
-    text-align: center;
-    border: 1px solid;
-}
+/*#graphics-tab #graphics-color-form .colors-palette li a {*/
+    /*width: 24px;*/
+    /*height: 24px;*/
+    /*line-height: 24px;*/
+    /*display: block;*/
+    /*border-radius: 12px;*/
+    /*text-align: center;*/
+    /*border: 1px solid;*/
+/*}*/
 
 #graphics-tab #graphics-color-form .colors-palette li a.selected {
     background-color: #fff !important;
@@ -776,7 +775,6 @@
 
 #graphics-tab #graphics-upload-form input[type="checkbox"] {
 
-
 }
 
 #graphics-tab #graphics-upload-form .graphics-upload-form__upload {
@@ -797,7 +795,6 @@
 /*Graphics upload form ends here*/
 
 /*Graphics tab ends here*/
-
 
 /*Colors tab starts here*/
 
@@ -823,7 +820,7 @@
     padding: 0 0.35em 0 0;
 }
 
-#colors-tab .colorizable-groups li + li::before{
+#colors-tab .colorizable-groups li + li::before {
     content: " | ";
 }
 
@@ -844,16 +841,16 @@
     text-align: center;
 }
 
-#colors-tab .colors-palette {
+.colors-palette {
     list-style: none;
 }
 
-#colors-tab .colors-palette li {
+.colors-palette li {
     float: left;
     padding: 0 5px 5px 0;
 }
 
-#colors-tab .colors-palette li a {
+.colors-palette li a {
     width: 24px;
     height: 24px;
     line-height: 24px;
@@ -863,15 +860,15 @@
     border: 1px solid;
 }
 
-#colors-tab .colors-palette li a.selected {
+.colors-palette li a.selected {
     background-color: #fff !important;
 }
 
-#colors-tab .colors-palette li a.selected {
+.colors-palette li a.selected {
     text-decoration: none;
 }
 
-#colors-tab .colors-palette li a.selected:after {
+.colors-palette li a.selected:after {
 
 }
 
@@ -970,5 +967,244 @@
     #colors-tab .colors-palette {
         display: none;
     }
+}
 
+.text-tab__title {
+
+}
+
+.text-tab-title {
+    font-size: 12px;
+    color: #D51622;
+    line-height: 32px;
+}
+
+.text-tab__title__text {
+    float: left;
+    width: 200px;
+}
+
+.text-tab__title__button {
+    float: right;
+}
+
+.text-tab__title__button .add-text-btn {
+    width: 30px;
+    height: 31px;
+    border: none;
+    background-position: -120px 0;
+    cursor: pointer;
+}
+
+.text-tab__title__button .add-text-btn:hover, .text-tab__title__button .add-text-btn.active {
+    background-position: -300px 0;
+}
+
+.text-tab__text {
+    padding-top: 3px;
+
+}
+
+.text-tab__text textarea {
+    width: 100%;
+    height: 65px;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.text-tab-label {
+    color: #7A7A7A;
+}
+
+.text-controls-sprite {
+    background: no-repeat url(../img/new/text_controls_main.svg);
+    background-size: 420px;
+}
+
+.text-control-align {
+    width: 30px;
+    height: 31px;
+    cursor: pointer;
+}
+
+.text-control-align input {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.text-control-align.text-control-align-left {
+
+}
+
+.text-control-align.text-control-align-left:hover, .text-control-align.text-control-align-left.active {
+    background-position: -182px;
+}
+
+.text-control-align.text-control-align-center {
+    background-position: -30px;
+}
+
+.text-control-align.text-control-align-center:hover, .text-control-align.text-control-align-center.active {
+    background-position: -210px;
+}
+
+.text-control-align.text-control-align-right {
+    background-position: -62px;
+}
+
+.text-control-align.text-control-align-right:hover, .text-control-align.text-control-align-right.active {
+    background-position: -241px;
+}
+
+.text-control-t {
+    width: 30px;
+    height: 31px;
+    background-position: -88px;
+    border: none;
+}
+
+.text-control-t:hover, .text-control-t.active {
+    background-position: -268px;
+}
+
+.text-controls-choose-color {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    border-radius: 15px;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.designer-color-palette {
+    list-style: none;
+}
+
+.designer-color-palette li {
+    float: left;
+    padding: 0 5px 5px 0;
+}
+
+.designer-color-palette li a {
+    width: 20px;
+    height: 20px;
+    display: block;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid;
+}
+
+.designer-color-palette li a.selected {
+    background-color: #fff !important;
+}
+
+.designer-color-palette li a.selected {
+    text-decoration: none;
+}
+
+.text-transform-slider {
+    height: 36px;
+    padding-top: 13px;
+}
+
+.text-transform-slider .text-tab-label {
+    float: left;
+    width: 71px;
+    line-height: 7px;
+}
+
+.text-transform-slider .text-control-slider {
+    float: left;
+    width: 222px;
+}
+
+.text-control-slider .noUi-handle {
+    background: #fff;
+    box-shadow: none;
+    width: 25px;
+    height: 25px;
+    left: 0;
+    top: -12px;
+    border-radius: 12px;
+}
+
+.text-control-slider .noUi-origin {
+    background-color: #D2D2D2;
+}
+
+.text-control-slider .noUi-base {
+    background-color: #E02E2E;
+}
+
+.text-control-slider .noUi-background {
+    box-shadow: none;
+    border: none;
+    border-radius: 1px;
+}
+
+.text-control-slider .noUi-horizontal {
+    height: 2px;
+}
+
+.font-select-label {
+    float: left;
+}
+
+.font-select-sign {
+    float: left;
+}
+
+.font-select-color-label {
+    float: left;
+}
+
+.font-select-color-picker {
+    float: left;
+}
+
+.font-select .font-select-label {
+    line-height: 44px;
+}
+
+.font-select .font-select-sign {
+    padding: 6px 0 0 6px;
+}
+
+.font-select .font-select-color-label {
+    line-height: 45px;
+    padding-left: 29px;
+}
+
+.font-select .font-select-color-picker {
+    padding: 5px 0 0 12px;
+}
+
+.text-align-outline {
+
+}
+
+.text-align-outline__al-lbl {
+    float: left;
+    line-height: 26px;
+}
+
+.text-align-outline__al {
+    float: left;
+    position: relative;
+    top: -5px;
+    left: 21px;
+}
+
+.text-align-outline__outl-lbl {
+    float: left;
+    line-height: 27px;
+    padding-left: 37px;
+}
+
+.text-align-outline__outl-picker {
+    float: left;
+    position: relative;
+    left: 6px;
+    top: -4px;
 }
