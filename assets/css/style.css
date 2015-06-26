@@ -671,50 +671,6 @@
     background-size: 6px;
 }
 
-#graphics-tab #graphics-color-form .colors-classes {
-    list-style: none;
-    height: 30px;
-    line-height: 30px;
-    margin: 0 0 15px 0;
-}
-
-#graphics-tab #graphics-color-form .colors-classes li {
-    float: left;
-    height: 30px;
-    padding: 0 5px 0 5px;
-    margin-right: 5px;
-    border: 1px solid black;
-    border-radius: 15px;
-    text-align: center;
-}
-
-/*#graphics-tab #graphics-color-form .colors-palette {*/
-    /*list-style: none;*/
-/*}*/
-
-/*#graphics-tab #graphics-color-form .colors-palette li {*/
-    /*float: left;*/
-    /*padding: 0 5px 5px 0;*/
-/*}*/
-
-/*#graphics-tab #graphics-color-form .colors-palette li a {*/
-    /*width: 24px;*/
-    /*height: 24px;*/
-    /*line-height: 24px;*/
-    /*display: block;*/
-    /*border-radius: 12px;*/
-    /*text-align: center;*/
-    /*border: 1px solid;*/
-/*}*/
-
-#graphics-tab #graphics-color-form .colors-palette li a.selected {
-    background-color: #fff !important;
-}
-
-#graphics-tab #graphics-color-form .colors-palette li a.selected {
-    text-decoration: none;
-}
-
 /*Graphics color form ends here*/
 
 /*Graphics upload form starts here*/
@@ -826,14 +782,18 @@
     content: " | ";
 }
 
-#colors-tab .colors-classes {
+/*Colors tab ends here*/
+
+/*Color selection starts here*/
+
+.colors-classes {
     list-style: none;
     height: 30px;
     line-height: 30px;
     margin: 0 0 15px 0;
 }
 
-#colors-tab .colors-classes li {
+.colors-classes li {
     float: left;
     height: 30px;
     padding: 0 5px 0 5px;
@@ -870,11 +830,7 @@
     text-decoration: none;
 }
 
-.colors-palette li a.selected:after {
-
-}
-
-/*Colors tab ends here*/
+/*Color selection ends here*/
 
 .clearfix:after {
     content: ".";
