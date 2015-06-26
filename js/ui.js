@@ -785,6 +785,9 @@ function DEControlsModel() {
     //-----
 
     self.selectColorElement = function (colorizeElementGroup, event) {
+        //-----
+        self.resetColorsSelection();
+        //-----
         var classes = colorizeElementGroup.classes();
 
         //----- for colorizing current element group
@@ -793,8 +796,8 @@ function DEControlsModel() {
 
         event.preventDefault();
         self.colorClasses(classes);
-        self.colorsList([]);
-        self.colorsGroupsList([]);
+        /*self.colorsList([]);
+        self.colorsGroupsList([]);*/
     };
 
     self.colorName = ko.computed(function () {

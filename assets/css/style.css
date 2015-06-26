@@ -329,6 +329,7 @@
 
 #products-tab {
     color: #7A7A7A;
+    font: 11px Raleway;
 }
 
 #products-tab .products-controls {
@@ -347,7 +348,7 @@
     height: 30px;
     max-width: 177px;
     min-width: 177px;
-    font: 9px Raleway;
+    font: 11px Raleway;
     color: #7A7A7A;
     margin: 0;
     padding: 0 0 0 6px;
@@ -384,7 +385,7 @@
 #products-tab .products-search input {
     height: 30px;
     width: 100%;
-    font: 9px Raleway;
+    font: 11px Raleway;
     color: #7A7A7A;
     background-color: #ffffff;
     margin: 0;
@@ -479,6 +480,7 @@
 
 #graphics-tab {
     color: #7A7A7A;
+    font: 11px Raleway;
 }
 
 #graphics-tab .graphics-controls {
@@ -497,7 +499,7 @@
     height: 30px;
     max-width: 145px;
     min-width: 145px;
-    font: 9px Raleway;
+    font: 11px Raleway;
     color: #7A7A7A;
     margin: 0;
     padding: 0 0 0 6px;
@@ -534,7 +536,7 @@
 #graphics-tab .graphics-search input {
     height: 30px;
     width: 100%;
-    font: 9px Raleway;
+    font: 11px Raleway;
     color: #7A7A7A;
     background-color: #ffffff;
     margin: 0;
