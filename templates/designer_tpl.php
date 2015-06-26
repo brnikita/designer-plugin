@@ -296,7 +296,7 @@
             </div>
             <!-- Product side switch end -->
             <div id="bottom-menus" class="bottom-menus">
-                <div id="bottom-menu" data-bind="visible: !isColorPaletteShowed()">
+                <div id="bottom-menu" data-bind="css: {hide: isBottomColorPaletteShowed()}">
                     <div class="bottom-menu__main">
                         <a class="js-ellipsis-menu"><span>...</span></a>
                         <a class="js-designer-tab" href="share-design-tab" onclick="onShareDesign()">
@@ -331,7 +331,7 @@
 
                 </div>
                 <div id="colors-palette-carousel" class="bottom-color-palette carousel hide" data-interval=false
-                     data-bind="css: {hide: $root.colorsGroupsList().length == 0}">
+                     data-bind="css: {hide: !isBottomColorPaletteShowed()}">
 
                     <a class="carousel-left carousel-control" href="#colors-palette-carousel" role="button" data-slide="prev">
                         <svg class="color-palette-arrows" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="12px" height="24px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"

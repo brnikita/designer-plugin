@@ -712,6 +712,10 @@ var ImageColorCountVO = function (processColors, colorCount) {
 function DEControlsModel() {
     var self = this;
 
+    //-----changes when windows is resized
+    self.windowWidth = ko.observable($(window).width());
+    //-----
+
     /**
      * PRODUCT BEGINS HERE
      */
@@ -754,9 +758,14 @@ function DEControlsModel() {
     self.colorClasses = ko.observableArray();
     self.colorsList = ko.observableArray();
 
-    //----- to hide or show bottom menu
-    self.isColorPaletteShowed = ko.computed(function() {
-        return self.colorsList().length > 0;
+    //----- to hide or show bottom menu/color palette
+    self.isBottomColorPaletteShowed = ko.computed(function() {
+        var window_width = self.windowWidth();
+        if (window_width >= 768 || self.colorsList().length === 0) {
+            return false;
+        } else {
+            return true;
+        }
     });
     //-----
 
@@ -2751,10 +2760,6 @@ function hideGraphicsColorForm() {
     $('#graphics-upload-form').addClass('hide');
     $('#graphics-color-form').addClass('hide');
 };
-
-function resetColorsSelection() {
-    controlsModel.resetColorsSelection();
-}
 //-----
 
 function onLoadDesignDialogSubmit(event) {

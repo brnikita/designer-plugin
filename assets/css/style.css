@@ -955,7 +955,7 @@
     }
 
     #bottom-menus #colors-palette-carousel {
-        display: inline;
+        display: block;
     }
 
     .left-column.lc-colours-tab {

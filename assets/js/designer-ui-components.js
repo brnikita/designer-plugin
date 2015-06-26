@@ -196,7 +196,7 @@ jQuery(function () {
 
         //-----
         left_column.addClass('lc-' + designerUI.activeTabName);
-        resetColorsSelection();
+        controlsModel.resetColorsSelection();
         //-----
     });
 
@@ -289,6 +289,8 @@ jQuery(function () {
                 $(this)[0].setAttribute('viewBox', '0 0 587 543');
             });*/
         }
+
+        controlsModel.windowWidth(window_width);
     });
 
     //Initialize viewBox in mobile version
