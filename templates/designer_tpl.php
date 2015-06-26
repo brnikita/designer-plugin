@@ -152,11 +152,6 @@
                           data-bind="value: selectedLetteringVO().text, valueUpdate: 'input', enable: editTextEnabled(), visible: !strictTemplate(), style: { textAlign: selectedLetteringVO().formatVO().textAlign }"
                           type="text" placeholder="Type here..."></textarea>
                 </div>
-
-                <div class="text-tab-title" data-bind="visible: textToolsIsVisible">
-                    Change the look of your text
-                </div>
-
                 <div data-bind="visible: textToolsIsVisible" class="clearfix font-select">
                     <div class="text-tab-label font-select-label">
                         SELECT FONT
@@ -178,8 +173,11 @@
                     </div>
                 </div>
                 <div class="fonts-colors" data-bind="visible: showFontsColorsList">
-                    <a href="#" class="btn btn-default fonts-colors__close"
-                       data-bind="click: toggleFontsColorsList">X</a>
+                    <div class="text-tab-title">
+                        Change the look of your text
+                    </div>
+                    <a href="#" class="fonts-colors__close"
+                       data-bind="click: toggleFontsColorsList"></a>
                     <ul class="colors-palette clearfix" data-bind="foreach: colors">
                         <li>
                             <a href="#" data-bind="
@@ -195,7 +193,7 @@
                         }
                     ">
                                 <svg
-                                    data-bind="visible: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
+                                    data-bind="style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
                                     id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
                                     width="24px" height="24px" version="1.1"
                                     style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
@@ -212,7 +210,7 @@
                     </ul>
                 </div>
                 <div class="font-list" data-bind="visible: showFontsList">
-                    <a href="#" class="btn btn-default font-list__close" data-bind="click: toggleFontsList">X</a>
+                    <a href="#" class="font-list__close" data-bind="click: toggleFontsList"></a>
                     <ul data-bind="foreach: fonts">
                         <li class="font-list__item"
                             data-bind="css: { active: $root.selectedLetteringVO().formatVO().fontFamily() === $data.fontFamily }">
@@ -260,8 +258,11 @@
                     </div>
                 </div>
                 <div class="fonts-colors" data-bind="visible: showFontsStrokeColorsList">
-                    <a href="#" class="btn btn-default fonts-colors__close"
-                       data-bind="click: toggleFontsStrokeColorsList">X</a>
+                    <div class="text-tab-title">
+                        Change the look of your text
+                    </div>
+                    <a href="#" class="fonts-colors__close"
+                       data-bind="click: toggleFontsStrokeColorsList"></a>
                     <ul class="colors-palette clearfix" data-bind="foreach: strokeColors">
                         <li>
                             <a href="#" data-bind="
@@ -277,7 +278,7 @@
                         }
                     ">
                                 <svg
-                                    data-bind="visible: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
+                                    data-bind="style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
                                     id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
                                     width="24px" height="24px" version="1.1"
                                     style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
