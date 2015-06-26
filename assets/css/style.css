@@ -1309,3 +1309,31 @@
     left: 6px;
     top: -4px;
 }
+
+.font-list, .fonts-colors {
+    position: relative;
+}
+
+.font-list__close, .fonts-colors__close {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    top: 15px;
+    right: 15px;
+    background: url(../img/new/x.png) no-repeat 0 0;
+    background-size: 6px;
+}
+
+.text-tab.text-tab-mobile {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .text-tab.text-tab-mobile {
+        display: block;
+    }
+
+    .text-tab.text-tab-table {
+        display: none;
+    }
+}
