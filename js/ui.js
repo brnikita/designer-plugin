@@ -829,8 +829,6 @@ function DEControlsModel() {
         if (group.length !== 0) {
             self.colorsGroupsList.push({items: group});
         }
-        console.log(self.colorsGroupsList());
-
         //-----
     };
 
@@ -2750,13 +2748,15 @@ function showLoadDesignDialog() {
 }
 
 function openTextForm() {
-    designerUI.openTab('text-tab');
+    /*designerUI.openTab('text-tab');*/
+    $('a[href="text-tab"]').trigger('click');
     designerUI.setFocusToTextTab();
 }
 
 //-----
 function openGraphicsColorForm() {
-    designerUI.openTab('graphics-tab');
+    /*designerUI.openTab('graphics-tab');*/
+    $('a[href="graphics-tab"]').trigger('click');
     $("#graphics-add-form").addClass('hide');
     $('#graphics-upload-form').addClass('hide');
     $('#graphics-color-form').removeClass('hide');
