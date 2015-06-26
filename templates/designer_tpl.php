@@ -136,7 +136,6 @@
                 </ul>
 
             </div>
-
             <div id="text-tab" class="hide">
                 <div class="text-tab__title clearfix">
                     <div class="text-tab__title__text text-tab-title">
@@ -363,7 +362,6 @@
                     </div>
                 </div>
             </div>
-
             <div id="graphics-tab" class="hide">
                 <div id="graphics-add-form">
                     <div class="graphics-controls">
@@ -522,6 +520,154 @@
                             </li>
                         </ul>
                     </div>
+                </div>
+            </div>
+            <div id="numbers-tab" class="hide">
+                <div class="numbers-tab-controls">
+                    <a data-bind="click: addNameObj">
+                        <span>Add name</span></a>
+                    <a data-bind="click: addNumberObj">
+                        <span>Add number</span>
+                    </a>
+                    <!--<a data-bind="">
+                        <span>Order Sheet</span>
+                    </a>-->
+                </div>
+                <p>
+                    Number & Names Order Sheet
+                </p>
+                <p>
+                    NOTE: If you require only a name or only a number, simply
+                    leave the field that is not required blank.
+                </p>
+
+                <ul class="order-sheet-caption" data-bind="visible: namesNumbers().length > 0">
+                    <span>Names</span>
+                    <span>Numbers</span>
+                    <span>Size</span>
+                </ul>
+
+                <ol class="order-sheet-caption" data-bind="foreach: namesNumbers">
+                    <li>
+                        <ul class="">
+                            <li>
+                                <input class="order-item-number" type="text" data-bind="value: $data.number"
+                                       placeholder="00"/>
+                            </li>
+                            <li>
+                                <input class="order-item-name" type="text" data-bind="value: $data.name"
+                                       placeholder="Name"/>
+                            </li>
+                            <li>
+                                <select class="order-item-size" data-bind="
+                                    visible: $root.selectedProductVO().sizes().length > 1,
+                                    options: $root.selectedProductVO().sizes,
+                                    value: $data.size
+                                "></select>
+                                <span></span>
+                            </li>
+                            <li>
+                                <a class="order-item-remove" data-bind="click: $parent.removeNameNumber" class="close"></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+                <div style="text-align: left;">
+                    <a class="" data-bind="click: addNameNumber">+ Add more names and/or numbers
+                    </a>
+                </div>
+            </div>
+            <div id="product-sizes-tab" class="col-lg-5 col-lg-offset-1 hide">
+                <!--            <div id="product-sizes-panel" class="">-->
+                <div id="" class="">
+                    <p>
+                        <span>Sizes & Qty</span>
+                        <button type="button" data-bind="" class="close">×</button>
+                    </p>
+                    <div>
+                        <ul id="product-sizes-list-new" class="list-unstyled" data-bind="foreach: quantities">
+                            <li>
+                                <!--                            <span class="" data-bind="visible: $root.selectedProductVO().sizes().length < 1">Quantity:</span>-->
+                                <!--<select data-bind="visible: $root.selectedProductVO().sizes().length > 1,
+                                                   options: $root.selectedProductVO().sizes,
+                                                   value: size">
+                                </select>-->
+
+                                <div class="btn-group"
+                                     data-bind="visible: $root.selectedProductVO().sizes().length > 1">
+                                    <button class="btn btn-default" type="button" data-bind="text: $data.size"></button>
+                                    <button class="btn btn-default dropdown-toggle" type="button"
+                                            id="names-size-dropdown-btn" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" id="names-sizes-list"
+                                        data-bind="foreach: $root.selectedProductVO().sizes">
+                                        <li data-bind="css: { active: $data == $parent.size() }">
+                                            <a data-bind="text: $data, click: $parent.size"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            <span class="btn-group-quantity">
+                                    <button class="btn btn-default btn-round" type="button"
+                                            data-bind="click: $parent.decreaseQuantity"><span
+                                            class="glyphicon glyphicon-minus"></span></button>
+                                    <input data-bind="value: quantity, valueUpdate: 'input'" maxlength="3"/>
+                                    <button class="btn btn-default btn-round" type="button"
+                                            data-bind="click: $parent.increaseQuantity"><span
+                                            class="glyphicon glyphicon-plus"></span></button>
+                                    <button type="button"
+                                            data-bind="click: $parent.removeQuantity, visible: $root.canRemoveSize()"
+                                            class="close">&times;</button>
+                            </span>
+
+                            </li>
+                        </ul>
+                        <button class="btn btn-default" type="button"
+                                data-bind="click: addQuantity, visible: $root.selectedProductVO().sizes().length > 0">Add
+                            Size
+                        </button>
+                    </div>
+                    <div class="divider"></div>
+                    <div>
+                        <div>Total Order Qty</div>
+                        <div data-bind="text: totalQuantity()"></div>
+                        <!--                    <div class="order-price" data-bind="if:$root.designInfo().prices!='not available'">-->
+                        <div data-bind="foreach: $root.designInfo().prices">
+                            <!-- ko if: $data.isTotal -->
+                            <!--<div class="gray" data-bind="text: $data.label"></div>-->
+                            <div class="">Total inc.gst</div>
+                            <div class="order-price" data-bind="text: $data.price, css: { bold: $data.isTotal }"></div>
+                            <!-- /ko -->
+                        </div>
+                        <a id="place-order-btn" class="btn btn-primary btn-block" onclick="onPlaceOrder()"
+                           data-loading-text="Placing order...">ADD TO CART</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="share-design-tab" class="col-lg-5 col-lg-offset-1 hide">
+                <p>
+                    <span>Save & Share Your Design</span>
+                    <button type="button" data-bind="" class="close">×</button>
+                </p>
+                <p>
+                    Simply copy the link to access your saved design.
+                    Or share the link to take full advantage of our designer.
+                </p>
+
+                <p>
+                    - share with friends and family
+                    - post on social media to gather feedback
+                    - collaborate with committee members for approval
+                    - get approval from the boss
+                    - save for later until sizes are known
+                </p>
+
+                <p><textarea row="4" cols="50" data-bind="text: shareLink"></textarea></p>
+
+                <div>
+                    <button class="btn btn-default" id="done-numbers-btn" type="button">Done</button>
                 </div>
             </div>
         </div>

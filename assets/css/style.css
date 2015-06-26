@@ -64,6 +64,7 @@
 
 #bottom-menus a {
     cursor: pointer;
+    text-decoration: none;
 }
 
 /*Bottom main menu starts here*/
@@ -72,12 +73,10 @@
     float: left;
     height: 40px;
     line-height: 40px;
-    padding: 0 6px 0 6px;
     margin-left: 5px;
     border: 1px solid #C7C7C7;
     border-radius: 5px;
     text-align: center;
-    text-decoration: none;
     color: #C7C7C7;
 }
 
@@ -477,6 +476,84 @@
 
 /*Products tab ends here*/
 
+/*Colors tab starts here*/
+
+#colors-tab {
+    color: #7A7A7A;
+    font: 12px Raleway;
+}
+
+#colors-tab a {
+    text-decoration: none;
+    color: #3F3F3F;
+}
+
+#colors-tab .colorizable-groups {
+    list-style: none;
+    height: 30px;
+    margin: 15px 0 0 0;
+    text-align: center;
+}
+
+#colors-tab .colorizable-groups li {
+    float: left;
+    padding: 0 0.35em 0 0;
+}
+
+#colors-tab .colorizable-groups li + li::before {
+    content: " | ";
+}
+
+/*Colors tab ends here*/
+
+/*Color selection starts here*/
+
+.colors-classes {
+    list-style: none;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 0 15px 0;
+}
+
+.colors-classes li {
+    float: left;
+    height: 30px;
+    padding: 0 5px 0 5px;
+    margin-right: 5px;
+    border: 1px solid black;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.colors-palette {
+    list-style: none;
+}
+
+.colors-palette li {
+    float: left;
+    padding: 0 5px 5px 0;
+}
+
+.colors-palette li a {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    display: block;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid;
+}
+
+.colors-palette li a.selected {
+    background-color: #fff !important;
+}
+
+.colors-palette li a.selected {
+    text-decoration: none;
+}
+
+/*Color selection ends here*/
+
 /*Graphics tab starts here*/
 
 #graphics-tab {
@@ -755,83 +832,143 @@
 
 /*Graphics tab ends here*/
 
-/*Colors tab starts here*/
+/*Numbers tab starts here*/
 
-#colors-tab {
+#numbers-tab {
     color: #7A7A7A;
     font: 12px Raleway;
 }
 
-#colors-tab a {
+#numbers-tab a {
+    cursor: pointer;
     text-decoration: none;
-    color: #3F3F3F;
 }
 
-#colors-tab .colorizable-groups {
-    list-style: none;
+/*Bottom main menu starts here*/
+
+#numbers-tab .numbers-tab-controls {
+    width: 295px;
     height: 30px;
-    margin: 15px 0 0 0;
-    text-align: center;
+    font: 13px Raleway;
 }
 
-#colors-tab .colorizable-groups li {
+#numbers-tab .numbers-tab-controls a {
     float: left;
-    padding: 0 0.35em 0 0;
-}
-
-#colors-tab .colorizable-groups li + li::before {
-    content: " | ";
-}
-
-/*Colors tab ends here*/
-
-/*Color selection starts here*/
-
-.colors-classes {
-    list-style: none;
     height: 30px;
     line-height: 30px;
-    margin: 0 0 15px 0;
+    margin-left: 5px;
+    border: 1px solid #D51622;
+    border-radius: 5px;
+    text-align: center;
+    color: #D51622;
 }
 
-.colors-classes li {
-    float: left;
+#numbers-tab .numbers-tab-controls a:first-child {
+    width: 95px;
+    margin-left: 0;
+}
+
+#numbers-tab .numbers-tab-controls a:nth-child(2) {
+    width: 95px;
+}
+
+#numbers-tab .numbers-tab-controls a:nth-child(3) {
+    width: 95px;
+    border: 1px solid #C7C7C7;
+    color: #C7C7C7;
+}
+
+#numbers-tab p {
+    font: 12px Raleway;
+    color: #3F3F3F;
+    margin-bottom: 15px;
+}
+
+#numbers-tab p:first-of-type {
+    font: 14px Raleway;
+    color: #D51622;
+    margin: 10px 0 15px 0;
+}
+
+#numbers-tab li > ul {
     height: 30px;
-    padding: 0 5px 0 5px;
-    margin-right: 5px;
-    border: 1px solid black;
-    border-radius: 15px;
-    text-align: center;
 }
 
-.colors-palette {
+#numbers-tab li {
+    font: 12px Raleway;
+    color: #7A7A7A;
+}
+
+#numbers-tab ol > li {
+    height: 30px;
+    margin: 3px 0;
+}
+
+#numbers-tab ol ul > li {
+    height: 30px;
     list-style: none;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
 }
 
-.colors-palette li {
-    float: left;
-    padding: 0 5px 5px 0;
+#numbers-tab ol ul > li input {
+    background-color: #FFFFFF;
 }
 
-.colors-palette li a {
-    width: 24px;
-    height: 24px;
-    line-height: 24px;
-    display: block;
-    border-radius: 12px;
-    text-align: center;
-    border: 1px solid;
+#numbers-tab ol ul > li input.order-item-number {
+    width: 40px;
+    height: 30px;
+    margin-right: 3px;
+    margin: 0;
+    padding: 0 0 0 3px;
+    border: solid 1px #C7C7C7;
 }
 
-.colors-palette li a.selected {
-    background-color: #fff !important;
+#numbers-tab ol ul > li input.order-item-name {
+    width: 154px;
+    height: 30px;
+    margin: 0;
+    border: solid 1px #C7C7C7;
+    padding: 0 0 0 3px;
 }
 
-.colors-palette li a.selected {
-    text-decoration: none;
+#numbers-tab ol ul > li select.order-item-size {
+    height: 30px;
+    max-width: 62px;
+    min-width: 62px;
+    font: 11px Raleway;
+    color: #7A7A7A;
+    margin: 0;
+    padding: 0 0 0 3px;
+    background: #fff;
+    border: solid 1px #C7C7C7;
+    margin-right: 3px;
 }
 
-/*Color selection ends here*/
+#numbers-tab ol ul > li select.order-item-size::-ms-expand {
+    display: none;
+}
+
+#numbers-tab ol ul > li span {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 0;
+    right: 3px;
+    font-size: 9px;
+    background-repeat: no-repeat;
+    background-image: url(../img/new/products_controls.svg);
+    background-position: 0px 0px;
+    background-size: 60px;
+}
+
+#numbers-tab .order-item-remove {
+    height: 30px;
+    width: 5px;
+}
+
+/*Numbers tab ends here*/
 
 .clearfix:after {
     content: ".";
@@ -913,6 +1050,10 @@
 
     .left-column.lc-graphics-tab.upload-form {
         display: block;
+    }
+
+    .left-column.lc-numbers-tab {
+        display: none;
     }
 
     #bottom-menus #colors-palette-carousel {
