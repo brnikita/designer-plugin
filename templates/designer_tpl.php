@@ -387,10 +387,7 @@
                         <div class="graphics-upload">
                             <a class="js-graphics-upload-form" type="button"><span></span></a>
                         </div>
-
                     </div>
-
-
                     <div class="graphics-list">
                         <div class="graphics-back-btn"
                              data-bind="visible: graphicSelectedSubcategory, click: backGraphicItem">

@@ -15,6 +15,7 @@
 .main-container {
     font: 9px Raleway;
     width: 1024px;
+    height: 724px;
     margin: 0 auto;
 }
 
@@ -872,6 +873,7 @@
 
     .main-container {
         width: 320px;
+        height: 528px;
         margin: 0 auto;
     }
 
@@ -906,15 +908,15 @@
     }
 
     .left-column.lc-graphics-tab {
-        /*display: none;*/
+        display: none;
+    }
+
+    .left-column.lc-graphics-tab.upload-form {
+        display: block;
     }
 
     #bottom-menus #colors-palette-carousel {
         display: block;
-    }
-
-    .left-column.lc-colours-tab {
-
     }
 
     .right-column {
@@ -922,7 +924,7 @@
         float: none;
     }
 
-    #colors-tab .colors-palette {
+    .colors-palette {
         display: none;
     }
 }

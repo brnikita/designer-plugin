@@ -289,7 +289,6 @@ jQuery(function () {
                 $(this)[0].setAttribute('viewBox', '0 0 587 543');
             });*/
         }
-
         controlsModel.windowWidth(window_width);
     });
 

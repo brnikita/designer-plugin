@@ -817,7 +817,7 @@ function DEControlsModel() {
             group = [];
         while(i < colorsList.length) {
             if (k > 8) {
-                self.colorsGroupsList.push({name: k, items: group});
+                self.colorsGroupsList.push({items: group});
                 group = [];
                 k = 0;
             } else {
@@ -826,6 +826,10 @@ function DEControlsModel() {
             }
             i+=1;
         }
+        if (group.length !== 0) {
+            self.colorsGroupsList.push({items: group});
+        }
+        console.log(self.colorsGroupsList());
 
         //-----
     };
@@ -2756,12 +2760,14 @@ function openGraphicsColorForm() {
     $("#graphics-add-form").addClass('hide');
     $('#graphics-upload-form').addClass('hide');
     $('#graphics-color-form').removeClass('hide');
+    $('.left-column').addClass('upload-form');
 };
 
 function hideGraphicsColorForm() {
     $('#graphics-add-form').removeClass('hide');
     $('#graphics-upload-form').addClass('hide');
     $('#graphics-color-form').addClass('hide');
+    $('.left-column').removeClass('upload-form');
 };
 //-----
 
