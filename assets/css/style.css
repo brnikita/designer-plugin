@@ -1194,6 +1194,41 @@
 
 /*Product sizes tab ends here*/
 
+#share-design-tab p {
+    font: 12px Raleway;
+    color: #7A7A7A;
+    margin: 15px 0 15px 0;
+}
+
+#share-design-tab p:first-child {
+    font: 14px Raleway;
+    color: #D51622;
+}
+
+#share-design-tab ul {
+    margin: 0 0 20px 0;
+}
+
+#share-design-tab li {
+    font: 12px Raleway;
+    color: #7A7A7A;
+    list-style: none;
+}
+
+#share-design-tab li:before {
+    content: '-';
+}
+
+#share-design-tab textarea {
+    font: 16px Raleway;
+    width: 295px;
+    color: #3F3F3F;
+}
+
+/*Share design tab starts here*/
+
+/*Share design tabs ends here*/
+
 .clearfix:after {
     content: ".";
     display: block;
@@ -1273,6 +1308,14 @@
     }
 
     .left-column.lc-numbers-tab {
+        display: none;
+    }
+
+    .left-column.lc-product-sizes-tab {
+        display: none;
+    }
+
+    .left-column.lc-share-design-tab {
         display: none;
     }
 

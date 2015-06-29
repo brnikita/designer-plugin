@@ -855,29 +855,26 @@
                 </div>
             </div>
 
-            <div id="share-design-tab" class="col-lg-5 col-lg-offset-1 hide">
+            <div id="share-design-tab" class="hide">
                 <p>
                     <span>Save & Share Your Design</span>
-                    <button type="button" data-bind="" class="close">×</button>
+                    <!--<button type="button" data-bind="" class="close">×</button>-->
                 </p>
                 <p>
                     Simply copy the link to access your saved design.
                     Or share the link to take full advantage of our designer.
                 </p>
-
                 <p>
-                    - share with friends and family
-                    - post on social media to gather feedback
-                    - collaborate with committee members for approval
-                    - get approval from the boss
-                    - save for later until sizes are known
+                    <ul>
+                        <li>share with friends and family</li>
+                        <li>post on social media to gather feedback</li>
+                        <li>collaborate with committee members for approval</li>
+                        <li>get approval from the boss</li>
+                        <li>save for later until sizes are known</li>
+                    </ul>
                 </p>
 
-                <p><textarea row="4" cols="50" data-bind="text: shareLink"></textarea></p>
-
-                <div>
-                    <button class="btn btn-default" id="done-numbers-btn" type="button">Done</button>
-                </div>
+                <textarea row="4" cols="50" data-bind="text: shareLink"></textarea>
             </div>
         </div>
 
