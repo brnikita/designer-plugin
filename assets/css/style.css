@@ -92,6 +92,8 @@
 #bottom-menus .bottom-menu__main a:first-child {
     width: 40px;
     margin-left: 0;
+    background: url(../img/designer-ui/ellipsis.svg) no-repeat -1px 0;
+    background-size: 40px;
 }
 
 #bottom-menus .bottom-menu__main a:nth-child(2) {
@@ -122,6 +124,8 @@
 #bottom-menus .bottom-menu__ellipsis a:first-child {
     width: 40px;
     margin-left: 0;
+    background: url(../img/designer-ui/ellipsis.svg) no-repeat -1px 0;
+    background-size: 40px;
 }
 
 /*Bottom ellipsis menu ends here*/
@@ -998,6 +1002,19 @@
 
 /*Numbers tab ends here*/
 
+.js-close-overlay-form {
+    position: absolute;
+    display: inline-block;
+    height: 6px;
+    width: 6px;
+    top: 0;
+    right: 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    background: url(../img/designer-ui/x_icon.svg) no-repeat 0 0;
+    background-size: 12px;
+}
+
 /*Product sizes tab starts here*/
 
 #product-sizes-tab {
@@ -1009,7 +1026,7 @@
     position: relative;
     color: #D51622;
     font: 14px Raleway;
-    margin: 10px 0 10px 0;
+    margin: 15px 0 15px 0;
 }
 
 #product-sizes-tab > p a span {
@@ -1194,6 +1211,8 @@
 
 /*Product sizes tab ends here*/
 
+/*Share design tab starts here*/
+
 #share-design-tab p {
     font: 12px Raleway;
     color: #7A7A7A;
@@ -1201,6 +1220,7 @@
 }
 
 #share-design-tab p:first-child {
+    position: relative;
     font: 14px Raleway;
     color: #D51622;
 }
@@ -1220,12 +1240,10 @@
 }
 
 #share-design-tab textarea {
-    font: 16px Raleway;
+    font: 14px Raleway;
     width: 295px;
     color: #3F3F3F;
 }
-
-/*Share design tab starts here*/
 
 /*Share design tabs ends here*/
 

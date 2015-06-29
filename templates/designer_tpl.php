@@ -795,9 +795,7 @@
             <div id="product-sizes-tab" class="hide">
                 <p>
                     <span>Sizes & Qty</span>
-                    <!--<a class="product-sizes-tab-close">
-                        <span></span>
-                    </a>    -->
+                    <a class="js-close-overlay-form"></a>
                 </p>
                 <div class="product-sizes-list">
                     <ol class="product-sizes-item" data-bind="foreach: quantities">
@@ -858,7 +856,7 @@
             <div id="share-design-tab" class="hide">
                 <p>
                     <span>Save & Share Your Design</span>
-                    <!--<button type="button" data-bind="" class="close">×</button>-->
+                    <a class="js-close-overlay-form"></a>
                 </p>
                 <p>
                     Simply copy the link to access your saved design.
@@ -901,7 +899,7 @@
             <div id="bottom-menus" class="bottom-menus">
                 <div id="bottom-menu" data-bind="css: {hide: isBottomColorPaletteShowed()}">
                     <div class="bottom-menu__main">
-                        <a class="js-ellipsis-menu"><span>...</span></a>
+                        <a class="js-ellipsis-menu"><span></span></a>
                         <a class="js-designer-tab" href="share-design-tab" onclick="onShareDesign()">
                             <span>SAVE/SHARE</span>
                         </a>
@@ -910,7 +908,7 @@
                         </a>
                     </div>
                     <div class="bottom-menu__ellipsis hide">
-                        <a class="js-ellipsis-menu"><span>...</span></a>
+                        <a class="js-ellipsis-menu"><span></span></a>
                         <a id="undo-btn" class=""
                            data-bind="click: undo, visible: isUndoActive"><span>Undo</span></a>
                         <a id="redo-btn" class=""
