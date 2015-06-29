@@ -138,49 +138,50 @@
             </div>
 
             <div id="text-tab" class="hide">
-                <div class="text-tab__title clearfix">
-                    <div class="text-tab__title__text text-tab-title">
-                        Add/Edit Text layers
+                <div class="text-tab-desktop">
+                    <div class="text-tab__title clearfix">
+                        <div class="text-tab__title__text text-tab-title">
+                            Add/Edit Text layers
+                        </div>
+                        <div class="text-tab__title__button">
+                            <button id="add-text-btn" class="text-controls-sprite add-text-btn" type="button"
+                                    data-bind="click: addText, enable: selectedLetteringVO().text().length > 0, visible: !strictTemplate()"></button>
+                        </div>
                     </div>
-                    <div class="text-tab__title__button">
-                        <button id="add-text-btn" class="text-controls-sprite add-text-btn" type="button"
-                                data-bind="click: addText, enable: selectedLetteringVO().text().length > 0, visible: !strictTemplate()"></button>
-                    </div>
-                </div>
-                <div class="text-tab__text">
+                    <div class="text-tab__text">
                 <textarea id="add-text-input"
                           data-bind="value: selectedLetteringVO().text, valueUpdate: 'input', enable: editTextEnabled(), visible: !strictTemplate(), style: { textAlign: selectedLetteringVO().formatVO().textAlign }"
                           type="text" placeholder="Type here..."></textarea>
-                </div>
-                <div data-bind="visible: textToolsIsVisible" class="clearfix font-select">
-                    <div class="text-tab-label font-select-label">
-                        SELECT FONT
                     </div>
-                    <div class="font-select-sign">
-                        <button class="text-controls-sprite text-control-t" type="button"
-                                data-bind="click: toggleFontsList"></button>
-                    </div>
-                    <div class="text-tab-label font-select-color-label">
-                        CHOOSE A COLOR
-                    </div>
-                    <div class="font-select-color-picker">
-                        <a class="text-controls-choose-color" href="#" data-bind="style: {
+                    <div data-bind="visible: textToolsIsVisible" class="clearfix font-select">
+                        <div class="text-tab-label font-select-label">
+                            SELECT FONT
+                        </div>
+                        <div class="font-select-sign">
+                            <button class="text-controls-sprite text-control-t" type="button"
+                                    data-bind="click: toggleFontsList"></button>
+                        </div>
+                        <div class="text-tab-label font-select-color-label">
+                            CHOOSE A COLOR
+                        </div>
+                        <div class="font-select-color-picker">
+                            <a class="text-controls-choose-color" href="#" data-bind="style: {
                                 'background-color': selectedLetteringVO().formatVO().fillColor,
                                 'color': selectedLetteringVO().formatVO().fillColor,
                                 'border-color': selectedLetteringVO().formatVO().fillColor
                                 },
                                  click: toggleFontsColorsList"></a>
+                        </div>
                     </div>
-                </div>
-                <div class="fonts-colors" data-bind="visible: showFontsColorsList">
-                    <div class="text-tab-title">
-                        Change the look of your text
-                    </div>
-                    <a href="#" class="fonts-colors__close"
-                       data-bind="click: toggleFontsColorsList"></a>
-                    <ul class="colors-palette clearfix" data-bind="foreach: colors">
-                        <li>
-                            <a href="#" data-bind="
+                    <div class="fonts-colors" data-bind="visible: showFontsColorsList">
+                        <div class="text-tab-title">
+                            Change the look of your text
+                        </div>
+                        <a href="#" class="fonts-colors__close"
+                           data-bind="click: toggleFontsColorsList"></a>
+                        <ul class="colors-palette clearfix" data-bind="foreach: colors">
+                            <li>
+                                <a href="#" data-bind="
                         style: {
                             'background-color': value,
                             'color': value,
@@ -192,12 +193,12 @@
                             selected: $data.value.toLocaleLowerCase() === $root.selectedLetteringVO().formatVO().fillColor().toLocaleLowerCase()
                         }
                     ">
-                                <svg
-                                    data-bind="style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
-                                    id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
-                                    width="24px" height="24px" version="1.1"
-                                    style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-                                    viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <svg
+                                        data-bind="style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
+                                        id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
+                                        width="24px" height="24px" version="1.1"
+                                        style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                                        viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
                               <g>
                                   <g>
                                       <path class="fil1"
@@ -205,67 +206,67 @@
                                   </g>
                               </g>
                         </svg>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="font-list" data-bind="visible: showFontsList">
-                    <a href="#" class="font-list__close" data-bind="click: toggleFontsList"></a>
-                    <ul data-bind="foreach: fonts">
-                        <li class="font-list__item"
-                            data-bind="css: { active: $root.selectedLetteringVO().formatVO().fontFamily() === $data.fontFamily }">
-                            <a href="#"
-                               data-bind="text: $data.name, click: $root.selectFont, style: { fontFamily: $data.fontFamily }"></a>
-                        </li>
-                    </ul>
-                </div>
-                <div data-bind="visible: textToolsIsVisible" class="text-align-outline clearfix">
-                    <div class="text-tab-label text-align-outline__al-lbl">ALIGN TEXT</div>
-                    <div data-toggle="buttons" class="text-align-outline__al"
-                         data-bind="radio: selectedLetteringVO().formatVO().textAlign">
-                        <label id="text-align-left-btn" for="text-align-left"
-                               class="text-control-align text-control-align-left text-controls-sprite"
-                               data-bind="css: { disabled: !textAlignEnabled() }">
-                            <input type="radio" value="left"
-                                   data-bind="enable: textAlignEnabled()" name="text-align-control"
-                                   id="text-align-left">
-                        </label>
-                        <label id="text-align-center-btn" for="text-align-center"
-                               class="text-control-align text-control-align-center text-controls-sprite"
-                               data-bind="css: { disabled: !textAlignEnabled() }">
-                            <input type="radio" value="center"
-                                   data-bind="enable: textAlignEnabled()" name="text-align-control"
-                                   id="text-align-center">
-                        </label>
-                        <label id="text-align-right-btn"
-                               class="text-control-align text-control-align-right text-controls-sprite"
-                               data-bind="css: { disabled: !textAlignEnabled() }" for="text-align-right">
-                            <input type="radio" value="right"
-                                   data-bind="enable: textAlignEnabled()" name="text-align-control"
-                                   id="text-align-right">
-                        </label>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="text-tab-label text-align-outline__outl-lbl">
-                        ADD AN OUTLINE
+                    <div class="font-list" data-bind="visible: showFontsList">
+                        <a href="#" class="font-list__close" data-bind="click: toggleFontsList"></a>
+                        <ul data-bind="foreach: fonts">
+                            <li class="font-list__item"
+                                data-bind="css: { active: $root.selectedLetteringVO().formatVO().fontFamily() === $data.fontFamily }">
+                                <a href="#"
+                                   data-bind="text: $data.name, click: $root.selectFont, style: { fontFamily: $data.fontFamily }"></a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="text-align-outline__outl-picker">
-                        <a class="text-controls-choose-color" href="#" data-bind="style: {
+                    <div data-bind="visible: textToolsIsVisible" class="text-align-outline clearfix">
+                        <div class="text-tab-label text-align-outline__al-lbl">ALIGN TEXT</div>
+                        <div data-toggle="buttons" class="text-align-outline__al"
+                             data-bind="radio: selectedLetteringVO().formatVO().textAlign">
+                            <label id="text-align-left-btn" for="text-align-left"
+                                   class="text-control-align text-control-align-left text-controls-sprite"
+                                   data-bind="css: { disabled: !textAlignEnabled() }">
+                                <input type="radio" value="left"
+                                       data-bind="enable: textAlignEnabled()" name="text-align-control"
+                                       id="text-align-left">
+                            </label>
+                            <label id="text-align-center-btn" for="text-align-center"
+                                   class="text-control-align text-control-align-center text-controls-sprite"
+                                   data-bind="css: { disabled: !textAlignEnabled() }">
+                                <input type="radio" value="center"
+                                       data-bind="enable: textAlignEnabled()" name="text-align-control"
+                                       id="text-align-center">
+                            </label>
+                            <label id="text-align-right-btn"
+                                   class="text-control-align text-control-align-right text-controls-sprite"
+                                   data-bind="css: { disabled: !textAlignEnabled() }" for="text-align-right">
+                                <input type="radio" value="right"
+                                       data-bind="enable: textAlignEnabled()" name="text-align-control"
+                                       id="text-align-right">
+                            </label>
+                        </div>
+                        <div class="text-tab-label text-align-outline__outl-lbl">
+                            ADD AN OUTLINE
+                        </div>
+                        <div class="text-align-outline__outl-picker">
+                            <a class="text-controls-choose-color" href="#" data-bind="style: {
                                 'background-color': selectedLetteringVO().formatVO().strokeColor,
                                 'color': selectedLetteringVO().formatVO().strokeColor,
                                 'border-color': selectedLetteringVO().formatVO().strokeColor
                                 },
                                  click: toggleFontsStrokeColorsList"></a>
+                        </div>
                     </div>
-                </div>
-                <div class="fonts-colors" data-bind="visible: showFontsStrokeColorsList">
-                    <div class="text-tab-title">
-                        Change the look of your text
-                    </div>
-                    <a href="#" class="fonts-colors__close"
-                       data-bind="click: toggleFontsStrokeColorsList"></a>
-                    <ul class="colors-palette clearfix" data-bind="foreach: strokeColors">
-                        <li>
-                            <a href="#" data-bind="
+                    <div class="fonts-colors" data-bind="visible: showFontsStrokeColorsList">
+                        <div class="text-tab-title">
+                            Change the look of your text
+                        </div>
+                        <a href="#" class="fonts-colors__close"
+                           data-bind="click: toggleFontsStrokeColorsList"></a>
+                        <ul class="colors-palette clearfix" data-bind="foreach: strokeColors">
+                            <li>
+                                <a href="#" data-bind="
                         style: {
                             'background-color': value,
                             'color': value,
@@ -277,12 +278,12 @@
                             selected: $data.value.toLocaleLowerCase() === $root.selectedLetteringVO().formatVO().strokeColor().toLocaleLowerCase()
                         }
                     ">
-                                <svg
-                                    data-bind="style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
-                                    id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
-                                    width="24px" height="24px" version="1.1"
-                                    style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-                                    viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <svg
+                                        data-bind="style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
+                                        id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
+                                        width="24px" height="24px" version="1.1"
+                                        style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                                        viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
                               <g>
                                   <g>
                                       <path class="fil1"
@@ -290,125 +291,162 @@
                                   </g>
                               </g>
                         </svg>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div data-bind="visible: textToolsIsVisible" class="clearfix text-transform-slider">
-                    <div class="text-tab-label">RESIZE TEXT</div>
-                    <div class="text-control-slider">
-                        <div class="noUiSlider"
-                             data-bind="slider: selectedLetteringVO().formatVO().fontSize, rangeStart: 10, rangeEnd: 200, step: 1, visible: showLetterSpacingSlider()"></div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div data-bind="visible: textToolsIsVisible" class="clearfix text-transform-slider">
+                        <div class="text-tab-label">RESIZE TEXT</div>
+                        <div class="text-control-slider">
+                            <div class="noUiSlider"
+                                 data-bind="slider: selectedLetteringVO().formatVO().fontSize, rangeStart: 10, rangeEnd: 200, step: 1, visible: showLetterSpacingSlider()"></div>
+                        </div>
+                    </div>
+
+                    <div data-bind="visible: textToolsIsVisible" class="clearfix text-transform-slider">
+                        <div class="text-tab-label">ROTATE TEXT</div>
+                        <div class="text-control-slider">
+                            <div class="noUiSlider"
+                                 data-bind="slider: selectedLetteringVO().formatVO().rotation, rangeStart: 0, rangeEnd: 360, step: 1, visible: showLetterSpacingSlider()"></div>
+                        </div>
+                    </div>
+
+                    <div data-bind="visible: textToolsIsVisible" class="clearfix text-transform-slider">
+                        <div class="text-tab-label">LETTER SPACE</div>
+                        <div class="text-control-slider">
+                            <div class="noUiSlider"
+                                 data-bind="slider: selectedLetteringVO().formatVO().letterSpacing, rangeStart: 0, rangeEnd: 20, step: 1, visible: showLetterSpacingSlider()"></div>
+                        </div>
+                    </div>
+
+                    <div data-bind="visible: showLineLeadingSlider()" class="clearfix text-transform-slider">
+                        <div class="text-tab-label">LINE HEIGHT</div>
+                        <div class="text-control-slider">
+                            <div id="text-line-leading-slider" class="noUiSlider"
+                                 data-bind="slider: selectedLetteringVO().formatVO().lineLeading, rangeStart: 0, rangeEnd: 3, step: 0.05, decimals: 2"></div>
+                        </div>
+                    </div>
+
+                    <div class="text-tab-title" data-bind="visible: textToolsIsVisible">
+                        Apply a text effect
+                    </div>
+
+                    <!--            <div data-bind="visible: showTextEffects()" class="btn-group">-->
+                    <!--                <button class="btn btn-default" type="button" id="text-effects-btn"-->
+                    <!--                        data-bind="text: selectedTextEffectVO().label()" data-toggle="dropdown"><span-->
+                    <!--                        class="caret"></span></button>-->
+                    <!--                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">-->
+                    <!--                    <span class="caret"></span>-->
+                    <!--                </button>-->
+                    <!--                <ul class="dropdown-menu" data-bind="foreach: textEffects"-->
+                    <!--                    style="height: 150px; overflow-y: scroll;">-->
+                    <!--                    <li data-bind="css: { active: $root.selectedTextEffectVO().name() === $data.name }">-->
+                    <!--                        <a data-bind="text: $data.label, click: $root.selectTextEffect"></a>-->
+                    <!--                    </li>-->
+                    <!--                </ul>-->
+                    <!--            </div>-->
+
+                    <h6 data-bind="visible: showEffectsSlider(), text: selectedTextEffectVO().paramName()"></h6>
+
+                    <div id="text-effect-slider" class="noUiSlider"
+                         data-bind="visible: showEffectsSlider(), slider: selectedTextEffectVO().value, rangeStart: selectedTextEffectVO().min(), rangeEnd: selectedTextEffectVO().max(), step: selectedTextEffectVO().step(), decimals:2"></div>
+                    <div class="divider" data-bind="visible: selectedProductSizeVO().notEmpty"></div>
+                    <div id="text-form-size" data-bind="visible: selectedProductSizeVO().notEmpty">
+                        <div>
+                            <h6 id="text-form-size-label">Size</h6>
+                            <input id="text-width" class="form-control" type="text"
+                                   data-bind="value: selectedObjectPropertiesVO().width, event: { keypress: selectedObjectPropertiesVO().updateWidth }"/>
+                            <span id="text-form-size-label-seperator">&times;</span>
+                            <input id="text-height" class="form-control" type="text"
+                                   data-bind="value: selectedObjectPropertiesVO().height, event: { keypress: selectedObjectPropertiesVO().updateHeight }"/>
+                        </div>
+                        <div>
+                            <button class="btn btn-default" id="text-form-size-apply-btn" type="button">Apply</button>
+                        </div>
                     </div>
                 </div>
 
-                <div data-bind="visible: textToolsIsVisible" class="clearfix text-transform-slider">
-                    <div class="text-tab-label">ROTATE TEXT</div>
-                    <div class="text-control-slider">
-                        <div class="noUiSlider"
-                             data-bind="slider: selectedLetteringVO().formatVO().rotation, rangeStart: 0, rangeEnd: 360, step: 1, visible: showLetterSpacingSlider()"></div>
-                    </div>
-                </div>
+                <div class="text-tab-mobile">
+                    <div class="text-tab__text clearfix" data-bind="visible: !showMoreEnabled()">
+                        <textarea id="add-text-input" class="add-text-input"
+                                  data-bind="value: selectedLetteringVO().text, valueUpdate: 'input', enable: editTextEnabled(), visible: !strictTemplate(), style: { textAlign: selectedLetteringVO().formatVO().textAlign }"
+                                  type="text" placeholder="Type here..."></textarea>
 
-                <div data-bind="visible: textToolsIsVisible" class="clearfix text-transform-slider">
-                    <div class="text-tab-label">LETTER SPACE</div>
-                    <div class="text-control-slider">
-                        <div class="noUiSlider"
-                             data-bind="slider: selectedLetteringVO().formatVO().letterSpacing, rangeStart: 0, rangeEnd: 20, step: 1, visible: showLetterSpacingSlider()"></div>
-                    </div>
-                </div>
+                        <div class="add-text-main-tools">
+                            <div class="clearfix">
+                                <div class="font-select-sign">
+                                    <button class="text-controls-sprite text-control-t" type="button"
+                                            data-bind="click: toggleFontsList, enable: selectedLetteringVO().text().length > 0"></button>
+                                </div>
 
-                <div data-bind="visible: showLineLeadingSlider()" class="clearfix text-transform-slider">
-                    <div class="text-tab-label">LINE HEIGHT</div>
-                    <div class="text-control-slider">
-                        <div id="text-line-leading-slider" class="noUiSlider"
-                             data-bind="slider: selectedLetteringVO().formatVO().lineLeading, rangeStart: 0, rangeEnd: 3, step: 0.05, decimals: 2"></div>
-                    </div>
-                </div>
-
-                <div class="text-tab-title" data-bind="visible: textToolsIsVisible">
-                    Apply a text effect
-                </div>
-
-                <!--            <div data-bind="visible: showTextEffects()" class="btn-group">-->
-                <!--                <button class="btn btn-default" type="button" id="text-effects-btn"-->
-                <!--                        data-bind="text: selectedTextEffectVO().label()" data-toggle="dropdown"><span-->
-                <!--                        class="caret"></span></button>-->
-                <!--                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">-->
-                <!--                    <span class="caret"></span>-->
-                <!--                </button>-->
-                <!--                <ul class="dropdown-menu" data-bind="foreach: textEffects"-->
-                <!--                    style="height: 150px; overflow-y: scroll;">-->
-                <!--                    <li data-bind="css: { active: $root.selectedTextEffectVO().name() === $data.name }">-->
-                <!--                        <a data-bind="text: $data.label, click: $root.selectTextEffect"></a>-->
-                <!--                    </li>-->
-                <!--                </ul>-->
-                <!--            </div>-->
-
-                <h6 data-bind="visible: showEffectsSlider(), text: selectedTextEffectVO().paramName()"></h6>
-
-                <div id="text-effect-slider" class="noUiSlider"
-                     data-bind="visible: showEffectsSlider(), slider: selectedTextEffectVO().value, rangeStart: selectedTextEffectVO().min(), rangeEnd: selectedTextEffectVO().max(), step: selectedTextEffectVO().step(), decimals:2"></div>
-                <div class="divider" data-bind="visible: selectedProductSizeVO().notEmpty"></div>
-                <div id="text-form-size" data-bind="visible: selectedProductSizeVO().notEmpty">
-                    <div>
-                        <h6 id="text-form-size-label">Size</h6>
-                        <input id="text-width" class="form-control" type="text"
-                               data-bind="value: selectedObjectPropertiesVO().width, event: { keypress: selectedObjectPropertiesVO().updateWidth }"/>
-                        <span id="text-form-size-label-seperator">&times;</span>
-                        <input id="text-height" class="form-control" type="text"
-                               data-bind="value: selectedObjectPropertiesVO().height, event: { keypress: selectedObjectPropertiesVO().updateHeight }"/>
-                    </div>
-                    <div>
-                        <button class="btn btn-default" id="text-form-size-apply-btn" type="button">Apply</button>
-                    </div>
-                </div>
-            </div>
-
-            <div id="text-tab" class="text-tab text-tab-mobile hide">
-                <div class="text-tab__title clearfix">
-                    <div class="text-tab__title__text text-tab-title">
-                        Add/Edit Text layers
-                    </div>
-                    <div class="text-tab__title__button">
-                        <button id="add-text-btn" class="text-controls-sprite add-text-btn" type="button"
-                                data-bind="click: addText, enable: selectedLetteringVO().text().length > 0, visible: !strictTemplate()"></button>
-                    </div>
-                </div>
-                <div class="text-tab__text">
-                <textarea id="add-text-input"
-                          data-bind="value: selectedLetteringVO().text, valueUpdate: 'input', enable: editTextEnabled(), visible: !strictTemplate(), style: { textAlign: selectedLetteringVO().formatVO().textAlign }"
-                          type="text" placeholder="Type here..."></textarea>
-                </div>
-                <div data-bind="visible: textToolsIsVisible" class="clearfix font-select">
-                    <div class="text-tab-label font-select-label">
-                        SELECT FONT
-                    </div>
-                    <div class="font-select-sign">
-                        <button class="text-controls-sprite text-control-t" type="button"
-                                data-bind="click: toggleFontsList"></button>
-                    </div>
-                    <div class="text-tab-label font-select-color-label">
-                        CHOOSE A COLOR
-                    </div>
-                    <div class="font-select-color-picker">
-                        <a class="text-controls-choose-color" href="#" data-bind="style: {
+                                <div class="font-select-color-picker">
+                                    <button class="text-controls-choose-color" data-bind="
+                                    enable: selectedLetteringVO().text().length > 0,
+                                    style: {
                                 'background-color': selectedLetteringVO().formatVO().fillColor,
                                 'color': selectedLetteringVO().formatVO().fillColor,
                                 'border-color': selectedLetteringVO().formatVO().fillColor
                                 },
-                                 click: toggleFontsColorsList"></a>
+                                 click: toggleFontsColorsList"></button>
+                                </div>
+
+                                <div class="text-align-outline__outl-picker">
+                                    <button class="text-controls-choose-color" data-bind="
+                                    enable: selectedLetteringVO().text().length > 0,
+                                    style: {
+                                'background-color': selectedLetteringVO().formatVO().strokeColor,
+                                'color': selectedLetteringVO().formatVO().strokeColor,
+                                'border-color': selectedLetteringVO().formatVO().strokeColor
+                                },
+                                 click: toggleFontsStrokeColorsList"></button>
+                                </div>
+                                <div class="text-tab__title__button">
+                                    <button id="add-text-btn" class="text-controls-sprite add-text-btn" type="button"
+                                            data-bind="click: addText, enable: selectedLetteringVO().text().length > 0, visible: !strictTemplate()"></button>
+                                </div>
+                            </div>
+                            <div class="clearfix">
+                                <div data-toggle="buttons" class="text-align-outline__al"
+                                     data-bind="radio: selectedLetteringVO().formatVO().textAlign">
+                                    <label id="text-align-left-btn" for="text-align-left"
+                                           class="text-control-align text-control-align-left text-controls-sprite"
+                                           data-bind="css: {disabled: selectedLetteringVO().text().length === 0}" >
+                                        <input type="radio" value="left"
+                                               data-bind="enable: selectedLetteringVO().text().length > 0"
+                                               name="text-align-control"
+                                               id="text-align-left">
+                                    </label>
+                                    <label id="text-align-center-btn" for="text-align-center"
+                                           class="text-control-align text-control-align-center text-controls-sprite"
+                                           data-bind="css: {disabled: selectedLetteringVO().text().length === 0}">
+                                        <input type="radio" value="center"
+                                               data-bind="enable: selectedLetteringVO().text().length > 0"
+                                               name="text-align-control"
+                                               id="text-align-center">
+                                    </label>
+                                    <label id="text-align-right-btn"
+                                           class="text-control-align text-control-align-right text-controls-sprite"
+                                           data-bind="css: {disabled: selectedLetteringVO().text().length === 0}"
+                                           for="text-align-right">
+                                        <input type="radio" value="right"
+                                               data-bind="enable: selectedLetteringVO().text().length > 0"
+                                               name="text-align-control"
+                                               id="text-align-right">
+                                    </label>
+                                </div>
+                                <div class="text-align-show-more">
+                                    <button class="text-controls-sprite text-controls-show-more" data-bind="click: showMoreTrigger, enable: selectedLetteringVO().text().length > 0"></button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="fonts-colors" data-bind="visible: showFontsColorsList">
-                    <div class="text-tab-title">
-                        Change the look of your text
-                    </div>
-                    <a href="#" class="fonts-colors__close"
-                       data-bind="click: toggleFontsColorsList"></a>
-                    <ul class="colors-palette clearfix" data-bind="foreach: colors">
-                        <li>
-                            <a href="#" data-bind="
+
+                    <div class="fonts-colors" data-bind="visible: showFontsColorsList">
+                        <a href="#" class="fonts-colors__close"
+                           data-bind="click: toggleFontsColorsList"></a>
+                        <ul class="colors-palette clearfix" data-bind="foreach: colors">
+                            <li>
+                                <a href="#" data-bind="
                         style: {
                             'background-color': value,
                             'color': value,
@@ -420,12 +458,12 @@
                             selected: $data.value.toLocaleLowerCase() === $root.selectedLetteringVO().formatVO().fillColor().toLocaleLowerCase()
                         }
                     ">
-                                <svg
-                                    data-bind="style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
-                                    id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
-                                    width="24px" height="24px" version="1.1"
-                                    style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-                                    viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <svg
+                                        data-bind="style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
+                                        id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
+                                        width="24px" height="24px" version="1.1"
+                                        style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                                        viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
                               <g>
                                   <g>
                                       <path class="fil1"
@@ -433,67 +471,29 @@
                                   </g>
                               </g>
                         </svg>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="font-list" data-bind="visible: showFontsList">
-                    <a href="#" class="font-list__close" data-bind="click: toggleFontsList"></a>
-                    <ul data-bind="foreach: fonts">
-                        <li class="font-list__item"
-                            data-bind="css: { active: $root.selectedLetteringVO().formatVO().fontFamily() === $data.fontFamily }">
-                            <a href="#"
-                               data-bind="text: $data.name, click: $root.selectFont, style: { fontFamily: $data.fontFamily }"></a>
-                        </li>
-                    </ul>
-                </div>
-                <div data-bind="visible: textToolsIsVisible" class="text-align-outline clearfix">
-                    <div class="text-tab-label text-align-outline__al-lbl">ALIGN TEXT</div>
-                    <div data-toggle="buttons" class="text-align-outline__al"
-                         data-bind="radio: selectedLetteringVO().formatVO().textAlign">
-                        <label id="text-align-left-btn" for="text-align-left"
-                               class="text-control-align text-control-align-left text-controls-sprite"
-                               data-bind="css: { disabled: !textAlignEnabled() }">
-                            <input type="radio" value="left"
-                                   data-bind="enable: textAlignEnabled()" name="text-align-control"
-                                   id="text-align-left">
-                        </label>
-                        <label id="text-align-center-btn" for="text-align-center"
-                               class="text-control-align text-control-align-center text-controls-sprite"
-                               data-bind="css: { disabled: !textAlignEnabled() }">
-                            <input type="radio" value="center"
-                                   data-bind="enable: textAlignEnabled()" name="text-align-control"
-                                   id="text-align-center">
-                        </label>
-                        <label id="text-align-right-btn"
-                               class="text-control-align text-control-align-right text-controls-sprite"
-                               data-bind="css: { disabled: !textAlignEnabled() }" for="text-align-right">
-                            <input type="radio" value="right"
-                                   data-bind="enable: textAlignEnabled()" name="text-align-control"
-                                   id="text-align-right">
-                        </label>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="text-tab-label text-align-outline__outl-lbl">
-                        ADD AN OUTLINE
+                    <div class="font-list" data-bind="visible: showFontsList">
+                        <a href="#" class="font-list__close" data-bind="click: toggleFontsList"></a>
+                        <ul data-bind="foreach: fonts">
+                            <li class="font-list__item"
+                                data-bind="css: { active: $root.selectedLetteringVO().formatVO().fontFamily() === $data.fontFamily }">
+                                <a href="#"
+                                   data-bind="text: $data.name, click: $root.selectFont, style: { fontFamily: $data.fontFamily }"></a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="text-align-outline__outl-picker">
-                        <a class="text-controls-choose-color" href="#" data-bind="style: {
-                                'background-color': selectedLetteringVO().formatVO().strokeColor,
-                                'color': selectedLetteringVO().formatVO().strokeColor,
-                                'border-color': selectedLetteringVO().formatVO().strokeColor
-                                },
-                                 click: toggleFontsStrokeColorsList"></a>
-                    </div>
-                </div>
-                <div class="fonts-colors" data-bind="visible: showFontsStrokeColorsList">
-                    <div class="text-tab-title">
-                        Change the look of your text
-                    </div>
-                    <a href="#" class="fonts-colors__close"
-                       data-bind="click: toggleFontsStrokeColorsList"></a>
-                    <ul class="colors-palette clearfix" data-bind="foreach: strokeColors">
-                        <li>
-                            <a href="#" data-bind="
+                    <div class="fonts-colors" data-bind="visible: showFontsStrokeColorsList">
+                        <div class="text-tab-title">
+                            Change the look of your text
+                        </div>
+                        <a href="#" class="fonts-colors__close"
+                           data-bind="click: toggleFontsStrokeColorsList"></a>
+                        <ul class="colors-palette clearfix" data-bind="foreach: strokeColors">
+                            <li>
+                                <a href="#" data-bind="
                         style: {
                             'background-color': value,
                             'color': value,
@@ -505,12 +505,12 @@
                             selected: $data.value.toLocaleLowerCase() === $root.selectedLetteringVO().formatVO().strokeColor().toLocaleLowerCase()
                         }
                     ">
-                                <svg
-                                    data-bind="style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
-                                    id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
-                                    width="24px" height="24px" version="1.1"
-                                    style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-                                    viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <svg
+                                        data-bind="style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
+                                        id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
+                                        width="24px" height="24px" version="1.1"
+                                        style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                                        viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
                               <g>
                                   <g>
                                       <path class="fil1"
@@ -518,77 +518,59 @@
                                   </g>
                               </g>
                         </svg>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div data-bind="visible: textToolsIsVisible" class="clearfix text-transform-slider">
-                    <div class="text-tab-label">RESIZE TEXT</div>
-                    <div class="text-control-slider">
-                        <div class="noUiSlider"
-                             data-bind="slider: selectedLetteringVO().formatVO().fontSize, rangeStart: 10, rangeEnd: 200, step: 1, visible: showLetterSpacingSlider()"></div>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                </div>
 
-                <div data-bind="visible: textToolsIsVisible" class="clearfix text-transform-slider">
-                    <div class="text-tab-label">ROTATE TEXT</div>
-                    <div class="text-control-slider">
-                        <div class="noUiSlider"
-                             data-bind="slider: selectedLetteringVO().formatVO().rotation, rangeStart: 0, rangeEnd: 360, step: 1, visible: showLetterSpacingSlider()"></div>
+                    <div class="clearfix text-control-effects" data-bind="visible: showMoreEnabled()">
+                        <div class="text-control-effects__tabs">
+                            <div class="text-controls-shape-sprite text-control-group-fx" data-bind="css: {active: !textControlResizeActive()}, click: textControlResizeToggle"></div>
+                            <div class="text-controls-shape-sprite text-control-group-resize" data-bind="css: {active: textControlResizeActive()}, click: textControlResizeToggle"></div>
+                        </div>
+                        <div class="text-control-effects__sliders">
+                            <div data-bind="visible: textControlResizeActive()">
+                                <div class="clearfix text-transform-slider">
+                                    <div class="text-tab-label-resize text-controls-shape-sprite"></div>
+                                    <div class="text-control-slider">
+                                        <div class="noUiSlider"
+                                             data-bind="slider: selectedLetteringVO().formatVO().letterSpacing, rangeStart: 0, rangeEnd: 20, step: 1, visible: showLetterSpacingSlider()"></div>
+                                    </div>
+                                </div>
+                                <div class="clearfix text-transform-slider">
+                                    <div class="text-tab-label-letter-space text-controls-shape-sprite"></div>
+                                    <div class="text-control-slider">
+                                        <div class="noUiSlider"
+                                             data-bind="slider: selectedLetteringVO().formatVO().fontSize, rangeStart: 10, rangeEnd: 200, step: 1, visible: showLetterSpacingSlider()"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-bind="visible: !textControlResizeActive()">
+
+                            </div>
+                        </div>
+                        <div class="text-control-effects__show-more">
+                            <button class="text-controls-shape-sprite text-controls-show-more-inverse" data-bind="click: showMoreTrigger"></button>
+                        </div>
                     </div>
-                </div>
 
-                <div data-bind="visible: textToolsIsVisible" class="clearfix text-transform-slider">
-                    <div class="text-tab-label">LETTER SPACE</div>
-                    <div class="text-control-slider">
-                        <div class="noUiSlider"
-                             data-bind="slider: selectedLetteringVO().formatVO().letterSpacing, rangeStart: 0, rangeEnd: 20, step: 1, visible: showLetterSpacingSlider()"></div>
-                    </div>
-                </div>
+                    <h6 data-bind="visible: showEffectsSlider(), text: selectedTextEffectVO().paramName()"></h6>
 
-                <div data-bind="visible: showLineLeadingSlider()" class="clearfix text-transform-slider">
-                    <div class="text-tab-label">LINE HEIGHT</div>
-                    <div class="text-control-slider">
-                        <div id="text-line-leading-slider" class="noUiSlider"
-                             data-bind="slider: selectedLetteringVO().formatVO().lineLeading, rangeStart: 0, rangeEnd: 3, step: 0.05, decimals: 2"></div>
-                    </div>
-                </div>
-
-                <div class="text-tab-title" data-bind="visible: textToolsIsVisible">
-                    Apply a text effect
-                </div>
-
-                <!--            <div data-bind="visible: showTextEffects()" class="btn-group">-->
-                <!--                <button class="btn btn-default" type="button" id="text-effects-btn"-->
-                <!--                        data-bind="text: selectedTextEffectVO().label()" data-toggle="dropdown"><span-->
-                <!--                        class="caret"></span></button>-->
-                <!--                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">-->
-                <!--                    <span class="caret"></span>-->
-                <!--                </button>-->
-                <!--                <ul class="dropdown-menu" data-bind="foreach: textEffects"-->
-                <!--                    style="height: 150px; overflow-y: scroll;">-->
-                <!--                    <li data-bind="css: { active: $root.selectedTextEffectVO().name() === $data.name }">-->
-                <!--                        <a data-bind="text: $data.label, click: $root.selectTextEffect"></a>-->
-                <!--                    </li>-->
-                <!--                </ul>-->
-                <!--            </div>-->
-
-                <h6 data-bind="visible: showEffectsSlider(), text: selectedTextEffectVO().paramName()"></h6>
-
-                <div id="text-effect-slider" class="noUiSlider"
-                     data-bind="visible: showEffectsSlider(), slider: selectedTextEffectVO().value, rangeStart: selectedTextEffectVO().min(), rangeEnd: selectedTextEffectVO().max(), step: selectedTextEffectVO().step(), decimals:2"></div>
-                <div class="divider" data-bind="visible: selectedProductSizeVO().notEmpty"></div>
-                <div id="text-form-size" data-bind="visible: selectedProductSizeVO().notEmpty">
-                    <div>
-                        <h6 id="text-form-size-label">Size</h6>
-                        <input id="text-width" class="form-control" type="text"
-                               data-bind="value: selectedObjectPropertiesVO().width, event: { keypress: selectedObjectPropertiesVO().updateWidth }"/>
-                        <span id="text-form-size-label-seperator">&times;</span>
-                        <input id="text-height" class="form-control" type="text"
-                               data-bind="value: selectedObjectPropertiesVO().height, event: { keypress: selectedObjectPropertiesVO().updateHeight }"/>
-                    </div>
-                    <div>
-                        <button class="btn btn-default" id="text-form-size-apply-btn" type="button">Apply</button>
+                    <div id="text-effect-slider" class="noUiSlider"
+                         data-bind="visible: showEffectsSlider(), slider: selectedTextEffectVO().value, rangeStart: selectedTextEffectVO().min(), rangeEnd: selectedTextEffectVO().max(), step: selectedTextEffectVO().step(), decimals:2"></div>
+                    <div class="divider" data-bind="visible: selectedProductSizeVO().notEmpty"></div>
+                    <div id="text-form-size" data-bind="visible: selectedProductSizeVO().notEmpty">
+                        <div>
+                            <h6 id="text-form-size-label">Size</h6>
+                            <input id="text-width" class="form-control" type="text"
+                                   data-bind="value: selectedObjectPropertiesVO().width, event: { keypress: selectedObjectPropertiesVO().updateWidth }"/>
+                            <span id="text-form-size-label-seperator">&times;</span>
+                            <input id="text-height" class="form-control" type="text"
+                                   data-bind="value: selectedObjectPropertiesVO().height, event: { keypress: selectedObjectPropertiesVO().updateHeight }"/>
+                        </div>
+                        <div>
+                            <button class="btn btn-default" id="text-form-size-apply-btn" type="button">Apply</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -766,6 +748,7 @@
                 <p>
                     Number & Names Order Sheet
                 </p>
+
                 <p>
                     NOTE: If you require only a name or only a number, simply
                     leave the field that is not required blank.

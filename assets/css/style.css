@@ -1287,6 +1287,7 @@
     .right-column {
         margin: auto;
         float: none;
+        padding: 0 10px;
     }
 
     .colors-palette {
@@ -1317,12 +1318,13 @@
     width: 30px;
     height: 31px;
     border: none;
-    background-position: -120px 0;
+    background-position: -300px 0;
     cursor: pointer;
 }
 
-.text-tab__title__button .add-text-btn:hover, .text-tab__title__button .add-text-btn.active {
-    background-position: -300px 0;
+.text-tab__title__button .add-text-btn:disabled {
+    background-position: -120px 0;
+    cursor: default;
 }
 
 .text-tab__text {
@@ -1346,6 +1348,11 @@
     background-size: 420px;
 }
 
+.text-controls-shape-sprite {
+    background: no-repeat url(../img/new/text_controls_shape.svg);
+    background-size: 690px;
+}
+
 .text-control-align {
     width: 30px;
     height: 31px;
@@ -1366,6 +1373,10 @@
     background-position: -182px;
 }
 
+.text-control-align.text-control-align-left.disabled:hover, .text-control-align.text-control-align-left.disabled.active {
+    background-position: 0;
+}
+
 .text-control-align.text-control-align-center {
     background-position: -30px;
 }
@@ -1374,12 +1385,20 @@
     background-position: -210px;
 }
 
+.text-control-align.text-control-align-center.disabled:hover, .text-control-align.text-control-align-center.disabled.active {
+    background-position: -30px;
+}
+
 .text-control-align.text-control-align-right {
     background-position: -62px;
 }
 
 .text-control-align.text-control-align-right:hover, .text-control-align.text-control-align-right.active {
     background-position: -241px;
+}
+
+.text-control-align.text-control-align-right.disabled:hover, .text-control-align.text-control-align-right.disabled.active {
+    background-position: -62px;
 }
 
 .text-control-t {
@@ -1391,6 +1410,11 @@
 
 .text-control-t:hover, .text-control-t.active {
     background-position: -268px;
+}
+
+.text-control-t:hover:disabled, .text-control-t:disabled.active {
+    background-position: -88px;
+    cursor: default;
 }
 
 .text-controls-choose-color {
@@ -1548,16 +1572,138 @@
     background-size: 12px;
 }
 
-.text-tab.text-tab-mobile {
+.text-tab-mobile {
     display: none;
 }
 
 @media screen and (max-width: 768px) {
-    .text-tab.text-tab-mobile {
+    .text-tab-mobile {
         display: block;
     }
 
-    .text-tab.text-tab-table {
+    .text-tab-desktop {
         display: none;
     }
+}
+
+.text-tab-mobile .add-text-input {
+    float: left;
+    width: 166px;
+}
+
+.text-tab-mobile .add-text-main-tools {
+    float: left;
+}
+
+.text-tab-mobile .text-align-outline__outl-picker {
+    position: static;
+    top: 0;
+    left: 0;
+}
+
+.text-tab-mobile .text-align-outline__al {
+    position: static;
+    top: 0;
+    left: 0;
+    margin: 0 3px 0 2px;
+}
+
+.text-align-show-more {
+    float: right;
+}
+
+.text-controls-show-more {
+    width: 30px;
+    height: 31px;
+    border: none;
+    cursor: pointer;
+    background-position: -150px 0;
+}
+
+.text-controls-show-more-inverse {
+    width: 30px;
+    height: 31px;
+    border: none;
+    cursor: pointer;
+    background-position: -660px 0;
+}
+
+.text-controls-show-more:hover, .text-controls-show-more.active {
+    background-position: -330px 0;
+}
+
+.text-controls-show-more:disabled:hover, .text-controls-show-more:disabled.active {
+    background-position: -150px 0;
+    cursor: default;
+}
+
+.text-tab-mobile .font-select-sign {
+    margin-right: 4px;
+}
+
+.text-tab-mobile .font-select-color-picker {
+    margin-right: 3px;
+}
+
+.text-tab-mobile .text-align-outline__outl-picker {
+    margin-right: 3px;
+}
+
+.text-control-effects__tabs {
+    float: left;
+}
+
+.text-control-effects__tabs .text-control-group-fx {
+    margin-bottom: 2px;
+}
+
+.text-control-effects__sliders {
+    float: left;
+    height: 68px;
+}
+
+.text-control-effects__sliders .text-transform-slider {
+    height: 34px;
+}
+
+.text-control-effects__show-more {
+    float: right;
+    margin: 33px 5px 0 0;
+}
+
+.text-control-group-fx, .text-control-group-resize, .text-tab-label-resize, .text-tab-label-letter-space {
+    width: 30px;
+    height: 31px;
+    cursor: pointer;
+}
+
+.text-control-group-resize {
+    background-position: -30px 0;
+}
+
+.text-control-group-fx:hover, .text-control-group-fx.active {
+    background-position: -59px 0;
+}
+
+.text-control-group-resize:hover, .text-control-group-resize.active {
+    background-position: -90px 0;
+}
+
+.text-tab-label-resize {
+    background-position: -568px 0;
+}
+
+.text-tab-label-letter-space {
+    background-position: -599px 0;
+}
+
+.text-tab-mobile .text-control-slider {
+    width: 192px;
+    margin-left: 3px;
+}
+
+.text-tab-label-resize, .text-tab-label-letter-space {
+    float: left;
+    position: relative;
+    top: -13px;
 }

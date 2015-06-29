@@ -1,4 +1,5 @@
-﻿﻿function isNullOrUndefined(val) {
+﻿﻿
+function isNullOrUndefined(val) {
     return (typeof (val) == 'undefined' || val == null);
 }
 
@@ -759,7 +760,7 @@ function DEControlsModel() {
     self.colorsList = ko.observableArray();
 
     //----- to hide or show bottom menu/color palette
-    self.isBottomColorPaletteShowed = ko.computed(function() {
+    self.isBottomColorPaletteShowed = ko.computed(function () {
         var window_width = self.windowWidth();
         if (window_width >= 768 || self.colorsList().length === 0) {
             return false;
@@ -770,7 +771,7 @@ function DEControlsModel() {
     //-----
 
     //----- use to reset color selection in some situations (tab switching or product selecting)
-    self.resetColorsSelection = function() {
+    self.resetColorsSelection = function () {
         self.selectedProductElementColor(new ColorizeElementVO());
         self.colorClasses([]);
         self.colorsList([]);
@@ -797,7 +798,7 @@ function DEControlsModel() {
         event.preventDefault();
         self.colorClasses(classes);
         /*self.colorsList([]);
-        self.colorsGroupsList([]);*/
+         self.colorsGroupsList([]);*/
     };
 
     self.colorName = ko.computed(function () {
@@ -815,16 +816,16 @@ function DEControlsModel() {
         var i = 0,
             k = 0,
             group = [];
-        while(i < colorsList.length) {
+        while (i < colorsList.length) {
             if (k > 8) {
                 self.colorsGroupsList.push({items: group});
                 group = [];
                 k = 0;
             } else {
                 group.push(colorsList[i]);
-                k+=1;
+                k += 1;
             }
-            i+=1;
+            i += 1;
         }
         if (group.length !== 0) {
             self.colorsGroupsList.push({items: group});
@@ -1354,7 +1355,7 @@ function DEControlsModel() {
 
     //----- graphics current category
     self.graphicCategory = ko.observable();
-    self.graphicCategory.subscribe(function(){
+    self.graphicCategory.subscribe(function () {
         self.graphicsSearchQuery("");
     })
     //-----
@@ -1510,15 +1511,16 @@ function DEControlsModel() {
     self.selectedObjectType = ko.observable('none');
 
     //-----
-    self.selectedObjectType.subscribe( function(newValue) {
+    self.selectedObjectType.subscribe(function (newValue) {
         if (newValue === 'text') {
             openTextForm();
             hideGraphicsColorForm();
         } else if (newValue === 'none') {
             hideGraphicsColorForm();
-        } else if (newValue === 'graphics' ) {
+        } else if (newValue === 'graphics') {
             openGraphicsColorForm();
-        };
+        }
+        ;
         self.resetColorsSelection();
     });
     //-----
@@ -1687,6 +1689,22 @@ function DEControlsModel() {
     };
 
     self.showFontsStrokeColorsList = ko.observable(false);
+
+    self.showMoreEnabled = ko.observable(false);
+
+    self.showMoreTrigger = function () {
+        var showMoreValue = self.showMoreEnabled();
+
+        self.showMoreEnabled(!showMoreValue);
+    };
+
+    self.textControlResizeActive = ko.observable(true);
+
+    self.textControlResizeToggle = function () {
+        var resizeActive = self.textControlResizeActive();
+
+        self.textControlResizeActive(!resizeActive);
+    };
 
     self.toggleFontsStrokeColorsList = function (model, event) {
         var currentValue = self.showFontsStrokeColorsList();
