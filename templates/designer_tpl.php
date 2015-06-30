@@ -426,7 +426,7 @@
                                                id="text-align-right">
                                     </label>
                                 </div>
-                                <div>
+                                <div class="text-align-show-more">
                                     <button class="text-controls-sprite text-controls-show-more"></button>
                                 </div>
                             </div>
@@ -514,56 +514,32 @@
                             </li>
                         </ul>
                     </div>
-                    <div data-bind="visible: textToolsIsVisible" class="clearfix text-transform-slider">
-                        <div class="text-tab-label">RESIZE TEXT</div>
-                        <div class="text-control-slider">
-                            <div class="noUiSlider"
-                                 data-bind="slider: selectedLetteringVO().formatVO().fontSize, rangeStart: 10, rangeEnd: 200, step: 1, visible: showLetterSpacingSlider()"></div>
+
+                    <div class="clearfix text-control-effects">
+                        <div class="text-control-effects__tabs">
+                            <div class="text-controls-shape-sprite text-control-group-fx"></div>
+                            <div class="text-controls-shape-sprite text-control-group-resize"></div>
+                        </div>
+                        <div class="text-control-effects__sliders">
+                            <div data-bind="visible: textToolsIsVisible" class="clearfix text-transform-slider">
+                                <div class="text-tab-label-resize text-controls-shape-sprite"></div>
+                                <div class="text-control-slider">
+                                    <div class="noUiSlider"
+                                         data-bind="slider: selectedLetteringVO().formatVO().letterSpacing, rangeStart: 0, rangeEnd: 20, step: 1, visible: showLetterSpacingSlider()"></div>
+                                </div>
+                            </div>
+                            <div data-bind="visible: textToolsIsVisible" class="clearfix text-transform-slider">
+                                <div class="text-tab-label-letter-space text-controls-shape-sprite"></div>
+                                <div class="text-control-slider">
+                                    <div class="noUiSlider"
+                                         data-bind="slider: selectedLetteringVO().formatVO().fontSize, rangeStart: 10, rangeEnd: 200, step: 1, visible: showLetterSpacingSlider()"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-control-effects__show-more">
+                            <button class="text-controls-sprite text-controls-show-more"></button>
                         </div>
                     </div>
-
-                    <div data-bind="visible: textToolsIsVisible" class="clearfix text-transform-slider">
-                        <div class="text-tab-label">ROTATE TEXT</div>
-                        <div class="text-control-slider">
-                            <div class="noUiSlider"
-                                 data-bind="slider: selectedLetteringVO().formatVO().rotation, rangeStart: 0, rangeEnd: 360, step: 1, visible: showLetterSpacingSlider()"></div>
-                        </div>
-                    </div>
-
-                    <div data-bind="visible: textToolsIsVisible" class="clearfix text-transform-slider">
-                        <div class="text-tab-label">LETTER SPACE</div>
-                        <div class="text-control-slider">
-                            <div class="noUiSlider"
-                                 data-bind="slider: selectedLetteringVO().formatVO().letterSpacing, rangeStart: 0, rangeEnd: 20, step: 1, visible: showLetterSpacingSlider()"></div>
-                        </div>
-                    </div>
-
-                    <div data-bind="visible: showLineLeadingSlider()" class="clearfix text-transform-slider">
-                        <div class="text-tab-label">LINE HEIGHT</div>
-                        <div class="text-control-slider">
-                            <div id="text-line-leading-slider" class="noUiSlider"
-                                 data-bind="slider: selectedLetteringVO().formatVO().lineLeading, rangeStart: 0, rangeEnd: 3, step: 0.05, decimals: 2"></div>
-                        </div>
-                    </div>
-
-                    <div class="text-tab-title" data-bind="visible: textToolsIsVisible">
-                        Apply a text effect
-                    </div>
-
-                    <!--            <div data-bind="visible: showTextEffects()" class="btn-group">-->
-                    <!--                <button class="btn btn-default" type="button" id="text-effects-btn"-->
-                    <!--                        data-bind="text: selectedTextEffectVO().label()" data-toggle="dropdown"><span-->
-                    <!--                        class="caret"></span></button>-->
-                    <!--                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">-->
-                    <!--                    <span class="caret"></span>-->
-                    <!--                </button>-->
-                    <!--                <ul class="dropdown-menu" data-bind="foreach: textEffects"-->
-                    <!--                    style="height: 150px; overflow-y: scroll;">-->
-                    <!--                    <li data-bind="css: { active: $root.selectedTextEffectVO().name() === $data.name }">-->
-                    <!--                        <a data-bind="text: $data.label, click: $root.selectTextEffect"></a>-->
-                    <!--                    </li>-->
-                    <!--                </ul>-->
-                    <!--            </div>-->
 
                     <h6 data-bind="visible: showEffectsSlider(), text: selectedTextEffectVO().paramName()"></h6>
 

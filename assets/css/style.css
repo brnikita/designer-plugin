@@ -241,11 +241,11 @@
 }
 
 .main-nav__tab:first-child {
-    margin-left: 0px;
+    margin-left: 0;
 }
 
 .main-nav__tab:last-child {
-    margin-right: 0px;
+    margin-right: 0;
 }
 
 .main-nav__tab a {
@@ -1063,6 +1063,7 @@
     .right-column {
         margin: auto;
         float: none;
+        padding: 0 10px;
     }
 
     .colors-palette {
@@ -1120,6 +1121,11 @@
 .text-controls-sprite {
     background: no-repeat url(../img/new/text_controls_main.svg);
     background-size: 420px;
+}
+
+.text-controls-shape-sprite {
+    background: no-repeat url(../img/new/text_controls_shape.svg);
+    background-size: 690px;
 }
 
 .text-control-align {
@@ -1357,6 +1363,11 @@
     position: static;
     top: 0;
     left: 0;
+    margin: 0 3px 0 2px;
+}
+
+.text-align-show-more {
+    float: left;
 }
 
 .text-controls-show-more {
@@ -1380,5 +1391,64 @@
 }
 
 .text-tab-mobile .text-align-outline__outl-picker {
-    margin-right: 1px;
+    margin-right: 3px;
+}
+
+.text-control-effects__tabs {
+    float: left;
+}
+
+.text-control-effects__tabs .text-control-group-fx {
+    margin-bottom: 2px;
+}
+
+.text-control-effects__sliders {
+    float: left;
+    height: 68px;
+}
+
+.text-control-effects__sliders .text-transform-slider {
+    height: 34px;
+}
+
+.text-control-effects__show-more {
+    float: right;
+    margin: 33px 5px 0 0;
+}
+
+.text-control-group-fx, .text-control-group-resize, .text-tab-label-resize, .text-tab-label-letter-space {
+    width: 30px;
+    height: 31px;
+    cursor: pointer;
+}
+
+.text-control-group-resize {
+    background-position: -30px 0;
+}
+
+.text-control-group-fx:hover, .text-control-group-fx:active {
+    background-position: -90px 0;
+}
+
+.text-control-group-resize:hover, .text-control-group-resize:active {
+    background-position: -59px 0;
+}
+
+.text-tab-label-resize {
+    background-position: -568px 0;
+}
+
+.text-tab-label-letter-space {
+    background-position: -599px 0;
+}
+
+.text-tab-mobile .text-control-slider {
+    width: 192px;
+    margin-left: 3px;
+}
+
+.text-tab-label-resize, .text-tab-label-letter-space {
+    float: left;
+    position: relative;
+    top: -13px;
 }
