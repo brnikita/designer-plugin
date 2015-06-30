@@ -1427,11 +1427,11 @@
 }
 
 .text-control-group-fx:hover, .text-control-group-fx:active {
-    background-position: -90px 0;
+    background-position: -59px 0;
 }
 
 .text-control-group-resize:hover, .text-control-group-resize:active {
-    background-position: -59px 0;
+    background-position: -90px 0;
 }
 
 .text-tab-label-resize {

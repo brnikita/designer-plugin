@@ -367,7 +367,7 @@
                 </div>
 
                 <div class="text-tab-mobile">
-                    <div class="text-tab__text clearfix">
+                    <div class="text-tab__text clearfix" data-bind="visible: !showMoreEnabled()">
                         <textarea id="add-text-input" class="add-text-input"
                                   data-bind="value: selectedLetteringVO().text, valueUpdate: 'input', enable: editTextEnabled(), visible: !strictTemplate(), style: { textAlign: selectedLetteringVO().formatVO().textAlign }"
                                   type="text" placeholder="Type here..."></textarea>
@@ -427,7 +427,7 @@
                                     </label>
                                 </div>
                                 <div class="text-align-show-more">
-                                    <button class="text-controls-sprite text-controls-show-more"></button>
+                                    <button class="text-controls-sprite text-controls-show-more" data-bind="click: showMoreTrigger"></button>
                                 </div>
                             </div>
                         </div>
@@ -515,7 +515,7 @@
                         </ul>
                     </div>
 
-                    <div class="clearfix text-control-effects">
+                    <div class="clearfix text-control-effects" data-bind="visible: showMoreEnabled()">
                         <div class="text-control-effects__tabs">
                             <div class="text-controls-shape-sprite text-control-group-fx"></div>
                             <div class="text-controls-shape-sprite text-control-group-resize"></div>
@@ -537,7 +537,7 @@
                             </div>
                         </div>
                         <div class="text-control-effects__show-more">
-                            <button class="text-controls-sprite text-controls-show-more"></button>
+                            <button class="text-controls-sprite text-controls-show-more" data-bind="click: showMoreTrigger"></button>
                         </div>
                     </div>
 
