@@ -806,7 +806,10 @@ function DEControlsModel() {
         event.preventDefault();
         self.selectedProductElementColor(colorizeElement);
         self.colorsList(colorsList);
+        self.setColorsByGroups(colorsList);
+    };
 
+    self.setColorsByGroups = function (colorsList) {
         //----- for colors palette in mobile version where it is devided in groups by 9
         var i = 0,
             k = 0,
@@ -825,7 +828,6 @@ function DEControlsModel() {
         if (group.length !== 0) {
             self.colorsGroupsList.push({items: group});
         }
-        //-----
     };
 
     self.colorSelected = function (color, event) {
@@ -1661,6 +1663,12 @@ function DEControlsModel() {
     });
 
     self.showFontsList = ko.observable(false);
+    //strokeColors
+
+    self.showFontsColorsListMobile = function () {
+        self.setColorsByGroups(self.colors());
+        self.colorsList(self.colors());
+    };
 
     self.toggleFontsList = function (model, event) {
         var currentValue = self.showFontsList();

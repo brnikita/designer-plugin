@@ -387,7 +387,7 @@
                                 'color': selectedLetteringVO().formatVO().fillColor,
                                 'border-color': selectedLetteringVO().formatVO().fillColor
                                 },
-                                 click: toggleFontsColorsList"></button>
+                                 click: showFontsColorsListMobile"></button>
                                 </div>
 
                                 <div class="text-align-outline__outl-picker">
@@ -441,40 +441,6 @@
                         </div>
                     </div>
 
-                    <div class="fonts-colors" data-bind="visible: showFontsColorsList">
-                        <a href="#" class="fonts-colors__close"
-                           data-bind="click: toggleFontsColorsList"></a>
-                        <ul class="colors-palette clearfix" data-bind="foreach: colors">
-                            <li>
-                                <a href="#" data-bind="
-                        style: {
-                            'background-color': value,
-                            'color': value,
-                            'border-color': value
-                            },
-                        title: name,
-                        click: $root.selectFontColor,
-                        css: {
-                            selected: $data.value.toLocaleLowerCase() === $root.selectedLetteringVO().formatVO().fillColor().toLocaleLowerCase()
-                        }
-                    ">
-                                    <svg
-                                        data-bind="style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
-                                        id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
-                                        width="24px" height="24px" version="1.1"
-                                        style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-                                        viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
-                              <g>
-                                  <g>
-                                      <path class="fil1"
-                                            d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
-                                  </g>
-                              </g>
-                        </svg>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                     <div class="font-list" data-bind="visible: showFontsList">
                         <a href="#" class="font-list__close" data-bind="click: toggleFontsList"></a>
                         <ul data-bind="foreach: fonts">
@@ -482,43 +448,6 @@
                                 data-bind="css: { active: $root.selectedLetteringVO().formatVO().fontFamily() === $data.fontFamily }">
                                 <a href="#"
                                    data-bind="text: $data.name, click: $root.selectFont, style: { fontFamily: $data.fontFamily }"></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="fonts-colors" data-bind="visible: showFontsStrokeColorsList">
-                        <div class="text-tab-title">
-                            Change the look of your text
-                        </div>
-                        <a href="#" class="fonts-colors__close"
-                           data-bind="click: toggleFontsStrokeColorsList"></a>
-                        <ul class="colors-palette clearfix" data-bind="foreach: strokeColors">
-                            <li>
-                                <a href="#" data-bind="
-                        style: {
-                            'background-color': value,
-                            'color': value,
-                            'border-color': value
-                            },
-                        title: name,
-                        click: $root.selectFontStrokeColor,
-                        css: {
-                            selected: $data.value.toLocaleLowerCase() === $root.selectedLetteringVO().formatVO().strokeColor().toLocaleLowerCase()
-                        }
-                    ">
-                                    <svg
-                                        data-bind="style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
-                                        id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
-                                        width="24px" height="24px" version="1.1"
-                                        style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-                                        viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
-                              <g>
-                                  <g>
-                                      <path class="fil1"
-                                            d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
-                                  </g>
-                              </g>
-                        </svg>
-                                </a>
                             </li>
                         </ul>
                     </div>
