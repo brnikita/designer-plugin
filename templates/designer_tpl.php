@@ -136,7 +136,6 @@
                 </ul>
 
             </div>
-
             <div id="text-tab" class="hide">
                 <div class="text-tab-desktop">
                     <div class="text-tab__title clearfix">
@@ -786,7 +785,6 @@
                     </div>
                 </div>
             </div>
-
             <div id="share-design-tab" class="hide">
                 <p>
                     <span>Save & Share Your Design</span>
@@ -808,6 +806,7 @@
 
                 <textarea row="4" cols="50" data-bind="text: shareLink"></textarea>
             </div>
+            <!--<div class="designer-footer-caption">PRODUCT DESIGNER POWERED BY ZEMS PERFORMANCE APPAREL</div>-->
         </div>
 
         <div class="left-column lc-products-tab">
@@ -937,8 +936,9 @@
 
                 </div>
             </div>
-
+            <!--<div class="designer-footer-caption">PRODUCT DESIGNER POWERED BY ZEMS PERFORMANCE APPAREL</div>-->
         </div>
+        <div class="designer-footer-caption">PRODUCT DESIGNER POWERED BY ZEMS PERFORMANCE APPAREL</div>
     </div>
 </div>
 

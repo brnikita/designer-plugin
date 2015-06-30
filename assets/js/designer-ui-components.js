@@ -188,14 +188,17 @@ jQuery(function () {
 
         //-----
         var left_column = $('.left-column');
-        left_column.removeClass('lc-' + designerUI.activeTabName);
+        var right_column = $('.right-column');
+        left_column.removeClass('active-' + designerUI.activeTabName);
+        right_column.removeClass('active-' + designerUI.activeTabName);
         //-----
 
         setActiveTab(tabName);
         getActiveTab().removeClass('hide');
 
         //-----
-        left_column.addClass('lc-' + designerUI.activeTabName);
+        left_column.addClass('active-' + designerUI.activeTabName);
+        right_column.addClass('active-' + designerUI.activeTabName);
         controlsModel.resetColorsSelection();
         //-----
     });
