@@ -1094,12 +1094,13 @@
     width: 30px;
     height: 31px;
     border: none;
-    background-position: -120px 0;
+    background-position: -300px 0;
     cursor: pointer;
 }
 
-.text-tab__title__button .add-text-btn:hover, .text-tab__title__button .add-text-btn.active {
-    background-position: -300px 0;
+.text-tab__title__button .add-text-btn:disabled {
+    background-position: -120px 0;
+    cursor: default;
 }
 
 .text-tab__text {
@@ -1148,6 +1149,10 @@
     background-position: -182px;
 }
 
+.text-control-align.text-control-align-left.disabled:hover, .text-control-align.text-control-align-left.disabled.active {
+    background-position: 0;
+}
+
 .text-control-align.text-control-align-center {
     background-position: -30px;
 }
@@ -1156,12 +1161,20 @@
     background-position: -210px;
 }
 
+.text-control-align.text-control-align-center.disabled:hover, .text-control-align.text-control-align-center.disabled.active {
+    background-position: -30px;
+}
+
 .text-control-align.text-control-align-right {
     background-position: -62px;
 }
 
 .text-control-align.text-control-align-right:hover, .text-control-align.text-control-align-right.active {
     background-position: -241px;
+}
+
+.text-control-align.text-control-align-right.disabled:hover, .text-control-align.text-control-align-right.disabled.active {
+    background-position: -62px;
 }
 
 .text-control-t {
@@ -1173,6 +1186,11 @@
 
 .text-control-t:hover, .text-control-t.active {
     background-position: -268px;
+}
+
+.text-control-t:hover:disabled, .text-control-t:disabled.active {
+    background-position: -88px;
+    cursor: default;
 }
 
 .text-controls-choose-color {
@@ -1380,6 +1398,11 @@
 
 .text-controls-show-more:hover, .text-controls-show-more.active {
     background-position: -330px 0;
+}
+
+.text-controls-show-more:disabled:hover, .text-controls-show-more:disabled.active {
+    background-position: -150px 0;
+    cursor: default;
 }
 
 .text-tab-mobile .font-select-sign {

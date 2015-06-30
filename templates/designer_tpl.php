@@ -376,25 +376,29 @@
                             <div class="clearfix">
                                 <div class="font-select-sign">
                                     <button class="text-controls-sprite text-control-t" type="button"
-                                            data-bind="click: toggleFontsList"></button>
+                                            data-bind="click: toggleFontsList, enable: selectedLetteringVO().text().length > 0"></button>
                                 </div>
 
                                 <div class="font-select-color-picker">
-                                    <a class="text-controls-choose-color" href="#" data-bind="style: {
+                                    <button class="text-controls-choose-color" data-bind="
+                                    enable: selectedLetteringVO().text().length > 0,
+                                    style: {
                                 'background-color': selectedLetteringVO().formatVO().fillColor,
                                 'color': selectedLetteringVO().formatVO().fillColor,
                                 'border-color': selectedLetteringVO().formatVO().fillColor
                                 },
-                                 click: toggleFontsColorsList"></a>
+                                 click: toggleFontsColorsList"></button>
                                 </div>
 
                                 <div class="text-align-outline__outl-picker">
-                                    <a class="text-controls-choose-color" href="#" data-bind="style: {
+                                    <button class="text-controls-choose-color" data-bind="
+                                    enable: selectedLetteringVO().text().length > 0,
+                                    style: {
                                 'background-color': selectedLetteringVO().formatVO().strokeColor,
                                 'color': selectedLetteringVO().formatVO().strokeColor,
                                 'border-color': selectedLetteringVO().formatVO().strokeColor
                                 },
-                                 click: toggleFontsStrokeColorsList"></a>
+                                 click: toggleFontsStrokeColorsList"></button>
                                 </div>
                                 <div class="text-tab__title__button">
                                     <button id="add-text-btn" class="text-controls-sprite add-text-btn" type="button"
@@ -406,28 +410,32 @@
                                      data-bind="radio: selectedLetteringVO().formatVO().textAlign">
                                     <label id="text-align-left-btn" for="text-align-left"
                                            class="text-control-align text-control-align-left text-controls-sprite"
-                                           data-bind="css: { disabled: !textAlignEnabled() }">
+                                           data-bind="css: {disabled: selectedLetteringVO().text().length === 0}" >
                                         <input type="radio" value="left"
-                                               data-bind="enable: textAlignEnabled()" name="text-align-control"
+                                               data-bind="enable: selectedLetteringVO().text().length > 0"
+                                               name="text-align-control"
                                                id="text-align-left">
                                     </label>
                                     <label id="text-align-center-btn" for="text-align-center"
                                            class="text-control-align text-control-align-center text-controls-sprite"
-                                           data-bind="css: { disabled: !textAlignEnabled() }">
+                                           data-bind="css: {disabled: selectedLetteringVO().text().length === 0}">
                                         <input type="radio" value="center"
-                                               data-bind="enable: textAlignEnabled()" name="text-align-control"
+                                               data-bind="enable: selectedLetteringVO().text().length > 0"
+                                               name="text-align-control"
                                                id="text-align-center">
                                     </label>
                                     <label id="text-align-right-btn"
                                            class="text-control-align text-control-align-right text-controls-sprite"
-                                           data-bind="css: { disabled: !textAlignEnabled() }" for="text-align-right">
+                                           data-bind="css: {disabled: selectedLetteringVO().text().length === 0}"
+                                           for="text-align-right">
                                         <input type="radio" value="right"
-                                               data-bind="enable: textAlignEnabled()" name="text-align-control"
+                                               data-bind="enable: selectedLetteringVO().text().length > 0"
+                                               name="text-align-control"
                                                id="text-align-right">
                                     </label>
                                 </div>
                                 <div class="text-align-show-more">
-                                    <button class="text-controls-sprite text-controls-show-more" data-bind="click: showMoreTrigger"></button>
+                                    <button class="text-controls-sprite text-controls-show-more" data-bind="click: showMoreTrigger, enable: selectedLetteringVO().text().length > 0"></button>
                                 </div>
                             </div>
                         </div>
