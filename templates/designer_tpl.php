@@ -669,60 +669,63 @@
             </div>
             <div id="numbers-tab" class="hide">
                 <div class="numbers-tab-controls">
-                    <a data-bind="click: addNameObj">
+                    <a class="active" data-bind="click: addNameObj">
                         <span>Add name</span></a>
-                    <a data-bind="click: addNumberObj">
+                    <a class="active" data-bind="click: addNumberObj">
                         <span>Add number</span>
                     </a>
-                    <!--<a data-bind="">
+                    <a class="js-order-sheet-form">
                         <span>Order Sheet</span>
-                    </a>-->
-                </div>
-                <p>
-                    Number & Names Order Sheet
-                </p>
-
-                <p>
-                    NOTE: If you require only a name or only a number, simply
-                    leave the field that is not required blank.
-                </p>
-
-                <div class="order-sheet-caption" data-bind="visible: namesNumbers().length > 0">
-                    <span>NUMBER</span>
-                    <span>NAME</span>
-                    <span>SIZE</span>
-                </div>
-
-                <ol class="order-sheet-list" data-bind="foreach: namesNumbers">
-                    <li>
-                        <ul class="">
-                            <li>
-                                <input class="order-item-number" type="text" data-bind="value: $data.number"
-                                       placeholder="00"/>
-                            </li>
-                            <li>
-                                <input class="order-item-name" type="text" data-bind="value: $data.name"
-                                       placeholder="Name"/>
-                            </li>
-                            <li>
-                                <select class="order-item-size" data-bind="
-                                    visible: $root.selectedProductVO().sizes().length > 1,
-                                    options: $root.selectedProductVO().sizes,
-                                    value: $data.size
-                                "></select>
-                                <span></span>
-                            </li>
-                            <li>
-                                <a class="order-item-remove" data-bind="click: $parent.removeNameNumber">
-                                    <span></span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ol>
-                <div class="order-item-add">
-                    <a class="" data-bind="click: addNameNumber">+ Add more names and/or numbers
                     </a>
+                </div>
+                <div id="order-sheet-form" class="hide">
+                    <p>
+                        Number & Names Order Sheet
+                        <a class="js-order-sheet-form"></a>
+                    </p>
+
+                    <p>
+                        NOTE: If you require only a name or only a number, simply
+                        leave the field that is not required blank.
+                    </p>
+
+                    <div class="order-sheet-caption" data-bind="visible: namesNumbers().length > 0">
+                        <span>NUMBER</span>
+                        <span>NAME</span>
+                        <span>SIZE</span>
+                    </div>
+
+                    <ol class="order-sheet-list" data-bind="foreach: namesNumbers">
+                        <li>
+                            <ul class="">
+                                <li>
+                                    <input class="order-item-number" type="text" data-bind="value: $data.number"
+                                           placeholder="00"/>
+                                </li>
+                                <li>
+                                    <input class="order-item-name" type="text" data-bind="value: $data.name"
+                                           placeholder="Name"/>
+                                </li>
+                                <li>
+                                    <select class="order-item-size" data-bind="
+                                        visible: $root.selectedProductVO().sizes().length > 1,
+                                        options: $root.selectedProductVO().sizes,
+                                        value: $data.size
+                                    "></select>
+                                    <span></span>
+                                </li>
+                                <li>
+                                    <a class="order-item-remove" data-bind="click: $parent.removeNameNumber">
+                                        <span></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <div class="order-item-add">
+                        <a class="" data-bind="click: addNameNumber">+ Add more names and/or numbers
+                        </a>
+                    </div>
                 </div>
             </div>
             <div id="product-sizes-tab" class="hide">
@@ -730,8 +733,8 @@
                     <span>Sizes & Qty</span>
                     <a class="js-close-overlay-form"></a>
                 </p>
-                <div class="product-sizes-list">
-                    <ol class="product-sizes-item" data-bind="foreach: quantities">
+                <div>
+                    <ol class="product-sizes-list" data-bind="foreach: quantities">
                         <li>
                             <ul class="">
                                 <li>

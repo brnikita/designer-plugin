@@ -285,6 +285,15 @@ jQuery(function () {
 
     });
 
+    $('.js-order-sheet-form').on('click', function (event) {
+
+        event.preventDefault();
+        $('.left-column').toggleClass('active-order-sheet');
+        $('#order-sheet-form').toggleClass('hide');
+        $('.numbers-tab-controls a').toggleClass('active');
+
+    });
+
     $('.js-graphics-color-form').on('click', function (event) {
 
         event.preventDefault();

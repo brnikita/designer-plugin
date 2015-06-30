@@ -927,28 +927,32 @@ body {
 
 #numbers-tab .numbers-tab-controls a {
     float: left;
+    width: 95px;
     height: 30px;
     line-height: 30px;
     margin-left: 5px;
-    border: 1px solid #D51622;
+    border: 1px solid #C7C7C7;
     border-radius: 5px;
     text-align: center;
+    color: #C7C7C7;
+    pointer-events: none;
+    cursor: default;
+}
+
+#numbers-tab .numbers-tab-controls a.active {
+    border: 1px solid #D51622;
     color: #D51622;
+    pointer-events: auto;
+    cursor: pointer;
 }
 
 #numbers-tab .numbers-tab-controls a:first-child {
-    width: 95px;
     margin-left: 0;
 }
 
-#numbers-tab .numbers-tab-controls a:nth-child(2) {
-    width: 95px;
-}
-
 #numbers-tab .numbers-tab-controls a:nth-child(3) {
-    width: 95px;
-    border: 1px solid #C7C7C7;
-    color: #C7C7C7;
+    pointer-events: auto;
+    cursor: pointer;
 }
 
 #numbers-tab p {
@@ -958,10 +962,25 @@ body {
 }
 
 #numbers-tab p:first-of-type {
+    position: relative;
     font: 14px Raleway;
     color: #D51622;
     margin: 15px 0 15px 0;
 }
+
+#numbers-tab #order-sheet-form p:first-of-type a {
+    position: absolute;
+    display: inline-block;
+    height: 6px;
+    width: 6px;
+    top: 0;
+    right: 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    background: url(../img/designer-ui/x_icon.svg) no-repeat 0 0;
+    background-size: 12px;
+}
+
 
 #numbers-tab .order-sheet-caption span{
     display: inline-block;
@@ -978,7 +997,7 @@ body {
 
 #numbers-tab .order-sheet-list {
     overflow: auto;
-    max-height: 300px;
+    max-height: 280px;
 }
 
 #numbers-tab li {
@@ -1108,7 +1127,7 @@ body {
     margin: 15px 0 15px 0;
 }
 
-#product-sizes-tab > p a span {
+/*#product-sizes-tab > p a span {
     position: absolute;
     width: 6px;
     height: 6px;
@@ -1116,12 +1135,12 @@ body {
     right: 0;
     background: url(../img/designer-ui/x_icon.svg) no-repeat 0 0;
     background-size: 12px;
-}
+}*/
 
 #product-sizes-tab .product-sizes-list {
     margin: 0 0 10px 0;
     overflow: auto;
-    max-height: 300px;
+    max-height: 280px;
 }
 
 #product-sizes-tab li {
@@ -1446,6 +1465,10 @@ body {
         display: block;
     }
 
+    .left-column.active-numbers-tab.active-order-sheet {
+        display: none;
+    }
+
     .left-column.active-share-design-tab {
         display: none;
     }
@@ -1457,14 +1480,6 @@ body {
     .left-column.active-graphics-tab.upload-form {
         display: block;
     }
-
-    /*.left-column .designer-footer-caption {
-        display: block;
-    }
-
-    .right-column .designer-footer-caption {
-        display: none;
-    }*/
 
     .right-column.active-products-tab {
         height: auto;
@@ -1483,7 +1498,7 @@ body {
     }
 
     .right-column.active-numbers-tab {
-        height: 100%;
+        height: auto;
     }
 
     .right-column.active-share-design-tab {
