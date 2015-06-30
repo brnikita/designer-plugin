@@ -279,6 +279,13 @@ jQuery(function () {
 
     });
 
+    $('.js-close-overlay-form').on('click', function (event) {
+
+        event.preventDefault();
+        $('a[href="colors-tab"]').trigger('click');
+
+    });
+
     //Restore svg viewBox when svg element is resized. Needed for mobile version.
     $(window).bind('resize', function() {
         var window_width = $(window).width();

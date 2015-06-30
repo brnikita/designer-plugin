@@ -761,12 +761,7 @@ function DEControlsModel() {
 
     //----- to hide or show bottom menu/color palette
     self.isBottomColorPaletteShowed = ko.computed(function () {
-        var window_width = self.windowWidth();
-        if (window_width >= 768 || self.colorsList().length === 0) {
-            return false;
-        } else {
-            return true;
-        }
+        return !(self.windowWidth() >= 768 || self.colorsList().length === 0);
     });
     //-----
 
@@ -997,8 +992,7 @@ function DEControlsModel() {
                 self.selectProduct(item.obj());
 
                 //----- Switch to colors tab in mobile version
-                var window_width = $(window).width();
-                if (window_width < 768) {
+                if (self.windowWidth() < 768) {
                     $('a[href="colors-tab"]').trigger('click');
                 }
                 //-----
@@ -1514,15 +1508,19 @@ function DEControlsModel() {
 
     //-----
     self.selectedObjectType.subscribe(function (newValue) {
-        if (newValue === 'text') {
-            openTextForm();
-            hideGraphicsColorForm();
-        } else if (newValue === 'none') {
-            hideGraphicsColorForm();
-        } else if (newValue === 'graphics') {
-            openGraphicsColorForm();
+        switch (newValue) {
+            case 'text':
+                openTextForm();
+                hideGraphicsColorForm();
+                break;
+            case 'graphics':
+                openGraphicsColorForm();
+                break;
+            case 'none':
+                hideGraphicsColorForm();
+                break;
+            default:
         }
-        ;
         self.resetColorsSelection();
     });
     //-----
@@ -2378,13 +2376,16 @@ function DEControlsModel() {
         }
 
         if (isInvalid(invalidateList, 'objDClicked') && model.objDClicked) {
-            var a = self.selectedObjectType();
-            if (self.selectedObjectType() === 'text') {
-                openTextForm();
-            }
+            var type = self.selectedObjectType();
             //-----
-            if (self.selectedObjectType() === 'graphics') {
-                openGraphicsColorForm();
+            switch (type) {
+                case 'text':
+                    openTextForm();
+                    break
+                case 'graphics':
+                    openGraphicsColorForm();
+                    break
+                default:
             }
             //-----
             validate(invalidateList, 'objDClicked');
