@@ -525,27 +525,32 @@
 
                     <div class="clearfix text-control-effects" data-bind="visible: showMoreEnabled()">
                         <div class="text-control-effects__tabs">
-                            <div class="text-controls-shape-sprite text-control-group-fx"></div>
-                            <div class="text-controls-shape-sprite text-control-group-resize"></div>
+                            <div class="text-controls-shape-sprite text-control-group-fx" data-bind="css: {active: !textControlResizeActive()}, click: textControlResizeToggle"></div>
+                            <div class="text-controls-shape-sprite text-control-group-resize" data-bind="css: {active: textControlResizeActive()}, click: textControlResizeToggle"></div>
                         </div>
                         <div class="text-control-effects__sliders">
-                            <div data-bind="visible: textToolsIsVisible" class="clearfix text-transform-slider">
-                                <div class="text-tab-label-resize text-controls-shape-sprite"></div>
-                                <div class="text-control-slider">
-                                    <div class="noUiSlider"
-                                         data-bind="slider: selectedLetteringVO().formatVO().letterSpacing, rangeStart: 0, rangeEnd: 20, step: 1, visible: showLetterSpacingSlider()"></div>
+                            <div data-bind="visible: textControlResizeActive()">
+                                <div class="clearfix text-transform-slider">
+                                    <div class="text-tab-label-resize text-controls-shape-sprite"></div>
+                                    <div class="text-control-slider">
+                                        <div class="noUiSlider"
+                                             data-bind="slider: selectedLetteringVO().formatVO().letterSpacing, rangeStart: 0, rangeEnd: 20, step: 1, visible: showLetterSpacingSlider()"></div>
+                                    </div>
+                                </div>
+                                <div class="clearfix text-transform-slider">
+                                    <div class="text-tab-label-letter-space text-controls-shape-sprite"></div>
+                                    <div class="text-control-slider">
+                                        <div class="noUiSlider"
+                                             data-bind="slider: selectedLetteringVO().formatVO().fontSize, rangeStart: 10, rangeEnd: 200, step: 1, visible: showLetterSpacingSlider()"></div>
+                                    </div>
                                 </div>
                             </div>
-                            <div data-bind="visible: textToolsIsVisible" class="clearfix text-transform-slider">
-                                <div class="text-tab-label-letter-space text-controls-shape-sprite"></div>
-                                <div class="text-control-slider">
-                                    <div class="noUiSlider"
-                                         data-bind="slider: selectedLetteringVO().formatVO().fontSize, rangeStart: 10, rangeEnd: 200, step: 1, visible: showLetterSpacingSlider()"></div>
-                                </div>
+                            <div data-bind="visible: !textControlResizeActive()">
+
                             </div>
                         </div>
                         <div class="text-control-effects__show-more">
-                            <button class="text-controls-sprite text-controls-show-more" data-bind="click: showMoreTrigger"></button>
+                            <button class="text-controls-shape-sprite text-controls-show-more-inverse" data-bind="click: showMoreTrigger"></button>
                         </div>
                     </div>
 

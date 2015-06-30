@@ -1698,6 +1698,14 @@ function DEControlsModel() {
         self.showMoreEnabled(!showMoreValue);
     };
 
+    self.textControlResizeActive = ko.observable(true);
+
+    self.textControlResizeToggle = function () {
+        var resizeActive = self.textControlResizeActive();
+
+        self.textControlResizeActive(!resizeActive);
+    };
+
     self.toggleFontsStrokeColorsList = function (model, event) {
         var currentValue = self.showFontsStrokeColorsList();
 
