@@ -1859,10 +1859,14 @@ function DEControlsModel() {
     self.customImageType = ko.observable('');
 
     self.userAcceptsConditions = ko.observable(false);
-    self.addCustomImage = function () {
+    self.addCustomImage = function (type) {
+        //-----
+        if (type == 'url' && self.customImageUrl().length == 0) return;
+        self.customImageType(type);
+        //-----
         if (self.userAcceptsConditions()) {
             jQuery("#designer-upload-conditions-popup").modal("hide");
-            var type = self.customImageType();
+            /*var type = self.customImageType();*/
             if (type == 'url') {
                 self.addImageByUrl();
             } else {

@@ -754,6 +754,83 @@
 
 /*Graphics upload form starts here*/
 
+#graphics-tab #graphics-upload-agreement .graphics-upload-agreement__title {
+    position: relative;
+    font: 16px Raleway;
+    color: #D51622;
+    margin: 20px 0 15px 0;
+}
+
+#graphics-tab #graphics-upload-agreement .graphics-upload-agreement__title a {
+    text-decoration: none;
+    cursor: pointer;
+    position: absolute;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    top: 0;
+    right: 10px;
+    background: url(../img/designer-ui/x_icon.svg) no-repeat 0 0;
+    background-size: 12px;
+}
+
+#graphics-tab #graphics-upload-agreement .graphics-upload-agreement__info {
+    font: 12px Raleway;
+    color: #D51622;
+    margin-bottom: 15px;
+}
+
+#graphics-tab #graphics-upload-agreement p {
+    font: 12px Raleway;
+    color: #7A7A7A;
+    margin-bottom: 15px;
+}
+
+#graphics-tab #graphics-upload-agreement ol {
+    counter-reset: uploadCounter;
+    margin-bottom: 15px;
+}
+
+#graphics-tab #graphics-upload-agreement li:before {
+    counter-increment: uploadCounter;
+    content: counter(uploadCounter) ". ";
+    color: #D51622;
+    display: inline-block;
+    text-align: center;
+    margin-right: 4px;
+}
+
+#graphics-tab #graphics-upload-agreement li {
+    list-style: none;
+    font: 12px Raleway;
+    color: #7A7A7A;
+}
+
+#graphics-tab #graphics-upload-agreement input[type="checkbox"] {
+    /*background-color: #FFFFFF;
+    border: solid 2px #D51622;
+    border-radius: 3px;*/
+}
+
+#graphics-tab #graphics-upload-agreement .graphics-upload-agreement__upload {
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #D51622;
+    border-radius: 2px;
+}
+
+#graphics-tab #graphics-upload-agreement .graphics-upload-agreement__upload.disabled {
+    background-color: #C7C7C7;
+}
+
+#graphics-tab #graphics-upload-agreement .graphics-upload-agreement__upload a {
+    text-decoration: none;
+    font: 12px Raleway;
+    color: #D51622;
+}
+
 #graphics-tab #graphics-upload-form .graphics-upload-form__title {
     position: relative;
     font: 16px Raleway;
@@ -764,67 +841,30 @@
 #graphics-tab #graphics-upload-form .graphics-upload-form__title a {
     text-decoration: none;
     cursor: pointer;
-}
-
-#graphics-tab #graphics-upload-form .graphics-upload-form__title a span {
     position: absolute;
+    display: inline-block;
     width: 6px;
     height: 6px;
     top: 0;
-    right: 5px;
+    right: 10px;
     background: url(../img/designer-ui/x_icon.svg) no-repeat 0 0;
     background-size: 12px;
 }
 
-#graphics-tab #graphics-upload-form .graphics-upload-form__info {
-    font: 12px Raleway;
-    color: #D51622;
-    margin-bottom: 15px;
-}
-
-#graphics-tab #graphics-upload-form p {
-    font: 12px Raleway;
-    color: #7A7A7A;
-    margin-bottom: 15px;
-}
-
-#graphics-tab #graphics-upload-form ol {
-    counter-reset: uploadCounter;
-    margin-bottom: 15px;
-}
-
-#graphics-tab #graphics-upload-form li:before {
-    counter-increment: uploadCounter;
-    content: counter(uploadCounter) ". ";
-    color: #D51622;
-    display: inline-block;
-    text-align: center;
-    margin-right: 4px;
-}
-
-#graphics-tab #graphics-upload-form li {
-    list-style: none;
-    font: 12px Raleway;
-    color: #7A7A7A;
-}
-
-#graphics-tab #graphics-upload-form input[type="checkbox"] {
-
-}
-
-#graphics-tab #graphics-upload-form .graphics-upload-form__upload {
-    width: 90px;
+#graphics-tab #graphics-upload-form input {
+    width: 275px;
     height: 30px;
-    line-height: 30px;
-    text-align: center;
-    border: 1px solid #D51622;
-    border-radius: 2px;
+    padding: 0 0 0 5px;
+    font: 12px Raleway;
+    background-color: #FFFFFF;
+    border: solid 1px #C7C7C7;
+    border-radius: 0;
+    outline: none;
 }
 
-#graphics-tab #graphics-upload-form .graphics-upload-form__upload a {
-    text-decoration: none;
+#graphics-tab #graphics-upload-form h6 {
     font: 12px Raleway;
-    color: #D51622;
+    margin: 10px 0 10px 0;
 }
 
 /*Graphics upload form ends here*/

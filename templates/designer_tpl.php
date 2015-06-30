@@ -595,7 +595,7 @@
                             <span></span>
                         </div>
                         <div class="graphics-upload">
-                            <a class="js-graphics-upload-form" type="button"><span></span></a>
+                            <a class="js-graphics-upload-agreement" type="button"><span></span></a>
                         </div>
                     </div>
                     <div class="graphics-list">
@@ -622,12 +622,10 @@
                     </div>
                 </div>
 
-                <div id="graphics-upload-form" class="hide">
-                    <div class="graphics-upload-form__title">
+                <div id="graphics-upload-agreement" class="hide">
+                    <div class="graphics-upload-agreement__title">
                         <span>Uploading Photos and Images</span>
-                        <a class="js-graphics-color-form">
-                            <span></span>
-                        </a>
+                        <a class="js-graphics-upload-agreement"></a>
                     </div>
 
                     <p>Please note that in order to use a design (photo, image, text, brand or saying) you must have
@@ -645,37 +643,44 @@
                             or confirm the legal use of reproducing any designs.
                         </li>
                     </ol>
-                    <p class="graphics-upload-form__info">Graphics Information</p>
+                    <p class="graphics-upload-agreement__info">Graphics Information</p>
 
                     <p>Designer supports jpeg, gif, png and svg formats. All images need to have a minimum resolution of
                         150 dpi.</p>
-                    <input type="checkbox" name="upload terms" value="">
+
+                    <input type="checkbox" data-bind="checked: userAcceptsConditions">
 
                     <p>I understand and accept these conditions of copyright.</p>
 
-                    <div class="graphics-upload-form__upload">
-                        <a href="#">Upload</a>
+                    <div class="graphics-upload-agreement__upload" data-bind="css: { 'disabled': !userAcceptsConditions() }">
+                        <a class=" js-graphics-upload-form" data-bind="css: { 'disabled': !userAcceptsConditions() }" href="#">
+                            Upload
+                        </a>
                     </div>
-                    <!--<div class="designer-dropdown-form-header">
-                        <span class="designer-form-header-title">Upload Graphics</span>
-                        <a class="designer-close-window-btn"></a>
-                        <button type="button" class="close js-graphics-upload-form">&times;</button>
+
+                </div>
+
+                <div id="graphics-upload-form" class="hide">
+                    <div class="graphics-upload-form__title">
+                        <span>Upload Graphics</span>
+                        <a class="js-graphics-upload-form"></a>
                     </div>
-                    <div id="upload-image-form-content">
-                        <form id="designer-upload-upload-image-by-url">
-                            <div class="input-group">
-                                <input id="designer-upload-graphics-url-input" type="text" class="form-control" placeholder="Url" data-bind="value: customImageUrl, valueUpdate: 'input'">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button" data-bind="click: showUploadConditions.bind($data, 'url'), enable: customImageUrl().length > 0">Add</button>
-                                    </span>
-                            </div>
-                        </form>
-                        <h6 class="text-center" data-bind="visible: uploadFileAvailable">or</h6>
-                        <form id="designer-upload-image-form" enctype="multipart/form-data" method="post" data-bind="visible: uploadFileAvailable">
-                            <button id="designer-upload-image-browse-btn" type="button" class="btn btn-default btn-block" data-loading-text="Uploading..." data-bind="click: showUploadConditions.bind($data, 'upload')">Browse for file...</button>
-                        </form>
-                        <button class="btn btn-default js-graphics-upload-form" id="done-numbers-btn" type="button">Done</button>
-                    </div>-->
+                    <form class="graphics-upload-form__form">
+                       <input type="text" class="form-control" placeholder="Url" data-bind="value: customImageUrl, valueUpdate: 'input'">
+                       <span class="">
+                           <input type="button" type="button" value="Add"
+                                   data-bind="click: addCustomImage.bind($data, 'url'),
+                                              attr: {'disabled': customImageUrl().length == 0},
+                                              style: {'background-color': customImageUrl().length > 0 ? '#FFFFFF': '#C7C7C7'}">
+                       </span>
+                    </form>
+                    <h6 data-bind="visible: uploadFileAvailable">or</h6>
+                    <form enctype="multipart/form-data" method="post"
+                          data-bind="visible: uploadFileAvailable">
+                       <input type="button" type="button" value="Browse for file..." data-loading-text="Uploading..."
+                               data-bind="click: addCustomImage.bind($data, 'upload')">
+
+                    </form>
                 </div>
 
                 <div id="graphics-color-form" class="hide">

@@ -264,11 +264,21 @@ jQuery(function () {
 
     });
 
-    $('.js-graphics-upload-form').on('click', function (event) {
+    $('.js-graphics-upload-agreement').on('click', function (event) {
 
         event.preventDefault();
         $('#graphics-add-form').toggleClass('hide');
-        $('#graphics-upload-form').toggleClass('hide');
+        $('#graphics-upload-agreement').toggleClass('hide');
+
+    });
+
+    $('.js-graphics-upload-form').on('click', function (event) {
+
+        event.preventDefault();
+        if (!$(this).hasClass("disabled")) {
+            $('#graphics-upload-form').toggleClass('hide');
+            $('#graphics-upload-agreement').toggleClass('hide');
+        }
 
     });
 
