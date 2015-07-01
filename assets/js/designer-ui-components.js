@@ -312,11 +312,10 @@ jQuery(function () {
     $(window).bind('resize', function() {
         var window_width = $(window).width();
         if (window_width < 1024) {
-            $('#canvas-container svg')[0].setAttribute('viewBox', '0 0 587 543');
-            /*$('#canvas-container svg')[1].setAttribute('viewBox', '0 0 587 543');*/
-            /*$('#canvas-container svg').each(function() {
+            $('#canvas-container svg').each(function() {
+                //Can't use jQuery attr because of incorrect working with viewBox attribute
                 $(this)[0].setAttribute('viewBox', '0 0 587 543');
-            });*/
+            });
         }
         controlsModel.windowWidth(window_width);
     });
@@ -324,11 +323,9 @@ jQuery(function () {
     //Initialize viewBox in mobile version
     $(document).bind('DOMSubtreeModified',function(){
         if ($('#canvas-container svg')[0]) {
-            $('#canvas-container svg')[0].setAttribute('viewBox', '0 0 587 543');
-            /*$('#canvas-container svg')[1].setAttribute('viewBox', '0 0 587 543');*/
-            /*$('#canvas-container svg').each(function() {
+            $('#canvas-container svg').each(function() {
                 $(this)[0].setAttribute('viewBox', '0 0 587 543');
-            });*/
+            });
         }
     });
 

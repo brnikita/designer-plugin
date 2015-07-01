@@ -86,12 +86,22 @@ body {
     /*outline: solid 1px green;*/
 }
 
+#canvas-container {
+    width: 587px;
+    height: 543px;
+}
+
+#canvas-container > div {
+    width: 587px !important;
+    height: 543px !important;
+}
+
 #canvas-container svg {
     width: 587px;
     height: 543px;
 }
 
-#canvas-container {
+#canvas-container image {
     width: 587px;
     height: 543px;
 }
@@ -261,16 +271,28 @@ body {
     display: inline-block;
     margin-left: 5px;
     list-style: none;
-    cursor: pointer;
 }
 
 #product-sides-switch ul li:first-child {
     margin-left: 0;
 }
 
-#product-sides-switch ul li a {
+#product-sides-switch ul li button {
+    display: block;
+    width: 8px;
+    height: 8px;
     text-decoration: none;
     color: #C7C7C7;
+    background-color: #C7C7C7;
+    border: solid 1px #C7C7C7;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+}
+
+#product-sides-switch ul li button.active {
+    background-color: #7A7A7A;
+    border-color: #7A7A7A;
 }
 
 /*Products sides switch ends here*/
@@ -1372,7 +1394,12 @@ body {
         left: 375px;
     }
 
-    #canvas-container > div:first-child {
+    #canvas-container {
+        width: 320px;
+        height: 296px;
+    }
+
+    #canvas-container > div {
         width: 320px !important;
         height: 296px !important;
     }
@@ -1382,11 +1409,10 @@ body {
         height: 296px;
     }
 
-    #canvas-container {
-        width: 320px;
-        height: 296px;
+    #canvas-container image {
+        width: 587px;
+        height: 543px;
     }
-
 }
 
 @media screen and (max-width: 768px) {
@@ -1407,7 +1433,12 @@ body {
         left: 15px;
     }
 
-    #canvas-container > div:first-child {
+    #canvas-container {
+        width: 320px;
+        height: 296px;
+    }
+
+    #canvas-container > div {
         width: 320px !important;
         height: 296px !important;
     }
@@ -1417,9 +1448,9 @@ body {
         height: 296px;
     }
 
-    #canvas-container {
-        width: 320px;
-        height: 296px;
+    #canvas-container image {
+        width: 587px;
+        height: 543px;
     }
 
     .left-column {
@@ -1442,15 +1473,19 @@ body {
     }
 
     .left-column.active-colour-tab {
-
+        display: block;
     }
 
     .left-column.active-text-tab {
-
+        display: block;
     }
 
     .left-column.active-graphics-tab {
         display: none;
+    }
+
+    .left-column.active-graphics-tab.upload-form {
+        display: block;
     }
 
     .left-column.active-numbers-tab {
@@ -1467,10 +1502,6 @@ body {
 
     .left-column.active-product-sizes-tab {
         display: none;
-    }
-
-    .left-column.active-graphics-tab.upload-form {
-        display: block;
     }
 
     .right-column.active-products-tab {

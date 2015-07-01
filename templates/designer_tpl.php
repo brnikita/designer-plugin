@@ -813,7 +813,7 @@
             <!--<div class="designer-footer-caption">PRODUCT DESIGNER POWERED BY ZEMS PERFORMANCE APPAREL</div>-->
         </div>
 
-        <div class="left-column lc-products-tab">
+        <div class="left-column active-products-tab">
             <div id="canvas-container">
                 <!-- DesignerJS core goes here -->
             </div>
@@ -821,11 +821,10 @@
             <div id="product-sides-switch"
                  data-bind="visible: selectedProductVO().locations().length > 1">
                 <ul class="" data-bind="foreach: selectedProductVO().locations">
-                    <li data-bind="css: { active: $data.name == $root.selectedProductLocation() }">
-                        <a data-bind="click: $root.selectProductLocation">
-                            O
-                            <!--<span data-bind="text: $data.name"></span>-->
-                        </a>
+                    <li data-bind="">
+                        <button data-bind="click: $root.selectProductLocation,
+                                           css: { active: $data.name == $root.selectedProductLocation() }">
+                        </button>
                     </li>
                 </ul>
             </div>
