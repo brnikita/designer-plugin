@@ -188,14 +188,17 @@ jQuery(function () {
 
         //-----
         var left_column = $('.left-column');
-        left_column.removeClass('lc-' + designerUI.activeTabName);
+        var right_column = $('.right-column');
+        left_column.removeClass('active-' + designerUI.activeTabName);
+        right_column.removeClass('active-' + designerUI.activeTabName);
         //-----
 
         setActiveTab(tabName);
         getActiveTab().removeClass('hide');
 
         //-----
-        left_column.addClass('lc-' + designerUI.activeTabName);
+        left_column.addClass('active-' + designerUI.activeTabName);
+        right_column.addClass('active-' + designerUI.activeTabName);
         controlsModel.resetColorsSelection();
         //-----
     });
@@ -264,11 +267,30 @@ jQuery(function () {
 
     });
 
-    $('.js-graphics-upload-form').on('click', function (event) {
+    $('.js-graphics-upload-agreement').on('click', function (event) {
 
         event.preventDefault();
         $('#graphics-add-form').toggleClass('hide');
-        $('#graphics-upload-form').toggleClass('hide');
+        $('#graphics-upload-agreement').toggleClass('hide');
+
+    });
+
+    $('.js-graphics-upload-form').on('click', function (event) {
+
+        event.preventDefault();
+        if (!$(this).hasClass("disabled")) {
+            $('#graphics-upload-form').toggleClass('hide');
+            $('#graphics-upload-agreement').toggleClass('hide');
+        }
+
+    });
+
+    $('.js-order-sheet-form').on('click', function (event) {
+
+        event.preventDefault();
+        $('.left-column').toggleClass('active-order-sheet');
+        $('#order-sheet-form').toggleClass('hide');
+        $('.numbers-tab-controls a').toggleClass('active');
 
     });
 

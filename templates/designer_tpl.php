@@ -136,7 +136,6 @@
                 </ul>
 
             </div>
-
             <div id="text-tab" class="hide">
                 <div class="text-tab-desktop">
                     <div class="text-tab__title clearfix">
@@ -524,7 +523,7 @@
                             <span></span>
                         </div>
                         <div class="graphics-upload">
-                            <a class="js-graphics-upload-form" type="button"><span></span></a>
+                            <a class="js-graphics-upload-agreement" type="button"><span></span></a>
                         </div>
                     </div>
                     <div class="graphics-list">
@@ -551,12 +550,10 @@
                     </div>
                 </div>
 
-                <div id="graphics-upload-form" class="hide">
-                    <div class="graphics-upload-form__title">
+                <div id="graphics-upload-agreement" class="hide">
+                    <div class="graphics-upload-agreement__title">
                         <span>Uploading Photos and Images</span>
-                        <a class="js-graphics-color-form">
-                            <span></span>
-                        </a>
+                        <a class="js-graphics-upload-agreement"></a>
                     </div>
 
                     <p>Please note that in order to use a design (photo, image, text, brand or saying) you must have
@@ -574,37 +571,44 @@
                             or confirm the legal use of reproducing any designs.
                         </li>
                     </ol>
-                    <p class="graphics-upload-form__info">Graphics Information</p>
+                    <p class="graphics-upload-agreement__info">Graphics Information</p>
 
                     <p>Designer supports jpeg, gif, png and svg formats. All images need to have a minimum resolution of
                         150 dpi.</p>
-                    <input type="checkbox" name="upload terms" value="">
+
+                    <input type="checkbox" data-bind="checked: userAcceptsConditions">
 
                     <p>I understand and accept these conditions of copyright.</p>
 
-                    <div class="graphics-upload-form__upload">
-                        <a href="#">Upload</a>
+                    <div class="graphics-upload-agreement__upload" data-bind="css: { 'disabled': !userAcceptsConditions() }">
+                        <a class=" js-graphics-upload-form" data-bind="css: { 'disabled': !userAcceptsConditions() }" href="#">
+                            Upload
+                        </a>
                     </div>
-                    <!--<div class="designer-dropdown-form-header">
-                        <span class="designer-form-header-title">Upload Graphics</span>
-                        <a class="designer-close-window-btn"></a>
-                        <button type="button" class="close js-graphics-upload-form">&times;</button>
+
+                </div>
+
+                <div id="graphics-upload-form" class="hide">
+                    <div class="graphics-upload-form__title">
+                        <span>Upload Graphics</span>
+                        <a class="js-graphics-upload-form"></a>
                     </div>
-                    <div id="upload-image-form-content">
-                        <form id="designer-upload-upload-image-by-url">
-                            <div class="input-group">
-                                <input id="designer-upload-graphics-url-input" type="text" class="form-control" placeholder="Url" data-bind="value: customImageUrl, valueUpdate: 'input'">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button" data-bind="click: showUploadConditions.bind($data, 'url'), enable: customImageUrl().length > 0">Add</button>
-                                    </span>
-                            </div>
-                        </form>
-                        <h6 class="text-center" data-bind="visible: uploadFileAvailable">or</h6>
-                        <form id="designer-upload-image-form" enctype="multipart/form-data" method="post" data-bind="visible: uploadFileAvailable">
-                            <button id="designer-upload-image-browse-btn" type="button" class="btn btn-default btn-block" data-loading-text="Uploading..." data-bind="click: showUploadConditions.bind($data, 'upload')">Browse for file...</button>
-                        </form>
-                        <button class="btn btn-default js-graphics-upload-form" id="done-numbers-btn" type="button">Done</button>
-                    </div>-->
+                    <form class="graphics-upload-form__form">
+                       <input type="text" class="form-control" placeholder="Url" data-bind="value: customImageUrl, valueUpdate: 'input'">
+                       <span class="">
+                           <input type="button" type="button" value="Add"
+                                   data-bind="click: addCustomImage.bind($data, 'url'),
+                                              attr: {'disabled': customImageUrl().length == 0},
+                                              style: {'background-color': customImageUrl().length > 0 ? '#FFFFFF': '#C7C7C7'}">
+                       </span>
+                    </form>
+                    <h6 data-bind="visible: uploadFileAvailable">or</h6>
+                    <form enctype="multipart/form-data" method="post"
+                          data-bind="visible: uploadFileAvailable">
+                       <input type="button" type="button" value="Browse for file..." data-loading-text="Uploading..."
+                               data-bind="click: addCustomImage.bind($data, 'upload')">
+
+                    </form>
                 </div>
 
                 <div id="graphics-color-form" class="hide">
@@ -665,60 +669,63 @@
             </div>
             <div id="numbers-tab" class="hide">
                 <div class="numbers-tab-controls">
-                    <a data-bind="click: addNameObj">
+                    <a class="active" data-bind="click: addNameObj">
                         <span>Add name</span></a>
-                    <a data-bind="click: addNumberObj">
+                    <a class="active" data-bind="click: addNumberObj">
                         <span>Add number</span>
                     </a>
-                    <!--<a data-bind="">
+                    <a class="js-order-sheet-form">
                         <span>Order Sheet</span>
-                    </a>-->
-                </div>
-                <p>
-                    Number & Names Order Sheet
-                </p>
-
-                <p>
-                    NOTE: If you require only a name or only a number, simply
-                    leave the field that is not required blank.
-                </p>
-
-                <div class="order-sheet-caption" data-bind="visible: namesNumbers().length > 0">
-                    <span>NUMBER</span>
-                    <span>NAME</span>
-                    <span>SIZE</span>
-                </div>
-
-                <ol class="order-sheet-list" data-bind="foreach: namesNumbers">
-                    <li>
-                        <ul class="">
-                            <li>
-                                <input class="order-item-number" type="text" data-bind="value: $data.number"
-                                       placeholder="00"/>
-                            </li>
-                            <li>
-                                <input class="order-item-name" type="text" data-bind="value: $data.name"
-                                       placeholder="Name"/>
-                            </li>
-                            <li>
-                                <select class="order-item-size" data-bind="
-                                    visible: $root.selectedProductVO().sizes().length > 1,
-                                    options: $root.selectedProductVO().sizes,
-                                    value: $data.size
-                                "></select>
-                                <span></span>
-                            </li>
-                            <li>
-                                <a class="order-item-remove" data-bind="click: $parent.removeNameNumber">
-                                    <span></span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ol>
-                <div class="order-item-add">
-                    <a class="" data-bind="click: addNameNumber">+ Add more names and/or numbers
                     </a>
+                </div>
+                <div id="order-sheet-form" class="hide">
+                    <p>
+                        Number & Names Order Sheet
+                        <a class="js-order-sheet-form"></a>
+                    </p>
+
+                    <p>
+                        NOTE: If you require only a name or only a number, simply
+                        leave the field that is not required blank.
+                    </p>
+
+                    <div class="order-sheet-caption" data-bind="visible: namesNumbers().length > 0">
+                        <span>NUMBER</span>
+                        <span>NAME</span>
+                        <span>SIZE</span>
+                    </div>
+
+                    <ol class="order-sheet-list" data-bind="foreach: namesNumbers">
+                        <li>
+                            <ul class="">
+                                <li>
+                                    <input class="order-item-number" type="text" data-bind="value: $data.number"
+                                           placeholder="00"/>
+                                </li>
+                                <li>
+                                    <input class="order-item-name" type="text" data-bind="value: $data.name"
+                                           placeholder="Name"/>
+                                </li>
+                                <li>
+                                    <select class="order-item-size" data-bind="
+                                        visible: $root.selectedProductVO().sizes().length > 1,
+                                        options: $root.selectedProductVO().sizes,
+                                        value: $data.size
+                                    "></select>
+                                    <span></span>
+                                </li>
+                                <li>
+                                    <a class="order-item-remove" data-bind="click: $parent.removeNameNumber">
+                                        <span></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <div class="order-item-add">
+                        <a class="" data-bind="click: addNameNumber">+ Add more names and/or numbers
+                        </a>
+                    </div>
                 </div>
             </div>
             <div id="product-sizes-tab" class="hide">
@@ -726,8 +733,8 @@
                     <span>Sizes & Qty</span>
                     <a class="js-close-overlay-form"></a>
                 </p>
-                <div class="product-sizes-list">
-                    <ol class="product-sizes-item" data-bind="foreach: quantities">
+                <div>
+                    <ol class="product-sizes-list" data-bind="foreach: quantities">
                         <li>
                             <ul class="">
                                 <li>
@@ -781,7 +788,6 @@
                     </div>
                 </div>
             </div>
-
             <div id="share-design-tab" class="hide">
                 <p>
                     <span>Save & Share Your Design</span>
@@ -803,6 +809,7 @@
 
                 <textarea row="4" cols="50" data-bind="text: shareLink"></textarea>
             </div>
+            <!--<div class="designer-footer-caption">PRODUCT DESIGNER POWERED BY ZEMS PERFORMANCE APPAREL</div>-->
         </div>
 
         <div class="left-column lc-products-tab">
@@ -932,8 +939,9 @@
 
                 </div>
             </div>
-
+            <!--<div class="designer-footer-caption">PRODUCT DESIGNER POWERED BY ZEMS PERFORMANCE APPAREL</div>-->
         </div>
+        <div class="designer-footer-caption">PRODUCT DESIGNER POWERED BY ZEMS PERFORMANCE APPAREL</div>
     </div>
 </div>
 
