@@ -140,7 +140,6 @@ body {
     font-weight: bold;
 }
 
-
 #bottom-menus .bottom-menu__main a:first-child {
     width: 40px;
     margin-left: 0;
@@ -1026,17 +1025,16 @@ body {
     background-size: 12px;
 }
 
-
-#numbers-tab .order-sheet-caption span{
+#numbers-tab .order-sheet-caption span {
     display: inline-block;
     font-size: 9px;
 }
 
-#numbers-tab .order-sheet-caption span:nth-child(1){
+#numbers-tab .order-sheet-caption span:nth-child(1) {
     width: 40px;
 }
 
-#numbers-tab .order-sheet-caption span:nth-child(2){
+#numbers-tab .order-sheet-caption span:nth-child(2) {
     width: 154px;
 }
 
@@ -1235,7 +1233,7 @@ body {
 #product-sizes-tab ol ul > li input {
     background-color: #FFFFFF;
     border: none;
-    outline:none;
+    outline: none;
 }
 
 #product-sizes-tab .order-item-decrease-qty {
@@ -1469,7 +1467,6 @@ body {
         width: 587px;
         height: 543px;
     }*/
-
     .left-column {
         width: 320px;
         height: auto;
@@ -1612,7 +1609,7 @@ body {
 }
 
 .text-controls-shape-sprite {
-    background: no-repeat url(../img/new/text_controls_shape.svg);
+    background: no-repeat url(../img/designer-ui/text_controls_shape.svg);
     background-size: 690px;
 }
 
@@ -1829,8 +1826,8 @@ body {
     position: absolute;
     width: 6px;
     height: 6px;
-    top: 15px;
-    right: 15px;
+    top: 12px;
+    right: 4px;
     background: url(../img/designer-ui/x_icon.svg) no-repeat 0 0;
     background-size: 12px;
 }
@@ -1969,4 +1966,67 @@ body {
     float: left;
     position: relative;
     top: -13px;
+}
+
+.font-list ul {
+    list-style: none;
+    height: 391px;
+    overflow-y: scroll;
+}
+
+.font-list-wrapper {
+    padding-top: 32px;
+}
+
+.font-list__item {
+    position: relative;
+    float: left;
+    padding: 5px 15px;
+}
+
+.font-list__item a {
+    color: #bfbfbf;
+    font-size: 25px;
+}
+
+.font-list__item.active a {
+    color: #000;
+}
+
+.font-list__item.active:after {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="24px" height="24px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd;position:relative;top:-3px;left:-2px;fill:red;background:#fff;" viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink"><g><g><path class="fil1" d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/></g></g></svg>');
+    position: absolute;
+    border: 1px solid red;
+    color: red;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    text-align: center;
+    left: 50%;
+    margin-left: -10px;
+    top: 12px;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+    .font-list {
+        position: absolute;
+        top: 47px;
+        left: 0;
+        background: #fff;
+        z-index: 2;
+        width: 308px;
+    }
+
+    .font-list ul {
+        height: 424px;
+    }
+
+    .font-list-wrapper {
+
+    }
+
+    .font-list__item {
+
+    }
 }
