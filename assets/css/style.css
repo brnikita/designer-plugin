@@ -96,15 +96,15 @@ body {
     height: 543px !important;
 }
 
-#canvas-container svg {
+#canvas-container > div > svg {
     width: 587px;
     height: 543px;
 }
 
-#canvas-container image {
-    /*width: 587px;
-    height: 543px;*/
-}
+/*#canvas-container image {
+    width: 587px;
+    height: 543px;
+}*/
 
 #bottom-menus {
     width: 295px;
@@ -1404,15 +1404,15 @@ body {
         height: 296px !important;
     }
 
-    #canvas-container svg {
+    #canvas-container > div > svg {
         width: 320px;
         height: 296px;
     }
 
-    #canvas-container image {
-        /*width: 587px;
-        height: 543px;*/
-    }
+    /*#canvas-container image {
+        width: 587px;
+        height: 543px;
+    }*/
 }
 
 @media screen and (max-width: 768px) {
@@ -1443,15 +1443,15 @@ body {
         height: 296px !important;
     }
 
-    #canvas-container svg {
+    #canvas-container > div > svg {
         width: 320px;
         height: 296px;
     }
 
-    #canvas-container image {
-        /*width: 587px;
-        height: 543px;*/
-    }
+    /*#canvas-container image {
+        width: 587px;
+        height: 543px;
+    }*/
 
     .left-column {
         width: 320px;
