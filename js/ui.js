@@ -813,10 +813,11 @@ function DEControlsModel() {
         //----- for colors palette in mobile version where it is devided in groups by 9
         var i = 0,
             k = 0,
-            group = [];
+            group = [],
+            groupsList = [];
         while (i < colorsList.length) {
             if (k > 8) {
-                self.colorsGroupsList.push({items: group});
+                groupsList.push({items: group});
                 group = [];
                 k = 0;
             } else {
@@ -826,8 +827,9 @@ function DEControlsModel() {
             i += 1;
         }
         if (group.length !== 0) {
-            self.colorsGroupsList.push({items: group});
+            groupsList.push({items: group});
         }
+        self.colorsGroupsList(groupsList);
     };
 
     self.colorSelected = function (color, event) {
