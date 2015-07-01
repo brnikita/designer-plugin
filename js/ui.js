@@ -1522,14 +1522,16 @@ function DEControlsModel() {
     self.selectedObjectType.subscribe(function (newValue) {
         switch (newValue) {
             case 'text':
-                openTextForm();
-                hideGraphicsColorForm();
                 break;
             case 'graphics':
-                openGraphicsColorForm();
+                if (designerUI.activeTabName == 'graphics-tab') {
+                    openGraphicsColorForm();
+                }
                 break;
             case 'none':
-                hideGraphicsColorForm();
+                if (designerUI.activeTabName == 'graphics-tab' && self.windowWidth() >= 768) {
+                    hideGraphicsColorForm();
+                }
                 break;
             default:
         }
