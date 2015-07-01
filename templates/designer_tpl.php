@@ -398,7 +398,7 @@
                                 'color': selectedLetteringVO().formatVO().strokeColor,
                                 'border-color': selectedLetteringVO().formatVO().strokeColor
                                 },
-                                 click: toggleFontsStrokeColorsList"></button>
+                                 click: showFontsStrokeColorsListMobile"></button>
                                 </div>
                                 <div class="text-tab__title__button">
                                     <button id="add-text-btn" class="text-controls-sprite add-text-btn" type="button"

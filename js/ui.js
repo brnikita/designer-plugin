@@ -833,6 +833,16 @@ function DEControlsModel() {
     self.colorSelected = function (color, event) {
         event.preventDefault();
 
+        if (color.type === 'strokeColor') {
+            self.selectFontStrokeColor(color);
+            return;
+        }
+
+        if (color.type === 'fontColor') {
+            self.selectFontColor(color);
+            return;
+        }
+
         self.selectedProductElementColor().value(color.value);
     };
 
@@ -1663,7 +1673,6 @@ function DEControlsModel() {
     });
 
     self.showFontsList = ko.observable(false);
-    //strokeColors
 
     self.showFontsColorsListMobile = function () {
         self.setColorsByGroups(self.colors());
@@ -1695,6 +1704,11 @@ function DEControlsModel() {
     };
 
     self.showFontsStrokeColorsList = ko.observable(false);
+
+    self.showFontsStrokeColorsListMobile = function () {
+        self.setColorsByGroups(self.strokeColors());
+        self.colorsList(self.strokeColors());
+    };
 
     self.showMoreEnabled = ko.observable(false);
 
@@ -1960,19 +1974,19 @@ function DEControlsModel() {
         userInteract({
             arrange: value
         });
-    }
+    };
 
     self.align = function (value) {
         userInteract({
             align: value
         });
-    }
+    };
 
     self.flip = function (value) {
         userInteract({
             flip: value
         });
-    }
+    };
 
     self.clearDesign = function () {
         var retVal = confirm("Are you sure to continue ?");
@@ -1985,7 +1999,7 @@ function DEControlsModel() {
                 clearDesign: true
             });
         }
-    }
+    };
 
     self.lockProportions = ko.observable(true);
     self.lockProportions.subscribe(function (value) {
@@ -2163,11 +2177,11 @@ function DEControlsModel() {
      */
     self.undo = function () {
         userInteract({undo: true});
-    }
+    };
 
     self.redo = function () {
         userInteract({redo: true});
-    }
+    };
 
     self.isUndoActive = ko.observable(false);
     self.isRedoActive = ko.observable(false);
@@ -2190,6 +2204,26 @@ function DEControlsModel() {
             delete invalidateList[invalidateList.indexOf(type)];
         }
     }
+
+    self.markAsStrokeColors = function () {
+        var strokeColors = self.strokeColors();
+
+        ko.utils.arrayForEach(strokeColors, function (color) {
+            color.type = 'strokeColor';
+        });
+
+        self.strokeColors(strokeColors);
+    };
+
+    self.markAsFontColors = function () {
+        var colors = self.colors();
+
+        ko.utils.arrayForEach(colors, function (color) {
+            color.type = 'fontColor';
+        });
+
+        self.colors(colors);
+    };
 
     self.update = function (model) {
         var invalidateList = model.invalidateList ? model.invalidateList : [];
@@ -2262,8 +2296,11 @@ function DEControlsModel() {
                 value: 'none',
                 name: 'Transparent'
             });
+
             self.strokeColors(strokeColors.concat(model.colors));
             validate(invalidateList, 'colors');
+            self.markAsStrokeColors();
+            self.markAsFontColors();
         }
 
         // fill colors and stroke colors list
