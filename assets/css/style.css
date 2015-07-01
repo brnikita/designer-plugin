@@ -452,8 +452,6 @@ body {
     position: relative;
     height: 30px;
     width: 110px;
-    /*display: inline-block;
-    vertical-align: middle;*/
 }
 
 #products-tab .products-search input {
@@ -475,10 +473,6 @@ body {
     font-size: 9px;
     background: url(../img/designer-ui/products_controls.svg) no-repeat -30px 0;
     background-size: 60px;
-}
-
-#products-tab .products-list {
-
 }
 
 #products-tab .products-back-btn {
@@ -839,18 +833,18 @@ body {
 #graphics-tab #graphics-upload-agreement .graphics-upload-agreement__info {
     font: 12px Raleway;
     color: #D51622;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 #graphics-tab #graphics-upload-agreement p {
     font: 12px Raleway;
     color: #7A7A7A;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 #graphics-tab #graphics-upload-agreement ol {
     counter-reset: uploadCounter;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 #graphics-tab #graphics-upload-agreement li:before {
@@ -881,16 +875,16 @@ body {
     text-align: center;
     border: 1px solid #D51622;
     border-radius: 2px;
+    font: 12px Raleway;
+    color: #D51622;
+    background-color: #FFFFFF;
+    border-radius: 5px;
 }
 
 #graphics-tab #graphics-upload-agreement .graphics-upload-agreement__upload.disabled {
     background-color: #C7C7C7;
-}
-
-#graphics-tab #graphics-upload-agreement .graphics-upload-agreement__upload a {
-    text-decoration: none;
-    font: 12px Raleway;
-    color: #D51622;
+    border: 1px solid #7A7A7A;
+    color: #7A7A7A;
 }
 
 #graphics-tab #graphics-upload-form .graphics-upload-form__title {
@@ -913,15 +907,38 @@ body {
     background-size: 12px;
 }
 
+#graphics-tab #graphics-upload-form {
+    font: 12px Raleway;
+}
+
 #graphics-tab #graphics-upload-form input {
-    width: 275px;
+    float: left;
+    width: 245px;
     height: 30px;
     padding: 0 0 0 5px;
-    font: 12px Raleway;
+    margin-right: 5px;
     background-color: #FFFFFF;
     border: solid 1px #C7C7C7;
-    border-radius: 0;
+    border-radius: 5px;
     outline: none;
+}
+
+#graphics-tab #graphics-upload-form input:focus {
+    box-shadow: none;
+}
+
+#graphics-tab #graphics-upload-form button {
+    width: 295px;
+    height: 30px;
+    text-align: center;
+    background-color: #FFFFFF;
+    border: solid 1px #C7C7C7;
+    border-radius: 5px;
+    outline: none;
+}
+
+#graphics-tab #graphics-upload-form button:first-of-type {
+    width: 45px;
 }
 
 #graphics-tab #graphics-upload-form h6 {
