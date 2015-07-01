@@ -40,8 +40,14 @@ body {
 .main-container {
     font: 9px Raleway;
     width: 1024px;
+    height: 100%;
     margin: 0 auto;
     /*outline: solid 1px blue;*/
+}
+
+.main-container * {
+    margin: 0;
+    padding: 0;
 }
 
 .main-subcontainer {
@@ -50,11 +56,6 @@ body {
     height: 597px;
     margin: auto;
     /*outline: solid 1px red;*/
-}
-
-.main-container * {
-    margin: 0;
-    padding: 0;
 }
 
 .designer-footer-caption {
@@ -85,10 +86,6 @@ body {
     /*outline: solid 1px green;*/
 }
 
-/*.left-column .designer-footer-caption {
-    display: none;
-}*/
-
 #canvas-container svg {
     width: 587px;
     height: 543px;
@@ -101,9 +98,6 @@ body {
 
 #bottom-menus {
     width: 295px;
-    /*position: absolute;
-    bottom: 0;
-    left: 146px;*/
     margin: 6px auto 0 auto;
     height: 40px;
     font: 14px Raleway;
@@ -661,8 +655,6 @@ body {
     height: 30px;
     width: 110px;
     margin-right: 3px;
-    /*display: inline-block;
-    vertical-align: middle;*/
 }
 
 #graphics-tab .graphics-search input {
@@ -1395,10 +1387,6 @@ body {
         height: 296px;
     }
 
-    /*#bottom-menus {
-        left: 13px
-    }*/
-
 }
 
 @media screen and (max-width: 768px) {
@@ -1516,10 +1504,6 @@ body {
     #bottom-menus #colors-palette-carousel {
         display: block;
     }
-
-    /*#bottom-menus {
-        left: 13px
-    }*/
 
     .colors-palette {
         display: none;

@@ -2178,6 +2178,9 @@ function DEControlsModel() {
      * UNDO/REDO BEGINS HERE
      */
     self.undo = function () {
+        //-----in case of color chaging undo should reset color selection.
+        self.resetColorsSelection();
+        //-----
         userInteract({undo: true});
     };
 
