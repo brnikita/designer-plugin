@@ -1299,6 +1299,7 @@ function DEControlsModel() {
     // name of selected font
     self.selectedFont = ko.computed(function () {
         var fonts = self.fonts();
+
         for (var i = 0; i < fonts.length; i++) {
             if (self.selectedLetteringVO().formatVO().fontFamily() == fonts[i].fontFamily) {
                 return fonts[i];
