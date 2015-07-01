@@ -2297,14 +2297,18 @@ function DEControlsModel() {
 
         // fill colors and stroke colors list
         if (isInvalid(invalidateList, 'colors')) {
-            self.colors(model.colors);
-            var strokeColors = [];
+            var colors = model.colors,
+                deepCopyColors = JSON.parse(JSON.stringify(colors)),
+                strokeColors = [];
+
+            self.colors(colors);
             strokeColors.push({
                 value: 'none',
                 name: 'Transparent'
             });
 
-            self.strokeColors(strokeColors.concat(model.colors));
+
+            self.strokeColors(strokeColors.concat(deepCopyColors));
             validate(invalidateList, 'colors');
             self.markAsStrokeColors();
             self.markAsFontColors();

@@ -3,6 +3,7 @@
         <div id="designer-init-preloader" data-bind="visible: !$root.status().completed">
             <div class="preloader-bar">
                 <h5 data-bind="text: $root.status().message" class="text-center text-info"></h5>
+
                 <div class="progress">
                     <div class="progress-bar progress-bar-striped active" role="progressbar"
                          data-bind="style: { width: $root.percentCompleted() }"></div>
@@ -410,7 +411,7 @@
                                      data-bind="radio: selectedLetteringVO().formatVO().textAlign">
                                     <label id="text-align-left-btn" for="text-align-left"
                                            class="text-control-align text-control-align-left text-controls-sprite"
-                                           data-bind="css: {disabled: selectedLetteringVO().text().length === 0}" >
+                                           data-bind="css: {disabled: selectedLetteringVO().text().length === 0}">
                                         <input type="radio" value="left"
                                                data-bind="enable: selectedLetteringVO().text().length > 0"
                                                name="text-align-control"
@@ -435,7 +436,8 @@
                                     </label>
                                 </div>
                                 <div class="text-align-show-more">
-                                    <button class="text-controls-sprite text-controls-show-more" data-bind="click: showMoreTrigger, enable: selectedLetteringVO().text().length > 0"></button>
+                                    <button class="text-controls-sprite text-controls-show-more"
+                                            data-bind="click: showMoreTrigger, enable: selectedLetteringVO().text().length > 0"></button>
                                 </div>
                             </div>
                         </div>
@@ -454,8 +456,10 @@
 
                     <div class="clearfix text-control-effects" data-bind="visible: showMoreEnabled()">
                         <div class="text-control-effects__tabs">
-                            <div class="text-controls-shape-sprite text-control-group-fx" data-bind="css: {active: !textControlResizeActive()}, click: textControlResizeToggle"></div>
-                            <div class="text-controls-shape-sprite text-control-group-resize" data-bind="css: {active: textControlResizeActive()}, click: textControlResizeToggle"></div>
+                            <div class="text-controls-shape-sprite text-control-group-fx"
+                                 data-bind="css: {active: !textControlResizeActive()}, click: textControlResizeToggle"></div>
+                            <div class="text-controls-shape-sprite text-control-group-resize"
+                                 data-bind="css: {active: textControlResizeActive()}, click: textControlResizeToggle"></div>
                         </div>
                         <div class="text-control-effects__sliders">
                             <div data-bind="visible: textControlResizeActive()">
@@ -479,7 +483,8 @@
                             </div>
                         </div>
                         <div class="text-control-effects__show-more">
-                            <button class="text-controls-shape-sprite text-controls-show-more-inverse" data-bind="click: showMoreTrigger"></button>
+                            <button class="text-controls-shape-sprite text-controls-show-more-inverse"
+                                    data-bind="click: showMoreTrigger"></button>
                         </div>
                     </div>
 
@@ -581,8 +586,10 @@
 
                     <p>I understand and accept these conditions of copyright.</p>
 
-                    <div class="graphics-upload-agreement__upload" data-bind="css: { 'disabled': !userAcceptsConditions() }">
-                        <a class=" js-graphics-upload-form" data-bind="css: { 'disabled': !userAcceptsConditions() }" href="#">
+                    <div class="graphics-upload-agreement__upload"
+                         data-bind="css: { 'disabled': !userAcceptsConditions() }">
+                        <a class=" js-graphics-upload-form" data-bind="css: { 'disabled': !userAcceptsConditions() }"
+                           href="#">
                             Upload
                         </a>
                     </div>
@@ -595,18 +602,20 @@
                         <a class="js-graphics-upload-form"></a>
                     </div>
                     <form class="graphics-upload-form__form">
-                       <input type="text" class="form-control" placeholder="Url" data-bind="value: customImageUrl, valueUpdate: 'input'">
+                        <input type="text" class="form-control" placeholder="Url"
+                               data-bind="value: customImageUrl, valueUpdate: 'input'">
                        <span class="">
                            <input type="button" type="button" value="Add"
-                                   data-bind="click: addCustomImage.bind($data, 'url'),
+                                  data-bind="click: addCustomImage.bind($data, 'url'),
                                               attr: {'disabled': customImageUrl().length == 0},
                                               style: {'background-color': customImageUrl().length > 0 ? '#FFFFFF': '#C7C7C7'}">
                        </span>
                     </form>
                     <h6 data-bind="visible: uploadFileAvailable">or</h6>
+
                     <form enctype="multipart/form-data" method="post"
                           data-bind="visible: uploadFileAvailable">
-                       <input type="button" type="button" value="Browse for file..." data-loading-text="Uploading..."
+                        <input type="button" type="button" value="Browse for file..." data-loading-text="Uploading..."
                                data-bind="click: addCustomImage.bind($data, 'upload')">
 
                     </form>
@@ -734,6 +743,7 @@
                     <span>Sizes & Qty</span>
                     <a class="js-close-overlay-form"></a>
                 </p>
+
                 <div>
                     <ol class="product-sizes-list" data-bind="foreach: quantities">
                         <li>
@@ -747,17 +757,21 @@
                                     <span></span>
                                 </li>
                                 <li>
-                                    <input type="button" class="order-item-decrease-qty" data-bind="click: $parent.decreaseQuantity">
+                                    <input type="button" class="order-item-decrease-qty"
+                                           data-bind="click: $parent.decreaseQuantity">
                                 </li>
                                 <li>
-                                    <input class="order-item-quantity" type="text" data-bind="value: quantity, valueUpdate: 'input'"
+                                    <input class="order-item-quantity" type="text"
+                                           data-bind="value: quantity, valueUpdate: 'input'"
                                            maxlength="3"/>
                                 </li>
                                 <li>
-                                    <input type="button" class="order-item-increase-qty" data-bind="click: $parent.increaseQuantity">
+                                    <input type="button" class="order-item-increase-qty"
+                                           data-bind="click: $parent.increaseQuantity">
                                 </li>
                                 <li>
-                                    <a class="order-item-remove" data-bind="click: $parent.removeQuantity, visible: $root.canRemoveSize()">
+                                    <a class="order-item-remove"
+                                       data-bind="click: $parent.removeQuantity, visible: $root.canRemoveSize()">
                                         <span></span>
                                     </a>
                                 </li>
@@ -794,18 +808,20 @@
                     <span>Save & Share Your Design</span>
                     <a class="js-close-overlay-form"></a>
                 </p>
+
                 <p>
                     Simply copy the link to access your saved design.
                     Or share the link to take full advantage of our designer.
                 </p>
+
                 <p>
-                    <ul>
-                        <li>share with friends and family</li>
-                        <li>post on social media to gather feedback</li>
-                        <li>collaborate with committee members for approval</li>
-                        <li>get approval from the boss</li>
-                        <li>save for later until sizes are known</li>
-                    </ul>
+                <ul>
+                    <li>share with friends and family</li>
+                    <li>post on social media to gather feedback</li>
+                    <li>collaborate with committee members for approval</li>
+                    <li>get approval from the boss</li>
+                    <li>save for later until sizes are known</li>
+                </ul>
                 </p>
 
                 <textarea row="4" cols="50" data-bind="text: shareLink"></textarea>
@@ -886,7 +902,7 @@
                         <!--<span class="sr-only">Previous</span>-->
                     </a>
 
-                    <ul class="carousel-inner" data-bind="foreach: { data: colorsGroupsList, as: 'group' }">
+                    <script type="text/html" id="color-group-template">
                         <li class="item" data-bind="css: {active: $index() === 0}">
                             <ul class="colors-palette-group" data-bind="foreach: { data: items, as: 'item' }">
                                 <li>
@@ -896,9 +912,9 @@
                                         'color': value,
                                         'border-color': value
                                         },
-                                    title: name,
-                                    click: $root.colorSelected,
-                                    css: {
+                                        title: name,
+                                        click: $root.colorSelected,
+                                        css: {
                                         selected: $data.value.toLocaleLowerCase() === $root.selectedProductElementColor().value().toLocaleLowerCase()
                                     }
                                 ">
@@ -919,6 +935,12 @@
                                 </li>
                             </ul>
                         </li>
+                    </script>
+                    <ul class="carousel-inner" data-bind="template : {
+                                name: 'color-group-template',
+                                foreach: colorsGroupsList,
+                                as: 'group'
+                        }">
                     </ul>
 
                     <a class="carousel-right carousel-control" href="#colors-palette-carousel" role="button"
