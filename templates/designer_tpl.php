@@ -624,7 +624,7 @@
 
                 <div id="graphics-color-form" data-bind="visible: colorsTabFormsState() == 'colorForm'">
                     <div class="graphics-color-form__title">
-                        <span>Change the colors of you graphic</span>
+                        <span>Change the colours of your graphic</span>
                         <a class="js-graphics-color-form">
                             <span></span>
                         </a>
