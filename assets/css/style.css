@@ -1369,13 +1369,16 @@ body {
     line-height: 55px;
     border: solid 2px #59DB76;
     border-radius: 5px;
-}
-
-#product-sizes-tab .order-place a {
-    text-decoration: none;
+    cursor: pointer;
     color: #59DB76;
     font: 22px Raleway;
     font-weight: bold;
+    background-color: #FFFFFF;
+}
+
+#product-sizes-tab .order-place:hover {
+    background-color: #59DB76;
+    color: #FFFFFF;
 }
 
 /*Product sizes tab ends here*/
