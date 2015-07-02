@@ -515,7 +515,7 @@
                 </div>
             </div>
             <div id="graphics-tab" class="hide">
-                <div id="graphics-add-form">
+                <div id="graphics-add-form" data-bind="visible: colorsTabFormsState() == 'addForm'">
                     <div class="graphics-controls">
                         <div class="graphics-select">
                             <select data-bind="
@@ -562,7 +562,7 @@
                     </div>
                 </div>
 
-                <div id="graphics-upload-agreement" class="hide">
+                <div id="graphics-upload-agreement"  data-bind="visible: colorsTabFormsState() == 'agreementForm'">
                     <div class="graphics-upload-agreement__title">
                         <span>Uploading Photos and Images</span>
                         <a class="js-graphics-upload-agreement"></a>
@@ -592,42 +592,35 @@
 
                     <p>I understand and accept these conditions of copyright.</p>
 
-                    <div class="graphics-upload-agreement__upload"
-                         data-bind="css: { 'disabled': !userAcceptsConditions() }">
-                        <a class=" js-graphics-upload-form" data-bind="css: { 'disabled': !userAcceptsConditions() }"
-                           href="#">
-                            Upload
-                        </a>
-                    </div>
-
+                    <button class="graphics-upload-agreement__upload js-graphics-upload-form"
+                            data-bind="css: { 'disabled': !userAcceptsConditions() }">
+                        Upload
+                    </button>
                 </div>
 
-                <div id="graphics-upload-form" class="hide">
+                <div id="graphics-upload-form"  data-bind="visible: colorsTabFormsState() == 'uploadForm'">
                     <div class="graphics-upload-form__title">
                         <span>Upload Graphics</span>
                         <a class="js-graphics-upload-form"></a>
                     </div>
-                    <form class="graphics-upload-form__form">
+                    <div class="graphics-upload-form__form">
                         <input type="text" class="form-control" placeholder="Url"
                                data-bind="value: customImageUrl, valueUpdate: 'input'">
-                       <span class="">
-                           <input type="button" type="button" value="Add"
-                                  data-bind="click: addCustomImage.bind($data, 'url'),
-                                              attr: {'disabled': customImageUrl().length == 0},
-                                              style: {'background-color': customImageUrl().length > 0 ? '#FFFFFF': '#C7C7C7'}">
-                       </span>
-                    </form>
-                    <h6 data-bind="visible: uploadFileAvailable">or</h6>
-
-                    <form enctype="multipart/form-data" method="post"
-                          data-bind="visible: uploadFileAvailable">
-                        <input type="button" type="button" value="Browse for file..." data-loading-text="Uploading..."
-                               data-bind="click: addCustomImage.bind($data, 'upload')">
-
-                    </form>
+                        <button data-bind="click: addCustomImage.bind($data, 'url'),
+                                           attr: {'disabled': customImageUrl().length == 0},
+                                           style: {'background-color': customImageUrl().length > 0 ? '#FFFFFF': '#C7C7C7'}">
+                            Add
+                        </button>
+                        <h6 data-bind="visible: uploadFileAvailable">or</h6>
+                        <button data-loading-text="Uploading..."
+                                data-bind="visible: uploadFileAvailable,
+                                        click: addCustomImage.bind($data, 'upload')">
+                                Browse for file...
+                        </button>
+                    </div>
                 </div>
 
-                <div id="graphics-color-form" class="hide">
+                <div id="graphics-color-form" data-bind="visible: colorsTabFormsState() == 'colorForm'">
                     <div class="graphics-color-form__title">
                         <span>Change the colors of you graphic</span>
                         <a class="js-graphics-color-form">

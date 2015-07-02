@@ -284,8 +284,11 @@ jQuery(function () {
     $('.js-graphics-upload-agreement').on('click', function (event) {
 
         event.preventDefault();
-        $('#graphics-add-form').toggleClass('hide');
-        $('#graphics-upload-agreement').toggleClass('hide');
+        if (controlsModel.colorsTabFormsState() === 'agreementForm') {
+            controlsModel.colorsTabFormsState('addForm');
+        } else {
+            controlsModel.colorsTabFormsState('agreementForm');
+        }
 
     });
 
@@ -293,10 +296,12 @@ jQuery(function () {
 
         event.preventDefault();
         if (!$(this).hasClass("disabled")) {
-            $('#graphics-upload-form').toggleClass('hide');
-            $('#graphics-upload-agreement').toggleClass('hide');
+            if (controlsModel.colorsTabFormsState() === 'uploadForm') {
+                controlsModel.colorsTabFormsState('addForm');
+            } else {
+                controlsModel.colorsTabFormsState('uploadForm');
+            }
         }
-
     });
 
     $('.js-order-sheet-form').on('click', function (event) {

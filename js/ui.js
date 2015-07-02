@@ -713,8 +713,9 @@ var ImageColorCountVO = function (processColors, colorCount) {
 function DEControlsModel() {
     var self = this;
 
-    //-----changes when windows is resized
+    //-----
     self.windowWidth = ko.observable($(window).width());
+    self.colorsTabFormsState = ko.observable('addForm');
     //-----
 
     /**
@@ -2852,16 +2853,12 @@ function openTextForm() {
 function openGraphicsColorForm() {
     /*designerUI.openTab('graphics-tab');*/
     $('a[href="graphics-tab"]').trigger('click');
-    $("#graphics-add-form").addClass('hide');
-    $('#graphics-upload-form').addClass('hide');
-    $('#graphics-color-form').removeClass('hide');
+    controlsModel.colorsTabFormsState('colorForm');
     $('.left-column').addClass('upload-form');
 };
 
 function hideGraphicsColorForm() {
-    $('#graphics-add-form').removeClass('hide');
-    $('#graphics-upload-form').addClass('hide');
-    $('#graphics-color-form').addClass('hide');
+    controlsModel.colorsTabFormsState('addForm');
     $('.left-column').removeClass('upload-form');
 };
 //-----
