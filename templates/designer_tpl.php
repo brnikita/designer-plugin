@@ -49,7 +49,7 @@
                                 optionsValue: 'id',
                                 value: selectedCategoryId,
                                 event: {change: changeCategorySelectHandler},
-                                optionsCaption: 'Choose...'
+                                optionsCaption: 'All categories'
                             "></select>
                         <span></span>
                     </div>
@@ -89,7 +89,7 @@
                 <ul class="colorizable-groups clearfix"
                     data-bind="foreach: { data: selectedProductColorVO().colorizeGroupList}">
                     <li>
-                        <a href="#" data-bind="text: name, click: $root.selectColorElement,
+                        <a href="#" data-bind="text: name().toUpperCase(), click: $root.selectColorElement,
                                             style: {color: name() == $root.currentColorizeElementGroup() ? '#D51622': '#3F3F3F'}
                                             "></a>
                     </li>
@@ -105,7 +105,10 @@
                                                         text: name, click: $root.selectColorSubElement"></a>
                     </li>
                 </ul>
-                <!--<div>COLOR SELECTED <span data-bind="text: $root.selectedProductElementColor().colors[selectedProductElementColor().id()].name()"></span></div>-->
+                <div class="color-selected" data-bind="visible: $root.colorName()">
+                    COLOR SELECTED:
+                    <span data-bind="text: $root.colorName()"></span>
+                </div>
                 <ul class="colors-palette clearfix" data-bind="foreach: colorsList">
                     <li>
                         <a href="#" data-bind="
@@ -136,7 +139,6 @@
                         </a>
                     </li>
                 </ul>
-
             </div>
             <div id="text-tab" class="hide">
                 <div class="text-tab-desktop">

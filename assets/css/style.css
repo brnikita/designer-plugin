@@ -569,6 +569,10 @@ body {
     content: " | ";
 }
 
+#colors-tab .color-selected {
+    margin-bottom: 10px;
+}
+
 /*Colors tab ends here*/
 
 /*Color selection starts here*/
@@ -1423,11 +1427,6 @@ body {
         width: 320px;
         height: 296px;
     }
-
-    /*#canvas-container image {
-        width: 587px;
-        height: 543px;
-    }*/
 }
 
 @media screen and (max-width: 768px) {
@@ -1463,10 +1462,6 @@ body {
         height: 296px;
     }
 
-    /*#canvas-container image {
-        width: 587px;
-        height: 543px;
-    }*/
     .left-column {
         width: 320px;
         height: auto;

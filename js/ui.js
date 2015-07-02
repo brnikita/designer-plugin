@@ -779,6 +779,20 @@ function DEControlsModel() {
     //----- for colors palette in mobile version
     self.colorsGroupsList = ko.observableArray();
     self.currentColorizeElementGroup = ko.observable('');
+    self.colorName = ko.computed(function() {
+        var colorName = '',
+            colors = self.selectedProductElementColor().colors(),
+            colorValue = self.selectedProductElementColor().value();
+
+        for (var i = 0; i < colors.length; i++) {
+            if (colors[i].value === colorValue) {
+                colorName = colors[i].name;
+                break;
+            }
+        }
+
+        return colorName;
+    });
     //-----
 
     self.selectColorElement = function (colorizeElementGroup, event) {
@@ -796,10 +810,6 @@ function DEControlsModel() {
         /*self.colorsList([]);
          self.colorsGroupsList([]);*/
     };
-
-    self.colorName = ko.computed(function () {
-
-    });
 
     self.selectColorSubElement = function (colorizeElement, event) {
         var colorsList = colorizeElement.colors();
