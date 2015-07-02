@@ -132,19 +132,11 @@ body {
     color: #C7C7C7;
 }
 
-#bottom-menus .bottom-menu__main a.active {
-    border: 1px solid #59DB76;
-    border-radius: 5px;
-    text-align: center;
-    color: #59DB76;
-    font-weight: bold;
-}
-
 #bottom-menus .bottom-menu__main a:first-child {
     width: 40px;
     margin-left: 0;
     background: url(../img/designer-ui/ellipsis.svg) no-repeat -1px 0;
-    background-size: 40px;
+    background-size: 80px;
 }
 
 #bottom-menus .bottom-menu__main a:nth-child(2) {
@@ -153,6 +145,40 @@ body {
 
 #bottom-menus .bottom-menu__main a:nth-child(3) {
     width: 137px;
+    border-color: #59DB76;
+    color: #59DB76;
+}
+
+#bottom-menus .bottom-menu__main a:first-child.active:hover {
+    background-color: #FFFFFF;
+}
+
+#bottom-menus .bottom-menu__main a:nth-child(2):hover {
+    border-color: #D51622;
+    color: #D51622;
+    background-color: #FFFFFF;
+    font-weight: bold;
+}
+
+#bottom-menus .bottom-menu__main a:nth-child(2).active {
+    border-color: #D51622;
+    color: #FFFFFF;
+    background-color: #D51622;
+    font-weight: bold;
+}
+
+#bottom-menus .bottom-menu__main a:nth-child(3):hover {
+    border-color: #59DB76;
+    color: #FFFFFF;
+    background-color: #59DB76;
+    font-weight: bold;
+}
+
+#bottom-menus .bottom-menu__main a:nth-child(3).active {
+    border-color: #59DB76;
+    color: #FFFFFF;
+    background-color: #59DB76;
+    font-weight: bold;
 }
 
 /*Bottom main menu ends here*/
@@ -175,8 +201,8 @@ body {
 #bottom-menus .bottom-menu__ellipsis a:first-child {
     width: 40px;
     margin-left: 0;
-    background: url(../img/designer-ui/ellipsis.svg) no-repeat -1px 0;
-    background-size: 40px;
+    background: url(../img/designer-ui/ellipsis.svg) no-repeat -41px 0 #C7C7C7;
+    background-size: 80px;
 }
 
 /*Bottom ellipsis menu ends here*/
