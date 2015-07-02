@@ -1324,7 +1324,7 @@ body {
 }
 
 #product-sizes-tab .order-item-add a {
-    text-decoration: none;
+    text-decoration: underline;
     color: #D51622;
     cursor: pointer;
 }
