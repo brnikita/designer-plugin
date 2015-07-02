@@ -213,6 +213,7 @@
                     </div>
                     <div class="font-list" data-bind="visible: showFontsList">
                         <a href="#" class="font-list__close" data-bind="click: toggleFontsList"></a>
+
                         <div class="font-list-wrapper">
                             <ul data-bind="foreach: fonts">
                                 <li class="font-list__item"
@@ -447,13 +448,16 @@
 
                     <div class="font-list" data-bind="visible: showFontsList">
                         <a href="#" class="font-list__close" data-bind="click: toggleFontsList"></a>
-                        <ul data-bind="foreach: fonts">
-                            <li class="font-list__item"
-                                data-bind="css: { active: $root.selectedLetteringVO().formatVO().fontFamily() === $data.fontFamily }">
-                                <a href="#"
-                                   data-bind="text: $data.name, click: $root.selectFont, style: { fontFamily: $data.fontFamily }"></a>
-                            </li>
-                        </ul>
+
+                        <div class="font-list-wrapper">
+                            <ul data-bind="foreach: fonts">
+                                <li class="font-list__item"
+                                    data-bind="css: { active: $root.selectedLetteringVO().formatVO().fontFamily() === $data.fontFamily }">
+                                    <a href="#"
+                                       data-bind="text: $data.name, click: $root.selectFont, style: { fontFamily: $data.fontFamily }"></a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
                     <div class="clearfix text-control-effects" data-bind="visible: showMoreEnabled()">
