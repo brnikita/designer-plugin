@@ -168,6 +168,20 @@ jQuery(function () {
         return $('#' + designerUI.activeTabName);
     }
 
+    function changeColorCarouselView(tabName) {
+        var $textTemplate = $('#color-group-text'),
+            $productsTemplate = $('#color-group-products');
+
+        if (tabName === 'text-tab') {
+            $textTemplate.removeClass('hide');
+            $productsTemplate.addClass('hide');
+            return;
+        }
+
+        $textTemplate.addClass('hide');
+        $productsTemplate.removeClass('hide');
+    }
+
     $('.js-designer-tab').on('click', function (event) {
         var $this = $(this),
             tabName = $this.attr('href');
@@ -175,7 +189,6 @@ jQuery(function () {
         event.preventDefault();
 
         if (designerUI.activeTabName === tabName) {
-            //setActiveTab(null);
             return;
         }
 
@@ -184,6 +197,7 @@ jQuery(function () {
 
         if (typeof designerUI.activeTabName === 'string') {
             getActiveTab().addClass('hide');
+            changeColorCarouselView(tabName);
         }
 
         //-----
@@ -309,10 +323,10 @@ jQuery(function () {
     });
 
     //Restore svg viewBox when svg element is resized. Needed for mobile version.
-    $(window).bind('resize', function() {
+    $(window).bind('resize', function () {
         var window_width = $(window).width();
         if (window_width < 1024) {
-            $('#canvas-container > div > svg:first-child').each(function() {
+            $('#canvas-container > div > svg:first-child').each(function () {
                 //Can't use jQuery attr because of incorrect working with viewBox attribute
                 $(this)[0].setAttribute('viewBox', '0 0 587 543');
             });
@@ -321,10 +335,10 @@ jQuery(function () {
     });
 
     //Initialize viewBox in mobile version
-    $(document).bind('DOMSubtreeModified',function(){
+    $(document).bind('DOMSubtreeModified', function () {
         var $svg = $('#canvas-container > div > svg:first-child');
         if ($svg[0]) {
-            $svg.each(function() {
+            $svg.each(function () {
                 $(this)[0].setAttribute('viewBox', '0 0 587 543');
             });
         }

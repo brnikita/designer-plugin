@@ -1325,7 +1325,8 @@ function DEControlsModel() {
 
     }
 
-    // list of available fill colors for graphics and letterings
+    // list of available fill colors for graphics and lette
+    // rings
     self.colors = ko.observableArray();
 
     // list of available stroke colors for graphics and letterings
@@ -1677,9 +1678,22 @@ function DEControlsModel() {
         return textLength;
     });
 
+    self.isFontColorPalette = ko.observable(true);
+
+    self.selectedTextColor = ko.computed(function () {
+        var isFontsColors = self.isFontColorPalette();
+
+        if (isFontsColors) {
+            return self.selectedLetteringVO().formatVO().fillColor().toLocaleLowerCase();
+        }
+
+        return self.selectedLetteringVO().formatVO().strokeColor().toLocaleLowerCase();
+    });
+
     self.showFontsList = ko.observable(false);
 
     self.showFontsColorsListMobile = function () {
+        self.isFontColorPalette(true);
         self.setColorsByGroups(self.colors());
         self.colorsList(self.colors());
     };
@@ -1711,6 +1725,7 @@ function DEControlsModel() {
     self.showFontsStrokeColorsList = ko.observable(false);
 
     self.showFontsStrokeColorsListMobile = function () {
+        self.isFontColorPalette(false);
         self.setColorsByGroups(self.strokeColors());
         self.colorsList(self.strokeColors());
     };

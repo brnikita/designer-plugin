@@ -908,7 +908,7 @@
                         <!--<span class="sr-only">Previous</span>-->
                     </a>
 
-                    <script type="text/html" id="color-group-template">
+                    <script type="text/html" id="color-group-template-products">
                         <li class="item" data-bind="css: {active: $index() === 0}">
                             <ul class="colors-palette-group" data-bind="foreach: { data: items, as: 'item' }">
                                 <li>
@@ -942,8 +942,48 @@
                             </ul>
                         </li>
                     </script>
-                    <ul class="carousel-inner" data-bind="template : {
-                                name: 'color-group-template',
+                    <script type="text/html" id="color-group-template-text">
+                        <li class="item" data-bind="css: {active: $index() === 0}">
+                            <ul class="colors-palette-group" data-bind="foreach: { data: items, as: 'item' }">
+                                <li>
+                                    <a href="#" data-bind="
+                                    style: {
+                                        'background-color': value,
+                                        'color': value,
+                                        'border-color': value
+                                        },
+                                        title: name,
+                                        click: $root.colorSelected,
+                                        css: {
+                                        selected: $data.value.toLocaleLowerCase() === $root.selectedTextColor()
+                                    }
+                                ">
+                                        <svg
+                                            data-bind="visible: $data.value.toLocaleLowerCase() === $root.selectedTextColor(), style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
+                                            id="color-select-arrow" xmlns="http://www.w3.org/2000/svg"
+                                            xml:space="preserve" width="24px" height="24px" version="1.1"
+                                            style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                                            viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                      <g>
+                                          <g>
+                                              <path class="fil1"
+                                                    d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
+                                          </g>
+                                      </g>
+                                </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </script>
+                    <ul class="carousel-inner js-color-group" id="color-group-products" data-bind="template : {
+                                name: 'color-group-template-products',
+                                foreach: colorsGroupsList,
+                                as: 'group'
+                        }">
+                    </ul>
+                    <ul class="carousel-inner js-color-group hide" id="color-group-text" data-bind="template : {
+                                name: 'color-group-template-text',
                                 foreach: colorsGroupsList,
                                 as: 'group'
                         }">
