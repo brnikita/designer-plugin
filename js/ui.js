@@ -1535,6 +1535,7 @@ function DEControlsModel() {
     self.selectedObjectType.subscribe(function (newValue) {
         switch (newValue) {
             case 'text':
+                openTextForm();
                 break;
             case 'graphics':
                 if (designerUI.activeTabName == 'graphics-tab') {
