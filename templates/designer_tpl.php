@@ -646,6 +646,10 @@
                                                                 text: name, click: $root.selectColorSubElement"></a>
                             </li>
                         </ul>
+                        <div class="color-selected" data-bind="visible: $root.colorName()">
+                            COLOR SELECTED:
+                            <span data-bind="text: $root.colorName()"></span>
+                        </div>
                         <ul class="colors-palette clearfix" data-bind="foreach: colorsList">
                             <li>
                                 <a href="#" data-bind="
