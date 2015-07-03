@@ -1,4 +1,4 @@
-﻿﻿
+﻿﻿﻿
 function isNullOrUndefined(val) {
     return (typeof (val) == 'undefined' || val == null);
 }
@@ -958,12 +958,15 @@ function DEControlsModel() {
     self.productRootCategory = ko.observable(new ProductCategoryVO({id: 'root'}));
     self.productCurrentCategory = ko.observable(self.productRootCategory());
     self.selectedCategoryId = ko.observable();
+    self.selectedCategoryId.subscribe(function () {
+        self.productsSearchQuery("");
+    })
 
     self.productCurrentCategory.subscribe(function (value) {
         var id = value.id();
 
         if (id === 'root') {
-            id = '';
+            id = undefined;
         }
 
         self.selectedCategoryId(id);
@@ -982,12 +985,16 @@ function DEControlsModel() {
             value = value.length === 0 ? undefined : value;
         }
 
-        if (value === oldValue) {
+        /*if (value === oldValue) {
             return;
-        }
+        }*/
 
         if (!categories.length) {
             return;
+        }
+
+        if (value === undefined) {
+            self.productCurrentCategory(self.productRootCategory());
         }
 
         ko.utils.arrayForEach(categories, function (category) {
@@ -1073,6 +1080,11 @@ function DEControlsModel() {
 
     //search
     self.productsSearchQuery = ko.observable("");
+    self.productsSearchQuery.subscribe(function(newValue) {
+        if (newValue === '') {
+            self.selectedCategoryId(self.productCurrentCategory().id());
+        }
+    });
     self.productsSearchResult = ko.observableArray();
     self.searchProducts = function (query, category) {
         //unwrap if observable
@@ -1107,7 +1119,7 @@ function DEControlsModel() {
 
         if (query.length > 0) {
             self.productsSearchResult([]);
-            self.productCurrentCategory(self.productRootCategory());
+            //self.productCurrentCategory(self.productRootCategory());
             self.searchProducts(query, self.productRootCategory);
             result = self.productsSearchResult();
         } else {
@@ -1374,7 +1386,7 @@ function DEControlsModel() {
     // list of graphics categories
     self.graphicCatalogBreadcrumbs = ko.observableArray();
 
-    //----- graphics current category
+    //----- graphics current category in select box
     self.graphicCategory = ko.observable();
     self.graphicCategory.subscribe(function () {
         self.graphicsSearchQuery("");
@@ -1400,7 +1412,7 @@ function DEControlsModel() {
     };
 
     //-----
-    self.enterGraphicCategory = function (value) {
+    self.enterGraphicCategory = function () {
         self.graphicCatalogBreadcrumbs.splice(1);
         if (self.graphicCategory()) {
             self.selectGraphicItem(self.graphicCategory());
@@ -1455,6 +1467,11 @@ function DEControlsModel() {
 
     //Search
     self.graphicsSearchQuery = ko.observable("");
+    self.graphicsSearchQuery.subscribe(function(newValue) {
+        if (newValue === '') {
+            self.graphicCategory(self.graphicCurrentCategory());
+        }
+    });
     self.searchGraphicsResult = ko.observableArray();
 
     self.graphicsSearch = function (query, category) {
@@ -1508,7 +1525,7 @@ function DEControlsModel() {
 
         if (query.length > 0) {
             self.searchGraphicsResult([]);
-            self.graphicCatalogBreadcrumbs([self.graphicRootCategory()]);
+            //self.graphicCatalogBreadcrumbs([self.graphicRootCategory()]);
             self.graphicsSearch(query, self.graphicRootCategory);
             result = self.searchGraphicsResult();
         } else {
