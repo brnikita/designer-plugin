@@ -1371,7 +1371,7 @@ var DEJS;
 
         DEDesigner.prototype.onMouseDown = function (event) {
             //this.log("onMouseDown");
-            event.preventDefault();
+            //event.preventDefault();
             var x = this.tmpX = this.hitX = DEJS.Util.eventX(event, this.holder, this.viewPort);
             var y = this.tmpY = this.hitY = DEJS.Util.eventY(event, this.holder, this.viewPort);
             this.hitViewPort.x = this.viewPort.x;
@@ -1427,7 +1427,8 @@ var DEJS;
 
         DEDesigner.prototype.onMouseMove = function (event) {
             //this.log("onMouseMove");
-            event.preventDefault();
+            /*event.preventDefault()*/
+            var preventDefault = true;
             var x = DEJS.Util.eventX(event, this.holder, this.viewPort);
             var y = DEJS.Util.eventY(event, this.holder, this.viewPort);
             if (this.selectionBox) {
@@ -1480,7 +1481,12 @@ var DEJS;
                     DEJS.Util.resizeElement(this.selectedEl[0], this.resizeXY, [x, y], ResizeKind.Vertical);
                     this.tracker.track(this.selectedEl[0]);
                     this.resizeXY = [x, y];
+                } else {
+                    preventDefault = false;
                 }
+            }
+            if (preventDefault) {
+                event.preventDefault()
             }
             return false;
         };
@@ -1549,7 +1555,7 @@ var DEJS;
         DEDesigner.prototype.onTouchStart = function (event) {
             //this.log(this.counter++, true);
             this.speedRender();
-            event.preventDefault();
+            //event.preventDefault();
             var touches = DEJS.Util.Touch.processEvent(event, this.holder, this.viewPort);
             if (touches.length > 1) {
                 this.transform(touches);
@@ -1561,7 +1567,7 @@ var DEJS;
 
         DEDesigner.prototype.onTouchMove = function (event) {
             this.speedRender();
-            event.preventDefault();
+            //event.preventDefault();
             var touches = DEJS.Util.Touch.processEvent(event, this.holder, this.viewPort);
             if (touches.length > 1) {
                 if ((this.selectedEl.length == 0 || this.drag) && this.options.zoomEnabled) {
@@ -1576,7 +1582,7 @@ var DEJS;
         };
 
         DEDesigner.prototype.onTouchEnd = function (event) {
-            event.preventDefault();
+            //event.preventDefault();
             var touches = DEJS.Util.Touch.processEvent(event, this.holder, this.viewPort);
 
             /*this.log("transforming: " + this.transforming
