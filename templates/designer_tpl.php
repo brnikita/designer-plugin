@@ -183,20 +183,21 @@
                         </div>
                         <a href="#" class="fonts-colors__close"
                            data-bind="click: toggleFontsColorsList"></a>
+                        <div class="fonts-colors__name">COLOR SELECTED - <span data-bind="text: selectedFontColorName"></span></div>
                         <ul class="colors-palette clearfix" data-bind="foreach: colors">
                             <li>
                                 <a href="#" data-bind="
-                        style: {
-                            'background-color': value,
-                            'color': value,
-                            'border-color': value
-                            },
-                        title: name,
-                        click: $root.selectFontColor,
-                        css: {
-                            selected: $data.value.toLocaleLowerCase() === $root.selectedLetteringVO().formatVO().fillColor().toLocaleLowerCase()
-                        }
-                    ">
+                                    style: {
+                                    'background-color': value,
+                                    'color': value,
+                                    'border-color': value
+                                    },
+                                    title: name,
+                                    click: $root.selectFontColor,
+                                    css: {
+                                        selected: $data.value.toLocaleLowerCase() === $root.selectedLetteringVO().formatVO().fillColor().toLocaleLowerCase()
+                                    }
+                                    ">
                                     <svg
                                         data-bind="style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
                                         id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
@@ -271,20 +272,21 @@
                         </div>
                         <a href="#" class="fonts-colors__close"
                            data-bind="click: toggleFontsStrokeColorsList"></a>
+                        <div class="fonts-colors__name">COLOR SELECTED - <span data-bind="text: selectedStrokeColorName"></span></div>
                         <ul class="colors-palette clearfix" data-bind="foreach: strokeColors">
                             <li>
                                 <a href="#" data-bind="
-                        style: {
-                            'background-color': value,
-                            'color': value,
-                            'border-color': value
-                            },
-                        title: name,
-                        click: $root.selectFontStrokeColor,
-                        css: {
-                            selected: $data.value.toLocaleLowerCase() === $root.selectedLetteringVO().formatVO().strokeColor().toLocaleLowerCase()
-                        }
-                    ">
+                            style: {
+                                'background-color': value,
+                                'color': value,
+                                'border-color': value
+                                },
+                                title: name,
+                                click: $root.selectFontStrokeColor,
+                                css: {
+                                    selected: $data.value.toLocaleLowerCase() === $root.selectedLetteringVO().formatVO().strokeColor().toLocaleLowerCase()
+                                }
+                            ">
                                     <svg
                                         data-bind="style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
                                         id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
@@ -888,12 +890,9 @@
 
                     </div>
                 </div>
-                <div class="clearfix">
-
-                </div>
                 <div id="colors-palette-carousel" class="bottom-color-palette carousel hide" data-interval=false
                      data-bind="css: {hide: !isBottomColorPaletteShowed()}">
-
+                    <div class="colors-palette__color">COLOR SELECTED - <span data-bind="text: colorSelectedName"></span></div>
                     <a class="carousel-left carousel-control" href="#colors-palette-carousel" role="button"
                        data-slide="prev">
                         <svg class="color-palette-arrows" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
