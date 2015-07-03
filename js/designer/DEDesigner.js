@@ -1427,7 +1427,7 @@ var DEJS;
 
         DEDesigner.prototype.onMouseMove = function (event) {
             //this.log("onMouseMove");
-            /*event.preventDefault()*/
+            //event.preventDefault();
             var preventDefault = true;
             var x = DEJS.Util.eventX(event, this.holder, this.viewPort);
             var y = DEJS.Util.eventY(event, this.holder, this.viewPort);
@@ -1582,7 +1582,7 @@ var DEJS;
         };
 
         DEDesigner.prototype.onTouchEnd = function (event) {
-            //event.preventDefault();
+            event.preventDefault();
             var touches = DEJS.Util.Touch.processEvent(event, this.holder, this.viewPort);
 
             /*this.log("transforming: " + this.transforming
