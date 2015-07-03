@@ -23,6 +23,13 @@ body {
     font: 12px Raleway;
 }
 
+input, select, button, textarea {
+    -webkit-appearance: none !important;
+    -webkit-border-radius: 0;
+    /*box-shadow: none !important;*/
+    border-radius: 0;
+}
+
 #designer-init-preloader {
     position: absolute;
     width: 100%;
@@ -892,10 +899,15 @@ body {
 }
 
 #graphics-tab #graphics-upload-agreement input[type="checkbox"] {
-    /*background-color: #FFFFFF;
-    border: solid 2px #D51622;
-    border-radius: 3px;*/
+    width: 10px;
+    height: 10px;
+    background-color: #FFFFFF;
+    border: solid 1px #D51622;
 }
+
+#graphics-tab #graphics-upload-agreement input[type="checkbox"]:checked {
+    background-color: #7A7A7A;
+ }
 
 #graphics-tab #graphics-upload-agreement .graphics-upload-agreement__upload {
     width: 90px;

@@ -40,6 +40,7 @@
                     </li>
                 </ul>
             </div>
+            
             <div id="products-tab" class="products-tab">
                 <div class="products-controls">
                     <div class="products-select">
@@ -798,10 +799,10 @@
                             <!-- /ko -->
                         </li>
                     </ul>
-                    <div class="order-place">
-                        <a onclick="onPlaceOrder()"
-                           data-loading-text="Placing order...">ADD TO CART</a>
-                    </div>
+                    <button class="order-place" onclick="onPlaceOrder()"
+                       data-loading-text="Placing order...">
+                        ADD TO CART
+                    </button>
                 </div>
             </div>
             <div id="share-design-tab" class="hide">
