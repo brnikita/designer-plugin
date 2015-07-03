@@ -12,10 +12,14 @@
     font-style: normal;
 }
 
+.theme-page-wrapper {
+    padding: 0 !important;
+}
+
 html, body {
     background-color: #ebebeb;
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 body {
