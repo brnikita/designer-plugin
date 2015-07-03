@@ -331,13 +331,13 @@ jQuery(function () {
     //----- hack to reset colors when graphics element resized or rotated.
     //This is because when object is resized it is recreated
     //and colors palette refers to wrong old object
-    $('#canvas-container').on('mousedown', function (event) {
+    /*$('#canvas-container').on('mousedown', function (event) {
         controlsModel.resetColorsSelection();
     });
 
     $('#canvas-container').on('touchstart', function (event) {
         controlsModel.resetColorsSelection();
-    });
+    });*/
     //-----
 
     //Restore svg viewBox when svg element is resized. Needed for mobile version.
