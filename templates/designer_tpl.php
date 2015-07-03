@@ -40,7 +40,7 @@
                     </li>
                 </ul>
             </div>
-            
+
             <div id="products-tab" class="products-tab">
                 <div class="products-controls">
                     <div class="products-select">
@@ -318,11 +318,13 @@
                         </div>
                     </div>
 
-                    <div data-bind="visible: textToolsIsVisible" class="clearfix text-transform-slider">
-                        <div class="text-tab-label">LETTER SPACE</div>
-                        <div class="text-control-slider">
-                            <div class="noUiSlider"
-                                 data-bind="slider: selectedLetteringVO().formatVO().letterSpacing, rangeStart: 0, rangeEnd: 20, step: 1"></div>
+                    <div data-bind="visible: showLetterSpacingSlider()">
+                        <div data-bind="visible: textToolsIsVisible" class="clearfix text-transform-slider">
+                            <div class="text-tab-label">LETTER SPACE</div>
+                            <div class="text-control-slider">
+                                <div class="noUiSlider"
+                                     data-bind="slider: selectedLetteringVO().formatVO().letterSpacing, rangeStart: 0, rangeEnd: 20, step: 1"></div>
+                            </div>
                         </div>
                     </div>
 
@@ -565,7 +567,7 @@
                     </div>
                 </div>
 
-                <div id="graphics-upload-agreement"  data-bind="visible: colorsTabFormsState() == 'agreementForm'">
+                <div id="graphics-upload-agreement" data-bind="visible: colorsTabFormsState() == 'agreementForm'">
                     <div class="graphics-upload-agreement__title">
                         <span>Uploading Photos and Images</span>
                         <a class="js-graphics-upload-agreement"></a>
@@ -601,7 +603,7 @@
                     </button>
                 </div>
 
-                <div id="graphics-upload-form"  data-bind="visible: colorsTabFormsState() == 'uploadForm'">
+                <div id="graphics-upload-form" data-bind="visible: colorsTabFormsState() == 'uploadForm'">
                     <div class="graphics-upload-form__title">
                         <span>Upload Graphics</span>
                         <a class="js-graphics-upload-form"></a>
@@ -618,7 +620,7 @@
                         <button data-loading-text="Uploading..."
                                 data-bind="visible: uploadFileAvailable,
                                         click: addCustomImage.bind($data, 'upload')">
-                                Browse for file...
+                            Browse for file...
                         </button>
                     </div>
                 </div>
@@ -804,7 +806,7 @@
                         </li>
                     </ul>
                     <button class="order-place" onclick="onPlaceOrder()"
-                       data-loading-text="Placing order...">
+                            data-loading-text="Placing order...">
                         ADD TO CART
                     </button>
                 </div>
