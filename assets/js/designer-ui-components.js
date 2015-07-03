@@ -200,7 +200,7 @@ jQuery(function () {
             changeColorCarouselView(tabName);
         }
 
-        //-----
+        //-----to apply css in dependence of which tab is opened
         var left_column = $('.left-column');
         var right_column = $('.right-column');
         left_column.removeClass('active-' + designerUI.activeTabName);
