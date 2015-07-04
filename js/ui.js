@@ -779,7 +779,7 @@ function DEControlsModel() {
     //----- for colors palette in mobile version
     self.colorsGroupsList = ko.observableArray();
     self.currentColorizeElementGroup = ko.observable('');
-    self.colorName = ko.computed(function() {
+    self.colorName = ko.computed(function () {
         var colorName = '',
             colors = self.selectedProductElementColor().colors(),
             colorValue = self.selectedProductElementColor().value();
@@ -843,8 +843,12 @@ function DEControlsModel() {
         self.colorsGroupsList(groupsList);
     };
 
+    self.colorSelectedName = ko.observable('');
+
     self.colorSelected = function (color, event) {
         event.preventDefault();
+
+        self.colorSelectedName(color.name);
 
         if (color.type === 'strokeColor') {
             self.selectFontStrokeColor(color);
@@ -986,8 +990,8 @@ function DEControlsModel() {
         }
 
         /*if (value === oldValue) {
-            return;
-        }*/
+         return;
+         }*/
 
         if (!categories.length) {
             return;
@@ -1080,7 +1084,7 @@ function DEControlsModel() {
 
     //search
     self.productsSearchQuery = ko.observable("");
-    self.productsSearchQuery.subscribe(function(newValue) {
+    self.productsSearchQuery.subscribe(function (newValue) {
         if (newValue === '') {
             self.selectedCategoryId(self.productCurrentCategory().id());
         }
@@ -1364,11 +1368,17 @@ function DEControlsModel() {
         }
     };
 
+    self.selectedFontColorName = ko.observable('black');
+
     self.selectFontColor = function (color) {
+        self.selectedFontColorName(color.name);
         self.selectedLetteringVO().formatVO().fillColor(color.value);
     };
 
+    self.selectedStrokeColorName = ko.observable('transparent');
+
     self.selectFontStrokeColor = function (color) {
+        self.selectedStrokeColorName(color.name);
         self.selectedLetteringVO().formatVO().strokeColor(color.value);
     };
 
@@ -1467,7 +1477,7 @@ function DEControlsModel() {
 
     //Search
     self.graphicsSearchQuery = ko.observable("");
-    self.graphicsSearchQuery.subscribe(function(newValue) {
+    self.graphicsSearchQuery.subscribe(function (newValue) {
         if (newValue === '') {
             self.graphicCategory(self.graphicCurrentCategory());
         }
@@ -1722,6 +1732,7 @@ function DEControlsModel() {
     self.showFontsList = ko.observable(false);
 
     self.showFontsColorsListMobile = function () {
+        self.colorSelectedName(self.selectedFontColorName());
         self.isFontColorPalette(true);
         self.setColorsByGroups(self.colors());
         self.colorsList(self.colors());
@@ -1754,6 +1765,7 @@ function DEControlsModel() {
     self.showFontsStrokeColorsList = ko.observable(false);
 
     self.showFontsStrokeColorsListMobile = function () {
+        self.colorSelectedName(self.selectedStrokeColorName());
         self.isFontColorPalette(false);
         self.setColorsByGroups(self.strokeColors());
         self.colorsList(self.strokeColors());
