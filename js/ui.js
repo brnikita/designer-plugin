@@ -716,6 +716,7 @@ function DEControlsModel() {
     //-----
     self.windowWidth = ko.observable($(window).width());
     self.colorsTabFormsState = ko.observable('addForm');
+    self.currentTab  = ko.observable('products-tab')
     //-----
 
     /**
@@ -768,11 +769,23 @@ function DEControlsModel() {
 
     //----- use to reset color selection in some situations (tab switching or product selecting)
     self.resetColorsSelection = function () {
-        self.selectedProductElementColor(new ColorizeElementVO());
-        self.colorClasses([]);
-        self.colorsList([]);
-        self.colorsGroupsList([]);
-        self.currentColorizeElementGroup('');
+        var colorGroup = self.selectedProductColorVO().colorizeGroupList()[0],
+            colorClasses = [];
+
+        if (self.currentTab() === 'colors-tab' && colorGroup) {
+            colorClasses = colorGroup.classes();
+            self.selectedProductElementColor(colorClasses[0]);
+            self.colorClasses(colorClasses);
+            self.colorsList(colorClasses[0].colors());
+            self.setColorsByGroups(colorClasses[0].colors());
+            self.currentColorizeElementGroup(colorGroup.name());
+        } else  {
+            self.selectedProductElementColor(new ColorizeElementVO());
+            self.colorClasses([]);
+            self.colorsList([]);
+            self.colorsGroupsList([]);
+            self.currentColorizeElementGroup('');
+        }
     }
     //-----
 

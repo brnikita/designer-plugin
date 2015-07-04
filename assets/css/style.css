@@ -846,6 +846,10 @@ input, select, button, textarea {
     background-size: 12px;
 }
 
+#graphics-tab #graphics-color-form .color-selected {
+    margin-bottom: 10px;
+}
+
 /*Graphics color form ends here*/
 
 /*Graphics upload form starts here*/
