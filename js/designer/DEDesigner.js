@@ -1428,7 +1428,9 @@ var DEJS;
         DEDesigner.prototype.onMouseMove = function (event) {
             //this.log("onMouseMove");
             //event.preventDefault();
+            //-----
             var preventDefault = true;
+            //-----
             var x = DEJS.Util.eventX(event, this.holder, this.viewPort);
             var y = DEJS.Util.eventY(event, this.holder, this.viewPort);
             if (this.selectionBox) {
@@ -1482,12 +1484,16 @@ var DEJS;
                     this.tracker.track(this.selectedEl[0]);
                     this.resizeXY = [x, y];
                 } else {
+                    //-----
                     preventDefault = false;
+                    //-----
                 }
             }
+            //-----for touch scrolling on mobiles
             if (preventDefault) {
                 event.preventDefault()
             }
+            //-----
             return false;
         };
 
