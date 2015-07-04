@@ -1626,6 +1626,10 @@ input, select, button, textarea {
     cursor: pointer;
 }
 
+.text-tab__title__button .add-text-btn:not([disabled]):hover {
+    background: red;
+}
+
 .text-tab__title__button .add-text-btn:disabled {
     background-position: -120px 0;
     cursor: default;
