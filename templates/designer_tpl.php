@@ -306,7 +306,7 @@
                         <div class="text-tab-label">RESIZE TEXT</div>
                         <div class="text-control-slider">
                             <div class="noUiSlider"
-                                 data-bind="slider: selectedLetteringVO().formatVO().fontSize, rangeStart: 10, rangeEnd: 200, step: 1, visible: showLetterSpacingSlider()"></div>
+                                 data-bind="slider: selectedLetteringVO().formatVO().fontSize, rangeStart: 10, rangeEnd: 200, step: 1"></div>
                         </div>
                     </div>
 
@@ -314,7 +314,7 @@
                         <div class="text-tab-label">ROTATE TEXT</div>
                         <div class="text-control-slider">
                             <div class="noUiSlider"
-                                 data-bind="slider: selectedLetteringVO().formatVO().rotation, rangeStart: 0, rangeEnd: 360, step: 1, visible: showLetterSpacingSlider()"></div>
+                                 data-bind="slider: selectedLetteringVO().formatVO().rotation, rangeStart: 0, rangeEnd: 360, step: 1"></div>
                         </div>
                     </div>
 
@@ -322,7 +322,7 @@
                         <div class="text-tab-label">LETTER SPACE</div>
                         <div class="text-control-slider">
                             <div class="noUiSlider"
-                                 data-bind="slider: selectedLetteringVO().formatVO().letterSpacing, rangeStart: 0, rangeEnd: 20, step: 1, visible: showLetterSpacingSlider()"></div>
+                                 data-bind="slider: selectedLetteringVO().formatVO().letterSpacing, rangeStart: 0, rangeEnd: 20, step: 1"></div>
                         </div>
                     </div>
 
