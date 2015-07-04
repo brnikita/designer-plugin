@@ -1627,7 +1627,7 @@ input, select, button, textarea {
 }
 
 .text-tab__title__button .add-text-btn:not([disabled]):hover {
-    background: red;
+    background: #D51622;
 }
 
 .text-tab__title__button .add-text-btn:disabled {
