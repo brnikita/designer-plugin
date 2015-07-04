@@ -1730,6 +1730,16 @@ input, select, button, textarea {
     border-style: solid;
 }
 
+.text-controls-choose-color:disabled {
+    border-color: #C7C7C7 !important;
+    background-color: #C7C7C7 !important;
+}
+
+.text-controls-choose-color:disabled {
+    border-color: #C7C7C7 !important;
+    background-color: #C7C7C7 !important;
+}
+
 .designer-color-palette {
     list-style: none;
 }
