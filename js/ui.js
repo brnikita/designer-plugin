@@ -780,7 +780,6 @@ function DEControlsModel() {
         var colorGroup = undefined,
             colorClasses = [];
 
-        console.log(1);
         colorGroup = self.selectedProductColorVO().colorizeGroupList()[0];
         colorClasses = colorGroup.classes();
         self.selectedProductElementColor(colorClasses[0]);
@@ -792,7 +791,6 @@ function DEControlsModel() {
     }
     //----- use to reset color selection in some situations (tab switching or product selecting)
     self.resetColorsSelection = function () {
-        console.log(2);
         self.selectedProductElementColor(new ColorizeElementVO());
         self.colorClasses([]);
         self.colorsList([]);
