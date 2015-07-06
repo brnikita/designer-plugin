@@ -500,11 +500,11 @@
                                              data-bind="slider: selectedLetteringVO().formatVO().letterSpacing, rangeStart: 0, rangeEnd: 20, step: 1, visible: showLetterSpacingSlider()"></div>
                                     </div>
                                 </div>
-                                <div class="clearfix text-transform-slider">
+                                <div class="clearfix text-transform-slider" data-bind="visible: showLineLeadingSlider()" >
                                     <div class="text-tab-label-letter-space text-controls-shape-sprite"></div>
                                     <div class="text-control-slider">
                                         <div class="noUiSlider"
-                                             data-bind="slider: selectedLetteringVO().formatVO().fontSize, rangeStart: 10, rangeEnd: 200, step: 1, visible: showLetterSpacingSlider()"></div>
+                                             data-bind="slider: selectedLetteringVO().formatVO().lineLeading, rangeStart: 0, rangeEnd: 3, step: 0.05, decimals: 2"></div>
                                     </div>
                                 </div>
                             </div>
@@ -927,7 +927,7 @@
                 </div>
                 <div id="colors-palette-carousel" class="bottom-color-palette carousel hide" data-interval=false
                      data-bind="css: {hide: !isBottomColorPaletteShowed()}">
-                    <div data-bind="visible: !$root.colorName()" class="colors-palette__color">COLOUR SELECTED - <span
+                    <div data-bind="visible: currentTab() === 'text-tab'" class="colors-palette__color">COLOUR SELECTED - <span
                             data-bind="text: colorSelectedName"></span></div>
                     <a class="carousel-left carousel-control" href="#colors-palette-carousel" role="button"
                        data-slide="prev">
