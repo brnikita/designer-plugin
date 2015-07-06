@@ -1431,6 +1431,7 @@ input, select, button, textarea {
 /*Color selection starts here*/
 
 .colors-classes {
+    font: 10px Raleway;
     list-style: none;
     height: 30px;
     line-height: 30px;
