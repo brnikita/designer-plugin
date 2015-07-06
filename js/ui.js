@@ -771,7 +771,7 @@ function DEControlsModel() {
 
     //----- to hide or show bottom menu/color palette
     self.isBottomColorPaletteShowed = ko.computed(function () {
-        return !(self.windowWidth() >= 768 || self.colorsList().length === 0);
+        return !(self.windowWidth() > 768 || self.colorsList().length === 0);
     });
     //-----
 

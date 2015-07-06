@@ -340,29 +340,38 @@ jQuery(function () {
     //-----
 
     //Restore svg viewBox when svg element is resized. Needed for mobile version.
-    $(window).bind('resize', function () {
-        var window_width = $(window).width();
-        if (window_width < 1024) {
-            $('#canvas-container > div > svg:first-child').each(function () {
-                //Can't use jQuery attr because of incorrect working with viewBox attribute
-                if ($(this)[0].getAttribute('viewBox') !== '0 0 587 543') {
-                    $(this)[0].setAttribute('viewBox', '0 0 587 543');
-                }
-            });
-        }
-        controlsModel.windowWidth(window_width);
-    });
+    function onResize() {
+        /*var window_width = $(window).width(),
+            ratio = 1;*/
 
-    //Initialize viewBox in mobile version
-    $(document).bind('DOMSubtreeModified', function () {
         var $svg = $('#canvas-container > div > svg:first-child');
         if ($svg[0]) {
             $svg.each(function () {
                 if ($(this)[0].getAttribute('viewBox') !== '0 0 587 543') {
+                    //Can't use jQuery attr because of incorrect working with viewBox attribute
                     $(this)[0].setAttribute('viewBox', '0 0 587 543');
                 }
             });
         }
+
+        /*var $main_container = $('#main-container');
+        if ($main_container) {
+            if (window_width <= 768) {
+                ratio = Math.floor(window_width/320);
+                $main_container.css('zoom', ratio);
+            }
+        }*/
+    }
+
+    $(window).bind('resize', function () {
+        var window_width = $(window).width();
+        controlsModel.windowWidth(window_width);
+        onResize();
+    });
+
+    //Initialize viewBox in mobile version
+    $(document).bind('DOMSubtreeModified', function () {
+        onResize();
     });
 
     //-----
