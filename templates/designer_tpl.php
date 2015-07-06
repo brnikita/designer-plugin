@@ -874,23 +874,25 @@
         </div>
 
         <div class="left-column active-products-tab">
-            <div id="canvas-container">
-                <!-- DesignerJS core goes here -->
-            </div>
-            <!-- Product side switch -->
-            <div id="product-sides-switch"
-                 data-bind="visible: selectedProductVO().locations().length > 1">
-                <ul class="" data-bind="foreach: selectedProductVO().locations">
-                    <li data-bind="">
-                        <button data-bind="click: $root.selectProductLocation,
-                                           css: { active: $data.name == $root.selectedProductLocation() }">
-                        </button>
-                    </li>
-                </ul>
+            <div id="canvas">
+                <div id="canvas-container">
+                    <!-- DesignerJS core goes here -->
+                </div>
+                <!-- Product side switch -->
+                <div id="product-sides-switch"
+                     data-bind="visible: selectedProductVO().locations().length > 1">
+                    <ul class="" data-bind="foreach: selectedProductVO().locations">
+                        <li data-bind="">
+                            <button data-bind="click: $root.selectProductLocation,
+                                               css: { active: $data.name == $root.selectedProductLocation() }">
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Product side switch end -->
             </div>
             <div class="clearfix">
             </div>
-            <!-- Product side switch end -->
             <div id="bottom-menus" class="bottom-menus">
                 <div id="bottom-menu" data-bind="css: {hide: isBottomColorPaletteShowed()}">
                     <div class="bottom-menu__main">

@@ -53,7 +53,6 @@ input, select, button, textarea {
     width: 1024px;
     height: 100%;
     margin: 0 auto;
-    /*outline: solid 1px blue;*/
 }
 
 .main-container * {
@@ -66,7 +65,6 @@ input, select, button, textarea {
     width: 940px;
     height: 597px;
     margin: auto;
-    /*outline: solid 1px red;*/
 }
 
 .designer-footer-caption {
@@ -85,7 +83,6 @@ input, select, button, textarea {
     position: relative;
     width: auto;
     height: 100%;
-    /*outline: solid 1px green;*/
 }
 
 .right-column {
@@ -94,7 +91,10 @@ input, select, button, textarea {
     width: 320px;
     height: 100%;
     padding: 0 12px 0 12px;
-    /*outline: solid 1px green;*/
+}
+
+#canvas {
+    margin: 5px auto;
 }
 
 #canvas-container {
@@ -111,11 +111,6 @@ input, select, button, textarea {
     width: 587px;
     height: 543px;
 }
-
-/*#canvas-container image {
-    width: 587px;
-    height: 543px;
-}*/
 
 #bottom-menus {
     width: 295px;
@@ -1567,6 +1562,8 @@ input, select, button, textarea {
 
     .left-column {
         width: 320px;
+        position: absolute;
+        bottom: 20px;
         height: auto;
         margin: 0 auto;
         float: none;
@@ -1575,7 +1572,7 @@ input, select, button, textarea {
     .right-column {
         width: 320px;
         height: auto;
-        margin: auto;
+        margin: 0 auto;
         float: none;
         padding-left: 12px;
     }
