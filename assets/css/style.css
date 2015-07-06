@@ -480,6 +480,7 @@ input, select, button, textarea {
     font-size: 9px;
     background: url(../img/designer-ui/products_controls.svg) no-repeat 0 0;
     background-size: 60px;
+    pointer-events: none;
     /*border: 1px solid red;*/
 }
 
@@ -509,6 +510,7 @@ input, select, button, textarea {
     font-size: 9px;
     background: url(../img/designer-ui/products_controls.svg) no-repeat -30px 0;
     background-size: 60px;
+    pointer-events: none;
 }
 
 #products-tab .products-back-btn {
@@ -655,6 +657,7 @@ input, select, button, textarea {
     font-size: 9px;
     background: url(../img/designer-ui/products_controls.svg) no-repeat 0 0;
     background-size: 60px;
+    pointer-events: none;
 }
 
 #graphics-tab .graphics-search {
@@ -684,6 +687,7 @@ input, select, button, textarea {
     font-size: 9px;
     background: url(../img/designer-ui/products_controls.svg) no-repeat -30px 0;
     background-size: 60px;
+    pointer-events: none;
 }
 
 #graphics-tab .graphics-upload {
@@ -999,34 +1003,39 @@ input, select, button, textarea {
     font: 13px Raleway;
 }
 
-#numbers-tab .numbers-tab-controls a {
+#numbers-tab .numbers-tab-controls button {
     float: left;
     width: 95px;
     height: 30px;
     line-height: 30px;
     margin-left: 5px;
-    border: 1px solid #C7C7C7;
+    border: 1px solid #D51622;
     border-radius: 5px;
     text-align: center;
-    color: #C7C7C7;
-    pointer-events: none;
-    cursor: default;
-}
-
-#numbers-tab .numbers-tab-controls a.active {
-    border: 1px solid #D51622;
     color: #D51622;
-    pointer-events: auto;
+    background-color: #FFFFFF;
     cursor: pointer;
 }
 
-#numbers-tab .numbers-tab-controls a:first-child {
+#numbers-tab .numbers-tab-controls button:hover {
+    background-color: #D51622;
+    color: #FFFFFF;
+}
+
+#numbers-tab .numbers-tab-controls button:first-child {
     margin-left: 0;
 }
 
-#numbers-tab .numbers-tab-controls a:nth-child(3) {
-    pointer-events: auto;
-    cursor: pointer;
+#numbers-tab .numbers-tab-controls button:nth-child(3) {
+    border: 1px solid #C7C7C7;
+    background-color: #FFFFFF;
+    color: #C7C7C7;
+}
+
+#numbers-tab .numbers-tab-controls button:nth-child(3):hover {
+    border: 1px solid #C7C7C7;
+    background-color: #C7C7C7;
+    color: #FFFFFF;
 }
 
 #numbers-tab p {
@@ -1106,7 +1115,6 @@ input, select, button, textarea {
 #numbers-tab ol ul > li input.order-item-number {
     width: 40px;
     height: 30px;
-    margin-right: 3px;
     padding: 0 0 0 5px;
     border: solid 1px #C7C7C7;
 }
@@ -1144,6 +1152,7 @@ input, select, button, textarea {
     font-size: 9px;
     background: url(../img/designer-ui/products_controls.svg) no-repeat 0 0;
     background-size: 60px;
+    pointer-events: none;
 }
 
 #numbers-tab .order-item-remove {
@@ -1258,6 +1267,7 @@ input, select, button, textarea {
     font-size: 9px;
     background: url(../img/designer-ui/products_controls.svg) no-repeat 0 0;
     background-size: 60px;
+    pointer-events: none;
 }
 
 #product-sizes-tab ol ul > li input {

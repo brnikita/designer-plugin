@@ -310,7 +310,7 @@ jQuery(function () {
         event.preventDefault();
         $('.left-column').toggleClass('active-order-sheet');
         $('#order-sheet-form').toggleClass('hide');
-        $('.numbers-tab-controls a').toggleClass('active');
+        $('.numbers-tab-controls').toggleClass('hide');
 
     });
 

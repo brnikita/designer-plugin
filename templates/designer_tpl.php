@@ -722,14 +722,15 @@
             </div>
             <div id="numbers-tab" class="hide">
                 <div class="numbers-tab-controls">
-                    <a class="active" data-bind="click: addNameObj">
-                        <span>Add name</span></a>
-                    <a class="active" data-bind="click: addNumberObj">
-                        <span>Add number</span>
-                    </a>
-                    <a class="js-order-sheet-form">
-                        <span>Order Sheet</span>
-                    </a>
+                    <button data-bind="click: addNameObj" aria-label="Add name">
+                        Add name
+                    </button>
+                    <button data-bind="click: addNumberObj" aria-label="Add number">
+                        Add number
+                    </button>
+                    <button class="js-order-sheet-form" aria-label="Order sheet">
+                        Order Sheet
+                    </button>
                 </div>
                 <div id="order-sheet-form" class="hide">
                     <p>
