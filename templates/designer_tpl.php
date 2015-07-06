@@ -184,7 +184,9 @@
                         </div>
                         <a href="#" class="fonts-colors__close"
                            data-bind="click: toggleFontsColorsList"></a>
-                        <div class="fonts-colors__name">COLOUR SELECTED - <span data-bind="text: selectedFontColorName"></span></div>
+
+                        <div class="fonts-colors__name">COLOUR SELECTED - <span
+                                data-bind="text: selectedFontColorName"></span></div>
                         <ul class="colors-palette clearfix" data-bind="foreach: colors">
                             <li>
                                 <a href="#" data-bind="
@@ -276,7 +278,9 @@
                         </div>
                         <a href="#" class="fonts-colors__close"
                            data-bind="click: toggleFontsStrokeColorsList"></a>
-                        <div class="fonts-colors__name">COLOUR SELECTED - <span data-bind="text: selectedStrokeColorName"></span></div>
+
+                        <div class="fonts-colors__name">COLOUR SELECTED - <span
+                                data-bind="text: selectedStrokeColorName"></span></div>
                         <ul class="colors-palette clearfix" data-bind="foreach: strokeColors">
                             <li>
                                 <a href="#" data-bind="
@@ -297,18 +301,20 @@
                                             style: {
                                                     fill: $root.getStrokeColor(value)
                                                 }
-                                        "
+                                            "
                                         id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
                                         width="24px" height="24px" version="1.1"
                                         style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
                                         viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
-                              <g>
-                                  <g>
-                                      <path class="fil1"
-                                            d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
-                                  </g>
-                              </g>
-                        </svg>
+                                            <g>
+                                                <g>
+                                                    <path class="fil1"
+                                                          d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    <span class="colors-palette__crossed"
+                                          data-bind="visible: $data.value.toLocaleLowerCase() === 'none'"></span>
                                 </a>
                             </li>
                         </ul>
@@ -920,7 +926,8 @@
                 </div>
                 <div id="colors-palette-carousel" class="bottom-color-palette carousel hide" data-interval=false
                      data-bind="css: {hide: !isBottomColorPaletteShowed()}">
-                    <div class="colors-palette__color">COLOUR SELECTED - <span data-bind="text: colorSelectedName"></span></div>
+                    <div data-bind="visible: !$root.colorName()" class="colors-palette__color">COLOUR SELECTED - <span
+                            data-bind="text: colorSelectedName"></span></div>
                     <a class="carousel-left carousel-control" href="#colors-palette-carousel" role="button"
                        data-slide="prev">
                         <svg class="color-palette-arrows" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"

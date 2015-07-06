@@ -1468,6 +1468,7 @@ input, select, button, textarea {
     border-radius: 12px;
     text-align: center;
     border: 1px solid;
+    position: relative;
 }
 
 .colors-palette li a.selected {
@@ -1787,6 +1788,21 @@ input, select, button, textarea {
 
 .designer-color-palette {
     list-style: none;
+}
+
+.colors-palette__crossed {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 100%;
+    border-top: 1px solid black;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=5); /*for IE*/
+}
+
+.colors-palette .selected .colors-palette__crossed {
+    display: none;
 }
 
 .colors-palette__color {
