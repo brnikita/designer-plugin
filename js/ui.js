@@ -1,4 +1,4 @@
-﻿﻿﻿
+﻿﻿﻿﻿
 function isNullOrUndefined(val) {
     return (typeof (val) == 'undefined' || val == null);
 }
@@ -716,7 +716,14 @@ function DEControlsModel() {
     //-----
     self.windowWidth = ko.observable($(window).width());
     self.colorsTabFormsState = ko.observable('addForm');
-    self.currentTab = ko.observable('products-tab')
+    self.currentTab = ko.observable('products-tab');
+    self.currentTab.subscribe(function(newValue) {
+        if (newValue === "colors-tab") {
+            self.initialColorsSelection();
+        } else {
+            self.resetColorsSelection();
+        }
+    });
     //-----
 
     /**
@@ -736,16 +743,17 @@ function DEControlsModel() {
 
     self.selectedProductVO().id.subscribe(function (id) {
         userInteract({selectedProductId: id});
-
-        //----- reset color selection when product is selected
-        self.resetColorsSelection();
-        //-----
     });
 
     self.selectedProductElementColor = ko.observable(new ColorizeElementVO());
 
     // product's selected color value object
     self.selectedProductColorVO = ko.observable(new ComplexColorVO(updateProductColorize));
+    //-----
+    self.selectedProductColorVO().colorizeGroupList.subscribe(function() {
+        self.initialColorsSelection();
+    });
+    //-----
 
     self.selectedProductColorVO().hexValue.subscribe(function (newValue) {
 
@@ -767,25 +775,29 @@ function DEControlsModel() {
     });
     //-----
 
-    //----- use to reset color selection in some situations (tab switching or product selecting)
-    self.resetColorsSelection = function () {
-        var colorGroup = self.selectedProductColorVO().colorizeGroupList()[0],
+    //-----to show on colors-tab openning first group, frist class and choosen color
+    self.initialColorsSelection = function () {
+        var colorGroup = undefined,
             colorClasses = [];
 
-        if (self.currentTab() === 'colors-tab' && colorGroup) {
-            colorClasses = colorGroup.classes();
-            self.selectedProductElementColor(colorClasses[0]);
-            self.colorClasses(colorClasses);
-            self.colorsList(colorClasses[0].colors());
-            self.setColorsByGroups(colorClasses[0].colors());
-            self.currentColorizeElementGroup(colorGroup.name());
-        } else {
-            self.selectedProductElementColor(new ColorizeElementVO());
-            self.colorClasses([]);
-            self.colorsList([]);
-            self.colorsGroupsList([]);
-            self.currentColorizeElementGroup('');
-        }
+        console.log(1);
+        colorGroup = self.selectedProductColorVO().colorizeGroupList()[0];
+        colorClasses = colorGroup.classes();
+        self.selectedProductElementColor(colorClasses[0]);
+        self.colorClasses(colorClasses);
+        self.colorsList(colorClasses[0].colors());
+        self.setColorsByGroups(colorClasses[0].colors());
+        self.currentColorizeElementGroup(colorGroup.name());
+
+    }
+    //----- use to reset color selection in some situations (tab switching or product selecting)
+    self.resetColorsSelection = function () {
+        console.log(2);
+        self.selectedProductElementColor(new ColorizeElementVO());
+        self.colorClasses([]);
+        self.colorsList([]);
+        self.colorsGroupsList([]);
+        self.currentColorizeElementGroup('');
     }
     //-----
 

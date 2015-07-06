@@ -214,7 +214,6 @@ jQuery(function () {
         left_column.addClass('active-' + designerUI.activeTabName);
         right_column.addClass('active-' + designerUI.activeTabName);
         controlsModel.currentTab(designerUI.activeTabName);
-        controlsModel.resetColorsSelection();
         //-----
     });
 
