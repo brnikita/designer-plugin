@@ -929,6 +929,8 @@
                      data-bind="css: {hide: !isBottomColorPaletteShowed()}">
                     <div data-bind="visible: currentTab() === 'text-tab'" class="colors-palette__color">COLOUR SELECTED - <span
                             data-bind="text: colorSelectedName"></span></div>
+                    <div data-bind="visible: currentTab() !== 'text-tab' && $root.colorName()" class="colors-palette__color">COLOUR SELECTED - <span
+                            data-bind="text: $root.colorName()"></span></div>
                     <a class="carousel-left carousel-control" href="#colors-palette-carousel" role="button"
                        data-slide="prev">
                         <svg class="color-palette-arrows" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"

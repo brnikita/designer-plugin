@@ -579,7 +579,7 @@ input, select, button, textarea {
 
 #colors-tab {
     color: #7A7A7A;
-    font: 12px Raleway;
+    font: 10px Raleway;
 }
 
 #colors-tab .colorizable-groups {
@@ -604,6 +604,7 @@ input, select, button, textarea {
 }
 
 #colors-tab .color-selected {
+    font: 10px Raleway;
     margin-bottom: 10px;
 }
 
@@ -1646,6 +1647,10 @@ input, select, button, textarea {
     }
 
     .colors-palette {
+        display: none;
+    }
+
+    #colors-tab .color-selected {
         display: none;
     }
 }
