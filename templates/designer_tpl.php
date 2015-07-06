@@ -889,7 +889,6 @@
                 </ul>
             </div>
             <div class="clearfix">
-
             </div>
             <!-- Product side switch end -->
             <div id="bottom-menus" class="bottom-menus">

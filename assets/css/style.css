@@ -1357,19 +1357,22 @@ input, select, button, textarea {
 }
 
 #product-sizes-tab .order-total li div {
-    font: 20px Raleway;
+    font: 22px Raleway;
     color: #3F3F3F;
     margin-bottom: 5px;
 }
 
-#product-sizes-tab .order-total li div span {
-    font: 14px Raleway;
-}
-
 #product-sizes-tab .order-total li div:first-child {
-    font: 14px Raleway;
+    font: 16px Raleway;
     color: #D51622;
 }
+
+#product-sizes-tab .order-total li div span {
+    font: 14px Raleway;
+    color: #3F3F3F;
+}
+
+
 
 #product-sizes-tab .order-place {
     clear: both;
