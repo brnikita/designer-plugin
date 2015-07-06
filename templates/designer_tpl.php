@@ -558,9 +558,8 @@
                                     data-bind="visible: graphicsSearchQuery().length > 0, click: clearGraphicsSearch">&times;</button>-->
                             <span></span>
                         </div>
-                        <div class="graphics-upload">
-                            <a class="js-graphics-upload-agreement" type="button"><span></span></a>
-                        </div>
+                        <button class="js-graphics-upload-agreement graphics-upload" aria-label="upload-form">
+                        </button>
                     </div>
                     <div class="graphics-list">
                         <div class="graphics-back-btn"

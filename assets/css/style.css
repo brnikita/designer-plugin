@@ -692,17 +692,16 @@ input, select, button, textarea {
     height: 30px;
     width: 30px;
     border: solid 1px #D51622;
+    cursor: pointer;
+    background: url(../img/designer-ui/graphics_upload.svg) no-repeat 0 0;
+    background-clip: padding-box;
+    background-size: cover;
 }
 
-#graphics-tab .graphics-upload span {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    top: -1px;
-    right: -1px;
-    font-size: 9px;
-    background: url(../img/designer-ui/graphics_upload.svg) no-repeat 0 0;
-    background-size: 30px;
+#graphics-tab .graphics-upload:hover {
+    background: #D51622 url(../img/designer-ui/graphics_upload_white.svg) no-repeat 0 0;
+    background-clip: padding-box;
+    background-size: cover;
 }
 
 #graphics-tab .graphics-back-btn {
