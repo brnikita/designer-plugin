@@ -585,16 +585,16 @@ input, select, button, textarea {
     font: 12px Raleway;
 }
 
-#colors-tab a {
-    text-decoration: none;
-    color: #3F3F3F;
-}
-
 #colors-tab .colorizable-groups {
     list-style: none;
     height: 30px;
     margin: 15px 0 0 0;
     text-align: center;
+}
+
+#colors-tab .colorizable-groups a {
+    text-decoration: none;
+    color: #3F3F3F;
 }
 
 #colors-tab .colorizable-groups li {
@@ -611,54 +611,6 @@ input, select, button, textarea {
 }
 
 /*Colors tab ends here*/
-
-/*Color selection starts here*/
-
-.colors-classes {
-    list-style: none;
-    height: 30px;
-    line-height: 30px;
-    margin: 0 0 15px 0;
-}
-
-.colors-classes li {
-    float: left;
-    height: 30px;
-    padding: 0 5px 0 5px;
-    margin-right: 5px;
-    border: 1px solid black;
-    border-radius: 15px;
-    text-align: center;
-}
-
-.colors-palette {
-    list-style: none;
-}
-
-.colors-palette li {
-    float: left;
-    padding: 0 5px 5px 0;
-}
-
-.colors-palette li a {
-    width: 24px;
-    height: 24px;
-    line-height: 24px;
-    display: block;
-    border-radius: 12px;
-    text-align: center;
-    border: 1px solid;
-}
-
-.colors-palette li a.selected {
-    background-color: #fff !important;
-}
-
-.colors-palette li a.selected {
-    text-decoration: none;
-}
-
-/*Color selection ends here*/
 
 /*Graphics tab starts here*/
 
@@ -906,15 +858,28 @@ input, select, button, textarea {
     color: #7A7A7A;
 }
 
+#graphics-tab #graphics-upload-agreement .graphics-upload-agreement__checkbox {
+    position: relative;
+}
+
 #graphics-tab #graphics-upload-agreement input[type="checkbox"] {
     width: 10px;
     height: 10px;
     background-color: #FFFFFF;
     border: solid 1px #D51622;
+    outline: none;
 }
 
 #graphics-tab #graphics-upload-agreement input[type="checkbox"]:checked {
-    background-color: #7A7A7A;
+    outline: none;
+}
+
+#graphics-tab #graphics-upload-agreement .upload-check-mark {
+    position: absolute;
+    left: -5px;
+    bottom: -5px;
+    fill: #7A7A7A;
+    pointer-events: none;
 }
 
 #graphics-tab #graphics-upload-agreement .graphics-upload-agreement__upload {
@@ -923,14 +888,18 @@ input, select, button, textarea {
     line-height: 30px;
     text-align: center;
     border: 1px solid #D51622;
-    border-radius: 2px;
     font: 12px Raleway;
     color: #D51622;
     background-color: #FFFFFF;
     border-radius: 5px;
 }
 
-#graphics-tab #graphics-upload-agreement .graphics-upload-agreement__upload.disabled {
+#graphics-tab #graphics-upload-agreement .graphics-upload-agreement__upload:hover {
+    background-color: #D51622;
+    color: #FFFFFF;
+}
+
+#graphics-tab #graphics-upload-agreement .graphics-upload-agreement__upload:disabled {
     background-color: #C7C7C7;
     border: 1px solid #7A7A7A;
     color: #7A7A7A;
@@ -981,13 +950,25 @@ input, select, button, textarea {
     height: 30px;
     text-align: center;
     background-color: #FFFFFF;
-    border: solid 1px #C7C7C7;
+    border: solid 1px #D51622;
     border-radius: 5px;
     outline: none;
+    color: #D51622;
+}
+
+#graphics-tab #graphics-upload-form button:hover {
+    color: #FFFFFF;
+    background-color: #D51622;
 }
 
 #graphics-tab #graphics-upload-form button:first-of-type {
     width: 45px;
+}
+
+#graphics-tab #graphics-upload-form button:first-of-type:disabled {
+    background-color: #C7C7C7;
+    border: 1px solid #7A7A7A;
+    color: #7A7A7A;
 }
 
 #graphics-tab #graphics-upload-form h6 {
@@ -1438,6 +1419,66 @@ input, select, button, textarea {
 }
 
 /*Share design tabs ends here*/
+
+/*Color selection starts here*/
+
+.colors-classes {
+    list-style: none;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 0 15px 0;
+}
+
+.colors-classes li {
+    float: left;
+    height: 30px;
+    padding: 0 5px 0 5px;
+    margin-right: 5px;
+    border: 1px solid black;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.colors-classes a {
+    text-decoration: none;
+}
+
+.colors-classes a:hover {
+    text-decoration: underline;
+}
+
+.colors-classes a.active {
+    text-decoration: underline;
+}
+
+.colors-palette {
+    list-style: none;
+}
+
+.colors-palette li {
+    float: left;
+    padding: 0 5px 5px 0;
+}
+
+.colors-palette li a {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    display: block;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid;
+}
+
+.colors-palette li a.selected {
+    background-color: #fff !important;
+}
+
+.colors-palette li a.selected {
+    text-decoration: none;
+}
+
+/*Color selection ends here*/
 
 .clearfix:after {
     content: ".";
