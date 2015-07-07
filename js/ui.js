@@ -1786,7 +1786,7 @@ function DEControlsModel() {
 
     self.getStrokeColor = function (value) {
         if (value === 'none') {
-            return '#428bca';
+            return '#000';
         }
 
         if (value === '#FFFFFF') {
