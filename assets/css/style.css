@@ -584,8 +584,8 @@ input, select, button, textarea {
 
 #colors-tab .colorizable-groups {
     list-style: none;
-    height: 30px;
-    margin: 15px 0 0 0;
+    height: 25px;
+    margin: 20px 0 0 0;
     text-align: center;
 }
 
@@ -600,7 +600,8 @@ input, select, button, textarea {
 }
 
 #colors-tab .colorizable-groups li + li::before {
-    content: " | ";
+    white-space: pre;
+    content: "  |  ";
 }
 
 #colors-tab .color-selected {
@@ -1431,7 +1432,7 @@ input, select, button, textarea {
 /*Color selection starts here*/
 
 .colors-classes {
-    font: 10px Raleway;
+    font: 12px Raleway;
     list-style: none;
     height: 30px;
     line-height: 30px;
@@ -1441,7 +1442,7 @@ input, select, button, textarea {
 .colors-classes li {
     float: left;
     height: 30px;
-    padding: 0 5px 0 5px;
+    padding: 0 10px 0 10px;
     margin-right: 5px;
     border: 1px solid black;
     border-radius: 15px;
@@ -1652,6 +1653,10 @@ input, select, button, textarea {
     }
 
     #colors-tab .color-selected {
+        display: none;
+    }
+
+    #graphics-tab .color-selected {
         display: none;
     }
 }

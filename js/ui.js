@@ -819,6 +819,8 @@ function DEControlsModel() {
     //-----
 
     self.selectColorElement = function (colorizeElementGroup, event) {
+        event.preventDefault();
+
         //-----
         self.resetColorsSelection();
         //-----
@@ -826,11 +828,14 @@ function DEControlsModel() {
 
         //----- for colorizing current element group
         self.currentColorizeElementGroup(colorizeElementGroup.name());
+        self.selectedProductElementColor(classes[0]);
+        self.colorClasses(classes);
+        self.colorsList(classes[0].colors());
+        self.setColorsByGroups(classes[0].colors());
         //-----
 
-        event.preventDefault();
-        self.colorClasses(classes);
-        /*self.colorsList([]);
+        /*self.colorClasses(classes);
+         self.colorsList([]);
          self.colorsGroupsList([]);*/
     };
 
