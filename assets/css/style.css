@@ -2075,6 +2075,11 @@ input, select, button, textarea {
     font-size: 25px;
 }
 
+.font-list__item a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
 .font-list__item.active a {
     color: #000;
 }
