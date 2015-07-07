@@ -908,7 +908,7 @@
                 </div>
                 <div id="colors-palette-carousel" class="bottom-color-palette carousel hide" data-interval=false
                      data-bind="css: {hide: !isBottomColorPaletteShowed()}">
-                    <div class="colors-palette__color">COLOUR SELECTED - <span
+                    <div data-bind="visible: !$root.colorName()" class="colors-palette__color">COLOUR SELECTED - <span
                             data-bind="text: colorSelectedName"></span></div>
                     <a class="carousel-left carousel-control" href="#colors-palette-carousel" role="button"
                        data-slide="prev">
