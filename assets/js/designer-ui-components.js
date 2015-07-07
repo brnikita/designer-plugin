@@ -147,6 +147,9 @@ var designerUI = {
 }
 
 jQuery(function () {
+
+    $('meta[name=viewport]').attr('content', 'width=320');
+
     jQuery('#option-tab a').click(function (e) {
         e.preventDefault();
         jQuery(this).tab('show');
