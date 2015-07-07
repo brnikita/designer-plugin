@@ -190,7 +190,7 @@
                                     style: {
                                     'background-color': value,
                                     'color': value,
-                                    'border-color': value
+                                    'border-color': value == '#FFFFFF' ? '#A3A2A4': value
                                     },
                                     title: name,
                                     click: $root.selectFontColor,
@@ -199,7 +199,10 @@
                                     }
                                     ">
                                     <svg
-                                        data-bind="style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
+                                        data-bind="
+                                                visible: $data.value.toLocaleLowerCase() === $root.selectedLetteringVO().formatVO().fillColor().toLocaleLowerCase(),
+                                                style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}
+                                            "
                                         id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
                                         width="24px" height="24px" version="1.1"
                                         style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
@@ -279,7 +282,7 @@
                             style: {
                                 'background-color': value,
                                 'color': value,
-                                'border-color': value
+                                'border-color': $root.getStrokeColor(value)
                                 },
                                 title: name,
                                 click: $root.selectFontStrokeColor,
@@ -288,7 +291,12 @@
                                 }
                             ">
                                     <svg
-                                        data-bind="style: {fill: value == '#FFFFFF' ? '#A3A2A4': value}"
+                                        data-bind="
+                                            visible: $data.value.toLocaleLowerCase() === $root.selectedLetteringVO().formatVO().strokeColor().toLocaleLowerCase(),
+                                            style: {
+                                                    fill: $root.getStrokeColor(value)
+                                                }
+                                        "
                                         id="color-select-arrow" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
                                         width="24px" height="24px" version="1.1"
                                         style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"

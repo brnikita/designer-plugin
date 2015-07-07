@@ -716,7 +716,7 @@ function DEControlsModel() {
     //-----
     self.windowWidth = ko.observable($(window).width());
     self.colorsTabFormsState = ko.observable('addForm');
-    self.currentTab  = ko.observable('products-tab')
+    self.currentTab = ko.observable('products-tab')
     //-----
 
     /**
@@ -779,7 +779,7 @@ function DEControlsModel() {
             self.colorsList(colorClasses[0].colors());
             self.setColorsByGroups(colorClasses[0].colors());
             self.currentColorizeElementGroup(colorGroup.name());
-        } else  {
+        } else {
             self.selectedProductElementColor(new ColorizeElementVO());
             self.colorClasses([]);
             self.colorsList([]);
@@ -1782,6 +1782,18 @@ function DEControlsModel() {
         self.isFontColorPalette(false);
         self.setColorsByGroups(self.strokeColors());
         self.colorsList(self.strokeColors());
+    };
+
+    self.getStrokeColor = function (value) {
+        if (value === 'none') {
+            return '#428bca';
+        }
+
+        if (value === '#FFFFFF') {
+            return '#A3A2A4';
+        }
+
+        return value;
     };
 
     self.showMoreEnabled = ko.observable(false);
