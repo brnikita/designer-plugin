@@ -1678,7 +1678,7 @@ input, select, button, textarea {
 }
 
 .text-tab__title__button .add-text-btn:not([disabled]):hover {
-    background: #D51622;
+    background-position: -420px 0;
 }
 
 .text-tab__title__button .add-text-btn:disabled {
@@ -1704,7 +1704,7 @@ input, select, button, textarea {
 
 .text-controls-sprite {
     background: no-repeat url(../img/designer-ui/text_controls_main.svg);
-    background-size: 420px;
+    background-size: 450px;
 }
 
 .text-controls-shape-sprite {
