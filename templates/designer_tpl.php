@@ -102,7 +102,8 @@
                             'background-color': $root.selectedProductElementColor().name() == name() ? value(): '#FFFFFF'
                             }
                         "><a href="#"
-                             data-bind="style: {color: $root.selectedProductElementColor().name() == name() ? value()== '#FFFFFF' ? '#000000': '#FFFFFF': value()== '#FFFFFF' ? '#A3A2A4': value() },
+                             data-bind="css: {active: $root.selectedProductElementColor().name() == name()},
+                                        style: {color: $root.selectedProductElementColor().name() == name() ? value()== '#FFFFFF' ? '#000000': '#FFFFFF': value()== '#FFFFFF' ? '#A3A2A4': value() },
                                                         text: name, click: $root.selectColorSubElement"></a>
                     </li>
                 </ul>
@@ -557,9 +558,8 @@
                                     data-bind="visible: graphicsSearchQuery().length > 0, click: clearGraphicsSearch">&times;</button>-->
                             <span></span>
                         </div>
-                        <div class="graphics-upload">
-                            <a class="js-graphics-upload-agreement" type="button"><span></span></a>
-                        </div>
+                        <button class="js-graphics-upload-agreement graphics-upload" aria-label="upload-form">
+                        </button>
                     </div>
                     <div class="graphics-list">
                         <div class="graphics-back-btn"
@@ -611,12 +611,29 @@
                     <p>Designer supports jpeg, gif, png and svg formats. All images need to have a minimum resolution of
                         150 dpi.</p>
 
-                    <input type="checkbox" data-bind="checked: userAcceptsConditions">
+                    <div class="graphics-upload-agreement__checkbox">
+                        <input type="checkbox" data-bind="checked: userAcceptsConditions">
+                        <svg
+                                class="upload-check-mark"
+                                data-bind="visible: userAcceptsConditions"
+                                xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
+                                width="24px" height="24px" version="1.1"
+                                style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                                viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <g>
+                                  <g>
+                                      <path
+                                            d="M6 12c0,0 0,0 0,0 0,0 0,0 1,0l3 3 7 -7c1,0 1,0 1,0 0,0 0,0 0,0l-8 8 0 0 0 0 -4 -4z"/>
+                                  </g>
+                              </g>
+                        </svg>
+                    </div>
+
 
                     <p>I understand and accept these conditions of copyright.</p>
 
                     <button class="graphics-upload-agreement__upload js-graphics-upload-form"
-                            data-bind="css: { 'disabled': !userAcceptsConditions() }">
+                            data-bind="attr: { 'disabled': !userAcceptsConditions() }">
                         Upload
                     </button>
                 </div>
@@ -630,8 +647,7 @@
                         <input type="text" class="form-control" placeholder="Url"
                                data-bind="value: customImageUrl, valueUpdate: 'input'">
                         <button data-bind="click: addCustomImage.bind($data, 'url'),
-                                           attr: {'disabled': customImageUrl().length == 0},
-                                           style: {'background-color': customImageUrl().length > 0 ? '#FFFFFF': '#C7C7C7'}">
+                                           attr: {'disabled': customImageUrl().length == 0}">
                             Add
                         </button>
                         <h6 data-bind="visible: uploadFileAvailable">or</h6>
@@ -662,8 +678,9 @@
                                     'background-color': $root.selectedProductElementColor().name() == name() ? value(): '#FFFFFF'
                                     }
                                 "><a href="#"
-                                     data-bind="style: {color: $root.selectedProductElementColor().name() == name() ? value()== '#FFFFFF' ? '#000000': '#FFFFFF': value()== '#FFFFFF' ? '#A3A2A4': value() },
-                                                                text: name, click: $root.selectColorSubElement"></a>
+                                     data-bind="css: {active: $root.selectedProductElementColor().name() == name()},
+                                                style: {color: $root.selectedProductElementColor().name() == name() ? value()== '#FFFFFF' ? '#000000': '#FFFFFF': value()== '#FFFFFF' ? '#A3A2A4': value() },
+                                                        text: name, click: $root.selectColorSubElement"></a>
                             </li>
                         </ul>
                         <div class="color-selected" data-bind="visible: $root.colorName()">
@@ -705,14 +722,15 @@
             </div>
             <div id="numbers-tab" class="hide">
                 <div class="numbers-tab-controls">
-                    <a class="active" data-bind="click: addNameObj">
-                        <span>Add name</span></a>
-                    <a class="active" data-bind="click: addNumberObj">
-                        <span>Add number</span>
-                    </a>
-                    <a class="js-order-sheet-form">
-                        <span>Order Sheet</span>
-                    </a>
+                    <button data-bind="click: addNameObj" aria-label="Add name">
+                        Add name
+                    </button>
+                    <button data-bind="click: addNumberObj" aria-label="Add number">
+                        Add number
+                    </button>
+                    <button class="js-order-sheet-form" aria-label="Order sheet">
+                        Order Sheet
+                    </button>
                 </div>
                 <div id="order-sheet-form" class="hide">
                     <p>
@@ -856,24 +874,25 @@
         </div>
 
         <div class="left-column active-products-tab">
-            <div id="canvas-container">
-                <!-- DesignerJS core goes here -->
-            </div>
-            <!-- Product side switch -->
-            <div id="product-sides-switch"
-                 data-bind="visible: selectedProductVO().locations().length > 1">
-                <ul class="" data-bind="foreach: selectedProductVO().locations">
-                    <li data-bind="">
-                        <button data-bind="click: $root.selectProductLocation,
-                                           css: { active: $data.name == $root.selectedProductLocation() }">
-                        </button>
-                    </li>
-                </ul>
+            <div id="canvas">
+                <div id="canvas-container">
+                    <!-- DesignerJS core goes here -->
+                </div>
+                <!-- Product side switch -->
+                <div id="product-sides-switch"
+                     data-bind="visible: selectedProductVO().locations().length > 1">
+                    <ul class="" data-bind="foreach: selectedProductVO().locations">
+                        <li data-bind="">
+                            <button data-bind="click: $root.selectProductLocation,
+                                               css: { active: $data.name == $root.selectedProductLocation() }">
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Product side switch end -->
             </div>
             <div class="clearfix">
-
             </div>
-            <!-- Product side switch end -->
             <div id="bottom-menus" class="bottom-menus">
                 <div id="bottom-menu" data-bind="css: {hide: isBottomColorPaletteShowed()}">
                     <div class="bottom-menu__main">

@@ -53,7 +53,6 @@ input, select, button, textarea {
     width: 1024px;
     height: 100%;
     margin: 0 auto;
-    /*outline: solid 1px blue;*/
 }
 
 .main-container * {
@@ -66,7 +65,6 @@ input, select, button, textarea {
     width: 940px;
     height: 597px;
     margin: auto;
-    /*outline: solid 1px red;*/
 }
 
 .designer-footer-caption {
@@ -85,7 +83,6 @@ input, select, button, textarea {
     position: relative;
     width: auto;
     height: 100%;
-    /*outline: solid 1px green;*/
 }
 
 .right-column {
@@ -94,7 +91,10 @@ input, select, button, textarea {
     width: 320px;
     height: 100%;
     padding: 0 12px 0 12px;
-    /*outline: solid 1px green;*/
+}
+
+#canvas {
+    margin: 5px auto;
 }
 
 #canvas-container {
@@ -111,11 +111,6 @@ input, select, button, textarea {
     width: 587px;
     height: 543px;
 }
-
-/*#canvas-container image {
-    width: 587px;
-    height: 543px;
-}*/
 
 #bottom-menus {
     width: 295px;
@@ -480,6 +475,7 @@ input, select, button, textarea {
     font-size: 9px;
     background: url(../img/designer-ui/products_controls.svg) no-repeat 0 0;
     background-size: 60px;
+    pointer-events: none;
     /*border: 1px solid red;*/
 }
 
@@ -509,6 +505,7 @@ input, select, button, textarea {
     font-size: 9px;
     background: url(../img/designer-ui/products_controls.svg) no-repeat -30px 0;
     background-size: 60px;
+    pointer-events: none;
 }
 
 #products-tab .products-back-btn {
@@ -585,16 +582,16 @@ input, select, button, textarea {
     font: 12px Raleway;
 }
 
-#colors-tab a {
-    text-decoration: none;
-    color: #3F3F3F;
-}
-
 #colors-tab .colorizable-groups {
     list-style: none;
     height: 30px;
     margin: 15px 0 0 0;
     text-align: center;
+}
+
+#colors-tab .colorizable-groups a {
+    text-decoration: none;
+    color: #3F3F3F;
 }
 
 #colors-tab .colorizable-groups li {
@@ -611,55 +608,6 @@ input, select, button, textarea {
 }
 
 /*Colors tab ends here*/
-
-/*Color selection starts here*/
-
-.colors-classes {
-    list-style: none;
-    height: 30px;
-    line-height: 30px;
-    margin: 0 0 15px 0;
-}
-
-.colors-classes li {
-    float: left;
-    height: 30px;
-    padding: 0 5px 0 5px;
-    margin-right: 5px;
-    border: 1px solid black;
-    border-radius: 15px;
-    text-align: center;
-}
-
-.colors-palette {
-    list-style: none;
-}
-
-.colors-palette li {
-    float: left;
-    padding: 0 5px 5px 0;
-}
-
-.colors-palette li a {
-    width: 24px;
-    height: 24px;
-    line-height: 24px;
-    display: block;
-    border-radius: 12px;
-    text-align: center;
-    border: 1px solid;
-    position: relative;
-}
-
-.colors-palette li a.selected {
-    background-color: #fff !important;
-}
-
-.colors-palette li a.selected {
-    text-decoration: none;
-}
-
-/*Color selection ends here*/
 
 /*Graphics tab starts here*/
 
@@ -704,6 +652,7 @@ input, select, button, textarea {
     font-size: 9px;
     background: url(../img/designer-ui/products_controls.svg) no-repeat 0 0;
     background-size: 60px;
+    pointer-events: none;
 }
 
 #graphics-tab .graphics-search {
@@ -733,6 +682,7 @@ input, select, button, textarea {
     font-size: 9px;
     background: url(../img/designer-ui/products_controls.svg) no-repeat -30px 0;
     background-size: 60px;
+    pointer-events: none;
 }
 
 #graphics-tab .graphics-upload {
@@ -741,17 +691,16 @@ input, select, button, textarea {
     height: 30px;
     width: 30px;
     border: solid 1px #D51622;
+    cursor: pointer;
+    background: url(../img/designer-ui/graphics_upload.svg) no-repeat 0 0;
+    background-clip: padding-box;
+    background-size: cover;
 }
 
-#graphics-tab .graphics-upload span {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    top: -1px;
-    right: -1px;
-    font-size: 9px;
-    background: url(../img/designer-ui/graphics_upload.svg) no-repeat 0 0;
-    background-size: 30px;
+#graphics-tab .graphics-upload:hover {
+    background: #D51622 url(../img/designer-ui/graphics_upload_white.svg) no-repeat 0 0;
+    background-clip: padding-box;
+    background-size: cover;
 }
 
 #graphics-tab .graphics-back-btn {
@@ -907,15 +856,28 @@ input, select, button, textarea {
     color: #7A7A7A;
 }
 
+#graphics-tab #graphics-upload-agreement .graphics-upload-agreement__checkbox {
+    position: relative;
+}
+
 #graphics-tab #graphics-upload-agreement input[type="checkbox"] {
     width: 10px;
     height: 10px;
     background-color: #FFFFFF;
     border: solid 1px #D51622;
+    outline: none;
 }
 
 #graphics-tab #graphics-upload-agreement input[type="checkbox"]:checked {
-    background-color: #7A7A7A;
+    outline: none;
+}
+
+#graphics-tab #graphics-upload-agreement .upload-check-mark {
+    position: absolute;
+    left: -5px;
+    bottom: -5px;
+    fill: #7A7A7A;
+    pointer-events: none;
 }
 
 #graphics-tab #graphics-upload-agreement .graphics-upload-agreement__upload {
@@ -924,14 +886,18 @@ input, select, button, textarea {
     line-height: 30px;
     text-align: center;
     border: 1px solid #D51622;
-    border-radius: 2px;
     font: 12px Raleway;
     color: #D51622;
     background-color: #FFFFFF;
     border-radius: 5px;
 }
 
-#graphics-tab #graphics-upload-agreement .graphics-upload-agreement__upload.disabled {
+#graphics-tab #graphics-upload-agreement .graphics-upload-agreement__upload:hover {
+    background-color: #D51622;
+    color: #FFFFFF;
+}
+
+#graphics-tab #graphics-upload-agreement .graphics-upload-agreement__upload:disabled {
     background-color: #C7C7C7;
     border: 1px solid #7A7A7A;
     color: #7A7A7A;
@@ -982,13 +948,25 @@ input, select, button, textarea {
     height: 30px;
     text-align: center;
     background-color: #FFFFFF;
-    border: solid 1px #C7C7C7;
+    border: solid 1px #D51622;
     border-radius: 5px;
     outline: none;
+    color: #D51622;
+}
+
+#graphics-tab #graphics-upload-form button:hover {
+    color: #FFFFFF;
+    background-color: #D51622;
 }
 
 #graphics-tab #graphics-upload-form button:first-of-type {
     width: 45px;
+}
+
+#graphics-tab #graphics-upload-form button:first-of-type:disabled {
+    background-color: #C7C7C7;
+    border: 1px solid #7A7A7A;
+    color: #7A7A7A;
 }
 
 #graphics-tab #graphics-upload-form h6 {
@@ -1020,34 +998,39 @@ input, select, button, textarea {
     font: 13px Raleway;
 }
 
-#numbers-tab .numbers-tab-controls a {
+#numbers-tab .numbers-tab-controls button {
     float: left;
     width: 95px;
     height: 30px;
     line-height: 30px;
     margin-left: 5px;
-    border: 1px solid #C7C7C7;
+    border: 1px solid #D51622;
     border-radius: 5px;
     text-align: center;
-    color: #C7C7C7;
-    pointer-events: none;
-    cursor: default;
-}
-
-#numbers-tab .numbers-tab-controls a.active {
-    border: 1px solid #D51622;
     color: #D51622;
-    pointer-events: auto;
+    background-color: #FFFFFF;
     cursor: pointer;
 }
 
-#numbers-tab .numbers-tab-controls a:first-child {
+#numbers-tab .numbers-tab-controls button:hover {
+    background-color: #D51622;
+    color: #FFFFFF;
+}
+
+#numbers-tab .numbers-tab-controls button:first-child {
     margin-left: 0;
 }
 
-#numbers-tab .numbers-tab-controls a:nth-child(3) {
-    pointer-events: auto;
-    cursor: pointer;
+#numbers-tab .numbers-tab-controls button:nth-child(3) {
+    border: 1px solid #C7C7C7;
+    background-color: #FFFFFF;
+    color: #C7C7C7;
+}
+
+#numbers-tab .numbers-tab-controls button:nth-child(3):hover {
+    border: 1px solid #C7C7C7;
+    background-color: #C7C7C7;
+    color: #FFFFFF;
 }
 
 #numbers-tab p {
@@ -1127,7 +1110,6 @@ input, select, button, textarea {
 #numbers-tab ol ul > li input.order-item-number {
     width: 40px;
     height: 30px;
-    margin-right: 3px;
     padding: 0 0 0 5px;
     border: solid 1px #C7C7C7;
 }
@@ -1165,6 +1147,7 @@ input, select, button, textarea {
     font-size: 9px;
     background: url(../img/designer-ui/products_controls.svg) no-repeat 0 0;
     background-size: 60px;
+    pointer-events: none;
 }
 
 #numbers-tab .order-item-remove {
@@ -1279,6 +1262,7 @@ input, select, button, textarea {
     font-size: 9px;
     background: url(../img/designer-ui/products_controls.svg) no-repeat 0 0;
     background-size: 60px;
+    pointer-events: none;
 }
 
 #product-sizes-tab ol ul > li input {
@@ -1368,19 +1352,22 @@ input, select, button, textarea {
 }
 
 #product-sizes-tab .order-total li div {
-    font: 20px Raleway;
+    font: 22px Raleway;
     color: #3F3F3F;
     margin-bottom: 5px;
 }
 
-#product-sizes-tab .order-total li div span {
-    font: 14px Raleway;
-}
-
 #product-sizes-tab .order-total li div:first-child {
-    font: 14px Raleway;
+    font: 16px Raleway;
     color: #D51622;
 }
+
+#product-sizes-tab .order-total li div span {
+    font: 14px Raleway;
+    color: #3F3F3F;
+}
+
+
 
 #product-sizes-tab .order-place {
     clear: both;
@@ -1439,6 +1426,67 @@ input, select, button, textarea {
 }
 
 /*Share design tabs ends here*/
+
+/*Color selection starts here*/
+
+.colors-classes {
+    list-style: none;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 0 15px 0;
+}
+
+.colors-classes li {
+    float: left;
+    height: 30px;
+    padding: 0 5px 0 5px;
+    margin-right: 5px;
+    border: 1px solid black;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.colors-classes a {
+    text-decoration: none;
+}
+
+.colors-classes a:hover {
+    text-decoration: underline;
+}
+
+.colors-classes a.active {
+    text-decoration: underline;
+}
+
+.colors-palette {
+    list-style: none;
+}
+
+.colors-palette li {
+    float: left;
+    padding: 0 5px 5px 0;
+}
+
+.colors-palette li a {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    display: block;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid;
+    position: relative;
+}
+
+.colors-palette li a.selected {
+    background-color: #fff !important;
+}
+
+.colors-palette li a.selected {
+    text-decoration: none;
+}
+
+/*Color selection ends here*/
 
 .clearfix:after {
     content: ".";
@@ -1514,6 +1562,8 @@ input, select, button, textarea {
 
     .left-column {
         width: 320px;
+        position: absolute;
+        bottom: 20px;
         height: auto;
         margin: 0 auto;
         float: none;
@@ -1522,7 +1572,7 @@ input, select, button, textarea {
     .right-column {
         width: 320px;
         height: auto;
-        margin: auto;
+        margin: 0 auto;
         float: none;
         padding-left: 12px;
     }
