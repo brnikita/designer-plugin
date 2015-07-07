@@ -107,7 +107,7 @@
                     </li>
                 </ul>
                 <div class="color-selected" data-bind="visible: $root.colorName()">
-                    COLOR SELECTED:
+                    COLOUR SELECTED:
                     <span data-bind="text: $root.colorName()"></span>
                 </div>
                 <ul class="colors-palette clearfix" data-bind="foreach: colorsList">
@@ -183,7 +183,7 @@
                         </div>
                         <a href="#" class="fonts-colors__close"
                            data-bind="click: toggleFontsColorsList"></a>
-                        <div class="fonts-colors__name">COLOR SELECTED - <span data-bind="text: selectedFontColorName"></span></div>
+                        <div class="fonts-colors__name">COLOUR SELECTED - <span data-bind="text: selectedFontColorName"></span></div>
                         <ul class="colors-palette clearfix" data-bind="foreach: colors">
                             <li>
                                 <a href="#" data-bind="
@@ -272,7 +272,7 @@
                         </div>
                         <a href="#" class="fonts-colors__close"
                            data-bind="click: toggleFontsStrokeColorsList"></a>
-                        <div class="fonts-colors__name">COLOR SELECTED - <span data-bind="text: selectedStrokeColorName"></span></div>
+                        <div class="fonts-colors__name">COLOUR SELECTED - <span data-bind="text: selectedStrokeColorName"></span></div>
                         <ul class="colors-palette clearfix" data-bind="foreach: strokeColors">
                             <li>
                                 <a href="#" data-bind="
@@ -330,11 +330,13 @@
                         </div>
                     </div>
 
-                    <div data-bind="visible: showLineLeadingSlider()" class="clearfix text-transform-slider">
-                        <div class="text-tab-label">LINE HEIGHT</div>
-                        <div class="text-control-slider">
-                            <div id="text-line-leading-slider" class="noUiSlider"
-                                 data-bind="slider: selectedLetteringVO().formatVO().lineLeading, rangeStart: 0, rangeEnd: 3, step: 0.05, decimals: 2"></div>
+                    <div data-bind="visible: textToolsIsVisible">
+                        <div data-bind="visible: showLineLeadingSlider()" class="clearfix text-transform-slider">
+                            <div class="text-tab-label">LINE HEIGHT</div>
+                            <div class="text-control-slider">
+                                <div id="text-line-leading-slider" class="noUiSlider"
+                                     data-bind="slider: selectedLetteringVO().formatVO().lineLeading, rangeStart: 0, rangeEnd: 3, step: 0.05, decimals: 2"></div>
+                            </div>
                         </div>
                     </div>
 
@@ -651,7 +653,7 @@
                             </li>
                         </ul>
                         <div class="color-selected" data-bind="visible: $root.colorName()">
-                            COLOR SELECTED:
+                            COLOUR SELECTED:
                             <span data-bind="text: $root.colorName()"></span>
                         </div>
                         <ul class="colors-palette clearfix" data-bind="foreach: colorsList">
@@ -892,7 +894,7 @@
                 </div>
                 <div id="colors-palette-carousel" class="bottom-color-palette carousel hide" data-interval=false
                      data-bind="css: {hide: !isBottomColorPaletteShowed()}">
-                    <div class="colors-palette__color">COLOR SELECTED - <span data-bind="text: colorSelectedName"></span></div>
+                    <div class="colors-palette__color">COLOUR SELECTED - <span data-bind="text: colorSelectedName"></span></div>
                     <a class="carousel-left carousel-control" href="#colors-palette-carousel" role="button"
                        data-slide="prev">
                         <svg class="color-palette-arrows" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
