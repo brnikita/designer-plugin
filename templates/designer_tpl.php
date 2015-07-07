@@ -500,11 +500,11 @@
                                              data-bind="slider: selectedLetteringVO().formatVO().letterSpacing, rangeStart: 0, rangeEnd: 20, step: 1, visible: showLetterSpacingSlider()"></div>
                                     </div>
                                 </div>
-                                <div class="clearfix text-transform-slider">
+                                <div class="clearfix text-transform-slider" data-bind="visible: showLineLeadingSlider()" >
                                     <div class="text-tab-label-letter-space text-controls-shape-sprite"></div>
                                     <div class="text-control-slider">
                                         <div class="noUiSlider"
-                                             data-bind="slider: selectedLetteringVO().formatVO().fontSize, rangeStart: 10, rangeEnd: 200, step: 1, visible: showLetterSpacingSlider()"></div>
+                                             data-bind="slider: selectedLetteringVO().formatVO().lineLeading, rangeStart: 0, rangeEnd: 3, step: 0.05, decimals: 2"></div>
                                     </div>
                                 </div>
                             </div>
